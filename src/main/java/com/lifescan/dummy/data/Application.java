@@ -1,5 +1,4 @@
 package com.lifescan.dummy.data;
-
 import com.lifescan.dummy.data.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
