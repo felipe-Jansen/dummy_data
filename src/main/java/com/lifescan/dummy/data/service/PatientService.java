@@ -17,11 +17,15 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class PatientService {
 
-    @Autowired
-    SecurityService securityService;
+    private final PatientServiceCore patientServiceCore;
 
     @Autowired
-    PatientServiceCore patientServiceCore;
+    private SecurityService securityService;
+
+    public PatientService(
+            PatientServiceCore patientServiceCore) {
+        this.patientServiceCore = patientServiceCore;
+    }
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     List<Login> users = new ArrayList<>();
