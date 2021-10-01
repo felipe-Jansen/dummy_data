@@ -1,28 +1,38 @@
+/*
+ * @author fjansen@lifescan.com
+ * @version 1
+ * Copyright: Copyright (c) 2021
+ * Company: LifeScan IP Holdings, LLC
+ * This file contains trade secrets of LifeScan IP Holdings, LLC.
+ * No part may be reproduced or transmitted in any
+ * form by any means or for any purpose without the express written
+ * permission of LifeScan IP Holdings, LLC.
+ */
 package com.lifescan.dummy.data.model;
 
 public class Login {
 
-    private String email;
-    private String password;
+  private String email;
+  private String password;
 
-    public Login(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
+  public Login(String email, String password) {
+    this.email = email;
+    this.password = password;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }

@@ -12,23 +12,16 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 public class Application implements CommandLineRunner {
 
-  @Autowired
-  private PatientService patientService;
+  @Autowired private PatientService patientService;
 
   public static void main(String[] args) {
-    new SpringApplicationBuilder(Application.class)
-            .web(WebApplicationType.NONE)
-            .run(args);
+    new SpringApplicationBuilder(Application.class).web(WebApplicationType.NONE).run(args);
   }
 
   @Override
   public void run(String[] args) throws InterruptedException {
     String language = args[0];
     int qtyPatients = Integer.parseInt(args[1]);
-    patientService.create(
-            language,
-            qtyPatients
-    );
+    patientService.create(language, qtyPatients);
   }
-
 }

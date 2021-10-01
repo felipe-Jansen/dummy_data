@@ -28,41 +28,35 @@ import org.springframework.context.annotation.Configuration;
 @EnableFeignClients
 class FeignConfig {
 
-    private ObjectMapper objectMapper;
+  private final ObjectMapper objectMapper;
 
-    @Autowired
-    private Client client;
+  @Autowired private Client client;
 
-    @Bean
-    public OkHttpClient okHttpClient() {
-        return new OkHttpClient();
-    }
+  @Autowired
+  public FeignConfig(ObjectMapper objectMapper) {
+    this.objectMapper = objectMapper;
+  }
 
-    @Autowired
-    public FeignConfig(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
-    }
+  @Bean
+  public OkHttpClient okHttpClient() {
+    return new OkHttpClient();
+  }
 
-    @Bean
-    PatientServiceCore patientServiceCore(
-            @Value("${host.domain}") String url
-    ) {
-        return Feign.builder()
-                .encoder(new JacksonEncoder(objectMapper))
-                .decoder(new JacksonDecoder(objectMapper))
-                .client(client)
-                .target(PatientServiceCore.class, url);
-    }
+  @Bean
+  PatientServiceCore patientServiceCore(@Value("${host.domain}") String url) {
+    return Feign.builder()
+        .encoder(new JacksonEncoder(objectMapper))
+        .decoder(new JacksonDecoder(objectMapper))
+        .client(client)
+        .target(PatientServiceCore.class, url);
+  }
 
-    @Bean
-    SecurityServiceCore securityServiceCore(
-            @Value("${host.domain}") String url
-    ) {
-        return Feign.builder()
-                .encoder(new JacksonEncoder(objectMapper))
-                .decoder(new JacksonDecoder(objectMapper))
-                .client(client)
-                .target(SecurityServiceCore.class, url);
-    }
-
+  @Bean
+  SecurityServiceCore securityServiceCore(@Value("${host.domain}") String url) {
+    return Feign.builder()
+        .encoder(new JacksonEncoder(objectMapper))
+        .decoder(new JacksonDecoder(objectMapper))
+        .client(client)
+        .target(SecurityServiceCore.class, url);
+  }
 }

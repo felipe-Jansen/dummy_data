@@ -1,3 +1,13 @@
+/*
+ * @author fjansen@lifescan.com
+ * @version 1
+ * Copyright: Copyright (c) 2021
+ * Company: LifeScan IP Holdings, LLC
+ * This file contains trade secrets of LifeScan IP Holdings, LLC.
+ * No part may be reproduced or transmitted in any
+ * form by any means or for any purpose without the express written
+ * permission of LifeScan IP Holdings, LLC.
+ */
 package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.model.Login;
@@ -17,60 +27,48 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class PatientService {
 
-    private final PatientServiceCore patientServiceCore;
+  private final PatientServiceCore patientServiceCore;
+  private final Logger logger = LoggerFactory.getLogger(this.getClass());
+  List<Login> users = new ArrayList<>();
+  @Autowired private SecurityService securityService;
+  public PatientService(PatientServiceCore patientServiceCore) {
+    this.patientServiceCore = patientServiceCore;
+  }
 
-    @Autowired
-    private SecurityService securityService;
-
-    public PatientService(
-            PatientServiceCore patientServiceCore) {
-        this.patientServiceCore = patientServiceCore;
+  public void create(String language, Integer qtdPatients) throws InterruptedException {
+    String country = Util.extractCountryFromLanguage(language);
+    logger.info("language -> {}", language);
+    logger.info("Country -> {}", country);
+    logger.info("qtdPatients -> {}", qtdPatients);
+    for (int i = 0; i < qtdPatients; i++) {
+      save(language, country);
     }
+    logger.info("token -> {}", securityService.getToken(users.get(0)));
+  }
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    List<Login> users = new ArrayList<>();
-
-    public void create(
-            String language,
-            Integer qtdPatients
-    ) throws InterruptedException {
-        String country = Util.extractCountryFromLanguage(language);
-        logger.info("language -> {}", language);
-        logger.info("Country -> {}", country);
-        logger.info("qtdPatients -> {}", qtdPatients);
-        for(int i = 0; i < qtdPatients; i++){
-            save(language, country);
-        }
-        logger.info("token -> {}", securityService.getToken(users.get(0)));
+  private void save(String language, String country) throws InterruptedException {
+    long timeInterval = System.currentTimeMillis();
+    Patient patient =
+        new Patient(
+            "M",
+            "t1234567",
+            "Patient_" + timeInterval,
+            "patient4partner_" + timeInterval + "@mailinator.com",
+            Util.generateDateOfBirth(),
+            "DIABETES_TYPE_1",
+            "Partner tool");
+    String requestToken = Util.generateRequestToken(patient.getEmailAddress());
+    try {
+      patientServiceCore.create(language, country, requestToken, patient);
+      addToList(new Login(patient.getEmailAddress(), patient.getPassword()));
+      logger.info("Patient: {} | Password: {}", patient.getEmailAddress(), patient.getPassword());
+    } catch (FeignException ex) {
+      logger.error(ex.toString());
     }
+    TimeUnit.MILLISECONDS.sleep(1L);
+  }
 
-    private void save(
-            String language,
-            String country
-    ) throws InterruptedException {
-        long timeInterval = System.currentTimeMillis();
-        Patient patient =
-                new Patient(
-                        "M",
-                        "t1234567",
-                        "Patient_" + timeInterval,
-                        "patient4partner_" + timeInterval + "@mailinator.com",
-                        Util.generateDateOfBirth(),
-                        "DIABETES_TYPE_1",
-                        "Partner tool");
-        String requestToken = Util.generateRequestToken(patient.getEmailAddress());
-        try {
-            patientServiceCore.create(language, country, requestToken, patient);
-            addToList(new Login(patient.getEmailAddress(), patient.getPassword()));
-            logger.info("Patient: {} | Password: {}", patient.getEmailAddress(), patient.getPassword());
-        } catch (FeignException ex){
-            logger.error(ex.toString());
-        }
-        TimeUnit.MILLISECONDS.sleep(1L);
-    }
-
-    private void addToList(Login login) {
-        this.users.add(login);
-    }
-
+  private void addToList(Login login) {
+    this.users.add(login);
+  }
 }
