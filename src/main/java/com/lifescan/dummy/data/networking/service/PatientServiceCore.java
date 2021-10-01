@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.networking.service;
 
+import com.lifescan.dummy.data.constants.WebEndPointConstants;
 import com.lifescan.dummy.data.model.Patient;
 import feign.Headers;
 import feign.Param;
@@ -24,8 +25,8 @@ public interface PatientServiceCore {
     "country: {country}",
     "requestToken: {requestToken}"
   })
-  @RequestLine("POST /dms-web-services/services/rest/account/v3/register")
-  void create(
+  @RequestLine("POST " + WebEndPointConstants.REGISTER_PATIENT)
+  void registerPatient(
       @Param("language") String language,
       @Param("country") String country,
       @Param("requestToken") String requestToken,

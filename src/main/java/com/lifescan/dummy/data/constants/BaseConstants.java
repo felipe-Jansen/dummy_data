@@ -8,11 +8,13 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.service;
+package com.lifescan.dummy.data.constants;
 
-import com.lifescan.dummy.data.model.Login;
+class BaseConstants {
+  static final String UTILITY_CLASSES_SHOULD_NOT_BE_INSTANTIATED =
+      "Utility classes should not be instantiated.";
 
-public interface SecurityService {
-
-  String getToken(Login user);
+  private BaseConstants() {
+    throw new IllegalStateException(UTILITY_CLASSES_SHOULD_NOT_BE_INSTANTIATED);
+  }
 }
