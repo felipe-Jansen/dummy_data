@@ -25,12 +25,13 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Service
-public class PatientServiceImpl implements PatientService{
+public class PatientServiceImpl implements PatientService {
 
   private final PatientServiceCore patientServiceCore;
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
   List<Login> users = new ArrayList<>();
   @Autowired private SecurityServiceImpl securityServiceImpl;
+
   public PatientServiceImpl(PatientServiceCore patientServiceCore) {
     this.patientServiceCore = patientServiceCore;
   }

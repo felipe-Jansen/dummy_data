@@ -17,7 +17,7 @@ import com.lifescan.dummy.data.networking.service.SecurityServiceCore;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SecurityServiceImpl implements SecurityService{
+public class SecurityServiceImpl implements SecurityService {
 
   private final SecurityServiceCore securityServiceCore;
 
@@ -29,7 +29,9 @@ public class SecurityServiceImpl implements SecurityService{
     Gson gson = new Gson();
     return gson.fromJson(
             gson.fromJson(
-                    securityServiceCore.authenticate(user.getEmail(), user.getPassword()).toString(),
+                    securityServiceCore
+                        .authenticate(user.getEmail(), user.getPassword())
+                        .toString(),
                     JsonObject.class)
                 .get("result"),
             JsonObject.class)
