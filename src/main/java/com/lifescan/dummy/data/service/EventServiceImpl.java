@@ -9,7 +9,6 @@
  * permission of LifeScan IP Holdings, LLC.
  */
 package com.lifescan.dummy.data.service;
-
 import com.lifescan.dummy.data.model.*;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
 import feign.FeignException;
