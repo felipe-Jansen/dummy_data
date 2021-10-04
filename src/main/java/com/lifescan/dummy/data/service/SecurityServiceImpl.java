@@ -36,6 +36,7 @@ public class SecurityServiceImpl implements SecurityService {
                 .get("result"),
             JsonObject.class)
         .get("token")
-        .toString().replace("\"", "");
+        .toString()
+        .replace("\"", "");
   }
 }
