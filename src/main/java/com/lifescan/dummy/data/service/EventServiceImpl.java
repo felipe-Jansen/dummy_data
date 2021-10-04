@@ -35,7 +35,8 @@ public class EventServiceImpl implements EventService {
     try {
       String token = securityService.getToken(login);
       logger.info("token -> {}", token);
-      eventServiceCore.publishEvent(token, generatingEvent()).toString();
+      eventServiceCore.publishEvent(token, generatingEvent());
+      logger.info("Event published");
     } catch (FeignException ex) {
       logger.error(ex.contentUTF8());
     }
