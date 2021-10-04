@@ -16,6 +16,8 @@ public class WebEndPointConstants {
       "/dms-web-services/services/rest/account/v3/authenticate";
   public static final String REGISTER_PATIENT =
       "/dms-web-services/services/rest/account/v3/register";
+  public static final String REGISTER_EVENT =
+      "/dms-data-receiver-camel-web/services/rest/deviceData/publish";
 
   private WebEndPointConstants() {
     throw new IllegalStateException(BaseConstants.UTILITY_CLASSES_SHOULD_NOT_BE_INSTANTIATED);

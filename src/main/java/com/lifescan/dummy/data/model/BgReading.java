@@ -12,16 +12,16 @@ package com.lifescan.dummy.data.model;
 
 public class BgReading extends Reading {
 
-  private AttributeValue extendedAttributeValue;
+  private AttributeValue extendedAttributes;
   private String mealTag;
   private BgValue bgValue;
 
-  public AttributeValue getExtendedAttributeValue() {
-    return extendedAttributeValue;
+  public AttributeValue getExtendedAttributes() {
+    return extendedAttributes;
   }
 
-  public void setExtendedAttributeValue(AttributeValue extendedAttributeValue) {
-    this.extendedAttributeValue = extendedAttributeValue;
+  public void setExtendedAttributes(AttributeValue extendedAttributes) {
+    this.extendedAttributes = extendedAttributes;
   }
 
   public String getMealTag() {

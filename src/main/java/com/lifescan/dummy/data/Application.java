@@ -10,7 +10,7 @@
  */
 package com.lifescan.dummy.data;
 
-import com.lifescan.dummy.data.service.PatientServiceImpl;
+import com.lifescan.dummy.data.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.WebApplicationType;
@@ -22,7 +22,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 public class Application implements CommandLineRunner {
 
-  @Autowired private PatientServiceImpl patientServiceImpl;
+  @Autowired private PatientService patientService;
 
   public static void main(String[] args) {
     new SpringApplicationBuilder(Application.class).web(WebApplicationType.NONE).run(args);
@@ -32,6 +32,6 @@ public class Application implements CommandLineRunner {
   public void run(String[] args) throws InterruptedException {
     String language = args[0];
     int qtyPatients = Integer.parseInt(args[1]);
-    patientServiceImpl.create(language, qtyPatients);
+    patientService.create(language, qtyPatients);
   }
 }

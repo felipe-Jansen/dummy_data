@@ -11,6 +11,7 @@
 package com.lifescan.dummy.data.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lifescan.dummy.data.networking.service.EventServiceCore;
 import com.lifescan.dummy.data.networking.service.PatientServiceCore;
 import com.lifescan.dummy.data.networking.service.SecurityServiceCore;
 import feign.Client;
@@ -58,5 +59,14 @@ class FeignConfig {
         .decoder(new JacksonDecoder(objectMapper))
         .client(client)
         .target(SecurityServiceCore.class, url);
+  }
+
+  @Bean
+  EventServiceCore eventServiceCore(@Value("${host.domain}") String url) {
+    return Feign.builder()
+        .encoder(new JacksonEncoder(objectMapper))
+        .decoder(new JacksonDecoder(objectMapper))
+        .client(client)
+        .target(EventServiceCore.class, url);
   }
 }

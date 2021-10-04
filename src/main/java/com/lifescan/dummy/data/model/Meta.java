@@ -10,17 +10,24 @@
  */
 package com.lifescan.dummy.data.model;
 
-import java.util.List;
+public class Meta {
 
-public class AttributeValue {
+  private String sourceApp;
+  private String sourceAppVersion;
 
-  private List<Attribute> attributeValue;
-
-  public List<Attribute> getAttributeValue() {
-    return attributeValue;
+  public String getSourceApp() {
+    return sourceApp;
   }
 
-  public void setAttributeValue(List<Attribute> attributeValue) {
-    this.attributeValue = attributeValue;
+  public void setSourceApp(String sourceApp) {
+    this.sourceApp = sourceApp;
+  }
+
+  public String getSourceAppVersion() {
+    return sourceAppVersion;
+  }
+
+  public void setSourceAppVersion(String sourceAppVersion) {
+    this.sourceAppVersion = sourceAppVersion;
   }
 }

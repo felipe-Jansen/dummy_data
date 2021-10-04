@@ -8,19 +8,14 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.model;
+package com.lifescan.dummy.data.service;
 
-import java.util.List;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.lifescan.dummy.data.model.Login;
+import org.springframework.stereotype.Service;
 
-public class AttributeValue {
+@Service
+public interface EventService {
 
-  private List<Attribute> attributeValue;
-
-  public List<Attribute> getAttributeValue() {
-    return attributeValue;
-  }
-
-  public void setAttributeValue(List<Attribute> attributeValue) {
-    this.attributeValue = attributeValue;
-  }
+  void publishEvent(Login login) throws JsonProcessingException;
 }

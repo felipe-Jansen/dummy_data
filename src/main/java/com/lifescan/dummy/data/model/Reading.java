@@ -16,13 +16,13 @@ public abstract class Reading {
   private String manual;
   private String readingDate;
   private String id;
-  private String lastUpdatedDate;
+  private long lastUpdatedDate;
 
-  public String getLastUpdatedDate() {
+  public long getLastUpdatedDate() {
     return lastUpdatedDate;
   }
 
-  public void setLastUpdatedDate(String lastUpdatedDate) {
+  public void setLastUpdatedDate(long lastUpdatedDate) {
     this.lastUpdatedDate = lastUpdatedDate;
   }
 
