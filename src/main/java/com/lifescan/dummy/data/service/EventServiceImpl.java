@@ -16,7 +16,6 @@ import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +36,7 @@ public class EventServiceImpl implements EventService {
     try {
       String token = securityService.getToken(login);
       logger.info("token -> {}", token);
-      logger.info(eventServiceCore.publishEvent(token, generatingEvent()).toString());
+      eventServiceCore.publishEvent(token, generatingEvent()).toString();
     } catch (FeignException ex) {
       logger.error(ex.contentUTF8());
     }
@@ -77,11 +76,11 @@ public class EventServiceImpl implements EventService {
 
   private AttributeValue generatingAttributeValue() {
     AttributeValue attributeValue = new AttributeValue();
-    attributeValue.setAttributeValue(generateAttribute());
+    attributeValue.setAttributeValue(generatingAttribute());
     return attributeValue;
   }
 
-  private List<Attribute> generateAttribute() {
+  private List<Attribute> generatingAttribute() {
     List<Attribute> attributes = new ArrayList<>();
     Attribute attribute = new Attribute();
     attribute.setName("dataLogs_glucose_lifestyletags");
@@ -89,14 +88,6 @@ public class EventServiceImpl implements EventService {
     attribute.setValue("");
     attributes.add(attribute);
     return attributes;
-  }
-
-  private Attribute generatingAtribute() {
-    Attribute attribute = new Attribute();
-    attribute.setName("dataLogs_glucose_lifestyletags");
-    attribute.setType("string");
-    attribute.setValue("");
-    return attribute;
   }
 
   private BgValue generatingBgValue() {
