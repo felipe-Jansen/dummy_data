@@ -10,33 +10,21 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class FoodRecords extends Reading {
 
   private String editable;
   private Carbohydrate carbohydrate;
   private Annotation annotation;
-
-  public String getEditable() {
-    return editable;
-  }
-
-  public void setEditable(String editable) {
-    this.editable = editable;
-  }
-
-  public Carbohydrate getCarbohydrate() {
-    return carbohydrate;
-  }
-
-  public void setCarbohydrate(Carbohydrate carbohydrate) {
-    this.carbohydrate = carbohydrate;
-  }
-
-  public Annotation getAnnotation() {
-    return annotation;
-  }
-
-  public void setAnnotation(Annotation annotation) {
-    this.annotation = annotation;
-  }
 }

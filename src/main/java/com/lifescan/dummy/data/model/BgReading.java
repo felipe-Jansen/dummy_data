@@ -10,33 +10,21 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class BgReading extends Reading {
 
   private AttributeValue extendedAttributes;
   private String mealTag;
   private BgValue bgValue;
-
-  public AttributeValue getExtendedAttributes() {
-    return extendedAttributes;
-  }
-
-  public void setExtendedAttributes(AttributeValue extendedAttributes) {
-    this.extendedAttributes = extendedAttributes;
-  }
-
-  public String getMealTag() {
-    return mealTag;
-  }
-
-  public void setMealTag(String mealTag) {
-    this.mealTag = mealTag;
-  }
-
-  public BgValue getBgValue() {
-    return bgValue;
-  }
-
-  public void setBgValue(BgValue bgValue) {
-    this.bgValue = bgValue;
-  }
 }

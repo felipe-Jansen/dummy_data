@@ -10,24 +10,20 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Meta {
 
   private String sourceApp;
   private String sourceAppVersion;
-
-  public String getSourceApp() {
-    return sourceApp;
-  }
-
-  public void setSourceApp(String sourceApp) {
-    this.sourceApp = sourceApp;
-  }
-
-  public String getSourceAppVersion() {
-    return sourceAppVersion;
-  }
-
-  public void setSourceAppVersion(String sourceAppVersion) {
-    this.sourceAppVersion = sourceAppVersion;
-  }
 }

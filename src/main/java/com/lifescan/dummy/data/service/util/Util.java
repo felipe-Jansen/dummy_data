@@ -8,14 +8,10 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.service.Util;
+package com.lifescan.dummy.data.service.util;
 
-import org.apache.commons.codec.digest.DigestUtils;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
+import org.apache.commons.codec.digest.DigestUtils;
 
 public class Util {
 
@@ -25,28 +21,16 @@ public class Util {
     return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
   }
 
-  public static boolean isRequestTokenValid(String requestToken, String email)
-      throws UnsupportedEncodingException {
-
-    String emailDecoded = URLDecoder.decode(email, StandardCharsets.UTF_8.name());
-    String tokenChallenge = DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailDecoded) + emailDecoded);
-
-    return tokenChallenge.equals(requestToken);
-  }
-
   public static String extractCountryFromLanguage(String language) {
-    String country = null;
     try {
-      country = language.split("-")[1];
-    } catch (ArrayIndexOutOfBoundsException ex) {
-      // Do nothing for a while
+      if (language.contains("-")) {
+        return language.split("-")[1];
+      } else {
+        return language.split("_")[1];
+      }
+    } catch (ArrayIndexOutOfBoundsException e) {
+      return language;
     }
-    try {
-      country = language.split("_")[1];
-    } catch (ArrayIndexOutOfBoundsException ex) {
-      // Do nothing for a while
-    }
-    return country;
   }
 
   public static String generateDateOfBirth() {

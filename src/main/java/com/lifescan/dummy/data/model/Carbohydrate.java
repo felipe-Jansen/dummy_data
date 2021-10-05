@@ -10,33 +10,21 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Carbohydrate {
 
   private int value;
   private String units;
   private Annotation[] annotation;
-
-  public Annotation[] getAnnotation() {
-    return annotation;
-  }
-
-  public void setAnnotation(Annotation[] annotation) {
-    this.annotation = annotation;
-  }
-
-  public int getValue() {
-    return value;
-  }
-
-  public void setValue(int value) {
-    this.value = value;
-  }
-
-  public String getUnits() {
-    return units;
-  }
-
-  public void setUnits(String units) {
-    this.units = units;
-  }
 }

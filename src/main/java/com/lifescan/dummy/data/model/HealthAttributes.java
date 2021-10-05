@@ -10,6 +10,18 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class HealthAttributes extends Reading {
 
   private String editable;
@@ -17,44 +29,4 @@ public class HealthAttributes extends Reading {
   private Annotation[] annotation;
   private int healthAttributesValue;
   private AttributeValue[] extendedAttributeValue;
-
-  public String getEditable() {
-    return editable;
-  }
-
-  public void setEditable(String editable) {
-    this.editable = editable;
-  }
-
-  public String getHealthAtributesLookup() {
-    return healthAtributesLookup;
-  }
-
-  public void setHealthAtributesLookup(String healthAtributesLookup) {
-    this.healthAtributesLookup = healthAtributesLookup;
-  }
-
-  public Annotation[] getAnnotation() {
-    return annotation;
-  }
-
-  public void setAnnotation(Annotation[] annotation) {
-    this.annotation = annotation;
-  }
-
-  public int getHealthAttributesValue() {
-    return healthAttributesValue;
-  }
-
-  public void setHealthAttributesValue(int healthAttributesValue) {
-    this.healthAttributesValue = healthAttributesValue;
-  }
-
-  public AttributeValue[] getExtendedAttributeValue() {
-    return extendedAttributeValue;
-  }
-
-  public void setExtendedAttributeValue(AttributeValue[] extendedAttributeValue) {
-    this.extendedAttributeValue = extendedAttributeValue;
-  }
 }

@@ -10,22 +10,26 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.lifescan.dummy.data.model.*;
+import com.lifescan.dummy.data.model.Attribute;
+import com.lifescan.dummy.data.model.AttributeValue;
+import com.lifescan.dummy.data.model.BgReading;
+import com.lifescan.dummy.data.model.BgValue;
+import com.lifescan.dummy.data.model.Event;
+import com.lifescan.dummy.data.model.Login;
+import com.lifescan.dummy.data.model.Meta;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
 import feign.FeignException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Service;
 
+@Log4j2
 @Service
 public class EventServiceImpl implements EventService {
 
   private final SecurityService securityService;
   private final EventServiceCore eventServiceCore;
-  private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
   public EventServiceImpl(SecurityService securityService, EventServiceCore eventServiceCore) {
     this.securityService = securityService;
@@ -36,18 +40,18 @@ public class EventServiceImpl implements EventService {
   public void publishEvent(Login login) {
     try {
       String token = securityService.getToken(login);
-      logger.info("token -> {}", token);
+      log.info("token -> {}", token);
       eventServiceCore.publishEvent(token, generatingEvent());
-      logger.info("Event published");
+      log.info("Event published");
     } catch (FeignException ex) {
-      logger.error(ex.contentUTF8());
+      log.error(ex.contentUTF8());
     }
   }
 
   private Event generatingEvent() {
     Event event = new Event();
     event.setBgReadings(generatingBgReading());
-    event.setIsBackgroundSync(false);
+    event.setBackgroundSync(false);
     event.setMeta(generatingMeta());
     return event;
   }

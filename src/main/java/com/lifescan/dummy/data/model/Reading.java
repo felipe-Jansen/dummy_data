@@ -10,6 +10,18 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public abstract class Reading {
 
   private String active;
@@ -17,44 +29,4 @@ public abstract class Reading {
   private String readingDate;
   private String id;
   private long lastUpdatedDate;
-
-  public long getLastUpdatedDate() {
-    return lastUpdatedDate;
-  }
-
-  public void setLastUpdatedDate(long lastUpdatedDate) {
-    this.lastUpdatedDate = lastUpdatedDate;
-  }
-
-  public String getActive() {
-    return active;
-  }
-
-  public void setActive(String active) {
-    this.active = active;
-  }
-
-  public String getManual() {
-    return manual;
-  }
-
-  public void setManual(String manual) {
-    this.manual = manual;
-  }
-
-  public String getReadingDate() {
-    return readingDate;
-  }
-
-  public void setReadingDate(String readingDate) {
-    this.readingDate = readingDate;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 }

@@ -14,23 +14,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Patient;
 import com.lifescan.dummy.data.networking.service.PatientServiceCore;
-import com.lifescan.dummy.data.service.Util.Util;
+import com.lifescan.dummy.data.service.util.Util;
 import feign.FeignException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.concurrent.TimeUnit;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
+@Log4j2
 @Service
 public class PatientServiceImpl implements PatientService {
 
   private final PatientServiceCore patientServiceCore;
   private final EventService eventService;
-  private final Logger logger = LoggerFactory.getLogger(this.getClass());
-  List<Login> users = new ArrayList<>();
 
   public PatientServiceImpl(PatientServiceCore patientServiceCore, EventService eventService) {
     this.patientServiceCore = patientServiceCore;
@@ -39,9 +34,9 @@ public class PatientServiceImpl implements PatientService {
 
   public void create(String language, Integer qtdPatients) throws InterruptedException {
     String country = Util.extractCountryFromLanguage(language);
-    logger.info("language -> {}", language);
-    logger.info("Country -> {}", country);
-    logger.info("qtdPatients -> {}", qtdPatients);
+    log.info("language -> {}", language);
+    log.info("Country -> {}", country);
+    log.info("qtdPatients -> {}", qtdPatients);
     for (int i = 0; i < qtdPatients; i++) {
       save(language, country);
     }
@@ -49,26 +44,37 @@ public class PatientServiceImpl implements PatientService {
   }
 
   private void save(String language, String country) throws InterruptedException {
-    long timeInterval = System.currentTimeMillis();
-    Patient patient =
-        new Patient(
-            "M",
-            "t1234567",
-            "Patient_" + timeInterval,
-            "patient4partner_" + timeInterval + "@mailinator.com",
-            Util.generateDateOfBirth(),
-            "DIABETES_TYPE_1",
-            "Partner tool");
+    Patient patient = generatingPatient();
     String requestToken = Util.generateRequestToken(patient.getEmailAddress());
     try {
-      logger.info("============");
+      log.info("============");
       patientServiceCore.registerPatient(language, country, requestToken, patient);
-      logger.info("Patient: {} | Password: {}", patient.getEmailAddress(), patient.getPassword());
-      eventService.publishEvent(new Login(patient.getEmailAddress(), patient.getPassword()));
+      log.info("Patient: {} | Password: {}", patient.getEmailAddress(), patient.getPassword());
+      eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
 
     } catch (FeignException | JsonProcessingException ex) {
-      logger.error(ex.toString());
+      log.error(ex.toString());
     }
     TimeUnit.MILLISECONDS.sleep(1L);
+  }
+
+  private Patient generatingPatient() {
+    long timeInterval = System.currentTimeMillis();
+    Patient patient = new Patient();
+    patient.setGender("M");
+    patient.setPassword("t1234567");
+    patient.setFirstName("Patient_" + timeInterval);
+    patient.setEmailAddress("patient4partner_" + timeInterval + "@mailinator.com");
+    patient.setDateOfBirth(Util.generateDateOfBirth());
+    patient.setDiabetesType("DIABETES_TYPE_1");
+    patient.setLastName("Partner tool");
+    return patient;
+  }
+
+  private Login generatingLogin(String emailAddress, String password) {
+    Login login = new Login();
+    login.setEmail(emailAddress);
+    login.setPassword(password);
+    return login;
   }
 }

@@ -10,42 +10,22 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class BolusReadings extends Reading {
 
   private String editable;
   private String injectedInsulinType;
   private Annotation[] annotation;
   private BolusDelivered bolusDelivered;
-
-  public String getEditable() {
-    return editable;
-  }
-
-  public void setEditable(String editable) {
-    this.editable = editable;
-  }
-
-  public String getInjectedInsulinType() {
-    return injectedInsulinType;
-  }
-
-  public void setInjectedInsulinType(String injectedInsulinType) {
-    this.injectedInsulinType = injectedInsulinType;
-  }
-
-  public Annotation[] getAnnotation() {
-    return annotation;
-  }
-
-  public void setAnnotation(Annotation[] annotation) {
-    this.annotation = annotation;
-  }
-
-  public BolusDelivered getBolusDelivered() {
-    return bolusDelivered;
-  }
-
-  public void setBolusDelivered(BolusDelivered bolusDelivered) {
-    this.bolusDelivered = bolusDelivered;
-  }
 }

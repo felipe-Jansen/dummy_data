@@ -10,15 +10,19 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Annotation {
 
   private String annotationField;
-
-  public String getAnnotationField() {
-    return annotationField;
-  }
-
-  public void setAnnotationField(String annotationField) {
-    this.annotationField = annotationField;
-  }
 }
