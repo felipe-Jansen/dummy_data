@@ -19,6 +19,7 @@ import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -31,9 +32,7 @@ public class PatientServiceImpl implements PatientService {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
   List<Login> users = new ArrayList<>();
 
-  public PatientServiceImpl(
-      PatientServiceCore patientServiceCore,
-      EventService eventService) {
+  public PatientServiceImpl(PatientServiceCore patientServiceCore, EventService eventService) {
     this.patientServiceCore = patientServiceCore;
     this.eventService = eventService;
   }
@@ -72,5 +71,4 @@ public class PatientServiceImpl implements PatientService {
     }
     TimeUnit.MILLISECONDS.sleep(1L);
   }
-
 }
