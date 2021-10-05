@@ -14,5 +14,11 @@ import com.lifescan.dummy.data.model.Login;
 
 public interface SecurityService {
 
+  /**
+   * Method responsible for logging in and returning the token for authentication.
+   *
+   * @param user
+   * @return
+   */
   String getToken(Login user);
 }

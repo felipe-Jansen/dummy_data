@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.lifescan.dummy.data.model.Attribute;
 import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.BgReading;
@@ -36,6 +37,12 @@ public class EventServiceImpl implements EventService {
     this.eventServiceCore = eventServiceCore;
   }
 
+  /**
+   * Method responsible for creating the events for each new patient.
+   *
+   * @param login
+   * @throws JsonProcessingException
+   */
   @Override
   public void publishEvent(Login login) {
     try {
@@ -48,6 +55,11 @@ public class EventServiceImpl implements EventService {
     }
   }
 
+  /**
+   * Method responsible for generating events.
+   *
+   * @return
+   */
   private Event generatingEvent() {
     Event event = new Event();
     event.setBgReadings(generatingBgReading());
@@ -56,6 +68,11 @@ public class EventServiceImpl implements EventService {
     return event;
   }
 
+  /**
+   * Method responsible for generating the meta information.
+   *
+   * @return
+   */
   private Meta generatingMeta() {
     Meta meta = new Meta();
     meta.setSourceApp("REVEAL_MOBILE_IOS");
@@ -63,6 +80,11 @@ public class EventServiceImpl implements EventService {
     return meta;
   }
 
+  /**
+   * Method responsible for generating the bgReading.
+   *
+   * @return
+   */
   private List<BgReading> generatingBgReading() {
     List<BgReading> bgReadings = new ArrayList<>();
 
@@ -80,12 +102,22 @@ public class EventServiceImpl implements EventService {
     return bgReadings;
   }
 
+  /**
+   * Method responsible for setting the attributes values.
+   *
+   * @return
+   */
   private AttributeValue generatingAttributeValue() {
     AttributeValue attributeValue = new AttributeValue();
     attributeValue.setAttributeValue(generatingAttribute());
     return attributeValue;
   }
 
+  /**
+   * Method responsible for generating attributes.
+   *
+   * @return
+   */
   private List<Attribute> generatingAttribute() {
     List<Attribute> attributes = new ArrayList<>();
     Attribute attribute = new Attribute();
@@ -96,6 +128,11 @@ public class EventServiceImpl implements EventService {
     return attributes;
   }
 
+  /**
+   * Method responsible for generating the bg value.
+   *
+   * @return
+   */
   private BgValue generatingBgValue() {
     BgValue bgValue = new BgValue();
     bgValue.setValue(111);

@@ -17,5 +17,11 @@ import org.springframework.stereotype.Service;
 @Service
 public interface EventService {
 
+  /**
+   * Method responsible for creating the events for each new patient.
+   *
+   * @param login
+   * @throws JsonProcessingException
+   */
   void publishEvent(Login login) throws JsonProcessingException;
 }

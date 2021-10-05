@@ -17,10 +17,22 @@ public class Util {
 
   private Util() {}
 
+  /**
+   * Method responsible for generate a SHA1 token from the e-mail.
+   *
+   * @param emailAddress
+   * @return
+   */
   public static String generateRequestToken(String emailAddress) {
     return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
   }
 
+  /**
+   * Method responsible for discovery the country from informed language.
+   *
+   * @param language
+   * @return
+   */
   public static String extractCountryFromLanguage(String language) {
     try {
       if (language.contains("-")) {
@@ -33,6 +45,11 @@ public class Util {
     }
   }
 
+  /**
+   * Method responsible for generate a date of birth from system date.
+   *
+   * @return
+   */
   public static String generateDateOfBirth() {
     int year = Calendar.getInstance().get(Calendar.YEAR);
     int month = Calendar.getInstance().get(Calendar.MONTH);

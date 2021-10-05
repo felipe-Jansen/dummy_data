@@ -32,6 +32,13 @@ public class PatientServiceImpl implements PatientService {
     this.eventService = eventService;
   }
 
+  /**
+   * Method responsible for analyse the input and start generating the patients.
+   *
+   * @param language
+   * @param qtdPatients
+   * @throws InterruptedException
+   */
   public void create(String language, Integer qtdPatients) throws InterruptedException {
     String country = Util.extractCountryFromLanguage(language);
     log.info("language -> {}", language);
@@ -43,6 +50,13 @@ public class PatientServiceImpl implements PatientService {
     System.exit(0);
   }
 
+  /**
+   * Method responsible for save the patients and publish their respectives events.
+   *
+   * @param language
+   * @param country
+   * @throws InterruptedException
+   */
   private void save(String language, String country) throws InterruptedException {
     Patient patient = generatingPatient();
     String requestToken = Util.generateRequestToken(patient.getEmailAddress());
@@ -58,6 +72,11 @@ public class PatientServiceImpl implements PatientService {
     TimeUnit.MILLISECONDS.sleep(1L);
   }
 
+  /**
+   * Method responsible for generating one patient.
+   *
+   * @return
+   */
   private Patient generatingPatient() {
     long timeInterval = System.currentTimeMillis();
     Patient patient = new Patient();
@@ -71,6 +90,13 @@ public class PatientServiceImpl implements PatientService {
     return patient;
   }
 
+  /**
+   * Method responsible for return an object from type login.
+   *
+   * @param emailAddress
+   * @param password
+   * @return
+   */
   private Login generatingLogin(String emailAddress, String password) {
     Login login = new Login();
     login.setEmail(emailAddress);

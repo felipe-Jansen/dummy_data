@@ -12,5 +12,12 @@ package com.lifescan.dummy.data.service;
 
 public interface PatientService {
 
+  /**
+   * Method responsible for analyse the input and start generating the patients.
+   *
+   * @param language
+   * @param qtdPatients
+   * @throws InterruptedException
+   */
   void create(String language, Integer qtdPatients) throws InterruptedException;
 }

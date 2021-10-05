@@ -27,6 +27,12 @@ public class SecurityServiceImpl implements SecurityService {
     this.securityServiceCore = securityServiceCore;
   }
 
+  /**
+   * Method responsible for logging in and returning the token for authentication.
+   *
+   * @param user
+   * @return
+   */
   public String getToken(Login user) {
     Gson gson = new Gson();
     return gson.fromJson(
