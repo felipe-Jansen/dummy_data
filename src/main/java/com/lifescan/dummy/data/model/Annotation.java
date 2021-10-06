@@ -24,5 +24,5 @@ import lombok.Setter;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Annotation {
 
-  private String annotationField;
+  private String annotation;
 }

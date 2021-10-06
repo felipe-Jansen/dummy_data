@@ -15,8 +15,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 public class Util {
 
-  private Util() {}
-
   /**
    * Method responsible for generate a SHA1 token from the e-mail.
    *

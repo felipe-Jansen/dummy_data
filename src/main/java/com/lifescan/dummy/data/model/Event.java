@@ -26,6 +26,9 @@ import lombok.Setter;
 public class Event {
 
   private List<BgReading> bgReadings;
+  private List<BolusReading> bolusReadings;
+  private List<FoodRecord> foodRecords;
+  private List<HealthAttribute> healthAttributes;
   private Meta meta;
   private boolean isBackgroundSync;
 }

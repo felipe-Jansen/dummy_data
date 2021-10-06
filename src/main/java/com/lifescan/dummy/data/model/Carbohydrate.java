@@ -26,5 +26,4 @@ public class Carbohydrate {
 
   private int value;
   private String units;
-  private Annotation[] annotation;
 }

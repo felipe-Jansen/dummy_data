@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model;
 
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,11 +23,9 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class HealthAttributes extends Reading {
+public class FoodRecord extends Reading {
 
   private String editable;
-  private String healthAtributesLookup;
-  private Annotation[] annotation;
-  private int healthAttributesValue;
-  private AttributeValue[] extendedAttributeValue;
+  private Carbohydrate carbohydrates;
+  private List<Annotation> annotation;
 }

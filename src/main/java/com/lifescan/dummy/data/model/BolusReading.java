@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model;
 
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,10 +23,10 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class BolusReadings extends Reading {
+public class BolusReading extends Reading {
 
   private String editable;
   private String injectedInsulinType;
-  private Annotation[] annotation;
+  private List<Annotation> annotation;
   private BolusDelivered bolusDelivered;
 }

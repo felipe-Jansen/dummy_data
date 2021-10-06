@@ -11,17 +11,15 @@
 package com.lifescan.dummy.data.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.lifescan.dummy.data.model.Attribute;
-import com.lifescan.dummy.data.model.AttributeValue;
-import com.lifescan.dummy.data.model.BgReading;
-import com.lifescan.dummy.data.model.BgValue;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Meta;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
+import com.lifescan.dummy.data.service.util.BgReadingGenerator;
+import com.lifescan.dummy.data.service.util.BolusReadingGenerator;
+import com.lifescan.dummy.data.service.util.FoodRecordsGenerator;
+import com.lifescan.dummy.data.service.util.HealthAttributesGenerator;
 import feign.FeignException;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
@@ -62,7 +60,10 @@ public class EventServiceImpl implements EventService {
    */
   private Event generatingEvent() {
     Event event = new Event();
-    event.setBgReadings(generatingBgReading());
+    event.setBgReadings(BgReadingGenerator.generator());
+    event.setBolusReadings(BolusReadingGenerator.generator());
+    event.setFoodRecords(FoodRecordsGenerator.generator());
+    event.setHealthAttributes(HealthAttributesGenerator.generator());
     event.setBackgroundSync(false);
     event.setMeta(generatingMeta());
     return event;
@@ -78,65 +79,5 @@ public class EventServiceImpl implements EventService {
     meta.setSourceApp("REVEAL_MOBILE_IOS");
     meta.setSourceAppVersion("5.3.1");
     return meta;
-  }
-
-  /**
-   * Method responsible for generating the bgReading.
-   *
-   * @return
-   */
-  private List<BgReading> generatingBgReading() {
-    List<BgReading> bgReadings = new ArrayList<>();
-
-    BgReading bgReading = new BgReading();
-    bgReading.setActive("true");
-    bgReading.setManual("true");
-    bgReading.setReadingDate("2021-09-21 01:12:00");
-    bgReading.setId(String.valueOf(System.currentTimeMillis()));
-    bgReading.setExtendedAttributes(generatingAttributeValue());
-    bgReading.setBgValue(generatingBgValue());
-    bgReading.setMealTag("MEAL_TAG_POST_MEAL");
-    bgReading.setLastUpdatedDate(System.currentTimeMillis());
-
-    bgReadings.add(bgReading);
-    return bgReadings;
-  }
-
-  /**
-   * Method responsible for setting the attributes values.
-   *
-   * @return
-   */
-  private AttributeValue generatingAttributeValue() {
-    AttributeValue attributeValue = new AttributeValue();
-    attributeValue.setAttributeValue(generatingAttribute());
-    return attributeValue;
-  }
-
-  /**
-   * Method responsible for generating attributes.
-   *
-   * @return
-   */
-  private List<Attribute> generatingAttribute() {
-    List<Attribute> attributes = new ArrayList<>();
-    Attribute attribute = new Attribute();
-    attribute.setName("dataLogs_glucose_lifestyletags");
-    attribute.setType("string");
-    attribute.setValue("");
-    attributes.add(attribute);
-    return attributes;
-  }
-
-  /**
-   * Method responsible for generating the bg value.
-   *
-   * @return
-   */
-  private BgValue generatingBgValue() {
-    BgValue bgValue = new BgValue();
-    bgValue.setValue(111);
-    bgValue.setUnits("mg/dL");
-    return bgValue;
   }
 }

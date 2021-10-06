@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model;
 
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,15 +23,11 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Result {
+public class HealthAttribute extends Reading {
 
-  private String country;
-  private boolean analyticsEnabled;
-  private String loginName;
-  private boolean isReflectUser;
-  private String dateOfBirth;
-  private boolean consentRequired;
-  private String isRevealUser;
-  private String email;
-  private String token;
+  private String editable;
+  private String healthAtributesLookup;
+  private List<Annotation> annotation;
+  private int healthAttributesValue;
+  private AttributeValue extendedAttributeValue;
 }
