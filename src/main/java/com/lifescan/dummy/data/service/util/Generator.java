@@ -21,12 +21,20 @@ import java.util.List;
 
 public abstract class Generator {
 
+  /**
+   * Method responcible for returning a new list of annotations.
+   * @return
+   */
   protected static List<Annotation> generatingAnnotations() {
     List<Annotation> annotations = new ArrayList<>();
     annotations.add(generatingAnnotation());
     return annotations;
   }
 
+  /**
+   * Method responsible for generating a single annotation
+   * @return
+   */
   private static Annotation generatingAnnotation() {
     Annotation annotation = new Annotation();
     annotation.setAnnotation("");
@@ -59,6 +67,10 @@ public abstract class Generator {
     return attributes;
   }
 
+  /**
+   * Method responsible for ganerating a single carbohydrate.
+   * @return
+   */
   protected static Carbohydrate generatingCarbohydrates() {
     Carbohydrate carbohydrate = new Carbohydrate();
     carbohydrate.setValue(150);
@@ -66,6 +78,10 @@ public abstract class Generator {
     return carbohydrate;
   }
 
+  /**
+   * Method responsible for ganerating a single bolus delivered.
+   * @return
+   */
   protected static BolusDelivered generatingBolusDelivered() {
     BolusDelivered bolusDelivered = new BolusDelivered();
     bolusDelivered.setValue("55");
@@ -74,7 +90,7 @@ public abstract class Generator {
   }
 
   /**
-   * Method responsible for generating the bg value.
+   * Method responsible for generating a single bg value.
    *
    * @return
    */

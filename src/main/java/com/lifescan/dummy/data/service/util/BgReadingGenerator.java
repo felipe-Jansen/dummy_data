@@ -18,7 +18,7 @@ import java.util.List;
 public class BgReadingGenerator extends Generator {
 
   /**
-   * Method responsible for generating the bgReading.
+   * Method responsible for returning a list of bgReading.
    *
    * @return
    */

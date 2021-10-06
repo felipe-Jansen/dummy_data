@@ -17,6 +17,11 @@ import java.util.List;
 /** Class responsible for generating the objects with type foodRecord. */
 public class FoodRecordsGenerator extends Generator {
 
+  /**
+   * Method responsible for returning a list of food records.
+   *
+   * @return
+   */
   public static List<FoodRecord> generator() {
     List<FoodRecord> foodRecords = new ArrayList<>();
     FoodRecord foodRecord = new FoodRecord();

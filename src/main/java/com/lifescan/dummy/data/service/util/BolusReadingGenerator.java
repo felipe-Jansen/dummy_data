@@ -17,6 +17,11 @@ import java.util.List;
 /** Class responsible for generating the objects with type bolusReading. */
 public class BolusReadingGenerator extends Generator {
 
+  /**
+   * Method responsible for returning a list of bolus reading.
+   *
+   * @return
+   */
   public static List<BolusReading> generator() {
     List<BolusReading> bolusReadings = new ArrayList<>();
     BolusReading bolusReading = new BolusReading();
