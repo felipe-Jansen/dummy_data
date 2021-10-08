@@ -1,102 +1,117 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:deviceDataDataSet xmlns:ns2="http://www.lifescan.com/dms/dataloader/model" author="Douglas Santos"
+<ns2:deviceDataDataSet xmlns:ns2="http://www.lifescan.com/dms/dataloader/model"
+  author="Douglas Santos"
   name="Trident Training - ttc.patient21"
   xmlns="http://www.lifescan.com/dms/domain/model">
   <ns2:basalDataLog/>
   <ns2:bgReadingDataLog>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-11T06:27:42">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-11T12:52:39">
       <bgValue units="mg/dL">103</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-10T06:57:41">
       <bgValue units="mg/dL">108</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-10T11:40:20">
       <bgValue units="mg/dL">90</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-10T18:40:33">
       <bgValue units="mg/dL">88</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-10T23:34:18">
       <bgValue units="mg/dL">126</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-09T17:41:51">
       <bgValue units="mg/dL">101</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-09T22:11:18">
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-08T08:20:44">
       <bgValue units="mg/dL">88</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-08T13:44:33">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-07T07:19:58">
       <bgValue units="mg/dL">94</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-07T17:55:14">
       <bgValue units="mg/dL">160</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-07T22:21:14">
       <bgValue units="mg/dL">181</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-06T06:59:40">
       <annotation>
         <active>true</active>
@@ -108,1568 +123,1792 @@
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-06T12:42:56">
       <bgValue units="mg/dL">133</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-06T23:14:50">
       <bgValue units="mg/dL">201</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-05T17:59:43">
       <bgValue units="mg/dL">101</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-04T07:21:11">
       <bgValue units="mg/dL">88</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-04T11:57:10">
       <bgValue units="mg/dL">135</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-03T17:14:13">
       <bgValue units="mg/dL">103</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-03T22:33:27">
       <bgValue units="mg/dL">214</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-02T06:30:14">
       <bgValue units="mg/dL">113</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-02T23:12:43">
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-01T08:37:23">
       <bgValue units="mg/dL">143</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-01T18:22:51">
       <bgValue units="mg/dL">96</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-11-01T22:56:17">
       <bgValue units="mg/dL">179</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-31T12:19:14">
       <bgValue units="mg/dL">96</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-30T08:17:53">
       <bgValue units="mg/dL">87</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-30T17:19:42">
       <bgValue units="mg/dL">94</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-30T22:58:56">
       <bgValue units="mg/dL">176</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-29T07:57:21">
       <bgValue units="mg/dL">92</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-29T13:55:53">
       <bgValue units="mg/dL">144</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-29T23:19:38">
       <bgValue units="mg/dL">168</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-28T06:47:51">
       <bgValue units="mg/dL">92</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-28T11:40:46">
       <bgValue units="mg/dL">96</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-27T07:16:10">
       <bgValue units="mg/dL">102</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-27T17:29:53">
       <bgValue units="mg/dL">135</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-27T22:43:23">
       <bgValue units="mg/dL">185</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-26T08:40:53">
       <bgValue units="mg/dL">145</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-26T12:10:57">
       <bgValue units="mg/dL">125</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-26T23:43:34">
       <bgValue units="mg/dL">206</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-25T17:21:15">
       <bgValue units="mg/dL">109</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-24T06:17:50">
       <bgValue units="mg/dL">86</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-24T12:19:26">
       <bgValue units="mg/dL">135</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-23T18:11:20">
       <bgValue units="mg/dL">105</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-23T23:10:44">
       <bgValue units="mg/dL">224</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-22T07:13:31">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-22T23:29:32">
       <bgValue units="mg/dL">190</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-21T08:40:53">
       <bgValue units="mg/dL">135</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-21T18:45:21">
       <bgValue units="mg/dL">97</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-21T23:10:38">
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-20T12:11:21">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-19T08:15:35">
       <bgValue units="mg/dL">88</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-19T17:26:53">
       <bgValue units="mg/dL">103</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-19T23:56:48">
       <bgValue units="mg/dL">175</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-18T08:57:28">
       <bgValue units="mg/dL">101</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-18T11:43:46">
       <bgValue units="mg/dL">141</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-18T22:55:56">
       <bgValue units="mg/dL">206</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-17T07:57:42">
       <bgValue units="mg/dL">89</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-17T11:14:35">
       <bgValue units="mg/dL">142</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-16T18:29:36">
       <bgValue units="mg/dL">94</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-16T23:27:39">
       <bgValue units="mg/dL">206</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-15T07:40:21">
       <bgValue units="mg/dL">115</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-15T22:54:50">
       <bgValue units="mg/dL">192</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-14T08:50:41">
       <bgValue units="mg/dL">129</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-14T18:57:44">
       <bgValue units="mg/dL">104</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-14T23:35:14">
       <bgValue units="mg/dL">175</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-13T11:22:54">
       <bgValue units="mg/dL">98</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-12T07:38:32">
       <bgValue units="mg/dL">77</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-12T17:50:42">
       <bgValue units="mg/dL">101</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-12T23:31:44">
       <bgValue units="mg/dL">171</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-11T07:48:34">
       <bgValue units="mg/dL">92</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-11T11:28:20">
       <bgValue units="mg/dL">143</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-11T23:29:20">
       <bgValue units="mg/dL">184</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-10T07:21:54">
       <bgValue units="mg/dL">135</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-09T23:37:15">
       <bgValue units="mg/dL">195</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-08T22:33:33">
       <bgValue units="mg/dL">238</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-07T12:24:35">
       <bgValue units="mg/dL">92</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-06T08:20:24">
       <bgValue units="mg/dL">92</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-06T17:45:44">
       <bgValue units="mg/dL">102</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-06T23:44:10">
       <bgValue units="mg/dL">175</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-05T06:54:19">
       <bgValue units="mg/dL">86</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-05T11:14:48">
       <bgValue units="mg/dL">176</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-05T22:20:48">
       <bgValue units="mg/dL">198</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-04T06:33:33">
       <bgValue units="mg/dL">159</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-03T22:39:32">
       <bgValue units="mg/dL">202</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-02T22:17:17">
       <bgValue units="mg/dL">189</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-01T06:46:12">
       <bgValue units="mg/dL">143</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-10-01T23:31:56">
       <bgValue units="mg/dL">237</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-29T06:46:37">
       <bgValue units="mg/dL">160</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-27T07:54:15">
       <bgValue units="mg/dL">212</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-26T22:26:25">
       <bgValue units="mg/dL">196</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-25T23:37:59">
       <bgValue units="mg/dL">239</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-24T08:25:59">
       <bgValue units="mg/dL">211</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-24T22:25:48">
       <bgValue units="mg/dL">182</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-22T08:48:48">
       <bgValue units="mg/dL">214</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-20T22:19:29">
       <bgValue units="mg/dL">216</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-19T08:19:33">
       <bgValue units="mg/dL">185</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-18T06:10:10">
       <bgValue units="mg/dL">199</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-17T08:31:14">
       <bgValue units="mg/dL">210</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-16T07:29:57">
       <bgValue units="mg/dL">221</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-15T23:38:30">
       <bgValue units="mg/dL">197</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-14T23:59:40">
       <bgValue units="mg/dL">234</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-13T06:15:18">
       <bgValue units="mg/dL">209</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-13T22:55:25">
       <bgValue units="mg/dL">239</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-11T06:35:58">
       <bgValue units="mg/dL">217</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-09T23:59:28">
       <bgValue units="mg/dL">226</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-08T07:14:19">
       <bgValue units="mg/dL">189</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-07T06:35:59">
       <bgValue units="mg/dL">196</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-06T06:47:14">
       <bgValue units="mg/dL">214</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-05T22:46:24">
       <bgValue units="mg/dL">219</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-03T07:14:33">
       <bgValue units="mg/dL">229</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-09-02T08:24:15">
       <bgValue units="mg/dL">224</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-31T22:58:46">
       <bgValue units="mg/dL">233</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-30T08:44:20">
       <bgValue units="mg/dL">187</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-29T07:35:33">
       <bgValue units="mg/dL">190</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-28T07:40:29">
       <bgValue units="mg/dL">210</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-27T22:54:37">
       <bgValue units="mg/dL">228</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-25T06:48:28">
       <bgValue units="mg/dL">236</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-24T08:16:28">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-24T13:18:41">
       <bgValue units="mg/dL">103</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-23T08:19:41">
       <bgValue units="mg/dL">108</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-23T13:25:26">
       <bgValue units="mg/dL">168</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-23T17:31:16">
       <bgValue units="mg/dL">178</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-23T23:14:43">
       <bgValue units="mg/dL">126</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-22T17:27:38">
       <bgValue units="mg/dL">101</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-22T22:17:39">
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-21T06:58:49">
       <bgValue units="mg/dL">214</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-21T12:37:36">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-20T07:56:15">
       <bgValue units="mg/dL">200</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-20T18:12:47">
       <bgValue units="mg/dL">160</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-20T22:42:44">
       <bgValue units="mg/dL">181</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-19T06:49:33">
       <bgValue units="mg/dL">141</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-19T11:26:13">
       <bgValue units="mg/dL">133</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-19T23:50:14">
       <bgValue units="mg/dL">201</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-18T18:14:59">
       <bgValue units="mg/dL">101</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-17T08:53:39">
       <bgValue units="mg/dL">197</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-17T11:53:16">
       <bgValue units="mg/dL">135</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-16T17:31:48">
       <bgValue units="mg/dL">103</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-16T23:35:10">
       <bgValue units="mg/dL">214</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-15T06:31:45">
       <bgValue units="mg/dL">113</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-15T22:44:18">
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-14T06:36:50">
       <bgValue units="mg/dL">171</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-14T17:13:36">
       <bgValue units="mg/dL">189</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-14T23:39:59">
       <bgValue units="mg/dL">179</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-13T12:56:43">
       <bgValue units="mg/dL">195</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-12T07:50:14">
       <bgValue units="mg/dL">164</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-12T18:49:59">
       <bgValue units="mg/dL">214</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-12T22:17:28">
       <bgValue units="mg/dL">176</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-11T07:21:56">
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-11T13:22:31">
       <bgValue units="mg/dL">166</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-11T23:23:17">
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-10T06:10:31">
       <bgValue units="mg/dL">209</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-10T11:34:53">
       <bgValue units="mg/dL">217</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-09T07:18:20">
       <bgValue units="mg/dL">221</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-09T18:54:19">
       <bgValue units="mg/dL">156</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-09T23:19:10">
       <bgValue units="mg/dL">176</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-08T08:24:28">
       <bgValue units="mg/dL">159</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-08T12:28:26">
       <bgValue units="mg/dL">114</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-08T23:57:35">
       <bgValue units="mg/dL">212</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-07T18:28:56">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-06T06:31:19">
       <bgValue units="mg/dL">231</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-06T13:29:47">
       <bgValue units="mg/dL">152</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-05T17:23:58">
       <bgValue units="mg/dL">122</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-05T23:34:38">
       <bgValue units="mg/dL">211</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-04T07:14:20">
       <bgValue units="mg/dL">97</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-04T23:55:24">
       <bgValue units="mg/dL">195</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-03T06:12:17">
       <bgValue units="mg/dL">170</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-03T18:17:14">
       <bgValue units="mg/dL">132</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-03T22:37:22">
       <bgValue units="mg/dL">163</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-02T12:43:58">
       <bgValue units="mg/dL">125</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-01T07:43:29">
       <bgValue units="mg/dL">90</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-01T17:12:20">
       <bgValue units="mg/dL">123</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-08-01T22:39:20">
       <bgValue units="mg/dL">167</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-31T08:54:22">
       <bgValue units="mg/dL">138</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-31T11:45:24">
       <bgValue units="mg/dL">147</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-31T23:30:56">
       <bgValue units="mg/dL">180</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-30T07:28:29">
       <bgValue units="mg/dL">103</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-30T12:49:21">
       <bgValue units="mg/dL">119</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-29T17:25:56">
       <bgValue units="mg/dL">118</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-29T23:59:18">
       <bgValue units="mg/dL">230</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-28T07:34:47">
       <bgValue units="mg/dL">133</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-28T23:55:16">
       <bgValue units="mg/dL">206</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-27T08:51:21">
       <bgValue units="mg/dL">158</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-27T17:36:55">
       <bgValue units="mg/dL">216</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-27T23:57:52">
       <bgValue units="mg/dL">183</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-26T13:15:20">
       <bgValue units="mg/dL">153</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-25T08:22:30">
       <bgValue units="mg/dL">223</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-25T18:50:49">
       <bgValue units="mg/dL">191</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-25T22:48:37">
       <bgValue units="mg/dL">184</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-24T07:15:37">
       <bgValue units="mg/dL">107</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-24T13:55:43">
       <bgValue units="mg/dL">164</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-24T22:40:12">
       <bgValue units="mg/dL">196</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-23T08:14:15">
       <bgValue units="mg/dL">233</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-22T23:59:15">
       <bgValue units="mg/dL">192</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-21T22:50:14">
       <bgValue units="mg/dL">234</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-20T11:31:33">
       <bgValue units="mg/dL">214</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-19T07:51:33">
       <bgValue units="mg/dL">100</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-19T18:52:59">
       <bgValue units="mg/dL">100</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-19T23:11:56">
       <bgValue units="mg/dL">156</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-18T06:36:28">
       <bgValue units="mg/dL">197</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-18T11:44:23">
       <bgValue units="mg/dL">184</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-18T22:40:34">
       <bgValue units="mg/dL">207</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-17T08:19:38">
       <bgValue units="mg/dL">236</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-16T22:42:55">
       <bgValue units="mg/dL">198</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-15T22:20:36">
       <bgValue units="mg/dL">243</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-14T08:51:45">
       <bgValue units="mg/dL">198</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-14T23:46:58">
       <bgValue units="mg/dL">264</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-12T06:19:50">
       <bgValue units="mg/dL">204</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-10T07:33:47">
       <bgValue units="mg/dL">219</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-09T22:30:59">
       <bgValue units="mg/dL">207</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-08T23:18:12">
       <bgValue units="mg/dL">231</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-07T06:32:16">
       <bgValue units="mg/dL">227</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-07T22:28:13">
       <bgValue units="mg/dL">269</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-05T08:42:36">
       <bgValue units="mg/dL">217</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-03T22:14:50">
       <bgValue units="mg/dL">232</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-02T08:54:31">
       <bgValue units="mg/dL">206</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-07-01T08:41:21">
       <bgValue units="mg/dL">203</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-30T06:10:26">
       <bgValue units="mg/dL">252</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-29T06:37:16">
       <bgValue units="mg/dL">221</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-28T22:19:53">
       <bgValue units="mg/dL">197</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-27T23:58:21">
       <bgValue units="mg/dL">234</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-26T08:34:16">
       <bgValue units="mg/dL">209</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-26T23:31:52">
       <bgValue units="mg/dL">260</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-24T06:20:43">
       <bgValue units="mg/dL">222</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-22T22:18:43">
       <bgValue units="mg/dL">226</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-21T06:49:29">
       <bgValue units="mg/dL">189</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-20T07:22:14">
       <bgValue units="mg/dL">196</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-19T06:26:42">
       <bgValue units="mg/dL">252</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-18T22:59:33">
       <bgValue units="mg/dL">219</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-16T06:14:46">
       <bgValue units="mg/dL">229</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-15T06:27:45">
       <bgValue units="mg/dL">242</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-13T22:29:53">
       <bgValue units="mg/dL">239</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-12T07:53:20">
       <bgValue units="mg/dL">200</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-11T08:55:16">
       <bgValue units="mg/dL">195</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-10T08:40:29">
       <bgValue units="mg/dL">251</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-09T22:46:28">
       <bgValue units="mg/dL">217</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_NOTAG</mealTag>
     </ns2:bgReading>
     <ns2:bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false" futureDated="false" imported="false"
+      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
+      futureDated="false" imported="false"
       manual="false" readingDate="2020-06-07T08:55:49">
       <bgValue units="mg/dL">223</bgValue>
       <cgmCalibration>false</cgmCalibration>

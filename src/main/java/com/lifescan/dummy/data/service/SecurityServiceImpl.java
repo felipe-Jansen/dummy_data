@@ -10,8 +10,6 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.networking.service.SecurityServiceCore;
 import lombok.RequiredArgsConstructor;
@@ -27,18 +25,10 @@ public class SecurityServiceImpl implements SecurityService {
   private final SecurityServiceCore securityServiceCore;
 
   /** {@inheritDoc} */
-  public String getToken(Login user) {
-    Gson gson = new Gson();
-    return gson.fromJson(
-            gson.fromJson(
-                    securityServiceCore
-                        .authenticate(user.getEmail(), user.getPassword())
-                        .toString(),
-                    JsonObject.class)
-                .get("result"),
-            JsonObject.class)
-        .get("token")
-        .toString()
-        .replace("\"", "");
+  public String doLogin(Login user) {
+    return securityServiceCore
+        .authenticate(user.getEmail(), user.getPassword())
+        .getResult()
+        .getToken();
   }
 }

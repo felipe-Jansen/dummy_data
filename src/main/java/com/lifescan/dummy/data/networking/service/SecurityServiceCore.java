@@ -11,6 +11,7 @@
 package com.lifescan.dummy.data.networking.service;
 
 import com.lifescan.dummy.data.constants.WebEndPointConstants;
+import com.lifescan.dummy.data.networking.service.model.AuthenticateResponse;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
@@ -22,10 +23,11 @@ public interface SecurityServiceCore {
     "os: IOS-iPhone12,1",
     "appname: REVEAL_MOBILE_IOS",
     "appversion: 4.5.0",
-    "Content-Type: application/json",
+    "Content-Type:application/json",
     "login: {login}",
     "password: {password}"
   })
   @RequestLine("POST " + WebEndPointConstants.AUTHENTICATE)
-  Object authenticate(@Param("login") String login, @Param("password") String password);
+  AuthenticateResponse authenticate(
+      @Param("login") String login, @Param("password") String password);
 }

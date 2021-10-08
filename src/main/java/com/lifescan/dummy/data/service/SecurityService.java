@@ -20,5 +20,5 @@ public interface SecurityService {
    * @param user This param contains the information about email and password.
    * @return a token after doing login.
    */
-  String getToken(Login user);
+  String doLogin(Login user);
 }

@@ -36,7 +36,7 @@ public class EventServiceImpl implements EventService {
   @Override
   public void publishEvent(Login login) {
     try {
-      eventServiceCore.publishEvent(securityService.getToken(login), generatingEvent());
+      eventServiceCore.publishEvent(securityService.doLogin(login), generatingEvent());
     } catch (FeignException ex) {
       log.error(ex.contentUTF8());
     }
