@@ -15,8 +15,8 @@ public interface PatientService {
   /**
    * Method responsible for analyse the input and start generating the patients.
    *
-   * @param language
-   * @param qtdPatients
+   * @param language that concerns to the idiom of the patients.
+   * @param qtdPatients that concerns to the quantity of patients that will be created.
    * @throws InterruptedException
    */
   void create(String language, Integer qtdPatients) throws InterruptedException;

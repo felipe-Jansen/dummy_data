@@ -11,12 +11,14 @@
 package com.lifescan.dummy.data;
 
 import com.lifescan.dummy.data.service.PatientService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
+@Log4j2
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 

@@ -14,25 +14,19 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.networking.service.SecurityServiceCore;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Log4j2
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class SecurityServiceImpl implements SecurityService {
 
   private final SecurityServiceCore securityServiceCore;
 
-  public SecurityServiceImpl(SecurityServiceCore securityServiceCore) {
-    this.securityServiceCore = securityServiceCore;
-  }
-
-  /**
-   * Method responsible for logging in and returning the token for authentication.
-   *
-   * @param user
-   * @return
-   */
+  /** {@inheritDoc} */
   public String getToken(Login user) {
     Gson gson = new Gson();
     return gson.fromJson(

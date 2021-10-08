@@ -14,9 +14,19 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class WebEndPointConstants {
+public class ConfigConstants {
 
-  public static final String AUTHENTICATE = "/mobile/user/v3/authenticate";
-  public static final String REGISTER_PATIENT = "/mobile/user/v3/register";
-  public static final String REGISTER_EVENT = "/mobile/health/v1/data/publish";
+  public static final String PREFIX_PATTERN_PATIENT_NAME = "Patient_";
+
+  public static final String SUFFIX_PATTERN_PATIENT_EMAIL = "_patient@partnerapi.com";
+
+  public static final String GENDER_MALE = "M";
+
+  public static final String GENDER_FEMALE = "F";
+
+  public static final String PATIENT_PASSWORD = "t1234567";
+
+  public static final String PATIENT_LAST_NAME = "Partner tool";
+
+  public static final String PATIENT_DIABETES_TYPE = "DIABETES_TYPE_1";
 }

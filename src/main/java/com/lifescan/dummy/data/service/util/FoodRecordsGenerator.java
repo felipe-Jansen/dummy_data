@@ -20,19 +20,20 @@ public class FoodRecordsGenerator extends Generator {
   /**
    * Method responsible for returning a list of food records.
    *
-   * @return
+   * @return A list of food records.
    */
   public static List<FoodRecord> generator() {
     List<FoodRecord> foodRecords = new ArrayList<>();
-    FoodRecord foodRecord = new FoodRecord();
-    foodRecord.setActive("true");
-    foodRecord.setManual("true");
-    foodRecord.setReadingDate("2021-09-21 01:12:00");
-    foodRecord.setId(String.valueOf(System.currentTimeMillis()));
-    foodRecord.setLastUpdatedDate(System.currentTimeMillis());
-    foodRecord.setAnnotation(generatingAnnotations());
-    foodRecord.setCarbohydrates(generatingCarbohydrates());
-    foodRecords.add(foodRecord);
+    foodRecords.add(
+        FoodRecord.builder()
+            .active("true")
+            .manual("true")
+            .readingDate("2021-09-21 01:12:00")
+            .id(String.valueOf(System.currentTimeMillis()))
+            .lastUpdatedDate(System.currentTimeMillis())
+            .annotation(generatingAnnotations())
+            .carbohydrates(generatingCarbohydrates())
+            .build());
     return foodRecords;
   }
 }

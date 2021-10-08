@@ -56,6 +56,7 @@ dependencies {
     implementation group: 'org.json', name: 'json', version: '20210307'
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
     implementation 'com.google.code.gson:gson'
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
     implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.2.3'
@@ -65,10 +66,16 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
 
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
 }
 
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
+}
+
+test {
+    useJUnitPlatform()
 }

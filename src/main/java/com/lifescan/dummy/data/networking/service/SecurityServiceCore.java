@@ -17,7 +17,15 @@ import feign.RequestLine;
 
 public interface SecurityServiceCore {
 
-  @Headers({"Content-Type: application/json", "login: {login}", "password: {password}"})
+  @Headers({
+    "osversion: 14.6",
+    "os: IOS-iPhone12,1",
+    "appname: REVEAL_MOBILE_IOS",
+    "appversion: 4.5.0",
+    "Content-Type: application/json",
+    "login: {login}",
+    "password: {password}"
+  })
   @RequestLine("POST " + WebEndPointConstants.AUTHENTICATE)
   Object authenticate(@Param("login") String login, @Param("password") String password);
 }

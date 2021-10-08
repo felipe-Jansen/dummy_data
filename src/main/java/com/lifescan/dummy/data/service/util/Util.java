@@ -10,7 +10,8 @@
  */
 package com.lifescan.dummy.data.service.util;
 
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class Util {
@@ -18,8 +19,8 @@ public class Util {
   /**
    * Method responsible for generate a SHA1 token from the e-mail.
    *
-   * @param emailAddress
-   * @return
+   * @param emailAddress to serve as a base to generate the token.
+   * @return A request token from email.
    */
   public static String generateRequestToken(String emailAddress) {
     return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
@@ -28,8 +29,8 @@ public class Util {
   /**
    * Method responsible for discovery the country from informed language.
    *
-   * @param language
-   * @return
+   * @param language that contains the information to extract the country.
+   * @return The country informed in the language.
    */
   public static String extractCountryFromLanguage(String language) {
     try {
@@ -46,14 +47,9 @@ public class Util {
   /**
    * Method responsible for generate a date of birth from system date.
    *
-   * @return
+   * @return A string that concerns to the formatted date of birth.
    */
   public static String generateDateOfBirth() {
-    int year = Calendar.getInstance().get(Calendar.YEAR);
-    int month = Calendar.getInstance().get(Calendar.MONTH);
-    int date = Calendar.getInstance().get(Calendar.DATE);
-    return String.valueOf(year - 20)
-        .concat(month < 10 ? "0".concat(String.valueOf(month)) : String.valueOf(month))
-        .concat(date < 10 ? "0".concat(String.valueOf(date)) : String.valueOf(date));
+    return LocalDateTime.now().minusYears(20).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
   }
 }

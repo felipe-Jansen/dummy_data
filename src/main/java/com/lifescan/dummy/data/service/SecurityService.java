@@ -17,8 +17,8 @@ public interface SecurityService {
   /**
    * Method responsible for logging in and returning the token for authentication.
    *
-   * @param user
-   * @return
+   * @param user This param contains the information about email and password.
+   * @return a token after doing login.
    */
   String getToken(Login user);
 }

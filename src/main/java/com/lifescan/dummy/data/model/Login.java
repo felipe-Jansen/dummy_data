@@ -12,18 +12,19 @@ package com.lifescan.dummy.data.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString.Exclude;
 
 @Getter
 @Setter
-@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Login {
 
-  private String email;
-  private String password;
+  @Exclude private String email;
+  @Exclude private String password;
 }

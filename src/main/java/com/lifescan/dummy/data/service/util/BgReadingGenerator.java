@@ -20,20 +20,21 @@ public class BgReadingGenerator extends Generator {
   /**
    * Method responsible for returning a list of bgReading.
    *
-   * @return
+   * @return A list of blood glucose readings.
    */
   public static List<BgReading> generator() {
     List<BgReading> bgReadings = new ArrayList<>();
-    BgReading bgReading = new BgReading();
-    bgReading.setActive("true");
-    bgReading.setManual("true");
-    bgReading.setReadingDate("2021-09-21 01:12:00");
-    bgReading.setId(String.valueOf(System.currentTimeMillis()));
-    bgReading.setExtendedAttributes(generatingAttributeValue());
-    bgReading.setBgValue(generatingBgValue());
-    bgReading.setMealTag("MEAL_TAG_POST_MEAL");
-    bgReading.setLastUpdatedDate(System.currentTimeMillis());
-    bgReadings.add(bgReading);
+    bgReadings.add(
+        BgReading.builder()
+            .active("true")
+            .manual("true")
+            .readingDate("2021-09-21 01:12:00")
+            .id(String.valueOf(System.currentTimeMillis()))
+            .extendedAttributes(generatingAttributeValue())
+            .bgValue(generatingBgValue())
+            .mealTag("MEAL_TAG_POST_MEAL")
+            .lastUpdatedDate(System.currentTimeMillis())
+            .build());
     return bgReadings;
   }
 }

@@ -10,11 +10,12 @@
  */
 package com.lifescan.dummy.data.constants;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 class BaseConstants {
+
   static final String UTILITY_CLASSES_SHOULD_NOT_BE_INSTANTIATED =
       "Utility classes should not be instantiated.";
-
-  private BaseConstants() {
-    throw new IllegalStateException(UTILITY_CLASSES_SHOULD_NOT_BE_INSTANTIATED);
-  }
 }

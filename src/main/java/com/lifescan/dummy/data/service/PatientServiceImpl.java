@@ -11,35 +11,27 @@
 package com.lifescan.dummy.data.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Patient;
 import com.lifescan.dummy.data.networking.service.PatientServiceCore;
 import com.lifescan.dummy.data.service.util.Util;
 import feign.FeignException;
-import java.util.concurrent.TimeUnit;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Log4j2
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PatientServiceImpl implements PatientService {
 
   private final PatientServiceCore patientServiceCore;
   private final EventService eventService;
 
-  public PatientServiceImpl(PatientServiceCore patientServiceCore, EventService eventService) {
-    this.patientServiceCore = patientServiceCore;
-    this.eventService = eventService;
-  }
-
-  /**
-   * Method responsible for analyse the input and start generating the patients.
-   *
-   * @param language
-   * @param qtdPatients
-   * @throws InterruptedException
-   */
-  public void create(String language, Integer qtdPatients) throws InterruptedException {
+  /** {@inheritDoc} */
+  public void create(String language, Integer qtdPatients) {
     String country = Util.extractCountryFromLanguage(language);
     log.info("language -> {}", language);
     log.info("Country -> {}", country);
@@ -47,60 +39,55 @@ public class PatientServiceImpl implements PatientService {
     for (int i = 0; i < qtdPatients; i++) {
       save(language, country);
     }
-    System.exit(0);
   }
 
   /**
    * Method responsible for save the patients and publish their respectives events.
    *
-   * @param language
-   * @param country
-   * @throws InterruptedException
+   * @param language A patient need to have a language associated, this param concerns to this
+   *     information.
+   * @param country A patient need to have a country associated, this param concerns to this
+   *     information.
    */
-  private void save(String language, String country) throws InterruptedException {
+  private void save(String language, String country) {
     Patient patient = generatingPatient();
     String requestToken = Util.generateRequestToken(patient.getEmailAddress());
     try {
-      log.info("============");
       patientServiceCore.registerPatient(language, country, requestToken, patient);
-      log.info("Patient: {} | Password: {}", patient.getEmailAddress(), patient.getPassword());
       eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
-
-    } catch (FeignException | JsonProcessingException ex) {
-      log.error(ex.toString());
+    } catch (FeignException ex) {
+      log.error(ex.contentUTF8());
+    } catch (JsonProcessingException ex) {
+      log.error(ex);
     }
-    TimeUnit.MILLISECONDS.sleep(1L);
   }
 
   /**
    * Method responsible for generating one patient.
    *
-   * @return
+   * @return A single object from type Patient.
    */
   private Patient generatingPatient() {
     long timeInterval = System.currentTimeMillis();
-    Patient patient = new Patient();
-    patient.setGender("M");
-    patient.setPassword("t1234567");
-    patient.setFirstName("Patient_" + timeInterval);
-    patient.setEmailAddress("patient4partner_" + timeInterval + "@mailinator.com");
-    patient.setDateOfBirth(Util.generateDateOfBirth());
-    patient.setDiabetesType("DIABETES_TYPE_1");
-    patient.setLastName("Partner tool");
-    return patient;
+    return Patient.builder()
+        .gender(ConfigConstants.GENDER_FEMALE)
+        .password(ConfigConstants.PATIENT_PASSWORD)
+        .firstName(ConfigConstants.PREFIX_PATTERN_PATIENT_NAME + timeInterval)
+        .emailAddress(timeInterval + ConfigConstants.SUFFIX_PATTERN_PATIENT_EMAIL)
+        .dateOfBirth(Util.generateDateOfBirth())
+        .diabetesType(ConfigConstants.PATIENT_DIABETES_TYPE)
+        .lastName(ConfigConstants.PATIENT_LAST_NAME)
+        .build();
   }
 
   /**
    * Method responsible for return an object from type login.
    *
-   * @param emailAddress
-   * @param password
-   * @return
+   * @param emailAddress concerns to the email to do login.
+   * @param password concerns to the password to do login.
+   * @return A single object from type login.
    */
   private Login generatingLogin(String emailAddress, String password) {
-    Login login = new Login();
-    login.setEmail(emailAddress);
-    login.setPassword(password);
-    return login;
+    return Login.builder().email(emailAddress).password(password).build();
   }
 }

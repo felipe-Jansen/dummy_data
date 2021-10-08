@@ -23,7 +23,8 @@ public abstract class Generator {
 
   /**
    * Method responcible for returning a new list of annotations.
-   * @return
+   *
+   * @return A list of annotations.
    */
   protected static List<Annotation> generatingAnnotations() {
     List<Annotation> annotations = new ArrayList<>();
@@ -33,71 +34,62 @@ public abstract class Generator {
 
   /**
    * Method responsible for generating a single annotation
-   * @return
+   *
+   * @return A single annotation.
    */
   private static Annotation generatingAnnotation() {
-    Annotation annotation = new Annotation();
-    annotation.setAnnotation("");
-    return annotation;
+    return Annotation.builder().annotation("Felipe Jansen").build();
   }
 
   /**
    * Method responsible for setting the attributes values.
    *
-   * @return
+   * @return A single attribute value.
    */
   protected static AttributeValue generatingAttributeValue() {
-    AttributeValue attributeValue = new AttributeValue();
-    attributeValue.setAttributeValue(generatingAttribute());
-    return attributeValue;
+    return AttributeValue.builder().attributeValue(generatingAttribute()).build();
   }
 
   /**
    * Method responsible for generating attributes.
    *
-   * @return
+   * @return A list of attributes.
    */
   private static List<Attribute> generatingAttribute() {
     List<Attribute> attributes = new ArrayList<>();
-    Attribute attribute = new Attribute();
-    attribute.setName("dataLogs_glucose_lifestyletags");
-    attribute.setType("string");
-    attribute.setValue("");
-    attributes.add(attribute);
+    attributes.add(
+        Attribute.builder()
+            .name("dataLogs_glucose_lifestyletags")
+            .type("string")
+            .value("")
+            .build());
     return attributes;
   }
 
   /**
    * Method responsible for ganerating a single carbohydrate.
-   * @return
+   *
+   * @return A single carbohydrate.
    */
   protected static Carbohydrate generatingCarbohydrates() {
-    Carbohydrate carbohydrate = new Carbohydrate();
-    carbohydrate.setValue(150);
-    carbohydrate.setUnits("g");
-    return carbohydrate;
+    return Carbohydrate.builder().value(150).units("g").build();
   }
 
   /**
    * Method responsible for ganerating a single bolus delivered.
-   * @return
+   *
+   * @return A single bolus delivered.
    */
   protected static BolusDelivered generatingBolusDelivered() {
-    BolusDelivered bolusDelivered = new BolusDelivered();
-    bolusDelivered.setValue("55");
-    bolusDelivered.setUnits("u");
-    return bolusDelivered;
+    return BolusDelivered.builder().value("55").units("u").build();
   }
 
   /**
    * Method responsible for generating a single bg value.
    *
-   * @return
+   * @return A single bolus reading.
    */
   protected static BgValue generatingBgValue() {
-    BgValue bgValue = new BgValue();
-    bgValue.setValue(111);
-    bgValue.setUnits("mg/dL");
-    return bgValue;
+    return BgValue.builder().value(111).units("mg/dL").build();
   }
 }

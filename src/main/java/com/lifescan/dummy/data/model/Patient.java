@@ -12,23 +12,24 @@ package com.lifescan.dummy.data.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString.Exclude;
 
 @Getter
 @Setter
-@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Patient {
 
   private String gender;
-  private String password;
-  private String firstName;
-  private String emailAddress;
+  @Exclude private String password;
+  @Exclude private String firstName;
+  @Exclude private String emailAddress;
   private String dateOfBirth;
   private String diabetesType;
-  private String lastName;
+  @Exclude private String lastName;
 }

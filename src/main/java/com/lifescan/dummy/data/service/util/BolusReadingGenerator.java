@@ -20,19 +20,21 @@ public class BolusReadingGenerator extends Generator {
   /**
    * Method responsible for returning a list of bolus reading.
    *
-   * @return
+   * @return A list of bolus readings.
    */
   public static List<BolusReading> generator() {
     List<BolusReading> bolusReadings = new ArrayList<>();
-    BolusReading bolusReading = new BolusReading();
-    bolusReading.setActive("true");
-    bolusReading.setManual("true");
-    bolusReading.setReadingDate("2021-09-21 01:12:00");
-    bolusReading.setId(String.valueOf(System.currentTimeMillis()));
-    bolusReading.setLastUpdatedDate(System.currentTimeMillis());
-    bolusReading.setAnnotation(generatingAnnotations());
-    bolusReading.setBolusDelivered(generatingBolusDelivered());
-    bolusReadings.add(bolusReading);
+    bolusReadings.add(
+        BolusReading.builder()
+            .active("true")
+            .manual("true")
+            .readingDate("2021-09-21 01:12:00") // This will be informed usin the xml file
+            .id(String.valueOf(System.currentTimeMillis()))
+            .lastUpdatedDate(System.currentTimeMillis())
+            .annotation(generatingAnnotations())
+            .injectedInsulinType("BOLUS_INSULIN_SHORT")
+            .bolusDelivered(generatingBolusDelivered())
+            .build());
     return bolusReadings;
   }
 }

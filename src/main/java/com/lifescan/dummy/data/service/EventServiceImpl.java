@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Meta;
@@ -20,34 +19,24 @@ import com.lifescan.dummy.data.service.util.BolusReadingGenerator;
 import com.lifescan.dummy.data.service.util.FoodRecordsGenerator;
 import com.lifescan.dummy.data.service.util.HealthAttributesGenerator;
 import feign.FeignException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Log4j2
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class EventServiceImpl implements EventService {
 
   private final SecurityService securityService;
   private final EventServiceCore eventServiceCore;
 
-  public EventServiceImpl(SecurityService securityService, EventServiceCore eventServiceCore) {
-    this.securityService = securityService;
-    this.eventServiceCore = eventServiceCore;
-  }
-
-  /**
-   * Method responsible for creating the events for each new patient.
-   *
-   * @param login
-   * @throws JsonProcessingException
-   */
+  /** {@inheritDoc} */
   @Override
   public void publishEvent(Login login) {
     try {
-      String token = securityService.getToken(login);
-      log.info("token -> {}", token);
-      eventServiceCore.publishEvent(token, generatingEvent());
-      log.info("Event published");
+      eventServiceCore.publishEvent(securityService.getToken(login), generatingEvent());
     } catch (FeignException ex) {
       log.error(ex.contentUTF8());
     }
@@ -56,28 +45,26 @@ public class EventServiceImpl implements EventService {
   /**
    * Method responsible for generating events.
    *
-   * @return
+   * @return An object from type Event, that contains the informations readings.
    */
   private Event generatingEvent() {
-    Event event = new Event();
-    event.setBgReadings(BgReadingGenerator.generator());
-    event.setBolusReadings(BolusReadingGenerator.generator());
-    event.setFoodRecords(FoodRecordsGenerator.generator());
-    event.setHealthAttributes(HealthAttributesGenerator.generator());
-    event.setBackgroundSync(false);
-    event.setMeta(generatingMeta());
-    return event;
+    return Event.builder()
+        .bgReadings(BgReadingGenerator.generator())
+        .foodRecords(FoodRecordsGenerator.generator())
+        .bolusReadings(BolusReadingGenerator.generator())
+        .healthAttributes(HealthAttributesGenerator.generator())
+        .isBackgroundSync(false)
+        .meta(generatingMeta())
+        .build();
   }
 
   /**
    * Method responsible for generating the meta information.
    *
-   * @return
+   * @return A single object from type Meta.
    */
   private Meta generatingMeta() {
-    Meta meta = new Meta();
-    meta.setSourceApp("REVEAL_MOBILE_IOS");
-    meta.setSourceAppVersion("5.3.1");
-    return meta;
+
+    return Meta.builder().sourceApp("REVEAL_MOBILE_IOS").sourceAppVersion("5.3.1").build();
   }
 }

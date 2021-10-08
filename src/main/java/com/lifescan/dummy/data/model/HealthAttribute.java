@@ -13,14 +13,14 @@ package com.lifescan.dummy.data.model;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@Data
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class HealthAttribute extends Reading {
@@ -29,5 +29,5 @@ public class HealthAttribute extends Reading {
   private String healthAtributesLookup;
   private List<Annotation> annotation;
   private int healthAttributesValue;
-  private AttributeValue extendedAttributeValue;
+  private AttributeValue extendedAttribute;
 }

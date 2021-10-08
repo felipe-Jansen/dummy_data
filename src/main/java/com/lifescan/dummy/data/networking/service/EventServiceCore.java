@@ -20,6 +20,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface EventServiceCore {
 
   @Headers({
+    "osversion: 14.6",
+    "os: IOS-iPhone12,1",
+    "appname: REVEAL_MOBILE_IOS",
+    "appversion: 4.5.0",
     "Content-Type: application/json",
     "accept: application/json, text/plain, */*",
     "authenticationToken: {token}",

@@ -20,7 +20,7 @@ public interface EventService {
   /**
    * Method responsible for creating the events for each new patient.
    *
-   * @param login
+   * @param login that contains the informations of email and password.
    * @throws JsonProcessingException
    */
   void publishEvent(Login login) throws JsonProcessingException;
