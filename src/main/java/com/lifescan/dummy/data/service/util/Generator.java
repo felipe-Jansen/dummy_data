@@ -37,7 +37,7 @@ public abstract class Generator {
    *
    * @return A single annotation.
    */
-  private static Annotation generatingAnnotation() {
+  protected static Annotation generatingAnnotation() {
     return Annotation.builder().annotation("Felipe Jansen").build();
   }
 
