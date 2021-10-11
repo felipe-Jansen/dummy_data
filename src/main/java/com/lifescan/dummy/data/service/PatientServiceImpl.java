@@ -54,11 +54,8 @@ public class PatientServiceImpl implements PatientService {
     String requestToken = Util.generateRequestToken(patient.getEmailAddress());
     try {
       patientServiceCore.registerPatient(language, country, requestToken, patient);
-      eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
     } catch (FeignException ex) {
       log.error(ex.contentUTF8());
-    } catch (JsonProcessingException ex) {
-      log.error(ex);
     }
   }
 
@@ -80,14 +77,4 @@ public class PatientServiceImpl implements PatientService {
         .build();
   }
 
-  /**
-   * Method responsible for return an object from type login.
-   *
-   * @param emailAddress concerns to the email to do login.
-   * @param password concerns to the password to do login.
-   * @return A single object from type login.
-   */
-  private Login generatingLogin(String emailAddress, String password) {
-    return Login.builder().email(emailAddress).password(password).build();
-  }
 }
