@@ -1,0 +1,55 @@
+/*
+ * @author fjansen@lifescan.com
+ * @version 1
+ * Copyright: Copyright (c) 2021
+ * Company: LifeScan IP Holdings, LLC
+ * This file contains trade secrets of LifeScan IP Holdings, LLC.
+ * No part may be reproduced or transmitted in any
+ * form by any means or for any purpose without the express written
+ * permission of LifeScan IP Holdings, LLC.
+ */
+package com.lifescan.dummy.data.service.util;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import org.apache.commons.codec.digest.DigestUtils;
+
+public class Util {
+
+  /**
+   * Method responsible for generate a SHA1 token from the e-mail.
+   *
+   * @param emailAddress to serve as a base to generate the token.
+   * @return A request token from email.
+   */
+  public static String generateRequestToken(String emailAddress) {
+    return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
+  }
+
+  /**
+   * Method responsible for discovery the country from informed language.
+   *
+   * @param language that contains the information to extract the country.
+   * @return The country informed in the language.
+   */
+  public static String extractCountryFromLanguage(String language) {
+    try {
+      if (language.contains("-")) {
+        return language.split("-")[1];
+      } else {
+        return language.split("_")[1];
+      }
+    } catch (ArrayIndexOutOfBoundsException e) {
+      return language;
+    }
+  }
+
+  /**
+   * Method responsible for generate a date of birth from system date.
+   *
+   * @return A string that concerns to the formatted date of birth.
+   */
+  public static String generateDateOfBirth() {
+    return LocalDateTime.now().minusYears(20).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+  }
+}
