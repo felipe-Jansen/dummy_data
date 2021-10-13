@@ -18,7 +18,6 @@ import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.Carbohydrate;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.JAXBContext;
 
 public abstract class Generator {
 

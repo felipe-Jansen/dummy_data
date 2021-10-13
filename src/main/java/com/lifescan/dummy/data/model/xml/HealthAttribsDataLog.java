@@ -29,7 +29,5 @@ import lombok.Setter;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class HealthAttribsDataLog {
-  @XmlElement
-  private List<HealthAttrib> healthAttribs = new ArrayList<>();
-
+  @XmlElement private List<HealthAttrib> healthAttribs = new ArrayList<>();
 }

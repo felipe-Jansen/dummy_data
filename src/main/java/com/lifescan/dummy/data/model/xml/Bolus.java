@@ -10,9 +10,7 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
-import com.lifescan.dummy.data.model.Annotation;
 import com.lifescan.dummy.data.model.BolusDelivered;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
