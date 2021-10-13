@@ -29,5 +29,6 @@ import lombok.Setter;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FoodDataLogFromXml {
-  @XmlElement private List<FoodFromXml> food = new ArrayList<>();
+  @XmlElement(name = "food")
+  private List<FoodFromXml> food = new ArrayList<>();
 }

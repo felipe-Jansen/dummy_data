@@ -31,5 +31,6 @@ public class BgValueFromXml {
 
   @XmlValue private int value;
 
-  @XmlAttribute private String units;
+  @XmlAttribute(name = "units")
+  private String units;
 }

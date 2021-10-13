@@ -30,5 +30,6 @@ import lombok.Setter;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BolusDataLogFromXml {
 
-  @XmlElement private List<BolusFromXml> bolusFromXmls = new ArrayList<>();
+  @XmlElement(name = "bolus")
+  private List<BolusFromXml> bolus = new ArrayList<>();
 }

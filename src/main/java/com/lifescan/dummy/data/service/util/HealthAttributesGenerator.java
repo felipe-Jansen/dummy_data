@@ -11,8 +11,14 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.HealthAttribute;
+import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
+import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 public class HealthAttributesGenerator extends Generator {
 
@@ -21,21 +27,35 @@ public class HealthAttributesGenerator extends Generator {
    *
    * @return A list of health attributes.
    */
-  public static List<HealthAttribute> generator() {
-    List<HealthAttribute> foodRecords = new ArrayList<>();
-    //    foodRecords.add(
-    //        HealthAttribute.builder()
-    //            .active("true")
-    //            .manual("true")
-    //            .readingDate("2021-09-21 01:12:00")
-    //            .id(String.valueOf(System.currentTimeMillis()))
-    //            .lastUpdatedDate(System.currentTimeMillis())
-    //            .annotationFromXml(generatingAnnotations())
-    //            .healthAttributesValue(120)
-    //
-    // .extendedAttribute(generatingAttributeValue(bgReadingFromXml.getExtendedAttributes()))
-    //            .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
-    //            .build());
-    return foodRecords;
+  public static List<HealthAttribute> returnFromFile(String file) {
+
+    List<HealthAttribute> healthAttributes = new ArrayList<>();
+    try {
+      JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
+      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+      DeviceDataDataSet data = (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
+
+      for (HealthAttribFromXml healthAttribFromXml :
+          data.getHealthAttribsDataLog().getHealthAttrib()) {
+        healthAttributes.add(buildObject(healthAttribFromXml));
+      }
+    } catch (JAXBException ex) {
+    }
+    return healthAttributes;
+  }
+
+  private static HealthAttribute buildObject(HealthAttribFromXml healthAttribFromXml) {
+    return HealthAttribute.builder()
+        .active(healthAttribFromXml.getActive())
+        .manual(healthAttribFromXml.getManual())
+        .readingDate(healthAttribFromXml.getReadingDate())
+        .id(String.valueOf(System.currentTimeMillis()))
+        .lastUpdatedDate(System.currentTimeMillis())
+        .healthAttributesValue(healthAttribFromXml.getHealthAttributesValue())
+        .healthAtributesLookup(healthAttribFromXml.getHealthAtributesLookup())
+        .editable(healthAttribFromXml.getEditable())
+        .extendedAttribute(generatingAttributeValue(healthAttribFromXml.getExtendedAttributes()))
+        .annotation(generatingAnnotations(healthAttribFromXml.getAnnotation()))
+        .build();
   }
 }

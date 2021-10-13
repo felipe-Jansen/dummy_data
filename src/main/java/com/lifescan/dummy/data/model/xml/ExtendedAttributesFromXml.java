@@ -29,5 +29,6 @@ import lombok.experimental.SuperBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ExtendedAttributesFromXml {
 
-  @XmlElement private List<AttributeFromXml> attribute;
+  @XmlElement(name = "attributeValue")
+  private List<AttributeFromXml> attributeValue;
 }

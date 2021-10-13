@@ -29,5 +29,6 @@ import lombok.Setter;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AnnotationsFromXml {
 
-  @XmlElement private List<AnnotationFromXml> annotationFromXml;
+  @XmlElement(name = "annotation")
+  private List<AnnotationFromXml> annotation;
 }

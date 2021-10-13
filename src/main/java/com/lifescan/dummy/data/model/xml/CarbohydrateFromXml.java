@@ -27,5 +27,7 @@ import lombok.Setter;
 public class CarbohydrateFromXml {
 
   @XmlValue private int value;
-  @XmlAttribute private String units;
+
+  @XmlAttribute(name = "units")
+  private String units;
 }

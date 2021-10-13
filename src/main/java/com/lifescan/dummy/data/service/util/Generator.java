@@ -17,8 +17,10 @@ import com.lifescan.dummy.data.model.BgValue;
 import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.xml.AnnotationFromXml;
+import com.lifescan.dummy.data.model.xml.AnnotationsFromXml;
 import com.lifescan.dummy.data.model.xml.AttributeFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
+import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +33,10 @@ public abstract class Generator {
    * @return A list of annotations.
    * @param annotationsFromXml
    */
-  protected static List<Annotation> generatingAnnotations(
-      List<AnnotationFromXml> annotationsFromXml) {
+  protected static List<Annotation> generatingAnnotations(AnnotationsFromXml annotationsFromXml) {
     if (annotationsFromXml != null) {
       List<Annotation> annotations = new ArrayList<>();
-      for (AnnotationFromXml annotationFromXml : annotationsFromXml) {
+      for (AnnotationFromXml annotationFromXml : annotationsFromXml.getAnnotation()) {
         annotations.add(generatingAnnotation(annotationFromXml));
       }
       return annotations;
@@ -78,7 +79,7 @@ public abstract class Generator {
   private static List<Attribute> generatingAttributes(
       ExtendedAttributesFromXml extendedAttributes) {
     List<Attribute> attributes = new ArrayList<>();
-    for (AttributeFromXml attributeFromXml : extendedAttributes.getAttribute()) {
+    for (AttributeFromXml attributeFromXml : extendedAttributes.getAttributeValue()) {
       attributes.add(
           Attribute.builder()
               .value(attributeFromXml.getValue())
@@ -106,9 +107,13 @@ public abstract class Generator {
    * Method responsible for ganerating a single bolusFromXmls delivered.
    *
    * @return A single bolusFromXmls delivered.
+   * @param bolusDelivered
    */
-  protected static BolusDelivered generatingBolusDelivered() {
-    return BolusDelivered.builder().value("55").units("u").build();
+  protected static BolusDelivered generatingBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
+    return BolusDelivered.builder()
+        .value(bolusDelivered.getValue())
+        .units(bolusDelivered.getUnits())
+        .build();
   }
 
   /**

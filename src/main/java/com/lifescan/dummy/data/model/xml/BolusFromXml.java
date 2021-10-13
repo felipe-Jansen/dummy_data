@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
-import com.lifescan.dummy.data.model.BolusDelivered;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -30,10 +29,24 @@ import lombok.experimental.SuperBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BolusFromXml {
 
-  @XmlAttribute private String active;
-  @XmlAttribute private String manual;
-  @XmlAttribute private String readingDate;
-  @XmlElement private String injectedInsulinType;
-  @XmlElement private AnnotationsFromXml annotation;
-  @XmlElement private BolusDelivered bolusDelivered;
+  @XmlAttribute(name = "active")
+  private String active;
+
+  @XmlAttribute(name = "manual")
+  private String manual;
+
+  @XmlAttribute(name = "readingDate")
+  private String readingDate;
+
+  @XmlElement(name = "injectedInsulinType")
+  private String injectedInsulinType;
+
+  @XmlElement(name = "editable")
+  private String editable;
+
+  @XmlElement(name = "annotation")
+  private AnnotationsFromXml annotation;
+
+  @XmlElement(name = "bolusDelivered")
+  private BolusDeliveredFromXml bolusDelivered;
 }

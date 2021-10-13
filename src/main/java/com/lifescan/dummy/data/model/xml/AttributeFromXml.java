@@ -29,8 +29,11 @@ import lombok.experimental.SuperBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AttributeFromXml {
 
-  @XmlAttribute private String name;
-  @XmlAttribute private String type;
+  @XmlAttribute(name = "name")
+  private String name;
+
+  @XmlAttribute(name = "type")
+  private String type;
 
   @XmlValue private String value;
 }

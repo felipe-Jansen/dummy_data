@@ -11,8 +11,14 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.BolusReading;
+import com.lifescan.dummy.data.model.xml.BolusFromXml;
+import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 /** Class responsible for generating the objects with type bolusReading. */
 public class BolusReadingGenerator extends Generator {
@@ -22,19 +28,33 @@ public class BolusReadingGenerator extends Generator {
    *
    * @return A list of bolusFromXmls readings.
    */
-  public static List<BolusReading> generator() {
+  public static List<BolusReading> returnFromFile(String file) {
+
     List<BolusReading> bolusReadings = new ArrayList<>();
-    bolusReadings.add(
-        BolusReading.builder()
-            .active("true")
-            .manual("true")
-            .readingDate("2021-09-21 01:12:00") // This will be informed usin the xml file
-            .id(String.valueOf(System.currentTimeMillis()))
-            .lastUpdatedDate(System.currentTimeMillis())
-            // .annotation(generatingAnnotations(foodFromXml.getAnnotation().getAnnotationFromXml()))
-            .injectedInsulinType("BOLUS_INSULIN_SHORT")
-            .bolusDelivered(generatingBolusDelivered())
-            .build());
+    try {
+      JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
+      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+      DeviceDataDataSet data = (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
+
+      for (BolusFromXml bolusFromXml : data.getBolusDataLog().getBolus()) {
+        bolusReadings.add(buildObject(bolusFromXml));
+      }
+    } catch (JAXBException ex) {
+    }
     return bolusReadings;
+  }
+
+  private static BolusReading buildObject(BolusFromXml bolusFromXml) {
+    return BolusReading.builder()
+        .active(bolusFromXml.getActive())
+        .manual(bolusFromXml.getManual())
+        .readingDate(bolusFromXml.getReadingDate())
+        .id(String.valueOf(System.currentTimeMillis()))
+        .lastUpdatedDate(System.currentTimeMillis())
+        .annotation(generatingAnnotations(bolusFromXml.getAnnotation()))
+        .injectedInsulinType(bolusFromXml.getInjectedInsulinType())
+        .bolusDelivered(generatingBolusDelivered(bolusFromXml.getBolusDelivered()))
+        .editable(bolusFromXml.getEditable())
+        .build();
   }
 }

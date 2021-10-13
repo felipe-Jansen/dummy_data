@@ -51,8 +51,9 @@ public class FoodRecordsGenerator extends Generator {
         .readingDate(foodFromXml.getReadingDate())
         .id(String.valueOf(System.currentTimeMillis()))
         .lastUpdatedDate(System.currentTimeMillis())
-        .annotation(generatingAnnotations(foodFromXml.getAnnotation().getAnnotationFromXml()))
+        .annotation(generatingAnnotations(foodFromXml.getAnnotation()))
         .carbohydrates(generatingCarbohydrates(foodFromXml.getCarbohydrates()))
+        .editable(foodFromXml.getEditable())
         .build();
   }
 }

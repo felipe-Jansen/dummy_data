@@ -10,6 +10,9 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Meta;
@@ -50,18 +53,24 @@ public class EventServiceImpl implements EventService {
    */
   private Event generatingEvent() {
     try {
-      return Event.builder()
-          .bgReadings(BgReadingGenerator.returnFromFile("src/main/resources/Heather.xml"))
-          .foodRecords(FoodRecordsGenerator.returnFromFile("src/main/resources/Heather.xml"))
-          .bolusReadings(BolusReadingGenerator.generator())
-          .healthAttributes(HealthAttributesGenerator.generator())
-          .isBackgroundSync(false)
-          .meta(generatingMeta())
-          .build();
-    } catch (JAXBException e) {
+      Event event =
+          Event.builder()
+              .bgReadings(BgReadingGenerator.returnFromFile("src/main/resources/Heather.xml"))
+              .foodRecords(FoodRecordsGenerator.returnFromFile("src/main/resources/Heather.xml"))
+              .bolusReadings(BolusReadingGenerator.returnFromFile("src/main/resources/Heather.xml"))
+              .healthAttributes(
+                  HealthAttributesGenerator.returnFromFile("src/main/resources/Heather.xml"))
+              .isBackgroundSync(false)
+              .meta(generatingMeta())
+              .build();
+      log.info(event);
+      ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+      String json = ow.writeValueAsString(event);
+      return event;
+    } catch (JAXBException | JsonProcessingException e) {
       e.printStackTrace();
+      return null;
     }
-    return null;
   }
 
   /**
