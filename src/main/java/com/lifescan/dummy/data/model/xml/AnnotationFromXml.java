@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -27,7 +26,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ExtendedAttributes {
+public class AnnotationFromXml {
 
-  @XmlElement private List<AttributeValue> attributeValue;
+  @XmlElement private String active;
+  @XmlElement private String annotation;
+  @XmlElement private String patientEntered;
 }

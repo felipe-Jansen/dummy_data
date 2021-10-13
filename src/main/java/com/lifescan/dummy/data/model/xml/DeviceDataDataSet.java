@@ -30,8 +30,8 @@ import lombok.Setter;
 @XmlRootElement(name = "deviceDataDataSet")
 public class DeviceDataDataSet {
 
-  @XmlElement private BgReadingDataLog bgReadingDataLog;
-  @XmlElement private FoodDataLog foodDataLog;
-  @XmlElement private BolusDataLog bolusDataLog;
-  @XmlElement private HealthAttribsDataLog healthAttribsDataLog;
+  @XmlElement private BgReadingDataLogFromXml bgReadingDataLog;
+  @XmlElement private FoodDataLogFromXml foodDataLog;
+  @XmlElement private BolusDataLogFromXml bolusDataLog;
+  @XmlElement private HealthAttribsDataLogFromXml healthAttribsDataLog;
 }

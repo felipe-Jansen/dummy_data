@@ -10,30 +10,25 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
-public class HealthAttrib {
+public class BolusDataLogFromXml {
 
-  @XmlAttribute private String active;
-  @XmlAttribute private String manual;
-  @XmlAttribute private String readingDate;
-  @XmlElement private Annotations annotation;
-  @XmlElement private String healthAttributesValue;
-  @XmlElement private String healthAtributesLookup;
-  @XmlElement private ExtendedAttributes extendedAttributes;
+  @XmlElement private List<BolusFromXml> bolusFromXmls = new ArrayList<>();
 }

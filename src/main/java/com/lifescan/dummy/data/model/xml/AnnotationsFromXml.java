@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,7 +27,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
-public class BolusDataLog {
+public class AnnotationsFromXml {
 
-  @XmlElement private List<Bolus> bolus = new ArrayList<>();
+  @XmlElement private List<AnnotationFromXml> annotationFromXml;
 }

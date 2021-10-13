@@ -19,6 +19,7 @@ import com.lifescan.dummy.data.service.util.BolusReadingGenerator;
 import com.lifescan.dummy.data.service.util.FoodRecordsGenerator;
 import com.lifescan.dummy.data.service.util.HealthAttributesGenerator;
 import feign.FeignException;
+import javax.xml.bind.JAXBException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,14 +49,19 @@ public class EventServiceImpl implements EventService {
    * @return An object from type Event, that contains the informations readings.
    */
   private Event generatingEvent() {
-    return Event.builder()
-        .bgReadings(BgReadingGenerator.generator())
-        .foodRecords(FoodRecordsGenerator.generator())
-        .bolusReadings(BolusReadingGenerator.generator())
-        .healthAttributes(HealthAttributesGenerator.generator())
-        .isBackgroundSync(false)
-        .meta(generatingMeta())
-        .build();
+    try {
+      return Event.builder()
+          .bgReadings(BgReadingGenerator.returnFromFile("src/main/resources/Heather.xml"))
+          .foodRecords(FoodRecordsGenerator.returnFromFile("src/main/resources/Heather.xml"))
+          .bolusReadings(BolusReadingGenerator.generator())
+          .healthAttributes(HealthAttributesGenerator.generator())
+          .isBackgroundSync(false)
+          .meta(generatingMeta())
+          .build();
+    } catch (JAXBException e) {
+      e.printStackTrace();
+    }
+    return null;
   }
 
   /**

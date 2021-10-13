@@ -13,23 +13,26 @@ package com.lifescan.dummy.data.model.xml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlValue;
+import javax.xml.bind.annotation.XmlElement;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
-public class BgValue {
+public class BgReadingFromXml {
 
-  @XmlValue private String value;
-
-  @XmlAttribute private String units;
+  @XmlElement private BgValueFromXml bgValue;
+  @XmlElement private String mealTag;
+  @XmlAttribute private String active;
+  @XmlAttribute private String manual;
+  @XmlAttribute private String readingDate;
+  @XmlElement private ExtendedAttributesFromXml extendedAttributes;
 }

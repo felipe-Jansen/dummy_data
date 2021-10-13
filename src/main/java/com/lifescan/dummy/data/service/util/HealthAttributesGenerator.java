@@ -23,18 +23,19 @@ public class HealthAttributesGenerator extends Generator {
    */
   public static List<HealthAttribute> generator() {
     List<HealthAttribute> foodRecords = new ArrayList<>();
-    foodRecords.add(
-        HealthAttribute.builder()
-            .active("true")
-            .manual("true")
-            .readingDate("2021-09-21 01:12:00")
-            .id(String.valueOf(System.currentTimeMillis()))
-            .lastUpdatedDate(System.currentTimeMillis())
-            .annotation(generatingAnnotations())
-            .healthAttributesValue(120)
-            .extendedAttribute(generatingAttributeValue())
-            .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
-            .build());
+    //    foodRecords.add(
+    //        HealthAttribute.builder()
+    //            .active("true")
+    //            .manual("true")
+    //            .readingDate("2021-09-21 01:12:00")
+    //            .id(String.valueOf(System.currentTimeMillis()))
+    //            .lastUpdatedDate(System.currentTimeMillis())
+    //            .annotationFromXml(generatingAnnotations())
+    //            .healthAttributesValue(120)
+    //
+    // .extendedAttribute(generatingAttributeValue(bgReadingFromXml.getExtendedAttributes()))
+    //            .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
+    //            .build());
     return foodRecords;
   }
 }

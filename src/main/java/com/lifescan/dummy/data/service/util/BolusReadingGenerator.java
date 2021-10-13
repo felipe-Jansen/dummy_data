@@ -18,9 +18,9 @@ import java.util.List;
 public class BolusReadingGenerator extends Generator {
 
   /**
-   * Method responsible for returning a list of bolus reading.
+   * Method responsible for returning a list of bolusFromXmls reading.
    *
-   * @return A list of bolus readings.
+   * @return A list of bolusFromXmls readings.
    */
   public static List<BolusReading> generator() {
     List<BolusReading> bolusReadings = new ArrayList<>();
@@ -31,7 +31,7 @@ public class BolusReadingGenerator extends Generator {
             .readingDate("2021-09-21 01:12:00") // This will be informed usin the xml file
             .id(String.valueOf(System.currentTimeMillis()))
             .lastUpdatedDate(System.currentTimeMillis())
-            .annotation(generatingAnnotations())
+            // .annotation(generatingAnnotations(foodFromXml.getAnnotation().getAnnotationFromXml()))
             .injectedInsulinType("BOLUS_INSULIN_SHORT")
             .bolusDelivered(generatingBolusDelivered())
             .build());

@@ -10,8 +10,11 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlValue;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,8 +27,8 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class BolusDelivered {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class BgReadingDataLogFromXml {
 
-  @XmlValue private String value;
-  @XmlAttribute private String units;
+  @XmlElement private List<BgReadingFromXml> bgReading = new ArrayList<>();
 }

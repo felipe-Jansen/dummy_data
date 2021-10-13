@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
+import com.lifescan.dummy.data.model.Carbohydrate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -27,12 +28,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
-public class BgReading {
-
-  @XmlElement private BgValue bgValue;
-  @XmlElement private String mealTag;
+public class FoodFromXml {
   @XmlAttribute private String active;
   @XmlAttribute private String manual;
   @XmlAttribute private String readingDate;
-  @XmlElement private ExtendedAttributes extendedAttributes;
+  @XmlElement private String editable;
+  @XmlElement private Carbohydrate carbohydrates;
+  @XmlElement private AnnotationsFromXml annotation;
 }

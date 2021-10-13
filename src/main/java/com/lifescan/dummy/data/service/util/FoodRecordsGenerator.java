@@ -11,29 +11,48 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.FoodRecord;
+import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
+import com.lifescan.dummy.data.model.xml.FoodFromXml;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 /** Class responsible for generating the objects with type foodRecord. */
 public class FoodRecordsGenerator extends Generator {
 
   /**
-   * Method responsible for returning a list of food records.
+   * Method responsible for returning a list of foodFromXml records.
    *
-   * @return A list of food records.
+   * @return A list of foodFromXml records.
    */
-  public static List<FoodRecord> generator() {
+  public static List<FoodRecord> returnFromFile(String file) {
+
     List<FoodRecord> foodRecords = new ArrayList<>();
-    foodRecords.add(
-        FoodRecord.builder()
-            .active("true")
-            .manual("true")
-            .readingDate("2021-09-21 01:12:00")
-            .id(String.valueOf(System.currentTimeMillis()))
-            .lastUpdatedDate(System.currentTimeMillis())
-            .annotation(generatingAnnotations())
-            .carbohydrates(generatingCarbohydrates())
-            .build());
+    try {
+      JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
+      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+      DeviceDataDataSet data = (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
+
+      for (FoodFromXml foodFromXml : data.getFoodDataLog().getFood()) {
+        foodRecords.add(buildObject(foodFromXml));
+      }
+    } catch (JAXBException ex) {
+    }
     return foodRecords;
+  }
+
+  private static FoodRecord buildObject(FoodFromXml foodFromXml) {
+    return FoodRecord.builder()
+        .active(foodFromXml.getActive())
+        .manual(foodFromXml.getManual())
+        .readingDate(foodFromXml.getReadingDate())
+        .id(String.valueOf(System.currentTimeMillis()))
+        .lastUpdatedDate(System.currentTimeMillis())
+        .annotation(generatingAnnotations(foodFromXml.getAnnotation().getAnnotationFromXml()))
+        .carbohydrates(generatingCarbohydrates(foodFromXml.getCarbohydrates()))
+        .build();
   }
 }
