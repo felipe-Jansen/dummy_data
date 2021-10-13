@@ -31,4 +31,7 @@ import lombok.Setter;
 public class DeviceDataDataSet {
 
   @XmlElement private BgReadingDataLog bgReadingDataLog;
+  @XmlElement private FoodDataLog foodDataLog;
+  @XmlElement private BolusDataLog bolusDataLog;
+  @XmlElement private HealthAttribsDataLog healthAttribsDataLog;
 }

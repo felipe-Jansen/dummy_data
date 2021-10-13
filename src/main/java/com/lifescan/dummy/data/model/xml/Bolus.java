@@ -36,6 +36,6 @@ public class Bolus {
   @XmlAttribute private String manual;
   @XmlAttribute private String readingDate;
   @XmlElement private String injectedInsulinType;
-  private List<Annotation> annotation;
+  @XmlElement private Annotations annotation;
   @XmlElement private BolusDelivered bolusDelivered;
 }

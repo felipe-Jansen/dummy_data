@@ -11,10 +11,17 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.BgReading;
+import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type bgReading. */
+@Log4j2
 public class BgReadingGenerator extends Generator {
 
   /**
@@ -23,6 +30,15 @@ public class BgReadingGenerator extends Generator {
    * @return A list of blood glucose readings.
    */
   public static List<BgReading> generator() {
+    try {
+      JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
+      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+      DeviceDataDataSet employee = (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File("src/main/resources/Marianne.xml"));
+      // log.info("employee - {}", employee.getBgReadingDataLog());
+    } catch (JAXBException ex) {
+      log.error(ex.getMessage());
+    }
+
     List<BgReading> bgReadings = new ArrayList<>();
     bgReadings.add(
         BgReading.builder()

@@ -34,7 +34,7 @@ public class HealthAttrib {
   @XmlAttribute private String active;
   @XmlAttribute private String manual;
   @XmlAttribute private String readingDate;
-  @XmlElement private List<Annotation> annotation;
+  @XmlElement private Annotations annotation;
   @XmlElement private String healthAttributesValue;
   @XmlElement private String healthAtributesLookup;
   @XmlElement private ExtendedAttributes extendedAttributes;
