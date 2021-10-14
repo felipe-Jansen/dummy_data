@@ -12,15 +12,13 @@ package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.BolusReading;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
-import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type bolusReading. */
+@Log4j2
 public class BolusReadingGenerator extends Generator {
 
   /**
@@ -32,14 +30,11 @@ public class BolusReadingGenerator extends Generator {
 
     List<BolusReading> bolusReadings = new ArrayList<>();
     try {
-      JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
-      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-      DeviceDataDataSet data = (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
-
-      for (BolusFromXml bolusFromXml : data.getBolusDataLog().getBolus()) {
+      for (BolusFromXml bolusFromXml : getDeviceDataDataSet(file).getBolusDataLog().getBolus()) {
         bolusReadings.add(buildObject(bolusFromXml));
       }
     } catch (JAXBException ex) {
+      log.error("Error when generating bolusReading");
     }
     return bolusReadings;
   }

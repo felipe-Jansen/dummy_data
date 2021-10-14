@@ -11,16 +11,14 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.FoodRecord;
-import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type foodRecord. */
+@Log4j2
 public class FoodRecordsGenerator extends Generator {
 
   /**
@@ -32,14 +30,11 @@ public class FoodRecordsGenerator extends Generator {
 
     List<FoodRecord> foodRecords = new ArrayList<>();
     try {
-      JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
-      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-      DeviceDataDataSet data = (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
-
-      for (FoodFromXml foodFromXml : data.getFoodDataLog().getFood()) {
+      for (FoodFromXml foodFromXml : getDeviceDataDataSet(file).getFoodDataLog().getFood()) {
         foodRecords.add(buildObject(foodFromXml));
       }
     } catch (JAXBException ex) {
+      log.error("Error when generating foodRecords");
     }
     return foodRecords;
   }

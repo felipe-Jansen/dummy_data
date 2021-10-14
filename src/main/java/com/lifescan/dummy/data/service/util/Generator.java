@@ -21,17 +21,23 @@ import com.lifescan.dummy.data.model.xml.AnnotationsFromXml;
 import com.lifescan.dummy.data.model.xml.AttributeFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
+import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
+import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 public abstract class Generator {
 
   /**
-   * Method responcible for returning a new list of annotations.
+   * Method responsible for returning a new list of annotations.
    *
    * @return A list of annotations.
-   * @param annotationsFromXml
+   * @param annotationsFromXml Concerns to the list of data that comes from xml file
    */
   protected static List<Annotation> generatingAnnotations(AnnotationsFromXml annotationsFromXml) {
     if (annotationsFromXml != null) {
@@ -49,7 +55,7 @@ public abstract class Generator {
    * Method responsible for generating a single annotationFromXml
    *
    * @return A single annotationFromXml.
-   * @param annotationFromXml
+   * @param annotationFromXml Concerns to the data that comes from xml file
    */
   protected static Annotation generatingAnnotation(AnnotationFromXml annotationFromXml) {
     return Annotation.builder().annotation(annotationFromXml.getAnnotation()).build();
@@ -59,7 +65,7 @@ public abstract class Generator {
    * Method responsible for setting the attributes values.
    *
    * @return A single attribute value.
-   * @param extendedAttributes
+   * @param extendedAttributes Concerns to the list of data that comes from xml file
    */
   protected static AttributeValue generatingAttributeValue(
       ExtendedAttributesFromXml extendedAttributes) {
@@ -74,7 +80,7 @@ public abstract class Generator {
    * Method responsible for generating attributes.
    *
    * @return A list of attributes.
-   * @param extendedAttributes
+   * @param extendedAttributes Concerns to the list of data that comes from xml file
    */
   private static List<Attribute> generatingAttributes(
       ExtendedAttributesFromXml extendedAttributes) {
@@ -94,9 +100,9 @@ public abstract class Generator {
    * Method responsible for ganerating a single carbohydrate.
    *
    * @return A single carbohydrate.
-   * @param carbohydrates
+   * @param carbohydrates Concerns to the data that comes from xml file
    */
-  protected static Carbohydrate generatingCarbohydrates(Carbohydrate carbohydrates) {
+  protected static Carbohydrate generatingCarbohydrates(CarbohydrateFromXml carbohydrates) {
     return Carbohydrate.builder()
         .value(carbohydrates.getValue())
         .units(carbohydrates.getUnits())
@@ -107,7 +113,7 @@ public abstract class Generator {
    * Method responsible for ganerating a single bolusFromXmls delivered.
    *
    * @return A single bolusFromXmls delivered.
-   * @param bolusDelivered
+   * @param bolusDelivered Concerns to the data that comes from xml file
    */
   protected static BolusDelivered generatingBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
     return BolusDelivered.builder()
@@ -120,9 +126,15 @@ public abstract class Generator {
    * Method responsible for generating a single bg value.
    *
    * @return A single bolusFromXmls reading.
-   * @param bgValue
+   * @param bgValue Concerns to the data that comes from xml file
    */
   protected static BgValue generatingBgValue(BgValueFromXml bgValue) {
     return BgValue.builder().value(bgValue.getValue()).units(bgValue.getUnits()).build();
+  }
+
+  protected static DeviceDataDataSet getDeviceDataDataSet(String file) throws JAXBException {
+    JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
+    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+    return (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
   }
 }

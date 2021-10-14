@@ -11,15 +11,13 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.HealthAttribute;
-import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class HealthAttributesGenerator extends Generator {
 
   /**
@@ -31,15 +29,12 @@ public class HealthAttributesGenerator extends Generator {
 
     List<HealthAttribute> healthAttributes = new ArrayList<>();
     try {
-      JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
-      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-      DeviceDataDataSet data = (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
-
       for (HealthAttribFromXml healthAttribFromXml :
-          data.getHealthAttribsDataLog().getHealthAttrib()) {
+          getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib()) {
         healthAttributes.add(buildObject(healthAttribFromXml));
       }
     } catch (JAXBException ex) {
+      log.error("Error when generating healthAttributes");
     }
     return healthAttributes;
   }

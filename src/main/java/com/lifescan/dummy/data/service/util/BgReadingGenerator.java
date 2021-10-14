@@ -12,13 +12,9 @@ package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.BgReading;
 import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
-import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type bgReadingFromXml. */
@@ -33,14 +29,12 @@ public class BgReadingGenerator extends Generator {
   public static List<BgReading> returnFromFile(String file) throws JAXBException {
     List<BgReading> bgReadings = new ArrayList<>();
     try {
-      JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
-      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-      DeviceDataDataSet data = (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
-
-      for (BgReadingFromXml bgReadingFromXml : data.getBgReadingDataLog().getBgReading()) {
+      for (BgReadingFromXml bgReadingFromXml :
+          getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading()) {
         bgReadings.add(buildObject(bgReadingFromXml));
       }
     } catch (JAXBException ex) {
+      log.error("Error when generating bgReading.");
     }
     return bgReadings;
   }

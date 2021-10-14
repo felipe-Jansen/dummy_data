@@ -8,25 +8,17 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.model;
+package com.lifescan.dummy.data.constants;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-@SuperBuilder
-@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@EqualsAndHashCode(callSuper = false)
-public class BgReading extends Reading {
+public class PresetsConstants {
 
-  private AttributeValue extendedAttributes;
-  private String mealTag;
-  private BgValue bgValue;
+  public static final String EMILY = "src/main/resources/Emily.xml";
+  public static final String HARRY = "src/main/resources/Harry.xml";
+  public static final String HEATHER = "src/main/resources/Heather.xml";
+  public static final String MARIANNE = "src/main/resources/Marianne.xml";
+  public static final String SEBASTIAN = "src/main/resources/Sebastian.xml";
 }

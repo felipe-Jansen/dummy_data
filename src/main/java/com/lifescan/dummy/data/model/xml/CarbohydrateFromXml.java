@@ -10,6 +10,8 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlValue;
 import lombok.AccessLevel;
@@ -24,6 +26,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CarbohydrateFromXml {
 
   @XmlValue private int value;

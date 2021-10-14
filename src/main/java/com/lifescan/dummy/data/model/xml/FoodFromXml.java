@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
-import com.lifescan.dummy.data.model.Carbohydrate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -42,7 +41,7 @@ public class FoodFromXml {
   private String editable;
 
   @XmlElement(name = "carbohydrates")
-  private Carbohydrate carbohydrates;
+  private CarbohydrateFromXml carbohydrates;
 
   @XmlElement(name = "annotation")
   private AnnotationsFromXml annotation;
