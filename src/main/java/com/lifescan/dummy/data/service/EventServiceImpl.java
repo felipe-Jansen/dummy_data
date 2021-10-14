@@ -75,7 +75,6 @@ public class EventServiceImpl implements EventService {
    * @return A single object from type Meta.
    */
   private Meta generatingMeta() {
-
     return Meta.builder().sourceApp("REVEAL_MOBILE_IOS").sourceAppVersion("5.3.1").build();
   }
 }
