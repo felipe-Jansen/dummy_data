@@ -43,7 +43,7 @@ public class BolusReadingGenerator extends Generator {
     return BolusReading.builder()
         .active(bolusFromXml.getActive())
         .manual(bolusFromXml.getManual())
-        .readingDate(bolusFromXml.getReadingDate())
+        .readingDate(getReadingDateFormatted())
         .id(String.valueOf(System.currentTimeMillis()))
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generatingAnnotations(bolusFromXml.getAnnotation()))

@@ -12,6 +12,8 @@ package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.BgReading;
 import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.JAXBException;
@@ -43,7 +45,7 @@ public class BgReadingGenerator extends Generator {
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(bgReading.getReadingDate())
+        .readingDate(getReadingDateFormatted())
         .id(String.valueOf(System.currentTimeMillis()))
         .extendedAttributes(generatingAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generatingBgValue(bgReading.getBgValue()))
@@ -51,4 +53,6 @@ public class BgReadingGenerator extends Generator {
         .lastUpdatedDate(System.currentTimeMillis())
         .build();
   }
+
+
 }

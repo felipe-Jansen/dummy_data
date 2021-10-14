@@ -43,7 +43,7 @@ public class FoodRecordsGenerator extends Generator {
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
         .manual(foodFromXml.getManual())
-        .readingDate(foodFromXml.getReadingDate())
+        .readingDate(getReadingDateFormatted())
         .id(String.valueOf(System.currentTimeMillis()))
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generatingAnnotations(foodFromXml.getAnnotation()))

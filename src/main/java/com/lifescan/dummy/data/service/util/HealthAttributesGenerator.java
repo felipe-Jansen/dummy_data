@@ -43,7 +43,7 @@ public class HealthAttributesGenerator extends Generator {
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
-        .readingDate(healthAttribFromXml.getReadingDate())
+        .readingDate(getReadingDateFormatted())
         .id(String.valueOf(System.currentTimeMillis()))
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(healthAttribFromXml.getHealthAttributesValue())

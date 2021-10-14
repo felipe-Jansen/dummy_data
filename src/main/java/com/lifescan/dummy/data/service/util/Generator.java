@@ -25,6 +25,8 @@ import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
 import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
 import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
@@ -137,4 +139,14 @@ public abstract class Generator {
     Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
     return (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
   }
+
+  /**
+   *  Method responsible for get the system's data and convert to string following the pattern yyyy-MM-dd HH:mm:ss
+   * @return Localdatetime formatted as string
+   */
+  static String getReadingDateFormatted() {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    return LocalDateTime.now().format(formatter);
+  }
+
 }
