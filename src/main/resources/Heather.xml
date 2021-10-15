@@ -1,68 +1,922 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<deviceDataDataSet>
-  <basalDataLog/>
-  <bgReadingDataLog>
-    <bgReading active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
-      futureDated="false" imported="false"
-      manual="false" readingDate="2020-10-14T19:12:11">
-      <bgValue units="mg/dL">159</bgValue>
-      <cgmCalibration>false</cgmCalibration>
-      <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </bgReading>
-  </bgReadingDataLog>
-  <bolusDataLog>
-    <bolus active="true" deviceSerialNumber="XXXXXXXX"
-      deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
-      mixedDated="false"
-      omitted="false" readingDate="2020-10-29T22:42:16">
-      <bgCorrection>false</bgCorrection>
-      <bolusDelivered units="U">10</bolusDelivered>
-      <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
-      <mealCorrection>false</mealCorrection>
-    </bolus>
-  </bolusDataLog>
-  <cgmDataLog/>
-  <description>Data Set for Trident Training [ttc.patient20]</description>
-  <deviceEventDataLog/>
-  <deviceSettingsDataLog/>
-  <foodDataLog>
-    <food active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
-      edited="false" futureDated="false"
-      imported="true" manual="false" mixedDated="false" omitted="false"
-      readingDate="2020-11-02T10:30:32">
-      <annotation>
-        <active>true</active>
-        <annotation>Oatmeal with apple and walnuts</annotation>
-        <patientEntered>true</patientEntered>
-      </annotation>
-      <carbohydrates units="g">50</carbohydrates>
-      <extendedAttributes>
-        <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
-      </extendedAttributes>
-      <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </food>
-  </foodDataLog>
-  <healthAttribsDataLog>
-    <healthAttrib active="true" clockOff="false"
-      deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="true"
-      edited="false" futureDated="false"
-      imported="true" manual="false" mixedDated="false" omitted="false"
-      readingDate="2020-10-31T14:40:00">
-      <annotation>
-        <active>true</active>
-        <annotation>Lunch hour walk</annotation>
-        <patientEntered>true</patientEntered>
-      </annotation>
-      <extendedAttributes>
-        <attributeValue name="dataLogs_healthAttributes_excersizeIntensity" type="string">
-          EXERCISE_INTENSITY_MILD
-        </attributeValue>
-      </extendedAttributes>
-      <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
-      <healthAttributesValue>20</healthAttributesValue>
-    </healthAttrib>
-  </healthAttribsDataLog>
-  <tddDataLog/>
+<deviceDataDataSet name="Trident Training - ttc.patient20" author="Douglas Santos">
+    <description>Data Set for Trident Training [ttc.patient20]</description>
+    <cgmDataLog/>
+    <basalDataLog/>
+    <bolusDataLog>
+         <bolus readingDate="2020-11-11T22:52:35" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">16</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-10T23:24:53" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">16</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-09T23:51:38" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">14</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-08T23:45:15" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">14</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-07T22:16:25" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">14</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-06T23:51:40" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">14</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-05T22:19:44" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">12</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-04T23:31:23" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">12</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-03T22:49:27" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">12</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-02T23:19:27" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">12</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-11-01T23:27:51" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">10</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-10-31T22:47:27" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">10</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-10-30T23:42:22" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">10</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+         <bolus readingDate="2020-10-29T22:42:16" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" active="true" entryType="ENTRY_TYPE_BOLUS" imported="true" omitted="false" mixedDated="false">
+            <bolusDelivered units="U">10</bolusDelivered>
+            <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
+            <bgCorrection>false</bgCorrection>
+            <mealCorrection>false</mealCorrection>
+         </bolus>
+    </bolusDataLog>
+    <foodDataLog>
+         <food readingDate="2020-11-11T10:33:34" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Oatmeal with apple and walnuts</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">50</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-11T19:17:33" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Pineapple beef, rice, and vegetables</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">55</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-10T10:22:13" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Eggs on toast and tea</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">21</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-10T14:57:47" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Chicken, wild rice, and broccoli</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">35</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-09T09:48:13" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Eggs on toast and tea</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">21</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-09T16:25:24" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Pork kebabs, salad, and yoghurt parfait</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">65</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-09T19:22:18" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Chicken, wild rice, and broccoli</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">41</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-08T10:51:52" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Banana bread and tea</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">28</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-08T14:31:42" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Tuna salad sandwich</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">37</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-08T20:59:19" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Pork kebabs and vegetables</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">43</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-07T15:22:54" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Tuna casserole and chocolate bar</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">54</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-07T19:13:32" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Thai take out</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">160</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-06T09:38:50" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Banana berry yoghurt smoothie</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">40</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-06T16:11:37" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Chicken wrap and mixed fruit.</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">72</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-06T20:29:59" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Tuna casserole</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">45</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-05T10:35:39" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Banana berry yoghurt smoothie</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">40</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-05T20:28:55" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Ramen and mango crab roll</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">80</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-04T09:41:47" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Oatmeal with apple and walnuts</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">50</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-04T20:52:33" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Chicken caesar salad wrap.</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">40</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-03T10:43:33" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Croissant and an orange</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">30</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-03T19:32:46" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Beef tacos</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">55</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-02T10:30:32" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Oatmeal with apple and walnuts</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">50</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-02T14:28:17" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Salmon with wild rice and green beans. Donut for dessert</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">66</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-02T21:40:55" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Beef tacos</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">55</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-01T09:17:40" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Oatmeal with apple and walnuts</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">50</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-01T14:47:59" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Salmon with yams and green beans</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">52</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-11-01T21:25:47" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Chickpea vegetable salad. Also had carrot cake.</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">67</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-10-31T14:22:15" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Beef and vegetable fajitas</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">34</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-10-31T20:34:58" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Salmon with wild rice and green beans</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">45</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-10-30T09:59:25" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Banana berry yoghurt smoothie</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">60</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-10-30T15:35:56" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Beef and vegetable fajitas. Banana snack</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">50</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-10-30T19:43:46" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Chickpea vegetable salad</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">42</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-10-29T16:44:26" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Chickpea vegetable salad</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">42</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+         <food readingDate="2020-10-29T19:37:24" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="false" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_ordinal">0</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Beef and vegetable fajitas</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <carbohydrates units="g">34</carbohydrates>
+             <mealSize>MEAL_SIZE_LARGE</mealSize>
+         </food>
+    </foodDataLog>
+    <tddDataLog/>
+    <healthAttribsDataLog>
+         <healthAttrib readingDate="2020-11-05T17:30:00" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="true" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_healthAttributes_excersizeIntensity">EXERCISE_INTENSITY_MILD</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Walk</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
+             <healthAttributesValue>60</healthAttributesValue>
+         </healthAttrib>
+         <healthAttrib readingDate="2020-11-04T11:00:00" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="true" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_healthAttributes_excersizeIntensity">EXERCISE_INTENSITY_MILD</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Walk around the park and farmers market.</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
+             <healthAttributesValue>90</healthAttributesValue>
+         </healthAttrib>
+         <healthAttrib readingDate="2020-11-03T14:54:37" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="true" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_healthAttributes_excersizeIntensity">EXERCISE_INTENSITY_MILD</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Walked around the neighbourhood.</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
+             <healthAttributesValue>45</healthAttributesValue>
+         </healthAttrib>
+         <healthAttrib readingDate="2020-10-31T14:40:00" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" mixedDated="false" imported="true" editable="true" omitted="false" >
+            <extendedAttributes>
+                <attributeValue type="string" name="dataLogs_healthAttributes_excersizeIntensity">EXERCISE_INTENSITY_MILD</attributeValue>
+            </extendedAttributes>
+            <annotation>
+                <annotation>Lunch hour walk</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+             <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
+             <healthAttributesValue>20</healthAttributesValue>
+         </healthAttrib>
+    </healthAttribsDataLog>
+    <bgReadingDataLog>
+        <bgReading readingDate="2020-11-11T10:45:26" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">146</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-11T15:22:15" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <annotation>
+                <annotation>Left over bbq</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+            <bgValue units="mg/dL">155</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-11T20:56:12" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">142</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-10T06:32:23" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">88</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-10T09:52:53" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">109</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-10T14:18:25" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">106</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-10T21:22:54" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <annotation>
+                <annotation>Family bbq</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+            <bgValue units="mg/dL">159</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-09T06:38:43" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">95</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-09T09:52:27" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">106</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-09T16:27:11" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">166</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-09T20:11:48" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">132</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-08T08:35:39" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">121</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-08T09:57:42" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">120</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-08T16:40:12" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">126</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-08T20:47:34" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">139</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-07T06:59:19" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">86</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-07T14:26:35" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">130</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-07T20:13:43" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">205</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-06T06:33:46" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">95</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-06T10:54:59" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">177</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-06T16:49:19" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">173</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-06T20:57:48" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">114</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-05T07:29:40" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">99</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-05T09:40:15" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">147</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-05T19:49:30" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">160</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-04T07:32:16" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">90</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-04T10:55:57" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">135</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-04T15:30:48" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">141</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-04T21:44:56" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">112</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-03T08:22:13" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">117</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-03T09:37:52" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">110</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-03T19:40:10" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">171</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-02T07:51:59" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">94</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-02T10:39:53" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">117</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-02T14:28:40" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">198</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-02T20:12:49" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">121</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-01T08:57:50" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">86</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-01T10:17:59" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">123</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-01T16:27:47" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <annotation>
+                <annotation>Ate at my desk</annotation>
+                <patientEntered>true</patientEntered>
+                <active>true</active>
+            </annotation>
+            <bgValue units="mg/dL">188</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-11-01T20:24:42" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">169</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-31T08:50:47" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">106</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-31T15:21:56" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">121</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-31T21:57:36" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">119</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-30T08:32:48" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">90</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-30T10:22:58" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">211</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-30T16:34:47" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">169</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-30T21:52:17" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">115</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-29T07:56:29" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">83</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-29T16:44:38" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">130</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-29T21:11:15" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">139</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-28T08:57:44" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">141</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-28T21:15:54" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">146</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-27T19:41:50" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">153</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-26T08:39:36" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">171</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-26T20:38:48" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">208</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-24T07:20:33" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">190</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-24T20:33:50" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">246</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-23T07:41:15" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">184</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-22T06:31:36" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">173</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-21T07:12:41" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">139</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-21T21:25:57" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">148</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-20T20:58:52" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">161</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-19T08:11:18" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">170</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-19T21:53:29" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">205</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-17T06:10:26" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">189</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-17T20:58:43" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">233</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-16T06:49:31" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">188</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-15T08:57:48" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">174</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-14T17:42:29" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">109</bgValue>
+            <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+        <bgReading readingDate="2020-10-14T19:12:11" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" deviceSerialNumber="XXXXXXXX" clockOff="false" active="true" edited="false" manual="false" futureDated="false" imported="false">
+            <bgValue units="mg/dL">159</bgValue>
+            <mealTag>MEAL_TAG_POST_MEAL</mealTag>
+             <cgmCalibration>false</cgmCalibration>
+        </bgReading>
+    </bgReadingDataLog>
+    <deviceEventDataLog/>
+    <deviceSettingsDataLog/>
 </deviceDataDataSet>
