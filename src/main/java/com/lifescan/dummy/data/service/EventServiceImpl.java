@@ -10,9 +10,6 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.lifescan.dummy.data.constants.PresetsConstants;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
@@ -41,8 +38,9 @@ public class EventServiceImpl implements EventService {
   @Override
   public void publishEvent(Login login) {
     try {
-      eventServiceCore.publishEvent(securityService.doLogin(login), generatingEvent());
-      log.info("Event created!");
+      eventServiceCore.publishEvent(
+          securityService.doLogin(login), generatingEvent(PresetsConstants.HARRY));
+      log.info("Events created with successfully!");
     } catch (FeignException ex) {
       log.error(ex.contentUTF8());
     }
@@ -53,13 +51,13 @@ public class EventServiceImpl implements EventService {
    *
    * @return An object from type Event, that contains the informations readings.
    */
-  private Event generatingEvent() {
+  private Event generatingEvent(String presetSelected) {
     try {
       return Event.builder()
-          .bgReadings(BgReadingGenerator.returnFromFile(PresetsConstants.HEATHER))
-          .foodRecords(FoodRecordsGenerator.returnFromFile(PresetsConstants.HEATHER))
-          .bolusReadings(BolusReadingGenerator.returnFromFile(PresetsConstants.HEATHER))
-          .healthAttributes(HealthAttributesGenerator.returnFromFile(PresetsConstants.HEATHER))
+          .bgReadings(BgReadingGenerator.returnFromFile(presetSelected))
+          .foodRecords(FoodRecordsGenerator.returnFromFile(presetSelected))
+          .bolusReadings(BolusReadingGenerator.returnFromFile(presetSelected))
+          .healthAttributes(HealthAttributesGenerator.returnFromFile(presetSelected))
           .isBackgroundSync(false)
           .meta(generatingMeta())
           .build();

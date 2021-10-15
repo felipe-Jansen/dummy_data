@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service.util;
 
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.Annotation;
 import com.lifescan.dummy.data.model.Attribute;
 import com.lifescan.dummy.data.model.AttributeValue;
@@ -29,11 +30,21 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public abstract class Generator {
+
+  /**
+   * Method responsible for get the system's data and convert to string following the pattern
+   * yyyy-MM-dd HH:mm:ss
+   *
+   */
+  private static LocalDateTime localDateTime = LocalDateTime.now();
 
   /**
    * Method responsible for returning a new list of annotations.
@@ -134,6 +145,14 @@ public abstract class Generator {
     return BgValue.builder().value(bgValue.getValue()).units(bgValue.getUnits()).build();
   }
 
+  /**
+   * Method responsible for reading the object that was in the xml file and converting it into a
+   * java object.
+   *
+   * @param file that concerns to the name of xml
+   * @return the object created by information in xml file
+   * @throws JAXBException that concerns to the errors when trying to read the xml file
+   */
   protected static DeviceDataDataSet getDeviceDataDataSet(String file) throws JAXBException {
     JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
     Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -141,12 +160,23 @@ public abstract class Generator {
   }
 
   /**
-   *  Method responsible for get the system's data and convert to string following the pattern yyyy-MM-dd HH:mm:ss
-   * @return Localdatetime formatted as string
+   * Method responsible for generating a reading date for the events. Note: each calling to this
+   * function increments a delay to time.
+   *
+   * @return A string with the formatted date
    */
-  static String getReadingDateFormatted() {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    return LocalDateTime.now().format(formatter);
+  static String generatingReadingDateFormatted() {
+    localDateTime = localDateTime.plusMinutes(ConfigConstants.DELAY_TIME_BETWEEN_EVENTS);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
+    return localDateTime.format(formatter);
   }
 
+  /**
+   * Method resonsible for generating new UUID's for the events.
+   *
+   * @return A new UUID
+   */
+  static String generatingId() {
+    return UUID.randomUUID().toString().replace("-", "");
+  }
 }
