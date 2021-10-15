@@ -37,7 +37,7 @@ public class PatientServiceImpl implements PatientService {
     log.info("Country -> {}", country);
     log.info("qtdPatients -> {}", qtdPatients);
     for (int i = 0; i < qtdPatients; i++) {
-      save(language, country);
+      publishingEvent(save(language, country));
     }
   }
 
@@ -49,17 +49,38 @@ public class PatientServiceImpl implements PatientService {
    * @param country A patient need to have a country associated, this param concerns to this
    *     information.
    */
-  private void save(String language, String country) {
+  private Patient save(String language, String country) {
     Patient patient = generatingPatient();
     String requestToken = Util.generateRequestToken(patient.getEmailAddress());
     try {
-      patientServiceCore.registerPatient(language, country, requestToken, patient);
-      eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
+      registerPatient(language, country, patient, requestToken);
     } catch (FeignException ex) {
       log.error(ex.contentUTF8());
-    } catch (JsonProcessingException ex) {
-      log.error(ex.getMessage());
     }
+    return patient;
+  }
+
+  /**
+   * Method responsible for publishing the events
+   * @param patient that contains the patient's information
+   */
+  private void publishingEvent(Patient patient) {
+    try {
+    eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
+    } catch (JsonProcessingException ex) {
+      log.error("Error when publishing event!");
+    }
+  }
+
+  /**
+   * Method responsible for register patients
+   * @param language it concerns to native language ot the patient
+   * @param country it concerns to country ot the patient
+   * @param patient it concerns to general patient's information
+   * @param requestToken it concerns to the native language ot the patient
+   */
+  private void registerPatient(String language, String country, Patient patient, String requestToken) {
+    patientServiceCore.registerPatient(language, country, requestToken, patient);
   }
 
   /**
