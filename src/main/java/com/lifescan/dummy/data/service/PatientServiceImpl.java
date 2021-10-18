@@ -31,12 +31,12 @@ public class PatientServiceImpl implements PatientService {
   private final EventService eventService;
 
   /** {@inheritDoc} */
-  public void create(String language, Integer qtdPatients) {
+  public void create(String language, Integer numberPatients) {
     String country = Util.extractCountryFromLanguage(language);
     log.info("language -> {}", language);
     log.info("Country -> {}", country);
-    log.info("qtdPatients -> {}", qtdPatients);
-    for (int i = 0; i < qtdPatients; i++) {
+    log.info("qtdPatients -> {}", numberPatients);
+    for (int i = 0; i < numberPatients; i++) {
       publishingEvent(save(language, country));
     }
   }
@@ -62,11 +62,12 @@ public class PatientServiceImpl implements PatientService {
 
   /**
    * Method responsible for publishing the events
+   *
    * @param patient that contains the patient's information
    */
   private void publishingEvent(Patient patient) {
     try {
-    eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
+      eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
     } catch (JsonProcessingException ex) {
       log.error("Error when publishing event!");
     }
@@ -74,12 +75,14 @@ public class PatientServiceImpl implements PatientService {
 
   /**
    * Method responsible for register patients
+   *
    * @param language it concerns to native language ot the patient
    * @param country it concerns to country ot the patient
    * @param patient it concerns to general patient's information
    * @param requestToken it concerns to the native language ot the patient
    */
-  private void registerPatient(String language, String country, Patient patient, String requestToken) {
+  private void registerPatient(
+      String language, String country, Patient patient, String requestToken) {
     patientServiceCore.registerPatient(language, country, requestToken, patient);
   }
 

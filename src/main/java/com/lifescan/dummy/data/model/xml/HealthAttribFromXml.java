@@ -29,27 +29,19 @@ import lombok.experimental.SuperBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class HealthAttribFromXml {
 
-  @XmlAttribute(name = "active")
-  private String active;
+  @XmlAttribute private String active;
 
-  @XmlAttribute(name = "manual")
-  private String manual;
+  @XmlAttribute private String manual;
 
-  @XmlAttribute(name = "readingDate")
-  private String readingDate;
+  @XmlAttribute private String readingDate;
 
-  @XmlAttribute(name = "editable")
-  private String editable;
+  @XmlAttribute private String editable;
 
-  @XmlElement(name = "annotation")
-  private AnnotationsFromXml annotation;
+  @XmlElement private AnnotationsFromXml annotation;
 
-  @XmlElement(name = "healthAttributesValue")
-  private int healthAttributesValue;
+  @XmlElement private int healthAttributesValue;
 
-  @XmlElement(name = "healthAtributesLookup")
-  private String healthAtributesLookup;
+  @XmlElement private String healthAtributesLookup;
 
-  @XmlElement(name = "extendedAttributes")
-  private ExtendedAttributesFromXml extendedAttributes;
+  @XmlElement private ExtendedAttributesFromXml extendedAttributes;
 }

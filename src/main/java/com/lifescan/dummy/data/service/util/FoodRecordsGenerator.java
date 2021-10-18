@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type foodRecord. */
 @Log4j2
-public class FoodRecordsGenerator extends Generator {
+public class FoodRecordsGenerator {
 
   /**
    * Method responsible for returning a list of foodFromXml records.
@@ -30,7 +30,7 @@ public class FoodRecordsGenerator extends Generator {
 
     List<FoodRecord> foodRecords = new ArrayList<>();
     try {
-      for (FoodFromXml foodFromXml : getDeviceDataDataSet(file).getFoodDataLog().getFood()) {
+      for (FoodFromXml foodFromXml : Util.getDeviceDataDataSet(file).getFoodDataLog().getFood()) {
         foodRecords.add(buildObject(foodFromXml));
       }
     } catch (JAXBException ex) {
@@ -39,15 +39,21 @@ public class FoodRecordsGenerator extends Generator {
     return foodRecords;
   }
 
+  /**
+   * Method responsible for converting from XML file to a java object.
+   *
+   * @param foodFromXml That concerns to the data that comes from xml file.
+   * @return Data from xml file converted in a java object.
+   */
   private static FoodRecord buildObject(FoodFromXml foodFromXml) {
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
         .manual(foodFromXml.getManual())
-        .readingDate(generatingReadingDateFormatted())
-        .id(generatingId())
+        .readingDate(Util.generatingReadingDateFormatted())
+        .id(Util.generatingId())
         .lastUpdatedDate(System.currentTimeMillis())
-        .annotation(generatingAnnotations(foodFromXml.getAnnotation()))
-        .carbohydrates(generatingCarbohydrates(foodFromXml.getCarbohydrates()))
+        .annotation(Util.generatingAnnotations(foodFromXml.getAnnotation()))
+        .carbohydrates(Util.generatingCarbohydrates(foodFromXml.getCarbohydrates()))
         .editable(foodFromXml.getEditable())
         .build();
   }

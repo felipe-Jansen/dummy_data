@@ -30,6 +30,5 @@ import lombok.Setter;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BgReadingDataLogFromXml {
 
-  @XmlElement(name = "bgReading")
-  private List<BgReadingFromXml> bgReading = new ArrayList<>();
+  @XmlElement private List<BgReadingFromXml> bgReading = new ArrayList<>();
 }

@@ -28,12 +28,9 @@ import lombok.experimental.SuperBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AnnotationFromXml {
 
-  @XmlElement(name = "active")
-  private String active;
+  @XmlElement private String active;
 
-  @XmlElement(name = "annotation")
-  private String annotation;
+  @XmlElement private String annotation;
 
-  @XmlElement(name = "patientEntered")
-  private String patientEntered;
+  @XmlElement private String patientEntered;
 }

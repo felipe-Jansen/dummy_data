@@ -18,7 +18,7 @@ import javax.xml.bind.JAXBException;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-public class HealthAttributesGenerator extends Generator {
+public class HealthAttributesGenerator {
 
   /**
    * Method responsible for returning a list of health attributes.
@@ -30,7 +30,7 @@ public class HealthAttributesGenerator extends Generator {
     List<HealthAttribute> healthAttributes = new ArrayList<>();
     try {
       for (HealthAttribFromXml healthAttribFromXml :
-          getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib()) {
+          Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib()) {
         healthAttributes.add(buildObject(healthAttribFromXml));
       }
     } catch (JAXBException ex) {
@@ -39,18 +39,25 @@ public class HealthAttributesGenerator extends Generator {
     return healthAttributes;
   }
 
+  /**
+   * Method responsible for converting from XML file to a java object.
+   *
+   * @param healthAttribFromXml That concerns to the data that comes from xml file.
+   * @return Data from xml file converted in a java object.
+   */
   private static HealthAttribute buildObject(HealthAttribFromXml healthAttribFromXml) {
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
-        .readingDate(generatingReadingDateFormatted())
-        .id(generatingId())
+        .readingDate(Util.generatingReadingDateFormatted())
+        .id(Util.generatingId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(healthAttribFromXml.getHealthAttributesValue())
         .healthAtributesLookup(healthAttribFromXml.getHealthAtributesLookup())
         .editable(healthAttribFromXml.getEditable())
-        .extendedAttribute(generatingAttributeValue(healthAttribFromXml.getExtendedAttributes()))
-        .annotation(generatingAnnotations(healthAttribFromXml.getAnnotation()))
+        .extendedAttribute(
+            Util.generatingAttributeValue(healthAttribFromXml.getExtendedAttributes()))
+        .annotation(Util.generatingAnnotations(healthAttribFromXml.getAnnotation()))
         .build();
   }
 }

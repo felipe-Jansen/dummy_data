@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type bolusReading. */
 @Log4j2
-public class BolusReadingGenerator extends Generator {
+public class BolusReadingGenerator {
 
   /**
    * Method responsible for returning a list of bolusFromXmls reading.
@@ -30,7 +30,8 @@ public class BolusReadingGenerator extends Generator {
 
     List<BolusReading> bolusReadings = new ArrayList<>();
     try {
-      for (BolusFromXml bolusFromXml : getDeviceDataDataSet(file).getBolusDataLog().getBolus()) {
+      for (BolusFromXml bolusFromXml :
+          Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus()) {
         bolusReadings.add(buildObject(bolusFromXml));
       }
     } catch (JAXBException ex) {
@@ -39,16 +40,22 @@ public class BolusReadingGenerator extends Generator {
     return bolusReadings;
   }
 
+  /**
+   * Method responsible for converting from XML file to a java object.
+   *
+   * @param bolusFromXml That concerns to the data that comes from xml file.
+   * @return Data from xml file converted in a java object.
+   */
   private static BolusReading buildObject(BolusFromXml bolusFromXml) {
     return BolusReading.builder()
         .active(bolusFromXml.getActive())
         .manual(bolusFromXml.getManual())
-        .readingDate(generatingReadingDateFormatted())
-        .id(generatingId())
+        .readingDate(Util.generatingReadingDateFormatted())
+        .id(Util.generatingId())
         .lastUpdatedDate(System.currentTimeMillis())
-        .annotation(generatingAnnotations(bolusFromXml.getAnnotation()))
+        .annotation(Util.generatingAnnotations(bolusFromXml.getAnnotation()))
         .injectedInsulinType(bolusFromXml.getInjectedInsulinType())
-        .bolusDelivered(generatingBolusDelivered(bolusFromXml.getBolusDelivered()))
+        .bolusDelivered(Util.generatingBolusDelivered(bolusFromXml.getBolusDelivered()))
         .editable(bolusFromXml.getEditable())
         .build();
   }

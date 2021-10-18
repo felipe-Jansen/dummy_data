@@ -31,6 +31,5 @@ public class BolusDeliveredFromXml {
 
   @XmlValue private String value;
 
-  @XmlAttribute(name = "units")
-  private String units;
+  @XmlAttribute private String units;
 }

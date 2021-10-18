@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type bgReadingFromXml. */
 @Log4j2
-public class BgReadingGenerator extends Generator {
+public class BgReadingGenerator {
 
   /**
    * Method responsible for returning a list of bgReadingFromXml.
@@ -30,7 +30,7 @@ public class BgReadingGenerator extends Generator {
     List<BgReading> bgReadings = new ArrayList<>();
     try {
       for (BgReadingFromXml bgReadingFromXml :
-          getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading()) {
+          Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading()) {
         bgReadings.add(buildObject(bgReadingFromXml));
       }
     } catch (JAXBException ex) {
@@ -39,14 +39,20 @@ public class BgReadingGenerator extends Generator {
     return bgReadings;
   }
 
+  /**
+   * Method responsible for converting from XML file to a java object.
+   *
+   * @param bgReading That concerns to the data that comes from xml file.
+   * @return Data from xml file converted in a java object.
+   */
   private static BgReading buildObject(BgReadingFromXml bgReading) {
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(generatingReadingDateFormatted())
-        .id(generatingId())
-        .extendedAttributes(generatingAttributeValue(bgReading.getExtendedAttributes()))
-        .bgValue(generatingBgValue(bgReading.getBgValue()))
+        .readingDate(Util.generatingReadingDateFormatted())
+        .id(Util.generatingId())
+        .extendedAttributes(Util.generatingAttributeValue(bgReading.getExtendedAttributes()))
+        .bgValue(Util.generatingBgValue(bgReading.getBgValue()))
         .mealTag(bgReading.getMealTag())
         .lastUpdatedDate(System.currentTimeMillis())
         .build();

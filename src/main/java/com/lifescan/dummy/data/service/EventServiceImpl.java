@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.constants.PresetsConstants;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
@@ -50,6 +51,7 @@ public class EventServiceImpl implements EventService {
    * Method responsible for generating events.
    *
    * @return An object from type Event, that contains the informations readings.
+   * @param presetSelected preset informed by user
    */
   private Event generatingEvent(String presetSelected) {
     try {
@@ -73,6 +75,9 @@ public class EventServiceImpl implements EventService {
    * @return A single object from type Meta.
    */
   private Meta generatingMeta() {
-    return Meta.builder().sourceApp("REVEAL_MOBILE_IOS").sourceAppVersion("5.3.1").build();
+    return Meta.builder()
+        .sourceApp(ConfigConstants.SOURCE_APP)
+        .sourceAppVersion(ConfigConstants.APP_VERSION)
+        .build();
   }
 }
