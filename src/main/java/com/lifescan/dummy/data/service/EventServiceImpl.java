@@ -51,7 +51,7 @@ public class EventServiceImpl implements EventService {
    * Method responsible for generating events.
    *
    * @return An object from type Event, that contains the informations readings.
-   * @param presetSelected preset informed by user
+   * @param presetSelected preset informed by user.
    */
   private Event generatingEvent(String presetSelected) {
     try {
@@ -64,7 +64,6 @@ public class EventServiceImpl implements EventService {
           .meta(generatingMeta())
           .build();
     } catch (JAXBException e) {
-      e.printStackTrace();
       return null;
     }
   }
