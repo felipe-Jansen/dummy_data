@@ -20,6 +20,8 @@ import com.lifescan.dummy.data.service.util.BolusReadingGenerator;
 import com.lifescan.dummy.data.service.util.FoodRecordsGenerator;
 import com.lifescan.dummy.data.service.util.HealthAttributesGenerator;
 import feign.FeignException;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import javax.xml.bind.JAXBException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -53,6 +55,9 @@ public class EventServiceImpl implements EventService {
    */
   private Event generatingEvent(String presetSelected) {
     try {
+
+      randomMomentOfEven();
+
       return Event.builder()
           .bgReadings(BgReadingGenerator.returnFromFile(presetSelected))
           .foodRecords(FoodRecordsGenerator.returnFromFile(presetSelected))
@@ -65,6 +70,11 @@ public class EventServiceImpl implements EventService {
       e.printStackTrace();
       return null;
     }
+  }
+
+  private long randomMomentOfEven() {
+
+    return Duration.between(LocalDateTime.now(), LocalDateTime.now().plusDays(1)).toMinutes();
   }
 
   /**

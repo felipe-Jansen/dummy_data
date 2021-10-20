@@ -28,8 +28,10 @@ import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -166,9 +168,29 @@ public abstract class Generator {
    * @return A string with the formatted date
    */
   static String generatingReadingDateFormatted() {
+    randomizeDate();
     localDateTime = localDateTime.plusMinutes(ConfigConstants.DELAY_TIME_BETWEEN_EVENTS);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     return localDateTime.format(formatter);
+  }
+
+  private static void randomizeDate() {
+    String inicio = "2023-10-20";
+    String fim = "2021-10-21";
+    LocalDateTime.now()
+        .withYear(randomElementOfDate(inicio, fim, ChronoField.YEAR))
+        .withMonth(randomElementOfDate(inicio, fim, ChronoField.MONTH_OF_YEAR))
+        .withDayOfMonth(randomElementOfDate(inicio, fim, ChronoField.DAY_OF_MONTH))
+        .withHour(new Random().nextInt(23))
+        .withMinute(new Random().nextInt(59));
+  }
+
+  private static int randomElementOfDate(String inicio, String fim, ChronoField field) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    int max = formatter.parse(inicio).get(field);
+    int min = formatter.parse(fim).get(field);
+    int range = (max - min) + 1;
+    return (int)(Math.random() * range) + min;
   }
 
   /**
