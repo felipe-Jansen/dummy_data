@@ -40,7 +40,7 @@ public class EventServiceImpl implements EventService {
   public void publishEvent(Login login) {
     try {
       eventServiceCore.publishEvent(
-          securityService.doLogin(login), generatingEvent(PresetsConstants.HARRY));
+          securityService.doLogin(login), generatingEvent(PresetsConstants.EMILY));
       log.info("Events created with successfully!");
     } catch (FeignException ex) {
       log.error(ex.contentUTF8());

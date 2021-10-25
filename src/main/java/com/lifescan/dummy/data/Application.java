@@ -15,6 +15,7 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.constants.MappedAttribute;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.service.PatientService;
+import com.lifescan.dummy.data.service.util.Util;
 import java.util.Arrays;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,7 @@ public class Application implements CommandLineRunner {
     argsParameter.setReadingsTag(extractInformationFromParameters(ArgsConstants.READING_TAG, args));
     argsParameter.setReadingsPreset(
         extractInformationFromParameters(ArgsConstants.READING_PRESET, args));
+    Util.validatingParameters();
   }
 
   private String extractInformationFromParameters(MappedAttribute attribute, String[] args) {
