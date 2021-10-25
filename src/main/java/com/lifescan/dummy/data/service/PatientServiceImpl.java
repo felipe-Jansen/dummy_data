@@ -31,12 +31,12 @@ public class PatientServiceImpl implements PatientService {
   private final EventService eventService;
 
   /** {@inheritDoc} */
-  public void create(String language, Integer qtdPatients) {
+  public void create(String language, Integer numberPatients) {
     String country = Util.extractCountryFromLanguage(language);
     log.info("language -> {}", language);
     log.info("Country -> {}", country);
-    log.info("qtdPatients -> {}", qtdPatients);
-    for (int i = 0; i < qtdPatients; i++) {
+    log.info("qtdPatients -> {}", numberPatients);
+    for (int i = 0; i < numberPatients; i++) {
       publishingEvent(save(language, country));
     }
   }

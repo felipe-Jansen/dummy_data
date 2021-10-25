@@ -31,6 +31,5 @@ public class CarbohydrateFromXml {
 
   @XmlValue private int value;
 
-  @XmlAttribute(name = "units")
-  private String units;
+  @XmlAttribute private String units;
 }
