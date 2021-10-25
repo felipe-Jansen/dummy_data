@@ -191,7 +191,6 @@ public abstract class Generator {
 
   /**
    * It randomizes a specified filed of a date
-   *
    * @param start beginning of range
    * @param end limit of range
    * @param field field that wants to randomize
