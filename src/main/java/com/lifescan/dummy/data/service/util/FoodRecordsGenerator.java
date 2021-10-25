@@ -11,29 +11,50 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.FoodRecord;
+import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBException;
+import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type foodRecord. */
-public class FoodRecordsGenerator extends Generator {
+@Log4j2
+public class FoodRecordsGenerator {
 
   /**
-   * Method responsible for returning a list of food records.
+   * Method responsible for returning a list of foodFromXml records.
    *
-   * @return A list of food records.
+   * @return A list of foodFromXml records.
    */
-  public static List<FoodRecord> generator() {
+  public static List<FoodRecord> returnFromFile(String file) {
+
     List<FoodRecord> foodRecords = new ArrayList<>();
-    foodRecords.add(
-        FoodRecord.builder()
-            .active("true")
-            .manual("true")
-            .readingDate("2021-09-21 01:12:00")
-            .id(String.valueOf(System.currentTimeMillis()))
-            .lastUpdatedDate(System.currentTimeMillis())
-            .annotation(generatingAnnotations())
-            .carbohydrates(generatingCarbohydrates())
-            .build());
+    try {
+      for (FoodFromXml foodFromXml : Util.getDeviceDataDataSet(file).getFoodDataLog().getFood()) {
+        foodRecords.add(buildObject(foodFromXml));
+      }
+    } catch (JAXBException ex) {
+      log.error("Error when generating foodRecords");
+    }
     return foodRecords;
+  }
+
+  /**
+   * Method responsible for converting from XML file to a java object.
+   *
+   * @param foodFromXml That concerns to the data that comes from xml file.
+   * @return Data from xml file converted in a java object.
+   */
+  private static FoodRecord buildObject(FoodFromXml foodFromXml) {
+    return FoodRecord.builder()
+        .active(foodFromXml.getActive())
+        .manual(foodFromXml.getManual())
+        .readingDate(Util.generatingReadingDateFormatted())
+        .id(Util.generatingId())
+        .lastUpdatedDate(System.currentTimeMillis())
+        .annotation(Util.generatingAnnotations(foodFromXml.getAnnotation()))
+        .carbohydrates(Util.generatingCarbohydrates(foodFromXml.getCarbohydrates()))
+        .editable(foodFromXml.getEditable())
+        .build();
   }
 }

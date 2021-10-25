@@ -29,4 +29,12 @@ public class ConfigConstants {
   public static final String PATIENT_LAST_NAME = "Partner tool";
 
   public static final String PATIENT_DIABETES_TYPE = "DIABETES_TYPE_1";
+
+  public static final int DELAY_TIME_BETWEEN_EVENTS = 5;
+
+  public static final String DATA_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+
+  public static final String SOURCE_APP = "yyyy-MM-dd HH:mm:ss";
+
+  public static final String APP_VERSION = "yyyy-MM-dd HH:mm:ss";
 }

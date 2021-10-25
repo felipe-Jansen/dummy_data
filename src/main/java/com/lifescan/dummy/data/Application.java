@@ -29,9 +29,13 @@ public class Application implements CommandLineRunner {
   }
 
   @Override
-  public void run(String[] args) throws InterruptedException {
-    String language = args[0];
-    int qtyPatients = Integer.parseInt(args[1]);
-    patientService.create(language, qtyPatients);
+  public void run(String[] args) {
+    try {
+      String language = args[0];
+      int qtyPatients = Integer.parseInt(args[1]);
+      patientService.create(language, qtyPatients);
+    } catch (ArrayIndexOutOfBoundsException ex) {
+      log.error("No arguments were informed!");
+    }
   }
 }

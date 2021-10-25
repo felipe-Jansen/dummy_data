@@ -11,30 +11,50 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.model.BgReading;
+import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBException;
+import lombok.extern.log4j.Log4j2;
 
-/** Class responsible for generating the objects with type bgReading. */
-public class BgReadingGenerator extends Generator {
+/** Class responsible for generating the objects with type bgReadingFromXml. */
+@Log4j2
+public class BgReadingGenerator {
 
   /**
-   * Method responsible for returning a list of bgReading.
+   * Method responsible for returning a list of bgReadingFromXml.
    *
    * @return A list of blood glucose readings.
    */
-  public static List<BgReading> generator() {
+  public static List<BgReading> returnFromFile(String file) throws JAXBException {
     List<BgReading> bgReadings = new ArrayList<>();
-    bgReadings.add(
-        BgReading.builder()
-            .active("true")
-            .manual("true")
-            .readingDate("2021-09-21 01:12:00")
-            .id(String.valueOf(System.currentTimeMillis()))
-            .extendedAttributes(generatingAttributeValue())
-            .bgValue(generatingBgValue())
-            .mealTag("MEAL_TAG_POST_MEAL")
-            .lastUpdatedDate(System.currentTimeMillis())
-            .build());
+    try {
+      for (BgReadingFromXml bgReadingFromXml :
+          Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading()) {
+        bgReadings.add(buildObject(bgReadingFromXml));
+      }
+    } catch (JAXBException ex) {
+      log.error("Error when generating bgReading.");
+    }
     return bgReadings;
+  }
+
+  /**
+   * Method responsible for converting from XML file to a java object.
+   *
+   * @param bgReading That concerns to the data that comes from xml file.
+   * @return Data from xml file converted in a java object.
+   */
+  private static BgReading buildObject(BgReadingFromXml bgReading) {
+    return BgReading.builder()
+        .active(bgReading.getActive())
+        .manual(bgReading.getManual())
+        .readingDate(Util.generatingReadingDateFormatted())
+        .id(Util.generatingId())
+        .extendedAttributes(Util.generatingAttributeValue(bgReading.getExtendedAttributes()))
+        .bgValue(Util.generatingBgValue(bgReading.getBgValue()))
+        .mealTag(bgReading.getMealTag())
+        .lastUpdatedDate(System.currentTimeMillis())
+        .build();
   }
 }

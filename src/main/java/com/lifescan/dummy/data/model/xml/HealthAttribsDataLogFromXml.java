@@ -8,28 +8,26 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.model;
+package com.lifescan.dummy.data.model.xml;
 
+import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@EqualsAndHashCode(callSuper = false)
-public class HealthAttribute extends Reading {
-
-  private String editable;
-  private String healthAtributesLookup;
-  private List<Annotation> annotation;
-  private int healthAttributesValue;
-  private AttributeValue extendedAttribute;
+@XmlAccessorType(XmlAccessType.FIELD)
+public class HealthAttribsDataLogFromXml {
+  @XmlElement private List<HealthAttribFromXml> healthAttrib = new ArrayList<>();
 }

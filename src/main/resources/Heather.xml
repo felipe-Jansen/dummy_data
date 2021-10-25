@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:deviceDataDataSet xmlns:ns2="http://www.lifescan.com/dms/dataloader/model"
-  author="Douglas Santos"
-  name="Trident Training - ttc.patient20"
-  xmlns="http://www.lifescan.com/dms/domain/model">
-  <ns2:basalDataLog/>
-  <ns2:bgReadingDataLog>
-    <ns2:bgReading active="true" clockOff="false"
+<deviceDataDataSet author="Douglas Santos" name="Trident Training - ttc.patient20">
+  <basalDataLog/>
+  <bgReadingDataLog>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-11T10:45:26">
       <bgValue units="mg/dL">146</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-11T15:22:15">
@@ -25,40 +22,40 @@
       <bgValue units="mg/dL">155</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-11T20:56:12">
       <bgValue units="mg/dL">142</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-10T06:32:23">
       <bgValue units="mg/dL">88</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-10T09:52:53">
       <bgValue units="mg/dL">109</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-10T14:18:25">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-10T21:22:54">
@@ -70,256 +67,256 @@
       <bgValue units="mg/dL">159</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-09T06:38:43">
       <bgValue units="mg/dL">95</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-09T09:52:27">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-09T16:27:11">
       <bgValue units="mg/dL">166</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-09T20:11:48">
       <bgValue units="mg/dL">132</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-08T08:35:39">
       <bgValue units="mg/dL">121</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-08T09:57:42">
       <bgValue units="mg/dL">120</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-08T16:40:12">
       <bgValue units="mg/dL">126</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-08T20:47:34">
       <bgValue units="mg/dL">139</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-07T06:59:19">
       <bgValue units="mg/dL">86</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-07T14:26:35">
       <bgValue units="mg/dL">130</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-07T20:13:43">
       <bgValue units="mg/dL">205</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-06T06:33:46">
       <bgValue units="mg/dL">95</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-06T10:54:59">
       <bgValue units="mg/dL">177</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-06T16:49:19">
       <bgValue units="mg/dL">173</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-06T20:57:48">
       <bgValue units="mg/dL">114</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-05T07:29:40">
       <bgValue units="mg/dL">99</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-05T09:40:15">
       <bgValue units="mg/dL">147</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-05T19:49:30">
       <bgValue units="mg/dL">160</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-04T07:32:16">
       <bgValue units="mg/dL">90</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-04T10:55:57">
       <bgValue units="mg/dL">135</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-04T15:30:48">
       <bgValue units="mg/dL">141</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-04T21:44:56">
       <bgValue units="mg/dL">112</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-03T08:22:13">
       <bgValue units="mg/dL">117</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-03T09:37:52">
       <bgValue units="mg/dL">110</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-03T19:40:10">
       <bgValue units="mg/dL">171</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-02T07:51:59">
       <bgValue units="mg/dL">94</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-02T10:39:53">
       <bgValue units="mg/dL">117</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-02T14:28:40">
       <bgValue units="mg/dL">198</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-02T20:12:49">
       <bgValue units="mg/dL">121</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-01T08:57:50">
       <bgValue units="mg/dL">86</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-01T10:17:59">
       <bgValue units="mg/dL">123</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-01T16:27:47">
@@ -331,258 +328,258 @@
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-11-01T20:24:42">
       <bgValue units="mg/dL">169</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-31T08:50:47">
       <bgValue units="mg/dL">106</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-31T15:21:56">
       <bgValue units="mg/dL">121</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-31T21:57:36">
       <bgValue units="mg/dL">119</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-30T08:32:48">
       <bgValue units="mg/dL">90</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-30T10:22:58">
       <bgValue units="mg/dL">211</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-30T16:34:47">
       <bgValue units="mg/dL">169</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-30T21:52:17">
       <bgValue units="mg/dL">115</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-29T07:56:29">
       <bgValue units="mg/dL">83</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-29T16:44:38">
       <bgValue units="mg/dL">130</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-29T21:11:15">
       <bgValue units="mg/dL">139</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-28T08:57:44">
       <bgValue units="mg/dL">141</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-28T21:15:54">
       <bgValue units="mg/dL">146</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-27T19:41:50">
       <bgValue units="mg/dL">153</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-26T08:39:36">
       <bgValue units="mg/dL">171</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-26T20:38:48">
       <bgValue units="mg/dL">208</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-24T07:20:33">
       <bgValue units="mg/dL">190</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-24T20:33:50">
       <bgValue units="mg/dL">246</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-23T07:41:15">
       <bgValue units="mg/dL">184</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-22T06:31:36">
       <bgValue units="mg/dL">173</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-21T07:12:41">
       <bgValue units="mg/dL">139</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-21T21:25:57">
       <bgValue units="mg/dL">148</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-20T20:58:52">
       <bgValue units="mg/dL">161</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-19T08:11:18">
       <bgValue units="mg/dL">170</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-19T21:53:29">
       <bgValue units="mg/dL">205</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-17T06:10:26">
       <bgValue units="mg/dL">189</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-17T20:58:43">
       <bgValue units="mg/dL">233</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-16T06:49:31">
       <bgValue units="mg/dL">188</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-15T08:57:48">
       <bgValue units="mg/dL">174</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-14T17:42:29">
       <bgValue units="mg/dL">109</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_PRE_MEAL</mealTag>
-    </ns2:bgReading>
-    <ns2:bgReading active="true" clockOff="false"
+    </bgReading>
+    <bgReading active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" edited="false"
       futureDated="false" imported="false"
       manual="false" readingDate="2020-10-14T19:12:11">
       <bgValue units="mg/dL">159</bgValue>
       <cgmCalibration>false</cgmCalibration>
       <mealTag>MEAL_TAG_POST_MEAL</mealTag>
-    </ns2:bgReading>
-  </ns2:bgReadingDataLog>
-  <ns2:bolusDataLog>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bgReading>
+  </bgReadingDataLog>
+  <bolusDataLog>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-11T22:52:35">
@@ -590,8 +587,8 @@
       <bolusDelivered units="U">16</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-10T23:24:53">
@@ -599,8 +596,8 @@
       <bolusDelivered units="U">16</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-09T23:51:38">
@@ -608,8 +605,8 @@
       <bolusDelivered units="U">14</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-08T23:45:15">
@@ -617,8 +614,8 @@
       <bolusDelivered units="U">14</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-07T22:16:25">
@@ -626,8 +623,8 @@
       <bolusDelivered units="U">14</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-06T23:51:40">
@@ -635,8 +632,8 @@
       <bolusDelivered units="U">14</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-05T22:19:44">
@@ -644,8 +641,8 @@
       <bolusDelivered units="U">12</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-04T23:31:23">
@@ -653,8 +650,8 @@
       <bolusDelivered units="U">12</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-03T22:49:27">
@@ -662,8 +659,8 @@
       <bolusDelivered units="U">12</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-02T23:19:27">
@@ -671,8 +668,8 @@
       <bolusDelivered units="U">12</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-11-01T23:27:51">
@@ -680,8 +677,8 @@
       <bolusDelivered units="U">10</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-10-31T22:47:27">
@@ -689,8 +686,8 @@
       <bolusDelivered units="U">10</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-10-30T23:42:22">
@@ -698,8 +695,8 @@
       <bolusDelivered units="U">10</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-    <ns2:bolus active="true" deviceSerialNumber="XXXXXXXX"
+    </bolus>
+    <bolus active="true" deviceSerialNumber="XXXXXXXX"
       deviceType="METERTYPES_ONETOUCHVERIOREFLECT" entryType="ENTRY_TYPE_BOLUS" imported="true"
       mixedDated="false"
       omitted="false" readingDate="2020-10-29T22:42:16">
@@ -707,14 +704,14 @@
       <bolusDelivered units="U">10</bolusDelivered>
       <injectedInsulinType>NON_BOLUS_INSULIN_LONG</injectedInsulinType>
       <mealCorrection>false</mealCorrection>
-    </ns2:bolus>
-  </ns2:bolusDataLog>
-  <ns2:cgmDataLog/>
-  <ns2:description>Data Set for Trident Training [ttc.patient20]</ns2:description>
-  <ns2:deviceEventDataLog/>
-  <ns2:deviceSettingsDataLog/>
-  <ns2:foodDataLog>
-    <ns2:food active="true" clockOff="false"
+    </bolus>
+  </bolusDataLog>
+  <cgmDataLog/>
+  <description>Data Set for Trident Training [ttc.patient20]</description>
+  <deviceEventDataLog/>
+  <deviceSettingsDataLog/>
+  <foodDataLog>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -729,8 +726,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -745,8 +742,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -761,8 +758,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -777,8 +774,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -793,8 +790,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -809,8 +806,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -825,8 +822,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -841,8 +838,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -857,8 +854,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -873,8 +870,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -889,8 +886,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -905,8 +902,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -921,8 +918,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -937,8 +934,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -953,8 +950,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -969,8 +966,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -985,8 +982,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1001,8 +998,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1017,8 +1014,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1033,8 +1030,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1049,8 +1046,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1065,8 +1062,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1081,8 +1078,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1097,8 +1094,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1113,8 +1110,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1129,8 +1126,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1145,8 +1142,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1161,8 +1158,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1177,8 +1174,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1193,8 +1190,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1209,8 +1206,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1225,8 +1222,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1241,8 +1238,8 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-    <ns2:food active="true" clockOff="false"
+    </food>
+    <food active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="false"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1257,10 +1254,10 @@
         <attributeValue name="dataLogs_ordinal" type="string">0</attributeValue>
       </extendedAttributes>
       <mealSize>MEAL_SIZE_LARGE</mealSize>
-    </ns2:food>
-  </ns2:foodDataLog>
-  <ns2:healthAttribsDataLog>
-    <ns2:healthAttrib active="true" clockOff="false"
+    </food>
+  </foodDataLog>
+  <healthAttribsDataLog>
+    <healthAttrib active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="true"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1277,8 +1274,8 @@
       </extendedAttributes>
       <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
       <healthAttributesValue>60</healthAttributesValue>
-    </ns2:healthAttrib>
-    <ns2:healthAttrib active="true" clockOff="false"
+    </healthAttrib>
+    <healthAttrib active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="true"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1295,8 +1292,8 @@
       </extendedAttributes>
       <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
       <healthAttributesValue>90</healthAttributesValue>
-    </ns2:healthAttrib>
-    <ns2:healthAttrib active="true" clockOff="false"
+    </healthAttrib>
+    <healthAttrib active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="true"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1313,8 +1310,8 @@
       </extendedAttributes>
       <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
       <healthAttributesValue>45</healthAttributesValue>
-    </ns2:healthAttrib>
-    <ns2:healthAttrib active="true" clockOff="false"
+    </healthAttrib>
+    <healthAttrib active="true" clockOff="false"
       deviceSerialNumber="XXXXXXXX" deviceType="METERTYPES_ONETOUCHVERIOREFLECT" editable="true"
       edited="false" futureDated="false"
       imported="true" manual="false" mixedDated="false" omitted="false"
@@ -1331,7 +1328,7 @@
       </extendedAttributes>
       <healthAtributesLookup>HEALTH_ATTRIBUTE_EXERCISE</healthAtributesLookup>
       <healthAttributesValue>20</healthAttributesValue>
-    </ns2:healthAttrib>
-  </ns2:healthAttribsDataLog>
-  <ns2:tddDataLog/>
-</ns2:deviceDataDataSet>
+    </healthAttrib>
+  </healthAttribsDataLog>
+  <tddDataLog/>
+</deviceDataDataSet>

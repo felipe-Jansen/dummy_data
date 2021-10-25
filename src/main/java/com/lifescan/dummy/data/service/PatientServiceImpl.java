@@ -31,13 +31,13 @@ public class PatientServiceImpl implements PatientService {
   private final EventService eventService;
 
   /** {@inheritDoc} */
-  public void create(String language, Integer qtdPatients) {
+  public void create(String language, Integer numberPatients) {
     String country = Util.extractCountryFromLanguage(language);
     log.info("language -> {}", language);
     log.info("Country -> {}", country);
-    log.info("qtdPatients -> {}", qtdPatients);
-    for (int i = 0; i < qtdPatients; i++) {
-      save(language, country);
+    log.info("qtdPatients -> {}", numberPatients);
+    for (int i = 0; i < numberPatients; i++) {
+      publishingEvent(save(language, country));
     }
   }
 
@@ -49,14 +49,41 @@ public class PatientServiceImpl implements PatientService {
    * @param country A patient need to have a country associated, this param concerns to this
    *     information.
    */
-  private void save(String language, String country) {
+  private Patient save(String language, String country) {
     Patient patient = generatingPatient();
     String requestToken = Util.generateRequestToken(patient.getEmailAddress());
     try {
-      patientServiceCore.registerPatient(language, country, requestToken, patient);
+      registerPatient(language, country, patient, requestToken);
     } catch (FeignException ex) {
       log.error(ex.contentUTF8());
     }
+    return patient;
+  }
+
+  /**
+   * Method responsible for publishing the events
+   *
+   * @param patient that contains the patient's information
+   */
+  private void publishingEvent(Patient patient) {
+    try {
+      eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
+    } catch (JsonProcessingException ex) {
+      log.error("Error when publishing event!");
+    }
+  }
+
+  /**
+   * Method responsible for register patients
+   *
+   * @param language it concerns to native language ot the patient
+   * @param country it concerns to country ot the patient
+   * @param patient it concerns to general patient's information
+   * @param requestToken it concerns to the native language ot the patient
+   */
+  private void registerPatient(
+      String language, String country, Patient patient, String requestToken) {
+    patientServiceCore.registerPatient(language, country, requestToken, patient);
   }
 
   /**
@@ -77,4 +104,14 @@ public class PatientServiceImpl implements PatientService {
         .build();
   }
 
+  /**
+   * Method responsible for return an object from type login.
+   *
+   * @param emailAddress concerns to the email to do login.
+   * @param password concerns to the password to do login.
+   * @return A single object from type login.
+   */
+  private Login generatingLogin(String emailAddress, String password) {
+    return Login.builder().email(emailAddress).password(password).build();
+  }
 }

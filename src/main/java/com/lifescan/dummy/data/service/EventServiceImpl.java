@@ -10,6 +10,8 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.constants.ConfigConstants;
+import com.lifescan.dummy.data.constants.PresetsConstants;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Meta;
@@ -19,6 +21,7 @@ import com.lifescan.dummy.data.service.util.BolusReadingGenerator;
 import com.lifescan.dummy.data.service.util.FoodRecordsGenerator;
 import com.lifescan.dummy.data.service.util.HealthAttributesGenerator;
 import feign.FeignException;
+import javax.xml.bind.JAXBException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +39,9 @@ public class EventServiceImpl implements EventService {
   @Override
   public void publishEvent(Login login) {
     try {
-      eventServiceCore.publishEvent(securityService.doLogin(login), generatingEvent());
+      eventServiceCore.publishEvent(
+          securityService.doLogin(login), generatingEvent(PresetsConstants.HARRY));
+      log.info("Events created with successfully!");
     } catch (FeignException ex) {
       log.error(ex.contentUTF8());
     }
@@ -46,16 +51,21 @@ public class EventServiceImpl implements EventService {
    * Method responsible for generating events.
    *
    * @return An object from type Event, that contains the informations readings.
+   * @param presetSelected preset informed by user.
    */
-  private Event generatingEvent() {
-    return Event.builder()
-        .bgReadings(BgReadingGenerator.generator())
-        .foodRecords(FoodRecordsGenerator.generator())
-        .bolusReadings(BolusReadingGenerator.generator())
-        .healthAttributes(HealthAttributesGenerator.generator())
-        .isBackgroundSync(false)
-        .meta(generatingMeta())
-        .build();
+  private Event generatingEvent(String presetSelected) {
+    try {
+      return Event.builder()
+          .bgReadings(BgReadingGenerator.returnFromFile(presetSelected))
+          .foodRecords(FoodRecordsGenerator.returnFromFile(presetSelected))
+          .bolusReadings(BolusReadingGenerator.returnFromFile(presetSelected))
+          .healthAttributes(HealthAttributesGenerator.returnFromFile(presetSelected))
+          .isBackgroundSync(false)
+          .meta(generatingMeta())
+          .build();
+    } catch (JAXBException e) {
+      return null;
+    }
   }
 
   /**
@@ -64,7 +74,9 @@ public class EventServiceImpl implements EventService {
    * @return A single object from type Meta.
    */
   private Meta generatingMeta() {
-
-    return Meta.builder().sourceApp("REVEAL_MOBILE_IOS").sourceAppVersion("5.3.1").build();
+    return Meta.builder()
+        .sourceApp(ConfigConstants.SOURCE_APP)
+        .sourceAppVersion(ConfigConstants.APP_VERSION)
+        .build();
   }
 }

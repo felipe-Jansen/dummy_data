@@ -49,6 +49,7 @@ task configured {
     println 'The project is configured'
 }
 
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
@@ -62,12 +63,13 @@ dependencies {
     implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.2.3'
     implementation group: 'io.github.openfeign', name: 'feign-jackson', version: '9.3.1'
     implementation group: 'io.github.openfeign', name: 'feign-annotation-error-decoder', version: '1.1.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
 }
 
 dependencyManagement {
@@ -75,6 +77,7 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
+
 
 test {
     useJUnitPlatform()
