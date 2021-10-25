@@ -29,8 +29,7 @@ public class BgReadingGenerator extends Generator {
   public static List<BgReading> returnFromFile(String file) throws JAXBException {
     List<BgReading> bgReadings = new ArrayList<>();
     try {
-      for (BgReadingFromXml bgReadingFromXml :
-          getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading()) {
+      for (BgReadingFromXml bgReadingFromXml : getBgReadings(file)) {
         bgReadings.add(buildObject(bgReadingFromXml));
       }
     } catch (JAXBException ex) {
@@ -39,6 +38,27 @@ public class BgReadingGenerator extends Generator {
     return bgReadings;
   }
 
+  /**
+   * This method prevents the excessive reading to the xml file. When xml file is read for the first
+   * time, all of his result is stored in a static attribute, then is read the value from this
+   * attribute without accessing xml file.
+   *
+   * @param file file that will be read
+   * @return a list of BgReadingFromXml
+   * @throws JAXBException
+   */
+  private static List<BgReadingFromXml> getBgReadings(String file) throws JAXBException {
+    List<BgReadingFromXml> bgReadingFromXmlList =
+        getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading();
+    return bgReadingFromXmlList;
+  }
+
+  /**
+   * Method responsible for converting an object from BgReadingFromXml to BgReading
+   *
+   * @param bgReading it concerns to informations that were extracted from xml file
+   * @return An object from type BgReading
+   */
   private static BgReading buildObject(BgReadingFromXml bgReading) {
     return BgReading.builder()
         .active(bgReading.getActive())

@@ -12,6 +12,7 @@ package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.Annotation;
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Attribute;
 import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.BgValue;
@@ -44,7 +45,6 @@ public abstract class Generator {
   /**
    * Method responsible for get the system's data and convert to string following the pattern
    * yyyy-MM-dd HH:mm:ss
-   *
    */
   private static LocalDateTime localDateTime = LocalDateTime.now();
 
@@ -52,7 +52,7 @@ public abstract class Generator {
    * Method responsible for returning a new list of annotations.
    *
    * @return A list of annotations.
-   * @param annotationsFromXml Concerns to the list of data that comes from xml file
+   * @param annotationsFromXml it concerns to the list of data that comes from xml file
    */
   protected static List<Annotation> generatingAnnotations(AnnotationsFromXml annotationsFromXml) {
     if (annotationsFromXml != null) {
@@ -70,7 +70,7 @@ public abstract class Generator {
    * Method responsible for generating a single annotationFromXml
    *
    * @return A single annotationFromXml.
-   * @param annotationFromXml Concerns to the data that comes from xml file
+   * @param annotationFromXml it concerns to the data that comes from xml file
    */
   protected static Annotation generatingAnnotation(AnnotationFromXml annotationFromXml) {
     return Annotation.builder().annotation(annotationFromXml.getAnnotation()).build();
@@ -80,7 +80,7 @@ public abstract class Generator {
    * Method responsible for setting the attributes values.
    *
    * @return A single attribute value.
-   * @param extendedAttributes Concerns to the list of data that comes from xml file
+   * @param extendedAttributes it concerns to the list of data that comes from xml file
    */
   protected static AttributeValue generatingAttributeValue(
       ExtendedAttributesFromXml extendedAttributes) {
@@ -95,7 +95,7 @@ public abstract class Generator {
    * Method responsible for generating attributes.
    *
    * @return A list of attributes.
-   * @param extendedAttributes Concerns to the list of data that comes from xml file
+   * @param extendedAttributes it concerns to the list of data that comes from xml file
    */
   private static List<Attribute> generatingAttributes(
       ExtendedAttributesFromXml extendedAttributes) {
@@ -115,7 +115,7 @@ public abstract class Generator {
    * Method responsible for ganerating a single carbohydrate.
    *
    * @return A single carbohydrate.
-   * @param carbohydrates Concerns to the data that comes from xml file
+   * @param carbohydrates it concerns to the data that comes from xml file
    */
   protected static Carbohydrate generatingCarbohydrates(CarbohydrateFromXml carbohydrates) {
     return Carbohydrate.builder()
@@ -128,7 +128,7 @@ public abstract class Generator {
    * Method responsible for ganerating a single bolusFromXmls delivered.
    *
    * @return A single bolusFromXmls delivered.
-   * @param bolusDelivered Concerns to the data that comes from xml file
+   * @param bolusDelivered it concerns to the data that comes from xml file
    */
   protected static BolusDelivered generatingBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
     return BolusDelivered.builder()
@@ -141,7 +141,7 @@ public abstract class Generator {
    * Method responsible for generating a single bg value.
    *
    * @return A single bolusFromXmls reading.
-   * @param bgValue Concerns to the data that comes from xml file
+   * @param bgValue it concerns to the data that comes from xml file
    */
   protected static BgValue generatingBgValue(BgValueFromXml bgValue) {
     return BgValue.builder().value(bgValue.getValue()).units(bgValue.getUnits()).build();
@@ -151,9 +151,9 @@ public abstract class Generator {
    * Method responsible for reading the object that was in the xml file and converting it into a
    * java object.
    *
-   * @param file that concerns to the name of xml
+   * @param file it concerns to the name of xml
    * @return the object created by information in xml file
-   * @throws JAXBException that concerns to the errors when trying to read the xml file
+   * @throws JAXBException it concerns to the errors when trying to read the xml file
    */
   protected static DeviceDataDataSet getDeviceDataDataSet(String file) throws JAXBException {
     JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
@@ -168,16 +168,20 @@ public abstract class Generator {
    * @return A string with the formatted date
    */
   static String generatingReadingDateFormatted() {
-    randomizeDate();
     localDateTime = localDateTime.plusMinutes(ConfigConstants.DELAY_TIME_BETWEEN_EVENTS);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
-    return localDateTime.format(formatter);
+    return randomizeDate().format(formatter);
   }
 
-  private static void randomizeDate() {
-    String inicio = "2023-10-20";
-    String fim = "2021-10-21";
-    LocalDateTime.now()
+  /**
+   * Method responsible for generating a randomized date using range informed by user
+   *
+   * @return a object from localDateTime
+   */
+  private static LocalDateTime randomizeDate() {
+    String inicio = ArgsParameter.getInstance().getStartDate();
+    String fim = ArgsParameter.getInstance().getEndDate();
+    return LocalDateTime.now()
         .withYear(randomElementOfDate(inicio, fim, ChronoField.YEAR))
         .withMonth(randomElementOfDate(inicio, fim, ChronoField.MONTH_OF_YEAR))
         .withDayOfMonth(randomElementOfDate(inicio, fim, ChronoField.DAY_OF_MONTH))
@@ -185,12 +189,20 @@ public abstract class Generator {
         .withMinute(new Random().nextInt(59));
   }
 
-  private static int randomElementOfDate(String inicio, String fim, ChronoField field) {
+  /**
+   * It randomizes a specified filed of a date
+   *
+   * @param start beginning of range
+   * @param end limit of range
+   * @param field field that wants to randomize
+   * @return a random number
+   */
+  private static int randomElementOfDate(String start, String end, ChronoField field) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    int max = formatter.parse(inicio).get(field);
-    int min = formatter.parse(fim).get(field);
+    int max = formatter.parse(start).get(field);
+    int min = formatter.parse(end).get(field);
     int range = (max - min) + 1;
-    return (int)(Math.random() * range) + min;
+    return (int) (Math.random() * range) + min;
   }
 
   /**

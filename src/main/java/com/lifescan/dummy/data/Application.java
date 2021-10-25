@@ -10,7 +10,12 @@
  */
 package com.lifescan.dummy.data;
 
+import com.lifescan.dummy.data.constants.ArgsConstants;
+import com.lifescan.dummy.data.constants.ConfigConstants;
+import com.lifescan.dummy.data.constants.MappedAttribute;
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.service.PatientService;
+import java.util.Arrays;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -31,11 +36,50 @@ public class Application implements CommandLineRunner {
   @Override
   public void run(String[] args) {
     try {
-      String language = args[0];
-      int qtyPatients = Integer.parseInt(args[1]);
+      String language = args[ArgsConstants.LANGUAGE_ISO];
+      int qtyPatients = Integer.parseInt(args[ArgsConstants.NUMBER_PATIENTS]);
+      generatingArgObject(args);
       patientService.create(language, qtyPatients);
     } catch (ArrayIndexOutOfBoundsException ex) {
       log.error("No arguments were informed!");
     }
+  }
+
+  private void generatingArgObject(String[] args) {
+    ArgsParameter argsParameter = ArgsParameter.getInstance();
+    argsParameter.setStartDate(args[ArgsConstants.START_DATE]);
+    argsParameter.setEndDate(args[ArgsConstants.END_DATE]);
+    argsParameter.setExerciseNumbers(getNumberEvents(args[ArgsConstants.EXERCISE]));
+    argsParameter.setFoodNumbers(getNumberEvents(args[ArgsConstants.FOOD]));
+
+    argsParameter.setBolusNumber(getNumberEvents(args[ArgsConstants.BOLUS].split("&")[0]));
+    argsParameter.setBolusType(extractInformationFromParameters(ArgsConstants.BOLUS_TYPE, args));
+
+    argsParameter.setReadingsNumber(getNumberEvents(args[ArgsConstants.READING].split("&")[0]));
+    argsParameter.setReadingsTag(extractInformationFromParameters(ArgsConstants.READING_TAG, args));
+    argsParameter.setReadingsPreset(
+        extractInformationFromParameters(ArgsConstants.READING_PRESET, args));
+  }
+
+  private String extractInformationFromParameters(MappedAttribute attribute, String[] args) {
+    if (!args[attribute.getIndex()].contains("&")) {
+      return null;
+    } else {
+      String[] arg =
+          args[attribute.getIndex()].contains("&") ? args[attribute.getIndex()].split("&") : null;
+      String value =
+          Arrays.stream(arg).filter(c -> c.contains(attribute.getAttribute())).findFirst().get();
+      if (value != null) {
+        return value.split("=")[1];
+      } else {
+        return null;
+      }
+    }
+  }
+
+  private int getNumberEvents(String event) {
+    return event.contains("=")
+        ? Integer.parseInt(event.split("=")[1])
+        : ConfigConstants.DEFAULT_QUANTITY_EVENTS;
   }
 }

@@ -30,7 +30,7 @@ public class BolusReadingGenerator extends Generator {
 
     List<BolusReading> bolusReadings = new ArrayList<>();
     try {
-      for (BolusFromXml bolusFromXml : getDeviceDataDataSet(file).getBolusDataLog().getBolus()) {
+      for (BolusFromXml bolusFromXml : GetBolusReading(file)) {
         bolusReadings.add(buildObject(bolusFromXml));
       }
     } catch (JAXBException ex) {
@@ -39,6 +39,26 @@ public class BolusReadingGenerator extends Generator {
     return bolusReadings;
   }
 
+  /**
+   * This method prevents the excessive reading to the xml file. When xml file is read for the first
+   * time, all of his result is stored in a static attribute, then is read the value from this
+   * attribute without accessing xml file.
+   *
+   * @param file file that will be readed
+   * @return a list of BolusFromXml
+   * @throws JAXBException
+   */
+  private static List<BolusFromXml> GetBolusReading(String file) throws JAXBException {
+    List<BolusFromXml> bolus = getDeviceDataDataSet(file).getBolusDataLog().getBolus();
+    return bolus;
+  }
+
+  /**
+   * Method responsible for converting an object from BolusFromXml to BolusReading
+   *
+   * @param bolusFromXml it concerns to the informations that were extracted from xml file
+   * @return An object from type BolusReading
+   */
   private static BolusReading buildObject(BolusFromXml bolusFromXml) {
     return BolusReading.builder()
         .active(bolusFromXml.getActive())

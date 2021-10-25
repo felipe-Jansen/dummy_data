@@ -33,4 +33,6 @@ public class ConfigConstants {
   public static final int DELAY_TIME_BETWEEN_EVENTS = 5;
 
   public static final String DATA_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+
+  public static final int DEFAULT_QUANTITY_EVENTS = 10;
 }

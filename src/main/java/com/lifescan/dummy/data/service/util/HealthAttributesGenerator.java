@@ -29,8 +29,7 @@ public class HealthAttributesGenerator extends Generator {
 
     List<HealthAttribute> healthAttributes = new ArrayList<>();
     try {
-      for (HealthAttribFromXml healthAttribFromXml :
-          getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib()) {
+      for (HealthAttribFromXml healthAttribFromXml : getHealthAttributes(file)) {
         healthAttributes.add(buildObject(healthAttribFromXml));
       }
     } catch (JAXBException ex) {
@@ -39,6 +38,27 @@ public class HealthAttributesGenerator extends Generator {
     return healthAttributes;
   }
 
+  /**
+   * This method prevents the excessive reading to the xml file. When xml file is read for the first
+   * time, all of his result is stored in a static attribute, then is read the value from this
+   * attribute without accessing xml file.
+   *
+   * @param file file that will be readed
+   * @return a list of HealthAttribFromXml
+   * @throws JAXBException
+   */
+  private static List<HealthAttribFromXml> getHealthAttributes(String file) throws JAXBException {
+    List<HealthAttribFromXml> healthAttrib =
+        getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib();
+    return healthAttrib;
+  }
+
+  /**
+   * Method responsible for converting an object from HealthAttribFromXml to HealthAttribute
+   *
+   * @param healthAttribFromXml it concerns to the informations that were extracted from xml file
+   * @return An object from type HealthAttribute
+   */
   private static HealthAttribute buildObject(HealthAttribFromXml healthAttribFromXml) {
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())

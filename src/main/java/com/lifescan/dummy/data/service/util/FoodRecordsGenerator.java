@@ -30,7 +30,7 @@ public class FoodRecordsGenerator extends Generator {
 
     List<FoodRecord> foodRecords = new ArrayList<>();
     try {
-      for (FoodFromXml foodFromXml : getDeviceDataDataSet(file).getFoodDataLog().getFood()) {
+      for (FoodFromXml foodFromXml : getFoodRecords(file)) {
         foodRecords.add(buildObject(foodFromXml));
       }
     } catch (JAXBException ex) {
@@ -39,6 +39,26 @@ public class FoodRecordsGenerator extends Generator {
     return foodRecords;
   }
 
+  /**
+   * This method prevents the excessive reading to the xml file. When xml file is read for the first
+   * time, all of his result is stored in a static attribute, then is read the value from this
+   * attribute without accessing xml file.
+   *
+   * @param file file that will be readed
+   * @return a list of FoodFromXml
+   * @throws JAXBException
+   */
+  private static List<FoodFromXml> getFoodRecords(String file) throws JAXBException {
+    List<FoodFromXml> food = getDeviceDataDataSet(file).getFoodDataLog().getFood();
+    return food;
+  }
+
+  /**
+   * Method responsible for converting an object from FoodFromXml to FoodRecord
+   *
+   * @param foodFromXml it concerns to the informations that were extracted from xml file
+   * @return An object from type FoodRecord
+   */
   private static FoodRecord buildObject(FoodFromXml foodFromXml) {
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
