@@ -1,4 +1,6 @@
 /*
+ * Class responsible for generating the objects with type bgReadingFromXml.
+ *
  * @author fjansen@lifescan.com
  * @version 1
  * Copyright: Copyright (c) 2021
@@ -10,13 +12,16 @@
  */
 package com.lifescan.dummy.data.service;
 
-public interface PatientService {
+import com.lifescan.dummy.data.model.BgReading;
+import java.util.List;
+
+public interface BgReadingGenerator {
 
   /**
-   * Method responsible for analyse the input and start generating the patients.
+   * Method responsible for returning a list of bgReadingFromXml.
    *
-   * @param language that concerns to the idiom of the patients.
-   * @param numberPatients that concerns to the quantity of patients that will be created.
+   * @param file Name of the file in disk
+   * @return A list of blood glucose readings.
    */
-  void create(String language, Integer numberPatients);
+  List<BgReading> generate(String file);
 }
