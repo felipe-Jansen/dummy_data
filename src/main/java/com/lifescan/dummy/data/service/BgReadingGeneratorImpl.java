@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.service.util;
 
-import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BgReading;
 import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type bgReadingFromXml. */
 @Log4j2
-public class BgReadingGenerator {
+public class BgReadingGenerator extends Generator {
 
   /**
    * Method responsible for returning a list of bgReadingFromXml.
@@ -49,11 +48,9 @@ public class BgReadingGenerator {
    * @throws JAXBException
    */
   private static List<BgReadingFromXml> getBgReadings(String file) throws JAXBException {
-    List<BgReadingFromXml> bgReading =
-        Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading();
-    return bgReading.size() >= ArgsParameter.getInstance().getFoodNumbers()
-        ? bgReading.subList(0, ArgsParameter.getInstance().getFoodNumbers())
-        : bgReading;
+    List<BgReadingFromXml> bgReadingFromXmlList =
+        getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading();
+    return bgReadingFromXmlList;
   }
 
   /**
@@ -66,11 +63,11 @@ public class BgReadingGenerator {
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(Util.generatingReadingDateFormatted())
-        .id(Util.generatingId())
-        .extendedAttributes(Util.generatingAttributeValue(bgReading.getExtendedAttributes()))
-        .bgValue(Util.generatingBgValue(bgReading.getBgValue()))
-        .mealTag(ArgsParameter.getInstance().getReadingsTag())
+        .readingDate(generatingReadingDateFormatted())
+        .id(generatingId())
+        .extendedAttributes(generatingAttributeValue(bgReading.getExtendedAttributes()))
+        .bgValue(generatingBgValue(bgReading.getBgValue()))
+        .mealTag(bgReading.getMealTag())
         .lastUpdatedDate(System.currentTimeMillis())
         .build();
   }
