@@ -41,7 +41,7 @@ public class Application implements CommandLineRunner {
       generatingArgObject(args);
       patientService.create(language, qtyPatients);
     } catch (ArrayIndexOutOfBoundsException ex) {
-      log.error("No arguments were informed!");
+      log.error("No arguments informed!");
     }
   }
 
@@ -68,7 +68,10 @@ public class Application implements CommandLineRunner {
       String[] arg =
           args[attribute.getIndex()].contains("&") ? args[attribute.getIndex()].split("&") : null;
       String value =
-          Arrays.stream(arg).filter(c -> c.contains(attribute.getAttribute())).findFirst().get();
+          Arrays.stream(arg)
+              .filter(c -> c.contains(attribute.getAttribute()))
+              .findFirst()
+              .orElse(null);
       if (value != null) {
         return value.split("=")[1];
       } else {

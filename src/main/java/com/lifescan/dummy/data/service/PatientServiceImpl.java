@@ -14,10 +14,12 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Patient;
 import com.lifescan.dummy.data.networking.service.PatientServiceCore;
-import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,16 +32,31 @@ public class PatientServiceImpl implements PatientService {
   private final PatientServiceCore patientServiceCore;
   private final EventService eventService;
 
+  /**
+   * Method responsible for generate a SHA1 token from the e-mail.
+   *
+   * @param emailAddress to serve as a base to generate the token.
+   * @return A request token from email.
+   */
+  public static String generateRequestToken(String emailAddress) {
+    return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
+  }
+
+  /**
+   * Method responsible for generate a date of birth from system date.
+   *
+   * @return A string that concerns to the formatted date of birth.
+   */
+  public static String generateDateOfBirth() {
+    return LocalDateTime.now().minusYears(20).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+  }
+
   /** {@inheritDoc} */
   @Override
-  public void execute(String language, Integer numberPatients) {
+  public void create(String language, Integer numberPatients) {
     log.traceEntry("language:{}, numberPatients:{}", language, numberPatients);
     for (int i = 0; i < numberPatients; i++) {
       publishEvent(register(language, getCountry(language)));
-      // final Patient patient = buildPatient();
-      // registration.save / execute(patient);
-      // login.doLogin / execute(patient.getUsername(), patient.getPassword());
-      // event.sync(patient, readings);
     }
   }
 
@@ -70,7 +87,7 @@ public class PatientServiceImpl implements PatientService {
    */
   private Patient register(String language, String country) {
     Patient patient = buildPatient();
-    String requestToken = Util.generateRequestToken(patient.getEmailAddress());
+    String requestToken = generateRequestToken(patient.getEmailAddress());
     patientServiceCore.registerPatient(language, country, requestToken, patient);
     return patient;
   }
@@ -97,7 +114,7 @@ public class PatientServiceImpl implements PatientService {
         .firstName(ConfigConstants.PATIENT_FIRST_NAME)
         .lastName(ConfigConstants.PATIENT_LAST_NAME)
         .emailAddress(instant + ConfigConstants.SUFFIX_PATTERN_PATIENT_EMAIL)
-        .dateOfBirth(Util.generateDateOfBirth())
+        .dateOfBirth(generateDateOfBirth())
         .diabetesType(ConfigConstants.PATIENT_DIABETES_TYPE_1)
         .build();
   }
@@ -105,8 +122,8 @@ public class PatientServiceImpl implements PatientService {
   /**
    * Method responsible for return an object from type login.
    *
-   * @param emailAddress it concerns to the email to do login.
-   * @param password it concerns to the password to do login.
+   * @param emailAddress concerns to the email to do login.
+   * @param password concerns to the password to do login.
    * @return A single object from type login.
    */
   private Login buildLogin(String emailAddress, String password) {

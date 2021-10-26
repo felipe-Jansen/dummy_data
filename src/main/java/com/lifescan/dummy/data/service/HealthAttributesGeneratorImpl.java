@@ -8,49 +8,40 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.service.util;
+package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
-import java.util.ArrayList;
+import com.lifescan.dummy.data.service.util.Generator;
+import com.lifescan.dummy.data.service.util.Util;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.xml.bind.JAXBException;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Service;
 
 @Log4j2
-public class HealthAttributesGenerator extends Generator {
+@Service
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public class HealthAttributesGeneratorImpl extends Generator implements HealthAttributeGenerator {
 
   /**
    * Method responsible for returning a list of health attributes.
    *
    * @return A list of health attributes.
    */
-  public static List<HealthAttribute> returnFromFile(String file) {
-
-    List<HealthAttribute> healthAttributes = new ArrayList<>();
+  public List<HealthAttribute> generate(String file) {
     try {
-      for (HealthAttribFromXml healthAttribFromXml : getHealthAttributes(file)) {
-        healthAttributes.add(buildObject(healthAttribFromXml));
-      }
-    } catch (JAXBException ex) {
-      log.error("Error when generating healthAttributes");
+      return Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib().stream()
+          .map(this::buildObject)
+          .collect(Collectors.toList());
+    } catch (JAXBException exception) {
+      log.error("Error when generating bgReading.");
     }
-    return healthAttributes;
-  }
-
-  /**
-   * This method prevents the excessive reading to the xml file. When xml file is read for the first
-   * time, all of his result is stored in a static attribute, then is read the value from this
-   * attribute without accessing xml file.
-   *
-   * @param file file that will be readed
-   * @return a list of HealthAttribFromXml
-   * @throws JAXBException
-   */
-  private static List<HealthAttribFromXml> getHealthAttributes(String file) throws JAXBException {
-    List<HealthAttribFromXml> healthAttrib =
-        getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib();
-    return healthAttrib;
+    return Collections.emptyList();
   }
 
   /**
@@ -59,11 +50,11 @@ public class HealthAttributesGenerator extends Generator {
    * @param healthAttribFromXml it concerns to the informations that were extracted from xml file
    * @return An object from type HealthAttribute
    */
-  private static HealthAttribute buildObject(HealthAttribFromXml healthAttribFromXml) {
+  private HealthAttribute buildObject(HealthAttribFromXml healthAttribFromXml) {
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
-        .readingDate(generatingReadingDateFormatted())
+        .readingDate(Util.generateReadingDateFormatted())
         .id(generatingId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(healthAttribFromXml.getHealthAttributesValue())

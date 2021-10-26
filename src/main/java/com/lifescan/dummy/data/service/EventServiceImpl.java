@@ -16,12 +16,7 @@ import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Meta;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
-import com.lifescan.dummy.data.service.util.BgReadingGenerator;
-import com.lifescan.dummy.data.service.util.BolusReadingGenerator;
-import com.lifescan.dummy.data.service.util.FoodRecordsGenerator;
-import com.lifescan.dummy.data.service.util.HealthAttributesGenerator;
 import feign.FeignException;
-import javax.xml.bind.JAXBException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +29,10 @@ public class EventServiceImpl implements EventService {
 
   private final SecurityService securityService;
   private final EventServiceCore eventServiceCore;
+  private final BgReadingGenerator bgReadingGenerator;
+  private final BolusReadingGenerator bolusReadingGenerator;
+  private final FoodRecordsGenerator foodRecordsGenerator;
+  private final HealthAttributeGenerator healthAttributeGenerator;
 
   /** {@inheritDoc} */
   @Override
@@ -54,18 +53,14 @@ public class EventServiceImpl implements EventService {
    * @param presetSelected preset informed by user.
    */
   private Event generatingEvent(String presetSelected) {
-    try {
-      return Event.builder()
-          .bgReadings(BgReadingGenerator.returnFromFile(presetSelected))
-          .foodRecords(FoodRecordsGenerator.returnFromFile(presetSelected))
-          .bolusReadings(BolusReadingGenerator.returnFromFile(presetSelected))
-          .healthAttributes(HealthAttributesGenerator.returnFromFile(presetSelected))
-          .isBackgroundSync(false)
-          .meta(generatingMeta())
-          .build();
-    } catch (JAXBException e) {
-      return null;
-    }
+    return Event.builder()
+        .bgReadings(bgReadingGenerator.generate(presetSelected))
+        .foodRecords(foodRecordsGenerator.generate(presetSelected))
+        .bolusReadings(bolusReadingGenerator.generate(presetSelected))
+        .healthAttributes(healthAttributeGenerator.generate(presetSelected))
+        .isBackgroundSync(false)
+        .meta(generatingMeta())
+        .build();
   }
 
   /**

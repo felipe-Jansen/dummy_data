@@ -8,67 +8,69 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.service.util;
+package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.model.BgReading;
+import com.lifescan.dummy.data.model.BgValue;
 import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
-import java.util.ArrayList;
+import com.lifescan.dummy.data.model.xml.BgValueFromXml;
+import com.lifescan.dummy.data.service.util.Generator;
+import com.lifescan.dummy.data.service.util.Util;
+import java.time.Instant;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.xml.bind.JAXBException;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Service;
 
 /** Class responsible for generating the objects with type bgReadingFromXml. */
 @Log4j2
-public class BgReadingGenerator extends Generator {
+@Service
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public class BgReadingGeneratorImpl extends Generator implements BgReadingGenerator {
 
   /**
-   * Method responsible for returning a list of bgReadingFromXml.
+   * Method responsible for generating a single bg value.
    *
-   * @return A list of blood glucose readings.
+   * @return A single bolusFromXmls reading.
+   * @param bgValue Concerns to the data that comes from xml file
    */
-  public static List<BgReading> returnFromFile(String file) throws JAXBException {
-    List<BgReading> bgReadings = new ArrayList<>();
+  public static BgValue generateBgValue(BgValueFromXml bgValue) {
+    return BgValue.builder().value(bgValue.getValue()).units(bgValue.getUnits()).build();
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public List<BgReading> generate(String file) {
     try {
-      for (BgReadingFromXml bgReadingFromXml : getBgReadings(file)) {
-        bgReadings.add(buildObject(bgReadingFromXml));
-      }
-    } catch (JAXBException ex) {
+      return Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
+          .map(this::buildObject)
+          .collect(Collectors.toList());
+    } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }
-    return bgReadings;
+    return Collections.emptyList();
   }
 
   /**
-   * This method prevents the excessive reading to the xml file. When xml file is read for the first
-   * time, all of his result is stored in a static attribute, then is read the value from this
-   * attribute without accessing xml file.
+   * Method responsible for converting from XML file to a java object.
    *
-   * @param file file that will be read
-   * @return a list of BgReadingFromXml
-   * @throws JAXBException
+   * @param bgReading That concerns to the data that comes from xml file.
+   * @return Data from xml file converted in a java object.
    */
-  private static List<BgReadingFromXml> getBgReadings(String file) throws JAXBException {
-    List<BgReadingFromXml> bgReadingFromXmlList =
-        getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading();
-    return bgReadingFromXmlList;
-  }
-
-  /**
-   * Method responsible for converting an object from BgReadingFromXml to BgReading
-   *
-   * @param bgReading it concerns to informations that were extracted from xml file
-   * @return An object from type BgReading
-   */
-  private static BgReading buildObject(BgReadingFromXml bgReading) {
+  private BgReading buildObject(BgReadingFromXml bgReading) {
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(generatingReadingDateFormatted())
-        .id(generatingId())
+        .readingDate(Util.generateReadingDateFormatted())
+        .id(Util.generateId())
         .extendedAttributes(generatingAttributeValue(bgReading.getExtendedAttributes()))
-        .bgValue(generatingBgValue(bgReading.getBgValue()))
+        .bgValue(generateBgValue(bgReading.getBgValue()))
         .mealTag(bgReading.getMealTag())
-        .lastUpdatedDate(System.currentTimeMillis())
+        .lastUpdatedDate(Instant.now().toEpochMilli())
         .build();
   }
 }
