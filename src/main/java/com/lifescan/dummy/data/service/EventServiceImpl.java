@@ -16,12 +16,9 @@ import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.Meta;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
-import com.lifescan.dummy.data.service.util.BgReadingGenerator;
 import com.lifescan.dummy.data.service.util.BolusReadingGenerator;
 import com.lifescan.dummy.data.service.util.FoodRecordsGenerator;
 import com.lifescan.dummy.data.service.util.HealthAttributesGenerator;
-import feign.FeignException;
-import javax.xml.bind.JAXBException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,38 +31,33 @@ public class EventServiceImpl implements EventService {
 
   private final SecurityService securityService;
   private final EventServiceCore eventServiceCore;
+  private final BgReadingGeneratorImpl readingGenerator;
 
   /** {@inheritDoc} */
   @Override
   public void publishEvent(Login login) {
-    try {
-      eventServiceCore.publishEvent(
-          securityService.doLogin(login), generatingEvent(PresetsConstants.HARRY));
-      log.info("Events created with successfully!");
-    } catch (FeignException ex) {
-      log.error(ex.contentUTF8());
-    }
+    // @TODO We receive the preset name via args. Harry is fixed here.
+    // Create enum with mapping of IDs and file names.
+    eventServiceCore.publishEvent(
+        securityService.doLogin(login), generatingEvent(PresetsConstants.HARRY));
+    log.traceExit("Events synced successfully!");
   }
 
   /**
    * Method responsible for generating events.
    *
-   * @return An object from type Event, that contains the informations readings.
    * @param presetSelected preset informed by user.
+   * @return An object from type Event, that contains the information readings.
    */
   private Event generatingEvent(String presetSelected) {
-    try {
-      return Event.builder()
-          .bgReadings(BgReadingGenerator.returnFromFile(presetSelected))
-          .foodRecords(FoodRecordsGenerator.returnFromFile(presetSelected))
-          .bolusReadings(BolusReadingGenerator.returnFromFile(presetSelected))
-          .healthAttributes(HealthAttributesGenerator.returnFromFile(presetSelected))
-          .isBackgroundSync(false)
-          .meta(generatingMeta())
-          .build();
-    } catch (JAXBException e) {
-      return null;
-    }
+    return Event.builder()
+        .bgReadings(readingGenerator.generate(presetSelected))
+        .foodRecords(FoodRecordsGenerator.returnFromFile(presetSelected))
+        .bolusReadings(BolusReadingGenerator.returnFromFile(presetSelected))
+        .healthAttributes(HealthAttributesGenerator.returnFromFile(presetSelected))
+        .isBackgroundSync(false)
+        .meta(generateMeta())
+        .build();
   }
 
   /**
@@ -73,7 +65,7 @@ public class EventServiceImpl implements EventService {
    *
    * @return A single object from type Meta.
    */
-  private Meta generatingMeta() {
+  private Meta generateMeta() {
     return Meta.builder()
         .sourceApp(ConfigConstants.SOURCE_APP)
         .sourceAppVersion(ConfigConstants.APP_VERSION)

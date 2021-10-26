@@ -17,6 +17,7 @@ public enum Preset {
   PRESET_DIABETES_2_WITH_FOOD(4),
   PRESET_GESTATIONAL_DIABETES(5);
 
+  // Change to ID
   private final int levelCode;
 
   Preset(int levelCode) {

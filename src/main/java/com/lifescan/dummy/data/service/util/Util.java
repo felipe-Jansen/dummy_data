@@ -55,27 +55,10 @@ public class Util {
   }
 
   /**
-   * Method responsible for discovery the country from informed language.
+   * Method responsible for generate a date of birth from system date. The Date of birth will be the
+   * current year minus 20.
    *
-   * @param language that contains the information to extract the country.
-   * @return The country informed in the language.
-   */
-  public static String extractCountryFromLanguage(String language) {
-    try {
-      if (language.contains("-")) {
-        return language.split("-")[1];
-      } else {
-        return language.split("_")[1];
-      }
-    } catch (ArrayIndexOutOfBoundsException e) {
-      return language;
-    }
-  }
-
-  /**
-   * Method responsible for generate a date of birth from system date.
-   *
-   * @return A string that concerns to the formatted date of birth.
+   * @return A date 20 years ago
    */
   public static String generateDateOfBirth() {
     return LocalDateTime.now().minusYears(20).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
@@ -106,7 +89,7 @@ public class Util {
    * @param annotationFromXml Concerns to the data that comes from xml file
    */
   private static Annotation generatingAnnotation(AnnotationFromXml annotationFromXml) {
-    return Annotation.builder().annotation(annotationFromXml.getAnnotation()).build();
+    return Annotation.builder().value(annotationFromXml.getAnnotation()).build();
   }
 
   /**
@@ -117,11 +100,11 @@ public class Util {
    */
   public static AttributeValue generatingAttributeValue(
       ExtendedAttributesFromXml extendedAttributes) {
-    if (extendedAttributes != null)
-      return AttributeValue.builder()
-          .attributeValue(generatingAttributes(extendedAttributes))
-          .build();
-    else return null;
+    if (extendedAttributes != null) {
+      return AttributeValue.builder().value(generatingAttributes(extendedAttributes)).build();
+    } else {
+      return null;
+    }
   }
 
   /**

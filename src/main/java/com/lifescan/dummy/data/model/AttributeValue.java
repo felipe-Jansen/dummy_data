@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -25,5 +26,6 @@ import lombok.Setter;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class AttributeValue {
 
-  private List<Attribute> attributeValue;
+  @JsonProperty("attributeValue")
+  private List<Attribute> value;
 }

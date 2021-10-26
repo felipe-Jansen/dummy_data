@@ -33,9 +33,9 @@ public class Application implements CommandLineRunner {
     try {
       String language = args[0];
       int qtyPatients = Integer.parseInt(args[1]);
-      patientService.create(language, qtyPatients);
+      patientService.execute(language, qtyPatients);
     } catch (ArrayIndexOutOfBoundsException ex) {
-      log.error("No arguments were informed!");
+      log.error("No arguments informed!");
     }
   }
 }

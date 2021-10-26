@@ -1,4 +1,6 @@
 /*
+ * Class responsible for generating the objects with type bgReadingFromXml.
+ *
  * @author fjansen@lifescan.com
  * @version 1
  * Copyright: Copyright (c) 2021
@@ -8,35 +10,38 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.service.util;
+package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.model.BgReading;
 import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
-import java.util.ArrayList;
+import com.lifescan.dummy.data.service.util.Util;
+import java.time.Instant;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.xml.bind.JAXBException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-/** Class responsible for generating the objects with type bgReadingFromXml. */
 @Log4j2
-public class BgReadingGenerator {
+@Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class BgReadingGeneratorImpl implements BgReadingGenerator {
 
-  /**
-   * Method responsible for returning a list of bgReadingFromXml.
-   *
-   * @return A list of blood glucose readings.
-   */
-  public static List<BgReading> returnFromFile(String file) throws JAXBException {
-    List<BgReading> bgReadings = new ArrayList<>();
+  /** {@inheritDoc} */
+  @Override
+  public List<BgReading> generate(String file) {
     try {
-      for (BgReadingFromXml bgReadingFromXml :
-          Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading()) {
-        bgReadings.add(buildObject(bgReadingFromXml));
-      }
-    } catch (JAXBException ex) {
+      return Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
+          .map(this::buildObject)
+          .collect(Collectors.toList());
+    } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }
-    return bgReadings;
+
+    return Collections.emptyList();
   }
 
   /**
@@ -45,7 +50,7 @@ public class BgReadingGenerator {
    * @param bgReading That concerns to the data that comes from xml file.
    * @return Data from xml file converted in a java object.
    */
-  private static BgReading buildObject(BgReadingFromXml bgReading) {
+  private BgReading buildObject(BgReadingFromXml bgReading) {
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
@@ -54,7 +59,7 @@ public class BgReadingGenerator {
         .extendedAttributes(Util.generatingAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(Util.generatingBgValue(bgReading.getBgValue()))
         .mealTag(bgReading.getMealTag())
-        .lastUpdatedDate(System.currentTimeMillis())
+        .lastUpdatedDate(Instant.now().toEpochMilli())
         .build();
   }
 }
