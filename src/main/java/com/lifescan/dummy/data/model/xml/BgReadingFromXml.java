@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -29,6 +30,8 @@ import lombok.experimental.SuperBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BgReadingFromXml {
 
+  private static List<BgReadingFromXml> proxy;
+
   @XmlElement(name = "bgValue")
   private BgValueFromXml bgValue;
 
@@ -46,4 +49,12 @@ public class BgReadingFromXml {
 
   @XmlElement(name = "extendedAttributes")
   private ExtendedAttributesFromXml extendedAttributes;
+
+  public static List<BgReadingFromXml> getProxy() {
+    return proxy;
+  }
+
+  public static void setProxy(List<BgReadingFromXml> bgReadingFromXmlList) {
+    BgReadingFromXml.proxy = bgReadingFromXmlList;
+  }
 }

@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.service.util;
 
-import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type foodRecord. */
 @Log4j2
-public class FoodRecordsGenerator {
+public class FoodRecordsGenerator extends Generator {
 
   /**
    * Method responsible for returning a list of foodFromXml records.
@@ -50,10 +49,8 @@ public class FoodRecordsGenerator {
    * @throws JAXBException
    */
   private static List<FoodFromXml> getFoodRecords(String file) throws JAXBException {
-    List<FoodFromXml> food = Util.getDeviceDataDataSet(file).getFoodDataLog().getFood();
-    return food.size() >= ArgsParameter.getInstance().getFoodNumbers()
-        ? food.subList(0, ArgsParameter.getInstance().getFoodNumbers())
-        : food;
+    List<FoodFromXml> food = getDeviceDataDataSet(file).getFoodDataLog().getFood();
+    return food;
   }
 
   /**
@@ -66,11 +63,11 @@ public class FoodRecordsGenerator {
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
         .manual(foodFromXml.getManual())
-        .readingDate(Util.generatingReadingDateFormatted())
-        .id(Util.generatingId())
+        .readingDate(generatingReadingDateFormatted())
+        .id(generatingId())
         .lastUpdatedDate(System.currentTimeMillis())
-        .annotation(Util.generatingAnnotations(foodFromXml.getAnnotation()))
-        .carbohydrates(Util.generatingCarbohydrates(foodFromXml.getCarbohydrates()))
+        .annotation(generatingAnnotations(foodFromXml.getAnnotation()))
+        .carbohydrates(generatingCarbohydrates(foodFromXml.getCarbohydrates()))
         .editable(foodFromXml.getEditable())
         .build();
   }

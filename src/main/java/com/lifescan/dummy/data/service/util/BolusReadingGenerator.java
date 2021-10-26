@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.service.util;
 
-import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BolusReading;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import lombok.extern.log4j.Log4j2;
 
 /** Class responsible for generating the objects with type bolusReading. */
 @Log4j2
-public class BolusReadingGenerator {
+public class BolusReadingGenerator extends Generator {
 
   /**
    * Method responsible for returning a list of bolusFromXmls reading.
@@ -31,7 +30,7 @@ public class BolusReadingGenerator {
 
     List<BolusReading> bolusReadings = new ArrayList<>();
     try {
-      for (BolusFromXml bolusFromXml : getBolusReading(file)) {
+      for (BolusFromXml bolusFromXml : GetBolusReading(file)) {
         bolusReadings.add(buildObject(bolusFromXml));
       }
     } catch (JAXBException ex) {
@@ -49,11 +48,9 @@ public class BolusReadingGenerator {
    * @return a list of BolusFromXml
    * @throws JAXBException
    */
-  private static List<BolusFromXml> getBolusReading(String file) throws JAXBException {
-    List<BolusFromXml> bolus = Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus();
-    return bolus.size() >= ArgsParameter.getInstance().getFoodNumbers()
-        ? bolus.subList(0, ArgsParameter.getInstance().getFoodNumbers())
-        : bolus;
+  private static List<BolusFromXml> GetBolusReading(String file) throws JAXBException {
+    List<BolusFromXml> bolus = getDeviceDataDataSet(file).getBolusDataLog().getBolus();
+    return bolus;
   }
 
   /**
@@ -66,12 +63,12 @@ public class BolusReadingGenerator {
     return BolusReading.builder()
         .active(bolusFromXml.getActive())
         .manual(bolusFromXml.getManual())
-        .readingDate(Util.generatingReadingDateFormatted())
-        .id(Util.generatingId())
+        .readingDate(generatingReadingDateFormatted())
+        .id(generatingId())
         .lastUpdatedDate(System.currentTimeMillis())
-        .annotation(Util.generatingAnnotations(bolusFromXml.getAnnotation()))
-        .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
-        .bolusDelivered(Util.generatingBolusDelivered(bolusFromXml.getBolusDelivered()))
+        .annotation(generatingAnnotations(bolusFromXml.getAnnotation()))
+        .injectedInsulinType(bolusFromXml.getInjectedInsulinType())
+        .bolusDelivered(generatingBolusDelivered(bolusFromXml.getBolusDelivered()))
         .editable(bolusFromXml.getEditable())
         .build();
   }

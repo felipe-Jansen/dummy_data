@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service.util;
 
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BgReading;
 import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import java.util.ArrayList;
@@ -29,8 +30,7 @@ public class BgReadingGenerator {
   public static List<BgReading> returnFromFile(String file) throws JAXBException {
     List<BgReading> bgReadings = new ArrayList<>();
     try {
-      for (BgReadingFromXml bgReadingFromXml :
-          Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading()) {
+      for (BgReadingFromXml bgReadingFromXml : getBgReadings(file)) {
         bgReadings.add(buildObject(bgReadingFromXml));
       }
     } catch (JAXBException ex) {
@@ -40,10 +40,27 @@ public class BgReadingGenerator {
   }
 
   /**
-   * Method responsible for converting from XML file to a java object.
+   * This method prevents the excessive reading to the xml file. When xml file is read for the first
+   * time, all of his result is stored in a static attribute, then is read the value from this
+   * attribute without accessing xml file.
    *
-   * @param bgReading That concerns to the data that comes from xml file.
-   * @return Data from xml file converted in a java object.
+   * @param file file that will be read
+   * @return a list of BgReadingFromXml
+   * @throws JAXBException
+   */
+  private static List<BgReadingFromXml> getBgReadings(String file) throws JAXBException {
+    List<BgReadingFromXml> bgReading =
+        Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading();
+    return bgReading.size() >= ArgsParameter.getInstance().getFoodNumbers()
+        ? bgReading.subList(0, ArgsParameter.getInstance().getFoodNumbers())
+        : bgReading;
+  }
+
+  /**
+   * Method responsible for converting an object from BgReadingFromXml to BgReading
+   *
+   * @param bgReading it concerns to informations that were extracted from xml file
+   * @return An object from type BgReading
    */
   private static BgReading buildObject(BgReadingFromXml bgReading) {
     return BgReading.builder()
@@ -53,7 +70,7 @@ public class BgReadingGenerator {
         .id(Util.generatingId())
         .extendedAttributes(Util.generatingAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(Util.generatingBgValue(bgReading.getBgValue()))
-        .mealTag(bgReading.getMealTag())
+        .mealTag(ArgsParameter.getInstance().getReadingsTag())
         .lastUpdatedDate(System.currentTimeMillis())
         .build();
   }
