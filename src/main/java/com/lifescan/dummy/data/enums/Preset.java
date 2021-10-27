@@ -11,13 +11,12 @@
 package com.lifescan.dummy.data.enums;
 
 public enum Preset {
-  PRESET_DIABETES_1_WITH_FOOD(1),
-  PRESET_DIABETES_1(2),
-  PRESET_DIABETES_2(3),
-  PRESET_DIABETES_2_WITH_FOOD(4),
-  PRESET_GESTATIONAL_DIABETES(5);
+  EMILY(1),
+  HARRY(2),
+  HEATHER(3),
+  MARIANNE(4),
+  SEBASTIAN(5);
 
-  // Change to ID
   private final int id;
 
   Preset(int id) {
