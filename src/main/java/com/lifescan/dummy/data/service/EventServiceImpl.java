@@ -14,7 +14,7 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.constants.PresetsConstants;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
-import com.lifescan.dummy.data.model.Meta;
+import com.lifescan.dummy.data.model.MetaInformation;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
@@ -42,7 +42,9 @@ public class EventServiceImpl implements EventService {
           securityService.doLogin(login), generatingEvent(PresetsConstants.HARRY));
       log.info("Events created with successfully!");
     } catch (FeignException ex) {
-      log.error(ex.contentUTF8());
+      if (log.isDebugEnabled()) {
+        log.debug(ex.contentUTF8());
+      }
     }
   }
 
@@ -59,17 +61,17 @@ public class EventServiceImpl implements EventService {
         .bolusReadings(bolusReadingGenerator.generate(presetSelected))
         .healthAttributes(healthAttributeGenerator.generate(presetSelected))
         .isBackgroundSync(false)
-        .meta(generatingMeta())
+        .metaInformation(generatingMeta())
         .build();
   }
 
   /**
-   * Method responsible for generating the meta information.
+   * Method responsible for generating the metaInformation information.
    *
-   * @return A single object from type Meta.
+   * @return A single object from type MetaInformation.
    */
-  private Meta generatingMeta() {
-    return Meta.builder()
+  private MetaInformation generatingMeta() {
+    return MetaInformation.builder()
         .sourceApp(ConfigConstants.SOURCE_APP)
         .sourceAppVersion(ConfigConstants.APP_VERSION)
         .build();

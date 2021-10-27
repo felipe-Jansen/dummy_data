@@ -15,7 +15,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ArgsParameter {
+public final class ArgsParameter {
 
   private static final ArgsParameter instance = new ArgsParameter();
 

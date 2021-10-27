@@ -18,9 +18,9 @@ public enum Preset {
   PRESET_GESTATIONAL_DIABETES(5);
 
   // Change to ID
-  private final int levelCode;
+  private final int id;
 
-  Preset(int levelCode) {
-    this.levelCode = levelCode;
+  Preset(int id) {
+    this.id = id;
   }
 }

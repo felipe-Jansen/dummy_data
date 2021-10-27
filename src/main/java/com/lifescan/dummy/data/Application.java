@@ -34,7 +34,7 @@ public class Application implements CommandLineRunner {
   }
 
   @Override
-  public void run(String[] args) {
+  public void run(String... args) {
     try {
       String language = args[ArgsConstants.LANGUAGE_ISO];
       int qtyPatients = Integer.parseInt(args[ArgsConstants.NUMBER_PATIENTS]);
@@ -45,7 +45,7 @@ public class Application implements CommandLineRunner {
     }
   }
 
-  private void generatingArgObject(String[] args) {
+  private void generatingArgObject(String... args) {
     ArgsParameter argsParameter = ArgsParameter.getInstance();
     argsParameter.setStartDate(args[ArgsConstants.START_DATE]);
     argsParameter.setEndDate(args[ArgsConstants.END_DATE]);
@@ -61,10 +61,8 @@ public class Application implements CommandLineRunner {
         extractInformationFromParameters(ArgsConstants.READING_PRESET, args));
   }
 
-  private String extractInformationFromParameters(MappedAttribute attribute, String[] args) {
-    if (!args[attribute.getIndex()].contains("&")) {
-      return null;
-    } else {
+  private String extractInformationFromParameters(MappedAttribute attribute, String... args) {
+    if (args[attribute.getIndex()].contains("&")) {
       String[] arg =
           args[attribute.getIndex()].contains("&") ? args[attribute.getIndex()].split("&") : null;
       String value =
@@ -72,11 +70,9 @@ public class Application implements CommandLineRunner {
               .filter(c -> c.contains(attribute.getAttribute()))
               .findFirst()
               .orElse(null);
-      if (value != null) {
-        return value.split("=")[1];
-      } else {
-        return null;
-      }
+      return (value == null) ? null : value.split("=")[1];
+    } else {
+      return null;
     }
   }
 

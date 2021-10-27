@@ -14,7 +14,6 @@ import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.BolusReading;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
-import com.lifescan.dummy.data.service.util.Generator;
 import com.lifescan.dummy.data.service.util.Util;
 import java.util.Collections;
 import java.util.List;
@@ -49,6 +48,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    *
    * @return A list of bolusFromXmls readings.
    */
+  @Override
   public List<BolusReading> generate(String file) {
     try {
       return Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus().stream()

@@ -8,7 +8,7 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.service.util;
+package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.model.Annotation;
 import com.lifescan.dummy.data.model.Attribute;
@@ -24,7 +24,7 @@ import java.util.UUID;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-public abstract class Generator {
+public class Generator {
 
   /**
    * Method responsible for setting the attributes values.
@@ -32,11 +32,10 @@ public abstract class Generator {
    * @return A single attribute value.
    * @param extendedAttributes Concerns to the list of data that comes from xml file
    */
-  public static AttributeValue generatingAttributeValue(
-      ExtendedAttributesFromXml extendedAttributes) {
-    if (extendedAttributes != null)
-      return AttributeValue.builder().value(generatingAttributes(extendedAttributes)).build();
-    else return null;
+  public AttributeValue generatingAttributeValue(ExtendedAttributesFromXml extendedAttributes) {
+    return (extendedAttributes == null)
+        ? null
+        : AttributeValue.builder().value(generatingAttributes(extendedAttributes)).build();
   }
 
   /**
@@ -45,8 +44,7 @@ public abstract class Generator {
    * @return A list of attributes.
    * @param extendedAttributes Concerns to the list of data that comes from xml file
    */
-  private static List<Attribute> generatingAttributes(
-      ExtendedAttributesFromXml extendedAttributes) {
+  private List<Attribute> generatingAttributes(ExtendedAttributesFromXml extendedAttributes) {
     List<Attribute> attributes = new ArrayList<>();
     for (AttributeFromXml attributeFromXml : extendedAttributes.getAttributeValue()) {
       attributes.add(
@@ -65,15 +63,15 @@ public abstract class Generator {
    * @return A list of annotations.
    * @param annotationsFromXml Concerns to the list of data that comes from xml file
    */
-  public static List<Annotation> generatingAnnotations(AnnotationsFromXml annotationsFromXml) {
-    if (annotationsFromXml != null) {
+  public List<Annotation> generatingAnnotations(AnnotationsFromXml annotationsFromXml) {
+    if (annotationsFromXml == null) {
+      return Collections.emptyList();
+    } else {
       List<Annotation> annotations = new ArrayList<>();
       for (AnnotationFromXml annotationFromXml : annotationsFromXml.getAnnotation()) {
         annotations.add(generatingAnnotation(annotationFromXml));
       }
       return annotations;
-    } else {
-      return Collections.emptyList();
     }
   }
 
@@ -83,7 +81,7 @@ public abstract class Generator {
    * @return A single annotationFromXml.
    * @param annotationFromXml Concerns to the data that comes from xml file
    */
-  private static Annotation generatingAnnotation(AnnotationFromXml annotationFromXml) {
+  private Annotation generatingAnnotation(AnnotationFromXml annotationFromXml) {
     return Annotation.builder().value(annotationFromXml.getAnnotation()).build();
   }
 
@@ -92,7 +90,7 @@ public abstract class Generator {
    *
    * @return A new UUID
    */
-  public static String generatingId() {
+  public String generatingId() {
     return UUID.randomUUID().toString().replace("-", "");
   }
 }

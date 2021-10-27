@@ -14,7 +14,6 @@ import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
-import com.lifescan.dummy.data.service.util.Generator;
 import com.lifescan.dummy.data.service.util.Util;
 import java.util.Collections;
 import java.util.List;
@@ -49,6 +48,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGen
    *
    * @return A list of foodFromXml records.
    */
+  @Override
   public List<FoodRecord> generate(String file) {
     try {
       return Util.getDeviceDataDataSet(file).getFoodDataLog().getFood().stream()

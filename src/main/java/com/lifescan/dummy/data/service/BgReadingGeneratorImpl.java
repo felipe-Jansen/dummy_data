@@ -10,11 +10,11 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BgReading;
 import com.lifescan.dummy.data.model.BgValue;
 import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
-import com.lifescan.dummy.data.service.util.Generator;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
 import java.util.Collections;
@@ -48,7 +48,8 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     try {
       return Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
           .map(this::buildObject)
-          .collect(Collectors.toList());
+          .collect(Collectors.toList())
+          .subList(0, ArgsParameter.getInstance().getReadingsNumber());
     } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }

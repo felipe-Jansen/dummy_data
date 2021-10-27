@@ -22,7 +22,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Meta {
+public class MetaInformation {
 
   private String sourceApp;
   private String sourceAppVersion;

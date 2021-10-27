@@ -12,7 +12,6 @@ package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
-import com.lifescan.dummy.data.service.util.Generator;
 import com.lifescan.dummy.data.service.util.Util;
 import java.util.Collections;
 import java.util.List;
@@ -33,6 +32,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
    *
    * @return A list of health attributes.
    */
+  @Override
   public List<HealthAttribute> generate(String file) {
     try {
       return Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib().stream()
