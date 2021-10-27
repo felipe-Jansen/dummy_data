@@ -27,7 +27,6 @@ public class SecurityServiceImpl implements SecurityService {
   /** {@inheritDoc} */
   @Override
   public String doLogin(Login user) {
-    // TODO change static info
     return securityServiceCore
         .authenticate(user.getEmail(), user.getPassword())
         .getResult()
