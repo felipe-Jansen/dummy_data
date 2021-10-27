@@ -12,13 +12,7 @@ package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.model.Patient;
 
-public interface PatientService {
+public interface RegistrationService {
 
-  /**
-   * Method responsible for analyse the input and start generating the patients.
-   *
-   * @param language that concerns to the idiom of the patients.
-   * @param country that concerns to the country of the patients.
-   */
-  Patient create(String language, String country);
+  void registerPatient(String language, String country, String requestToken, Patient patient);
 }

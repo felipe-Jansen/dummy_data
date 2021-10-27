@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.util.Random;
-import java.util.UUID;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -90,14 +89,5 @@ public class Util {
     int min = formatter.parse(end).get(field);
     int range = (max - min) + 1;
     return (int) (Math.random() * range) + min;
-  }
-
-  /**
-   * Method resonsible for generating new UUID's for the events.
-   *
-   * @return A new UUID
-   */
-  public static String generateId() {
-    return UUID.randomUUID().toString().replace("-", "");
   }
 }

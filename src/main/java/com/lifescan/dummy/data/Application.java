@@ -14,6 +14,7 @@ import com.lifescan.dummy.data.constants.ArgsConstants;
 import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.constants.MappedAttribute;
 import com.lifescan.dummy.data.model.ArgsParameter;
+import com.lifescan.dummy.data.service.EventService;
 import com.lifescan.dummy.data.service.PatientService;
 import java.util.Arrays;
 import lombok.extern.log4j.Log4j2;
@@ -29,6 +30,8 @@ public class Application implements CommandLineRunner {
 
   @Autowired private PatientService patientService;
 
+  @Autowired private EventService eventService;
+
   public static void main(String[] args) {
     new SpringApplicationBuilder(Application.class).web(WebApplicationType.NONE).run(args);
   }
@@ -39,7 +42,7 @@ public class Application implements CommandLineRunner {
       String language = args[ArgsConstants.LANGUAGE_ISO];
       int qtyPatients = Integer.parseInt(args[ArgsConstants.NUMBER_PATIENTS]);
       generatingArgObject(args);
-      patientService.create(language, qtyPatients);
+      eventService.create(language, qtyPatients);
     } catch (ArrayIndexOutOfBoundsException ex) {
       log.error("No arguments informed!");
     }

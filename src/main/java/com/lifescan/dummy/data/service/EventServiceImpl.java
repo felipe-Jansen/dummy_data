@@ -15,6 +15,7 @@ import com.lifescan.dummy.data.constants.PresetsConstants;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.MetaInformation;
+import com.lifescan.dummy.data.model.Patient;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,18 @@ public class EventServiceImpl implements EventService {
   private final BolusReadingGenerator bolusReadingGenerator;
   private final FoodRecordsGenerator foodRecordsGenerator;
   private final HealthAttributeGenerator healthAttributeGenerator;
+  private final PatientService patientService;
+
+  /** {@inheritDoc} */
+  @Override
+  public void create(String language, Integer numberPatients) {
+    log.traceEntry("language:{}, numberPatients:{}", language, numberPatients);
+    for (int i = 0; i < numberPatients; i++) {
+      Patient patient = patientService.create(language, getCountry(language));
+      publishEvent(
+          Login.builder().email(patient.getEmailAddress()).password(patient.getPassword()).build());
+    }
+  }
 
   /** {@inheritDoc} */
   @Override
@@ -45,6 +58,24 @@ public class EventServiceImpl implements EventService {
       if (log.isDebugEnabled()) {
         log.debug(ex.contentUTF8());
       }
+    }
+  }
+
+  /**
+   * Method responsible for discovery the country from informed languageIsoCode.
+   *
+   * @param languageIsoCode that contains the information to extract the country.
+   * @return The country informed in the languageIsoCode.
+   */
+  private String getCountry(String languageIsoCode) {
+    try {
+      if (languageIsoCode.contains("-")) {
+        return log.traceExit(languageIsoCode.split("-")[1]);
+      } else {
+        return log.traceExit(languageIsoCode.split("_")[1]);
+      }
+    } catch (ArrayIndexOutOfBoundsException exception) {
+      return log.traceExit(languageIsoCode);
     }
   }
 

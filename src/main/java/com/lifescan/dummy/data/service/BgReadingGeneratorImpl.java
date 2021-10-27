@@ -67,7 +67,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
         .readingDate(Util.generateReadingDateFormatted())
-        .id(Util.generateId())
+        .id(generatingId())
         .extendedAttributes(generatingAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generateBgValue(bgReading.getBgValue()))
         .mealTag(bgReading.getMealTag())
