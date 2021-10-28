@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
@@ -51,9 +52,14 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGen
   @Override
   public List<FoodRecord> generate(String file) {
     try {
-      return Util.getDeviceDataDataSet(file).getFoodDataLog().getFood().stream()
-          .map(this::buildObject)
-          .collect(Collectors.toList());
+      List<FoodRecord> listOfEvents =
+          Util.getDeviceDataDataSet(file).getFoodDataLog().getFood().stream()
+              .map(this::buildObject)
+              .collect(Collectors.toList());
+      return listOfEvents.subList(
+          0,
+          Util.getNumberOfEvents(
+              listOfEvents.size(), ArgsParameter.getInstance().getFoodNumbers()));
     } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }

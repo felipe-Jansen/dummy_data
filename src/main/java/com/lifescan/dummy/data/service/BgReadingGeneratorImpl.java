@@ -46,10 +46,14 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
   @Override
   public List<BgReading> generate(String file) {
     try {
-      return Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
-          .map(this::buildObject)
-          .collect(Collectors.toList())
-          .subList(0, ArgsParameter.getInstance().getReadingsNumber());
+      List<BgReading> listOfEvents =
+          Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
+              .map(this::buildObject)
+              .collect(Collectors.toList());
+      return listOfEvents.subList(
+          0,
+          Util.getNumberOfEvents(
+              listOfEvents.size(), ArgsParameter.getInstance().getReadingsNumber()));
     } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }

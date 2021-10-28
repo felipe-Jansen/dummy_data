@@ -38,5 +38,5 @@ public class ConfigConstants {
 
   public static final String APP_VERSION = "5.3.1";
 
-  public static final int DEFAULT_QUANTITY_EVENTS = 10;
+  public static final int DEFAULT_QUANTITY_OF_EVENTS_TO_BE_CREATED = 10;
 }

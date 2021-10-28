@@ -90,4 +90,17 @@ public class Util {
     int range = (max - min) + 1;
     return (int) (Math.random() * range) + min;
   }
+
+  /**
+   * Method responsible for validating the number of events that will be generated, based on the
+   * size of the list and quantity of events to be generated informed by user.
+   *
+   * @param sizeOfList number of elements in the list
+   * @param quantityOfEventsToBeGenerated numbers of events that have to be generated (informed by
+   *     user)
+   * @return number of events that will be generated
+   */
+  public static int getNumberOfEvents(int sizeOfList, int quantityOfEventsToBeGenerated) {
+    return sizeOfList == 0 ? 0 : Math.min(sizeOfList, quantityOfEventsToBeGenerated);
+  }
 }

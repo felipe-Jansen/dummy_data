@@ -82,6 +82,6 @@ public class Application implements CommandLineRunner {
   private int getNumberEvents(String event) {
     return event.contains("=")
         ? Integer.parseInt(event.split("=")[1])
-        : ConfigConstants.DEFAULT_QUANTITY_EVENTS;
+        : ConfigConstants.DEFAULT_QUANTITY_OF_EVENTS_TO_BE_CREATED;
   }
 }

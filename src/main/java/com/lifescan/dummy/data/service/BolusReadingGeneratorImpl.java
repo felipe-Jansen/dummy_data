@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.BolusReading;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
@@ -51,9 +52,14 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
   @Override
   public List<BolusReading> generate(String file) {
     try {
-      return Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus().stream()
-          .map(this::buildObject)
-          .collect(Collectors.toList());
+      List<BolusReading> listOfEvents =
+          Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus().stream()
+              .map(this::buildObject)
+              .collect(Collectors.toList());
+      return listOfEvents.subList(
+          0,
+          Util.getNumberOfEvents(
+              listOfEvents.size(), ArgsParameter.getInstance().getBolusNumber()));
     } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }
