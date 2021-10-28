@@ -19,6 +19,8 @@ public final class ArgsParameter {
 
   private static final ArgsParameter instance = new ArgsParameter();
 
+  private String preset;
+
   private String startDate;
   private String endDate;
 

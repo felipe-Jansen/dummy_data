@@ -16,8 +16,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class ConfigConstants {
 
-  public static final String PREFIX_PATTERN_PATIENT_NAME = "patient_";
-
   public static final String SUFFIX_PATTERN_PATIENT_EMAIL = "_patient@mailinator.com";
 
   public static final String GENDER_FEMALE = "F";
@@ -38,5 +36,7 @@ public class ConfigConstants {
 
   public static final String APP_VERSION = "5.3.1";
 
-  public static final int DEFAULT_QUANTITY_OF_EVENTS_TO_BE_CREATED = 10;
+  public static final int MIN_VALUE_DURATION_ATTRIBUTE = 30;
+
+  public static final int MAX_VALUE_DURATION_ATTRIBUTE = 60;
 }

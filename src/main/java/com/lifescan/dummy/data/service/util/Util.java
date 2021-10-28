@@ -103,4 +103,15 @@ public class Util {
   public static int getNumberOfEvents(int sizeOfList, int quantityOfEventsToBeGenerated) {
     return sizeOfList == 0 ? 0 : Math.min(sizeOfList, quantityOfEventsToBeGenerated);
   }
+
+  /**
+   * Method responsible for generating a random number between informed range.
+   * @param min min value for range
+   * @param max maximum value for range
+   * @return a random number
+   */
+  public static int getRandomNumberBetween(int min, int max) {
+    return new Random().nextInt(max - min + 1) + min;
+  }
+
 }

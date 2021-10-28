@@ -80,7 +80,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         .id(generatingId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generatingAnnotations(bolusFromXml.getAnnotation()))
-        .injectedInsulinType(bolusFromXml.getInjectedInsulinType())
+        .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
         .bolusDelivered(generatingBolusDelivered(bolusFromXml.getBolusDelivered()))
         .editable(bolusFromXml.getEditable())
         .build();

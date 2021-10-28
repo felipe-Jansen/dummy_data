@@ -10,13 +10,16 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.enums.IntensityAttribute;
 import com.lifescan.dummy.data.model.Annotation;
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Attribute;
 import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.xml.AnnotationFromXml;
 import com.lifescan.dummy.data.model.xml.AnnotationsFromXml;
 import com.lifescan.dummy.data.model.xml.AttributeFromXml;
 import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
+import com.lifescan.dummy.data.service.util.Util;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -45,6 +48,28 @@ public class Generator {
    * @param extendedAttributes Concerns to the list of data that comes from xml file
    */
   private List<Attribute> generatingAttributes(ExtendedAttributesFromXml extendedAttributes) {
+    if (ArgsParameter.getInstance().getPreset() == null) {
+      return generateNewAttributes();
+    } else {
+      return getAttributesFromXmlFile(extendedAttributes);
+    }
+  }
+
+  private List<Attribute> generateNewAttributes() {
+    List<Attribute> attributes = new ArrayList<>();
+    attributes.add(Attribute.builder()
+        .value(getRandomIntensityAttribute())
+        .type("string")
+        .name("dataLogs_healthAttributes_excersizeIntensity")
+        .build());
+    return attributes;
+  }
+
+  private String getRandomIntensityAttribute() {
+    return IntensityAttribute.randomIntensityAttribute().name();
+  }
+
+  private List<Attribute> getAttributesFromXmlFile(ExtendedAttributesFromXml extendedAttributes) {
     List<Attribute> attributes = new ArrayList<>();
     for (AttributeFromXml attributeFromXml : extendedAttributes.getAttributeValue()) {
       attributes.add(

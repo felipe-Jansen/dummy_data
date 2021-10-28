@@ -17,6 +17,7 @@ import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.service.EventService;
 import com.lifescan.dummy.data.service.PatientService;
 import java.util.Arrays;
+import java.util.Random;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -82,6 +83,6 @@ public class Application implements CommandLineRunner {
   private int getNumberEvents(String event) {
     return event.contains("=")
         ? Integer.parseInt(event.split("=")[1])
-        : ConfigConstants.DEFAULT_QUANTITY_OF_EVENTS_TO_BE_CREATED;
+        : new Random().nextInt(10) + 1;
   }
 }

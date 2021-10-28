@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
@@ -63,7 +64,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
         .readingDate(Util.generateReadingDateFormatted())
         .id(generatingId())
         .lastUpdatedDate(System.currentTimeMillis())
-        .healthAttributesValue(healthAttribFromXml.getHealthAttributesValue())
+        .healthAttributesValue(Util.getRandomNumberBetween(ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE, ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
         .healthAtributesLookup(healthAttribFromXml.getHealthAtributesLookup())
         .editable(healthAttribFromXml.getEditable())
         .extendedAttribute(generatingAttributeValue(healthAttribFromXml.getExtendedAttributes()))
