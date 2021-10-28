@@ -12,9 +12,11 @@ package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
+import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,6 +38,27 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
    */
   @Override
   public List<HealthAttribute> generate(String file) {
+     return ArgsParameter.getInstance().getPreset() == null ? generateDefault() : generateFromFile(file);
+  }
+
+  private List<HealthAttribute> generateDefault() {
+    List<HealthAttribute> listOfEvents = new ArrayList<>();
+    listOfEvents.add(HealthAttribute.builder()
+        .active(ConfigConstants.ACTIVE_VALUE)
+        .manual(ConfigConstants.MANUAL_VALUE)
+        .readingDate(Util.generateReadingDateFormatted())
+        .id(generateId())
+        .lastUpdatedDate(System.currentTimeMillis())
+        .healthAttributesValue(Util.getRandomNumberBetween(ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE, ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
+        .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
+        .editable(ConfigConstants.EDITABLE_VALUE)
+        .extendedAttribute(null)
+        .annotation(null)
+        .build());
+    return listOfEvents;
+  }
+
+  private List<HealthAttribute> generateFromFile(String file) {
     try {
       List<HealthAttribute> listOfEvents =
           Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib().stream()
@@ -62,13 +85,13 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
         .readingDate(Util.generateReadingDateFormatted())
-        .id(generatingId())
+        .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(Util.getRandomNumberBetween(ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE, ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
         .healthAtributesLookup(healthAttribFromXml.getHealthAtributesLookup())
         .editable(healthAttribFromXml.getEditable())
-        .extendedAttribute(generatingAttributeValue(healthAttribFromXml.getExtendedAttributes()))
-        .annotation(generatingAnnotations(healthAttribFromXml.getAnnotation()))
+        .extendedAttribute(generateAttributeValue(healthAttribFromXml.getExtendedAttributes()))
+        .annotation(generateAnnotations(healthAttribFromXml.getAnnotation()))
         .build();
   }
 }

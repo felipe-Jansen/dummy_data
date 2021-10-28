@@ -39,4 +39,15 @@ public class ConfigConstants {
   public static final int MIN_VALUE_DURATION_ATTRIBUTE = 30;
 
   public static final int MAX_VALUE_DURATION_ATTRIBUTE = 60;
+
+  public static final int MIN_VALUE_CARBS_ATTRIBUTE = 10;
+
+  public static final int MAX_VALUE_CARBS_ATTRIBUTE = 400;
+
+  public static final String ACTIVE_VALUE = "true";
+
+  public static final String MANUAL_VALUE = "true";
+
+  public static final String EDITABLE_VALUE = "true";
+
 }

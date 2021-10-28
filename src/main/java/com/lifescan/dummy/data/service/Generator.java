@@ -19,7 +19,6 @@ import com.lifescan.dummy.data.model.xml.AnnotationFromXml;
 import com.lifescan.dummy.data.model.xml.AnnotationsFromXml;
 import com.lifescan.dummy.data.model.xml.AttributeFromXml;
 import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
-import com.lifescan.dummy.data.service.util.Util;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,10 +34,10 @@ public class Generator {
    * @return A single attribute value.
    * @param extendedAttributes Concerns to the list of data that comes from xml file
    */
-  public AttributeValue generatingAttributeValue(ExtendedAttributesFromXml extendedAttributes) {
+  public AttributeValue generateAttributeValue(ExtendedAttributesFromXml extendedAttributes) {
     return (extendedAttributes == null)
         ? null
-        : AttributeValue.builder().value(generatingAttributes(extendedAttributes)).build();
+        : AttributeValue.builder().value(generateAttributes(extendedAttributes)).build();
   }
 
   /**
@@ -47,7 +46,7 @@ public class Generator {
    * @return A list of attributes.
    * @param extendedAttributes Concerns to the list of data that comes from xml file
    */
-  private List<Attribute> generatingAttributes(ExtendedAttributesFromXml extendedAttributes) {
+  private List<Attribute> generateAttributes(ExtendedAttributesFromXml extendedAttributes) {
     if (ArgsParameter.getInstance().getPreset() == null) {
       return generateNewAttributes();
     } else {
@@ -88,13 +87,13 @@ public class Generator {
    * @return A list of annotations.
    * @param annotationsFromXml Concerns to the list of data that comes from xml file
    */
-  public List<Annotation> generatingAnnotations(AnnotationsFromXml annotationsFromXml) {
+  public List<Annotation> generateAnnotations(AnnotationsFromXml annotationsFromXml) {
     if (annotationsFromXml == null) {
       return Collections.emptyList();
     } else {
       List<Annotation> annotations = new ArrayList<>();
       for (AnnotationFromXml annotationFromXml : annotationsFromXml.getAnnotation()) {
-        annotations.add(generatingAnnotation(annotationFromXml));
+        annotations.add(generateAnnotation(annotationFromXml));
       }
       return annotations;
     }
@@ -106,7 +105,7 @@ public class Generator {
    * @return A single annotationFromXml.
    * @param annotationFromXml Concerns to the data that comes from xml file
    */
-  private Annotation generatingAnnotation(AnnotationFromXml annotationFromXml) {
+  private Annotation generateAnnotation(AnnotationFromXml annotationFromXml) {
     return Annotation.builder().value(annotationFromXml.getAnnotation()).build();
   }
 
@@ -115,7 +114,7 @@ public class Generator {
    *
    * @return A new UUID
    */
-  public String generatingId() {
+  public String generateId() {
     return UUID.randomUUID().toString().replace("-", "");
   }
 }
