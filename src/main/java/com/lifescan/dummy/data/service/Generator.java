@@ -56,11 +56,12 @@ public class Generator {
 
   private List<Attribute> generateNewAttributes() {
     List<Attribute> attributes = new ArrayList<>();
-    attributes.add(Attribute.builder()
-        .value(getRandomIntensityAttribute())
-        .type("string")
-        .name("dataLogs_healthAttributes_excersizeIntensity")
-        .build());
+    attributes.add(
+        Attribute.builder()
+            .value(getRandomIntensityAttribute())
+            .type("string")
+            .name("dataLogs_healthAttributes_excersizeIntensity")
+            .build());
     return attributes;
   }
 

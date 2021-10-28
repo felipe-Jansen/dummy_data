@@ -106,6 +106,7 @@ public class Util {
 
   /**
    * Method responsible for generating a random number between informed range.
+   *
    * @param min min value for range
    * @param max maximum value for range
    * @return a random number
@@ -113,5 +114,4 @@ public class Util {
   public static int getRandomNumberBetween(int min, int max) {
     return new Random().nextInt(max - min + 1) + min;
   }
-
 }

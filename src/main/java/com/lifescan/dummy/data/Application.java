@@ -11,7 +11,6 @@
 package com.lifescan.dummy.data;
 
 import com.lifescan.dummy.data.constants.ArgsConstants;
-import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.constants.MappedAttribute;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.service.EventService;

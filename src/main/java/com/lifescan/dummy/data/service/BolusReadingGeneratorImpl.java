@@ -53,35 +53,42 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    */
   @Override
   public List<BolusReading> generate(String file) {
-     return ArgsParameter.getInstance().getPreset() == null ? generateDefault() : generateFromFile(file);
+    return ArgsParameter.getInstance().getPreset() == null
+        ? generateDefault()
+        : generateFromFile(file);
   }
 
   private List<BolusReading> generateDefault() {
     List<BolusReading> listOfEvents = new ArrayList<>();
-    listOfEvents.add(BolusReading.builder()
-        .active(ConfigConstants.ACTIVE_VALUE)
-        .manual(ConfigConstants.MANUAL_VALUE)
-        .readingDate(Util.generateReadingDateFormatted())
-        .id(generateId())
-        .lastUpdatedDate(System.currentTimeMillis())
-        .annotation(null)
-        .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
-        .bolusDelivered(BolusDelivered.builder().value(String.valueOf(Util.getRandomNumberBetween(1, 10))).units("u").build())
-        .editable(ConfigConstants.EDITABLE_VALUE)
-        .build());
+    listOfEvents.add(
+        BolusReading.builder()
+            .active(ConfigConstants.ACTIVE_VALUE)
+            .manual(ConfigConstants.MANUAL_VALUE)
+            .readingDate(Util.generateReadingDateFormatted())
+            .id(generateId())
+            .lastUpdatedDate(System.currentTimeMillis())
+            .annotation(null)
+            .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
+            .bolusDelivered(
+                BolusDelivered.builder()
+                    .value(String.valueOf(Util.getRandomNumberBetween(1, 10)))
+                    .units("u")
+                    .build())
+            .editable(ConfigConstants.EDITABLE_VALUE)
+            .build());
     return listOfEvents;
   }
 
   private List<BolusReading> generateFromFile(String file) {
     try {
-    List<BolusReading> listOfEvents =
-        Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus().stream()
-            .map(this::buildObject)
-            .collect(Collectors.toList());
-    return listOfEvents.subList(
-        0,
-        Util.getNumberOfEvents(
-            listOfEvents.size(), ArgsParameter.getInstance().getBolusNumber()));
+      List<BolusReading> listOfEvents =
+          Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus().stream()
+              .map(this::buildObject)
+              .collect(Collectors.toList());
+      return listOfEvents.subList(
+          0,
+          Util.getNumberOfEvents(
+              listOfEvents.size(), ArgsParameter.getInstance().getBolusNumber()));
     } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }

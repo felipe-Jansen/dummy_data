@@ -49,5 +49,4 @@ public class ConfigConstants {
   public static final String MANUAL_VALUE = "true";
 
   public static final String EDITABLE_VALUE = "true";
-
 }

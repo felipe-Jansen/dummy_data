@@ -53,21 +53,24 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGen
    */
   @Override
   public List<FoodRecord> generate(String file) {
-      return ArgsParameter.getInstance().getPreset() == null ? generateDefault() : generateFromFile(file);
+    return ArgsParameter.getInstance().getPreset() == null
+        ? generateDefault()
+        : generateFromFile(file);
   }
 
   private List<FoodRecord> generateDefault() {
     List<FoodRecord> listOfEvents = new ArrayList<>();
-    listOfEvents.add(FoodRecord.builder()
-        .active(ConfigConstants.ACTIVE_VALUE)
-        .manual(ConfigConstants.MANUAL_VALUE)
-        .readingDate(Util.generateReadingDateFormatted())
-        .id(generateId())
-        .lastUpdatedDate(System.currentTimeMillis())
-        .annotation(null)
-        .carbohydrates(null)
-        .editable(ConfigConstants.EDITABLE_VALUE)
-        .build());
+    listOfEvents.add(
+        FoodRecord.builder()
+            .active(ConfigConstants.ACTIVE_VALUE)
+            .manual(ConfigConstants.MANUAL_VALUE)
+            .readingDate(Util.generateReadingDateFormatted())
+            .id(generateId())
+            .lastUpdatedDate(System.currentTimeMillis())
+            .annotation(null)
+            .carbohydrates(null)
+            .editable(ConfigConstants.EDITABLE_VALUE)
+            .build());
     return listOfEvents;
   }
 

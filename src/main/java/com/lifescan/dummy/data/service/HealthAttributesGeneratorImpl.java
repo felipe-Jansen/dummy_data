@@ -12,7 +12,6 @@ package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
-import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
@@ -38,23 +37,29 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
    */
   @Override
   public List<HealthAttribute> generate(String file) {
-     return ArgsParameter.getInstance().getPreset() == null ? generateDefault() : generateFromFile(file);
+    return ArgsParameter.getInstance().getPreset() == null
+        ? generateDefault()
+        : generateFromFile(file);
   }
 
   private List<HealthAttribute> generateDefault() {
     List<HealthAttribute> listOfEvents = new ArrayList<>();
-    listOfEvents.add(HealthAttribute.builder()
-        .active(ConfigConstants.ACTIVE_VALUE)
-        .manual(ConfigConstants.MANUAL_VALUE)
-        .readingDate(Util.generateReadingDateFormatted())
-        .id(generateId())
-        .lastUpdatedDate(System.currentTimeMillis())
-        .healthAttributesValue(Util.getRandomNumberBetween(ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE, ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
-        .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
-        .editable(ConfigConstants.EDITABLE_VALUE)
-        .extendedAttribute(null)
-        .annotation(null)
-        .build());
+    listOfEvents.add(
+        HealthAttribute.builder()
+            .active(ConfigConstants.ACTIVE_VALUE)
+            .manual(ConfigConstants.MANUAL_VALUE)
+            .readingDate(Util.generateReadingDateFormatted())
+            .id(generateId())
+            .lastUpdatedDate(System.currentTimeMillis())
+            .healthAttributesValue(
+                Util.getRandomNumberBetween(
+                    ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE,
+                    ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
+            .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
+            .editable(ConfigConstants.EDITABLE_VALUE)
+            .extendedAttribute(null)
+            .annotation(null)
+            .build());
     return listOfEvents;
   }
 
@@ -87,7 +92,10 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
         .readingDate(Util.generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
-        .healthAttributesValue(Util.getRandomNumberBetween(ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE, ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
+        .healthAttributesValue(
+            Util.getRandomNumberBetween(
+                ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE,
+                ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
         .healthAtributesLookup(healthAttribFromXml.getHealthAtributesLookup())
         .editable(healthAttribFromXml.getEditable())
         .extendedAttribute(generateAttributeValue(healthAttribFromXml.getExtendedAttributes()))

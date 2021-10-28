@@ -20,18 +20,17 @@ public enum TagAttribute {
   EXERCISE_INTENSITY_MEDIUM(2),
   EXERCISE_INTENSITY_MILD(3);
 
-  private final int id;
-
   private static final List<TagAttribute> VALUES =
       Collections.unmodifiableList(Arrays.asList(values()));
   private static final int SIZE = VALUES.size();
   private static final Random RANDOM = new Random();
-
-  public static TagAttribute randomTagAttribute()  {
-    return VALUES.get(RANDOM.nextInt(SIZE));
-  }
+  private final int id;
 
   TagAttribute(int id) {
     this.id = id;
+  }
+
+  public static TagAttribute randomTagAttribute() {
+    return VALUES.get(RANDOM.nextInt(SIZE));
   }
 }
