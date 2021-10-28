@@ -28,7 +28,7 @@ public class SecurityServiceImpl implements SecurityService {
   @Override
   public String doLogin(Login user) {
     return securityServiceCore
-        .authenticate("neivajansen.felipe@gmail.com", "9876374597aA")
+        .authenticate(user.getEmail(), user.getPassword())
         .getResult()
         .getToken();
   }
