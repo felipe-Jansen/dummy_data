@@ -28,8 +28,6 @@ public class ConfigConstants {
 
   public static final String PATIENT_DIABETES_TYPE_1 = "DIABETES_TYPE_1";
 
-  public static final int DELAY_TIME_BETWEEN_EVENTS = 5;
-
   public static final String DATA_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
   public static final String SOURCE_APP = "REVEAL_MOBILE_IOS";
@@ -39,14 +37,4 @@ public class ConfigConstants {
   public static final int MIN_VALUE_DURATION_ATTRIBUTE = 30;
 
   public static final int MAX_VALUE_DURATION_ATTRIBUTE = 60;
-
-  public static final int MIN_VALUE_CARBS_ATTRIBUTE = 10;
-
-  public static final int MAX_VALUE_CARBS_ATTRIBUTE = 400;
-
-  public static final String ACTIVE_VALUE = "true";
-
-  public static final String MANUAL_VALUE = "true";
-
-  public static final String EDITABLE_VALUE = "true";
 }

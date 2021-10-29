@@ -53,7 +53,7 @@ public class EventServiceImpl implements EventService {
     try {
       eventServiceCore.publishEvent(
           securityService.doLogin(login), generatingEvent(PresetsConstants.SEBASTIAN));
-      log.info("Events created with successfully!");
+      log.info("Events created: {}", login.getEmail());
     } catch (FeignException ex) {
       if (log.isDebugEnabled()) {
         log.debug(ex.contentUTF8());

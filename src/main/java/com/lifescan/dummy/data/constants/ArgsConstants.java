@@ -11,9 +11,9 @@
 package com.lifescan.dummy.data.constants;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ArgsConstants {
 
   public static final int LANGUAGE_ISO = 0;
@@ -24,10 +24,4 @@ public class ArgsConstants {
   public static final int FOOD = 5;
   public static final int BOLUS = 6;
   public static final int READING = 7;
-  public static final MappedAttribute BOLUS_TYPE =
-      MappedAttribute.builder().index(BOLUS).event("bolus").attribute("type").build();
-  public static final MappedAttribute READING_TAG =
-      MappedAttribute.builder().index(READING).event("reading").attribute("Tag").build();
-  public static final MappedAttribute READING_PRESET =
-      MappedAttribute.builder().index(READING).event("reading").attribute("preset").build();
 }

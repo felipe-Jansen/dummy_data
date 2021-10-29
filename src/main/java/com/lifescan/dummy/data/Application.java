@@ -53,12 +53,32 @@ public class Application implements CommandLineRunner {
     argsParameter.setFoodNumbers(getNumberEvents(args[ArgsConstants.FOOD]));
 
     argsParameter.setBolusNumber(getNumberEvents(args[ArgsConstants.BOLUS].split("&")[0]));
-    argsParameter.setBolusType(extractInformationFromParameters(ArgsConstants.BOLUS_TYPE, args));
+    argsParameter.setBolusType(
+        extractInformationFromParameters(
+            MappedAttribute.builder()
+                .index(ArgsConstants.BOLUS)
+                .event("bolus")
+                .attribute("type")
+                .build(),
+            args));
 
     argsParameter.setReadingsNumber(getNumberEvents(args[ArgsConstants.READING].split("&")[0]));
-    argsParameter.setReadingsTag(extractInformationFromParameters(ArgsConstants.READING_TAG, args));
+    argsParameter.setReadingsTag(
+        extractInformationFromParameters(
+            MappedAttribute.builder()
+                .index(ArgsConstants.READING)
+                .event("reading")
+                .attribute("Tag")
+                .build(),
+            args));
     argsParameter.setReadingsPreset(
-        extractInformationFromParameters(ArgsConstants.READING_PRESET, args));
+        extractInformationFromParameters(
+            MappedAttribute.builder()
+                .index(ArgsConstants.READING)
+                .event("reading")
+                .attribute("preset")
+                .build(),
+            args));
   }
 
   private String extractInformationFromParameters(MappedAttribute attribute, String... args) {
@@ -70,11 +90,12 @@ public class Application implements CommandLineRunner {
         value =
             Arrays.stream(arg)
                 .filter(c -> c.contains(attribute.getAttribute()))
+                .filter(c -> c.contains("="))
                 .findFirst()
                 .orElse(null);
       }
 
-      return (value == null) ? null : value.split("=")[1];
+      return value.split("=")[1];
     } else {
       return null;
     }

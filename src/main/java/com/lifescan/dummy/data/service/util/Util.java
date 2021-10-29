@@ -14,9 +14,9 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import java.io.File;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoField;
 import java.util.Random;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -31,7 +31,8 @@ public class Util {
    * Method responsible for get the system's data and convert to string following the pattern
    * yyyy-MM-dd HH:mm:ss
    */
-  private static LocalDateTime localDateTime = LocalDateTime.now();
+  private static LocalDateTime localDateTime =
+      convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
 
   /**
    * Method responsible for reading the object that was in the xml file and converting it into a
@@ -54,41 +55,23 @@ public class Util {
    * @return A string with the formatted date
    */
   public static String generateReadingDateFormatted() {
-    localDateTime = localDateTime.plusMinutes(ConfigConstants.DELAY_TIME_BETWEEN_EVENTS);
+    localDateTime =
+        localDateTime.compareTo(
+                    convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
+                < 0
+            ? localDateTime
+                .plusDays(1l)
+                .withHour(Util.getRandomNumberBetween(0, 23))
+                .withMinute(Util.getRandomNumberBetween(0, 59))
+            : convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
-    return randomizeDate().format(formatter);
+    return localDateTime.format(formatter);
   }
 
-  /**
-   * Method responsible for generating a randomized date using range informed by user
-   *
-   * @return a object from localDateTime
-   */
-  private static LocalDateTime randomizeDate() {
-    String start = ArgsParameter.getInstance().getStartDate();
-    String end = ArgsParameter.getInstance().getEndDate();
-    return LocalDateTime.now()
-        .withYear(randomElementOfDate(start, end, ChronoField.YEAR))
-        .withMonth(randomElementOfDate(start, end, ChronoField.MONTH_OF_YEAR))
-        .withDayOfMonth(randomElementOfDate(start, end, ChronoField.DAY_OF_MONTH))
-        .withHour(new Random().nextInt(23))
-        .withMinute(new Random().nextInt(59));
-  }
-
-  /**
-   * It randomizes a specified filed of a date
-   *
-   * @param start beginning of range
-   * @param end limit of range
-   * @param field field that wants to randomize
-   * @return a random number
-   */
-  private static int randomElementOfDate(String start, String end, ChronoField field) {
+  private static LocalDateTime convertFromStringtoLocalDateTime(String date) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    int max = formatter.parse(start).get(field);
-    int min = formatter.parse(end).get(field);
-    int range = (max - min) + 1;
-    return (int) (Math.random() * range) + min;
+    return LocalDate.parse(date, formatter)
+        .atTime(Util.getRandomNumberBetween(0, 23), Util.getRandomNumberBetween(0, 59));
   }
 
   /**

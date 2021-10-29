@@ -15,9 +15,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public enum Preset {
   EMILY(1, PresetsConstants.EMILY),
   HARRY(2, PresetsConstants.HARRY),
