@@ -13,6 +13,7 @@ package com.lifescan.dummy.data;
 import com.lifescan.dummy.data.constants.ArgsConstants;
 import com.lifescan.dummy.data.constants.MappedAttribute;
 import com.lifescan.dummy.data.model.ArgsParameter;
+import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.service.EventService;
 import java.util.Arrays;
 import java.util.Random;
@@ -40,6 +41,7 @@ public class Application implements CommandLineRunner {
       int qtyPatients = Integer.parseInt(args[ArgsConstants.NUMBER_PATIENTS]);
       generatingArgObject(args);
       eventService.create(language, qtyPatients);
+      log.info("{}", ListOfPatients.getInstance().getEmails());
     } catch (ArrayIndexOutOfBoundsException ex) {
       log.error("No arguments informed!");
     }
