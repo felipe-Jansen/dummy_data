@@ -10,14 +10,13 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.lifescan.dummy.data.constants.ConfigConstants;
+import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,7 +33,7 @@ import org.springframework.stereotype.Service;
 public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGenerator {
 
   /**
-   * Method responsible for ganerating a single carbohydrate.
+   * Method responsible for generating a single carbohydrate.
    *
    * @return A single carbohydrate.
    * @param carbohydrates it concerns to the data that comes from xml file
@@ -46,32 +45,13 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGen
         .build();
   }
 
-  /**
-   * Method responsible for returning a list of foodFromXml records.
-   *
-   * @return A list of foodFromXml records.
-   */
+  /** {@inheritDoc} */
   @Override
   public List<FoodRecord> generate(String file) {
-    return ArgsParameter.getInstance().getPreset() == null
-        ? generateDefault()
-        : generateFromFile(file);
-  }
-
-  private List<FoodRecord> generateDefault() {
-    List<FoodRecord> listOfEvents = new ArrayList<>();
-    listOfEvents.add(
-        FoodRecord.builder()
-            .active(ConfigConstants.ACTIVE_VALUE)
-            .manual(ConfigConstants.MANUAL_VALUE)
-            .readingDate(Util.generateReadingDateFormatted())
-            .id(generateId())
-            .lastUpdatedDate(System.currentTimeMillis())
-            .annotation(null)
-            .carbohydrates(null)
-            .editable(ConfigConstants.EDITABLE_VALUE)
-            .build());
-    return listOfEvents;
+    return generateFromFile(
+        ArgsParameter.getInstance().getPreset() == null
+            ? Preset.randomPreset().getAddress()
+            : file);
   }
 
   private List<FoodRecord> generateFromFile(String file) {
@@ -85,7 +65,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGen
           Util.getNumberOfEvents(
               listOfEvents.size(), ArgsParameter.getInstance().getFoodNumbers()));
     } catch (JAXBException exception) {
-      log.error("Error when generating bgReading.");
+      log.error("Error when generating foodRecord.");
     }
     return Collections.emptyList();
   }
@@ -93,7 +73,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGen
   /**
    * Method responsible for converting an object from FoodFromXml to FoodRecord
    *
-   * @param foodFromXml it concerns to the informations that were extracted from xml file
+   * @param foodFromXml it concerns to the information that were extracted from xml file
    * @return An object from type FoodRecord
    */
   private FoodRecord buildObject(FoodFromXml foodFromXml) {

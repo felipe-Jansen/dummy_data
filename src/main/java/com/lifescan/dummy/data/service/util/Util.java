@@ -65,12 +65,12 @@ public class Util {
    * @return a object from localDateTime
    */
   private static LocalDateTime randomizeDate() {
-    String inicio = ArgsParameter.getInstance().getStartDate();
-    String fim = ArgsParameter.getInstance().getEndDate();
+    String start = ArgsParameter.getInstance().getStartDate();
+    String end = ArgsParameter.getInstance().getEndDate();
     return LocalDateTime.now()
-        .withYear(randomElementOfDate(inicio, fim, ChronoField.YEAR))
-        .withMonth(randomElementOfDate(inicio, fim, ChronoField.MONTH_OF_YEAR))
-        .withDayOfMonth(randomElementOfDate(inicio, fim, ChronoField.DAY_OF_MONTH))
+        .withYear(randomElementOfDate(start, end, ChronoField.YEAR))
+        .withMonth(randomElementOfDate(start, end, ChronoField.MONTH_OF_YEAR))
+        .withDayOfMonth(randomElementOfDate(start, end, ChronoField.DAY_OF_MONTH))
         .withHour(new Random().nextInt(23))
         .withMinute(new Random().nextInt(59));
   }

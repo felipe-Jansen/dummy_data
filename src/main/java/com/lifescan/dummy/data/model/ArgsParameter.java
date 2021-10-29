@@ -10,11 +10,14 @@
  */
 package com.lifescan.dummy.data.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ArgsParameter {
 
   private static final ArgsParameter instance = new ArgsParameter();

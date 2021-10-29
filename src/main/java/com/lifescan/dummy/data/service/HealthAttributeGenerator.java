@@ -18,7 +18,7 @@ import java.util.List;
 public interface HealthAttributeGenerator {
 
   /**
-   * Method responsible for returning a list of bgReadingFromXml.
+   * Method responsible for generating a list of health attributes.
    *
    * @param file Name of the file in disk
    * @return A list of blood glucose readings.

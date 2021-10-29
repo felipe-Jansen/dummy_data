@@ -11,11 +11,11 @@
 package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
+import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,37 +30,13 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class HealthAttributesGeneratorImpl extends Generator implements HealthAttributeGenerator {
 
-  /**
-   * Method responsible for returning a list of health attributes.
-   *
-   * @return A list of health attributes.
-   */
+  /** {@inheritDoc} */
   @Override
   public List<HealthAttribute> generate(String file) {
-    return ArgsParameter.getInstance().getPreset() == null
-        ? generateDefault()
-        : generateFromFile(file);
-  }
-
-  private List<HealthAttribute> generateDefault() {
-    List<HealthAttribute> listOfEvents = new ArrayList<>();
-    listOfEvents.add(
-        HealthAttribute.builder()
-            .active(ConfigConstants.ACTIVE_VALUE)
-            .manual(ConfigConstants.MANUAL_VALUE)
-            .readingDate(Util.generateReadingDateFormatted())
-            .id(generateId())
-            .lastUpdatedDate(System.currentTimeMillis())
-            .healthAttributesValue(
-                Util.getRandomNumberBetween(
-                    ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE,
-                    ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
-            .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
-            .editable(ConfigConstants.EDITABLE_VALUE)
-            .extendedAttribute(null)
-            .annotation(null)
-            .build());
-    return listOfEvents;
+    return generateFromFile(
+        ArgsParameter.getInstance().getPreset() == null
+            ? Preset.randomPreset().getAddress()
+            : file);
   }
 
   private List<HealthAttribute> generateFromFile(String file) {
@@ -74,7 +50,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
           Util.getNumberOfEvents(
               listOfEvents.size(), ArgsParameter.getInstance().getExerciseNumbers()));
     } catch (JAXBException exception) {
-      log.error("Error when generating bgReading.");
+      log.error("Error when generating HealthAttributes.");
     }
     return Collections.emptyList();
   }
@@ -82,7 +58,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
   /**
    * Method responsible for converting an object from HealthAttribFromXml to HealthAttribute
    *
-   * @param healthAttribFromXml it concerns to the informations that were extracted from xml file
+   * @param healthAttribFromXml it concerns to the information that were extracted from xml file
    * @return An object from type HealthAttribute
    */
   private HealthAttribute buildObject(HealthAttribFromXml healthAttribFromXml) {

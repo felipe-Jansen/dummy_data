@@ -29,16 +29,6 @@ public class PatientServiceImpl implements PatientService {
   private final RegistrationService registrationService;
 
   /**
-   * Method responsible for generate a SHA1 token from the e-mail.
-   *
-   * @param emailAddress to serve as a base to generate the token.
-   * @return A request token from email.
-   */
-  public static String generateRequestToken(String emailAddress) {
-    return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
-  }
-
-  /**
    * Method responsible for generate a date of birth from system date.
    *
    * @return A string that concerns to the formatted date of birth.
@@ -47,6 +37,17 @@ public class PatientServiceImpl implements PatientService {
     return LocalDateTime.now().minusYears(20).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
   }
 
+  /**
+   * Method responsible for generate a SHA1 token from the e-mail.
+   *
+   * @param emailAddress to serve as a base to generate the token.
+   * @return A request token from email.
+   */
+  private String generateRequestToken(String emailAddress) {
+    return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
+  }
+
+  /** {@inheritDoc} */
   @Override
   public Patient create(String language, String country) {
     Patient patient = buildPatient();

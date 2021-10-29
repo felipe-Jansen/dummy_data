@@ -82,7 +82,7 @@ public class EventServiceImpl implements EventService {
   /**
    * Method responsible for generating events.
    *
-   * @return An object from type Event, that contains the informations readings.
+   * @return An object from type Event, that contains the information readings.
    * @param presetSelected preset informed by user.
    */
   private Event generatingEvent(String presetSelected) {

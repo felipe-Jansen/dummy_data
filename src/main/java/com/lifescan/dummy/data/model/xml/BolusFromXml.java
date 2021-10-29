@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.model.xml;
 
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -29,8 +28,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BolusFromXml {
-
-  private static List<BolusFromXml> proxy;
 
   @XmlAttribute(name = "active")
   private String active;
@@ -52,12 +49,4 @@ public class BolusFromXml {
 
   @XmlElement(name = "bolusDelivered")
   private BolusDeliveredFromXml bolusDelivered;
-
-  public static List<BolusFromXml> getProxy() {
-    return proxy;
-  }
-
-  public static void setProxy(List<BolusFromXml> proxy) {
-    BolusFromXml.proxy = proxy;
-  }
 }

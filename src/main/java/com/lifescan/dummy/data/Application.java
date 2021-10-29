@@ -14,7 +14,6 @@ import com.lifescan.dummy.data.constants.ArgsConstants;
 import com.lifescan.dummy.data.constants.MappedAttribute;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.service.EventService;
-import com.lifescan.dummy.data.service.PatientService;
 import java.util.Arrays;
 import java.util.Random;
 import lombok.extern.log4j.Log4j2;
@@ -27,8 +26,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @Log4j2
 @SpringBootApplication
 public class Application implements CommandLineRunner {
-
-  @Autowired private PatientService patientService;
 
   @Autowired private EventService eventService;
 
@@ -65,14 +62,18 @@ public class Application implements CommandLineRunner {
   }
 
   private String extractInformationFromParameters(MappedAttribute attribute, String... args) {
+    String value = null;
     if (args[attribute.getIndex()].contains("&")) {
       String[] arg =
           args[attribute.getIndex()].contains("&") ? args[attribute.getIndex()].split("&") : null;
-      String value =
-          Arrays.stream(arg)
-              .filter(c -> c.contains(attribute.getAttribute()))
-              .findFirst()
-              .orElse(null);
+      if (arg != null) {
+        value =
+            Arrays.stream(arg)
+                .filter(c -> c.contains(attribute.getAttribute()))
+                .findFirst()
+                .orElse(null);
+      }
+
       return (value == null) ? null : value.split("=")[1];
     } else {
       return null;

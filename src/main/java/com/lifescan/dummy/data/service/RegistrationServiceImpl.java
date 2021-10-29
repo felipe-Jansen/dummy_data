@@ -24,6 +24,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
   private final PatientServiceCore patientServiceCore;
 
+  /** {@inheritDoc} */
   @Override
   public void registerPatient(
       String language, String country, String requestToken, Patient patient) {

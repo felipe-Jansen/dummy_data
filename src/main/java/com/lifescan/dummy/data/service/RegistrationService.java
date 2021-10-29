@@ -14,5 +14,13 @@ import com.lifescan.dummy.data.model.Patient;
 
 public interface RegistrationService {
 
+  /**
+   * Method responsible for registering a new patient.
+   *
+   * @param language native idiom for the patient
+   * @param country country of the patient
+   * @param requestToken request token to be able to access the api
+   * @param patient patient information
+   */
   void registerPatient(String language, String country, String requestToken, Patient patient);
 }

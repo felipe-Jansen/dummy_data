@@ -10,16 +10,33 @@
  */
 package com.lifescan.dummy.data.enums;
 
-public enum Preset {
-  EMILY(1),
-  HARRY(2),
-  HEATHER(3),
-  MARIANNE(4),
-  SEBASTIAN(5);
+import com.lifescan.dummy.data.constants.PresetsConstants;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+import lombok.Getter;
 
+@Getter
+public enum Preset {
+  EMILY(1, PresetsConstants.EMILY),
+  HARRY(2, PresetsConstants.HARRY),
+  HEATHER(3, PresetsConstants.HEATHER),
+  MARIANNE(4, PresetsConstants.MARIANNE),
+  SEBASTIAN(5, PresetsConstants.SEBASTIAN);
+
+  private static final List<Preset> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+  private static final int SIZE = VALUES.size();
+  private static final Random RANDOM = new Random();
+  private final String address;
   private final int id;
 
-  Preset(int id) {
+  Preset(int id, String address) {
     this.id = id;
+    this.address = address;
+  }
+
+  public static Preset randomPreset() {
+    return VALUES.get(RANDOM.nextInt(SIZE));
   }
 }

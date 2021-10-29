@@ -10,8 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.lifescan.dummy.data.constants.ConfigConstants;
-import com.lifescan.dummy.data.enums.TagAttribute;
+import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BgReading;
 import com.lifescan.dummy.data.model.BgValue;
@@ -19,7 +18,6 @@ import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,29 +46,10 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
   /** {@inheritDoc} */
   @Override
   public List<BgReading> generate(String file) {
-    return ArgsParameter.getInstance().getPreset() == null
-        ? generateDefault()
-        : generateFromFile(file);
-  }
-
-  private List<BgReading> generateDefault() {
-    List<BgReading> listOfEvents = new ArrayList<>();
-    listOfEvents.add(
-        BgReading.builder()
-            .active(ConfigConstants.ACTIVE_VALUE)
-            .manual(ConfigConstants.MANUAL_VALUE)
-            .readingDate(Util.generateReadingDateFormatted())
-            .id(generateId())
-            .extendedAttributes(null)
-            .bgValue(
-                BgValue.builder()
-                    .value(Util.getRandomNumberBetween(80, 200))
-                    .units("mg/dL")
-                    .build())
-            .mealTag(TagAttribute.randomTagAttribute().name())
-            .lastUpdatedDate(Instant.now().toEpochMilli())
-            .build());
-    return listOfEvents;
+    return generateFromFile(
+        ArgsParameter.getInstance().getPreset() == null
+            ? Preset.randomPreset().getAddress()
+            : file);
   }
 
   private List<BgReading> generateFromFile(String file) {

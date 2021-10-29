@@ -10,14 +10,13 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.lifescan.dummy.data.constants.ConfigConstants;
+import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.BolusReading;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,37 +45,13 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         .build();
   }
 
-  /**
-   * Method responsible for returning a list of bolusFromXmls reading.
-   *
-   * @return A list of bolusFromXmls readings.
-   */
+  /** {@inheritDoc} */
   @Override
   public List<BolusReading> generate(String file) {
-    return ArgsParameter.getInstance().getPreset() == null
-        ? generateDefault()
-        : generateFromFile(file);
-  }
-
-  private List<BolusReading> generateDefault() {
-    List<BolusReading> listOfEvents = new ArrayList<>();
-    listOfEvents.add(
-        BolusReading.builder()
-            .active(ConfigConstants.ACTIVE_VALUE)
-            .manual(ConfigConstants.MANUAL_VALUE)
-            .readingDate(Util.generateReadingDateFormatted())
-            .id(generateId())
-            .lastUpdatedDate(System.currentTimeMillis())
-            .annotation(null)
-            .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
-            .bolusDelivered(
-                BolusDelivered.builder()
-                    .value(String.valueOf(Util.getRandomNumberBetween(1, 10)))
-                    .units("u")
-                    .build())
-            .editable(ConfigConstants.EDITABLE_VALUE)
-            .build());
-    return listOfEvents;
+    return generateFromFile(
+        ArgsParameter.getInstance().getPreset() == null
+            ? Preset.randomPreset().getAddress()
+            : file);
   }
 
   private List<BolusReading> generateFromFile(String file) {
@@ -90,7 +65,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
           Util.getNumberOfEvents(
               listOfEvents.size(), ArgsParameter.getInstance().getBolusNumber()));
     } catch (JAXBException exception) {
-      log.error("Error when generating bgReading.");
+      log.error("Error when generating BolusReading.");
     }
     return Collections.emptyList();
   }
@@ -98,7 +73,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
   /**
    * Method responsible for converting an object from BolusFromXml to BolusReading
    *
-   * @param bolusFromXml it concerns to the informations that were extracted from xml file
+   * @param bolusFromXml it concerns to the information that were extracted from xml file
    * @return An object from type BolusReading
    */
   private BolusReading buildObject(BolusFromXml bolusFromXml) {
