@@ -12,7 +12,6 @@ package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.constants.PresetsConstants;
-import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.model.Login;
@@ -20,8 +19,6 @@ import com.lifescan.dummy.data.model.MetaInformation;
 import com.lifescan.dummy.data.model.Patient;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
 import feign.FeignException;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,9 +63,8 @@ public class EventServiceImpl implements EventService {
   }
 
   private void saveEmail(String email) {
-    List<String> list = ListOfPatients.getInstance().getEmails();
-    list.add(email);
-    ListOfPatients.getInstance().setEmails(list);
+    ListOfPatients.getInstance()
+        .setEmails(ListOfPatients.getInstance().getEmails().concat("\n - " + email));
   }
 
   /**

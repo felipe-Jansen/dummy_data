@@ -44,7 +44,7 @@ ext {
 
 mainClassName = 'com.lifescan.dummy.data.Application'
 
-    println 'This is executed during configuration phase'
+println 'This is executed during configuration phase'
 task configured {
     println 'The project is configured'
 }

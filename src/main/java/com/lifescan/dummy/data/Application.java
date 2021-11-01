@@ -41,10 +41,14 @@ public class Application implements CommandLineRunner {
       int qtyPatients = Integer.parseInt(args[ArgsConstants.NUMBER_PATIENTS]);
       generatingArgObject(args);
       eventService.create(language, qtyPatients);
-      log.info("{}", ListOfPatients.getInstance().getEmails());
+      showListOfCreatedPatients();
     } catch (ArrayIndexOutOfBoundsException ex) {
       log.error("No arguments informed!");
     }
+  }
+
+  private void showListOfCreatedPatients() {
+    log.info("{}", ListOfPatients.getInstance().getEmails());
   }
 
   private void generatingArgObject(String... args) {

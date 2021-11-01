@@ -10,8 +10,6 @@
  */
 package com.lifescan.dummy.data.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,12 +22,11 @@ public class ListOfPatients {
 
   private static final ListOfPatients instance = new ListOfPatients();
 
-  private List<String> emails = new ArrayList<>();
+  private String emails;
 
   private ListOfPatients() {}
 
   public static ListOfPatients getInstance() {
     return instance;
   }
-
 }
