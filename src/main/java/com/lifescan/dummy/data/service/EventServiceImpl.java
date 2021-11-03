@@ -34,7 +34,7 @@ public class EventServiceImpl implements EventService {
   private final EventServiceCore eventServiceCore;
   private final BgReadingGenerator bgReadingGenerator;
   private final BolusReadingGenerator bolusReadingGenerator;
-  private final FoodRecordsGenerator foodRecordsGenerator;
+  private final FoodRecordGenerator foodRecordGenerator;
   private final HealthAttributeGenerator healthAttributeGenerator;
   private final PatientService patientService;
 
@@ -97,7 +97,7 @@ public class EventServiceImpl implements EventService {
   private Event generatingEvent(String presetSelected) {
     return Event.builder()
         .bgReadings(bgReadingGenerator.generate(presetSelected))
-        .foodRecords(foodRecordsGenerator.generate(presetSelected))
+        .foodRecords(foodRecordGenerator.generate(presetSelected))
         .bolusReadings(bolusReadingGenerator.generate(presetSelected))
         .healthAttributes(healthAttributeGenerator.generate(presetSelected))
         .isBackgroundSync(false)

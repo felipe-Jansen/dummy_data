@@ -12,6 +12,7 @@ package com.lifescan.dummy.data;
 
 import com.lifescan.dummy.data.constants.ArgsConstants;
 import com.lifescan.dummy.data.enums.Preset;
+import com.lifescan.dummy.data.exception.BolusTypeInvalid;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.service.EventService;
@@ -76,10 +77,25 @@ public class Application implements CommandLineRunner {
                   ArgsParameter.getInstance().setReadingsNumber(Integer.parseInt(s.split("=")[1]));
                 }
                 if (s.contains(ArgsConstants.TAG)) {
-                  ArgsParameter.getInstance().setReadingsTag(s.split("=")[1]);
+                  String mealTagReading = s.split("=")[1];
+                  validateMealTagReading(mealTagReading);
+                  ArgsParameter.getInstance().setReadingsTag(mealTagReading);
                 }
               }
             });
+  }
+
+  private void validateMealTagReading(String mealTagReading) {
+    if (mealTagReading.equals("BOLUS_INSULIN_SHORT") ||
+        mealTagReading.equals("FAST") ||
+        mealTagReading.equals("LONG")
+    ) {
+      if (log.isInfoEnabled()) {
+        log.info("Meal tag is valid");
+      }
+    } else {
+      throw new BolusTypeInvalid();
+    }
   }
 
   private void getBolusArguments(String... args) {
@@ -93,10 +109,28 @@ public class Application implements CommandLineRunner {
                   ArgsParameter.getInstance().setBolusNumber(Integer.parseInt(s.split("=")[1]));
                 }
                 if (s.contains(ArgsConstants.TYPE)) {
-                  ArgsParameter.getInstance().setBolusType(s.split("=")[1]);
+                  String bolusType = s.split("=")[1];
+                  validateBolusType(bolusType);
+                  ArgsParameter.getInstance().setBolusType(bolusType);
                 }
               }
             });
+  }
+
+  private void validateBolusType(String bolusType) {
+    if (bolusType.equals("BOLUS_INSULIN_SHORT") ||
+        bolusType.equals("FAST") ||
+        bolusType.equals("LONG") ||
+        bolusType.equals("MIXED") ||
+        bolusType.equals("NPH") ||
+        bolusType.equals("OTHERS")
+    ) {
+      if (log.isInfoEnabled()) {
+        log.info("Bolus type is valid");
+      }
+    } else {
+      throw new BolusTypeInvalid();
+    }
   }
 
   private void getFoodArguments(String... args) {

@@ -30,18 +30,17 @@ import org.springframework.stereotype.Service;
 @Log4j2
 @Service
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGenerator {
+public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGenerator {
 
   /**
    * Method responsible for generating a single carbohydrate.
    *
    * @return A single carbohydrate.
-   * @param carbohydrates it concerns to the data that comes from xml file
    */
-  protected static Carbohydrate generateCarbohydrates(CarbohydrateFromXml carbohydrates) {
+  protected static Carbohydrate generateCarbohydrates() {
     return Carbohydrate.builder()
-        .value(carbohydrates.getValue())
-        .units(carbohydrates.getUnits())
+        .value(Util.getRandomNumberBetween(10,400))
+        .units("g")
         .build();
   }
 
@@ -84,7 +83,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordsGen
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(foodFromXml.getAnnotation()))
-        .carbohydrates(generateCarbohydrates(foodFromXml.getCarbohydrates()))
+        .carbohydrates(generateCarbohydrates())
         .editable(foodFromXml.getEditable())
         .build();
   }

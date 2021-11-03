@@ -15,7 +15,7 @@ package com.lifescan.dummy.data.service;
 import com.lifescan.dummy.data.model.FoodRecord;
 import java.util.List;
 
-public interface FoodRecordsGenerator {
+public interface FoodRecordGenerator {
 
   /**
    * Method responsible for generating a list of food records.
