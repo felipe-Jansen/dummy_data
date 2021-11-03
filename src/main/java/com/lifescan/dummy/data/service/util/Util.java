@@ -60,7 +60,7 @@ public class Util {
                     convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
                 < 0
             ? localDateTime
-                .plusDays(1l)
+                .plusDays(1L)
                 .withHour(Util.getRandomNumberBetween(0, 23))
                 .withMinute(Util.getRandomNumberBetween(0, 59))
             : convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
@@ -68,7 +68,7 @@ public class Util {
     return localDateTime.format(formatter);
   }
 
-  private static LocalDateTime convertFromStringtoLocalDateTime(String date) {
+  public static LocalDateTime convertFromStringtoLocalDateTime(String date) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     return LocalDate.parse(date, formatter)
         .atTime(Util.getRandomNumberBetween(0, 23), Util.getRandomNumberBetween(0, 59));

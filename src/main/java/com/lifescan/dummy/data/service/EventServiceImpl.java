@@ -54,8 +54,7 @@ public class EventServiceImpl implements EventService {
   @Override
   public void publishEvent(Login login, Preset preset) {
     try {
-      eventServiceCore.publishEvent(
-          securityService.doLogin(login), generateEvent(preset.getAddress()));
+      eventServiceCore.publishEvent(securityService.doLogin(login), generateEvent(preset));
       saveEmail(login.getEmail());
       log.info("Event created successfully");
     } catch (FeignException ex) {
@@ -65,6 +64,11 @@ public class EventServiceImpl implements EventService {
     }
   }
 
+  /**
+   * Save generated email
+   *
+   * @param email generated email.
+   */
   private void saveEmail(String email) {
     ListOfPatients.getInstance()
         .setEmails(ListOfPatients.getInstance().getEmails().concat("\n - " + email));
@@ -94,12 +98,13 @@ public class EventServiceImpl implements EventService {
    * @return An object from type Event, that contains the information readings.
    * @param presetSelected preset informed by user.
    */
-  private Event generateEvent(String presetSelected) {
+  private Event generateEvent(Preset presetSelected) {
+    String file = presetSelected != null ? presetSelected.getAddress() : null;
     return Event.builder()
-        .bgReadings(bgReadingGenerator.generate(presetSelected))
-        .foodRecords(foodRecordGenerator.generate(presetSelected))
-        .bolusReadings(bolusReadingGenerator.generate(presetSelected))
-        .healthAttributes(healthAttributeGenerator.generate(presetSelected))
+        .bgReadings(bgReadingGenerator.generate(file))
+        .foodRecords(foodRecordGenerator.generate(file))
+        .bolusReadings(bolusReadingGenerator.generate(file))
+        .healthAttributes(healthAttributeGenerator.generate(file))
         .isBackgroundSync(false)
         .metaInformation(generateMeta())
         .build();

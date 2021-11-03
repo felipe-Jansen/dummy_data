@@ -39,6 +39,12 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
             : file);
   }
 
+  /**
+   * Get health attribute information from file
+   *
+   * @param file It concerns to the url to access the file.
+   * @return list of events.
+   */
   private List<HealthAttribute> generateFromFile(String file) {
     try {
       List<HealthAttribute> listOfEvents =

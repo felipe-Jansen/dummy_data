@@ -37,4 +37,17 @@ public class ConfigConstants {
   public static final int MIN_VALUE_DURATION_ATTRIBUTE = 30;
 
   public static final int MAX_VALUE_DURATION_ATTRIBUTE = 60;
+
+  public static final int MIN_VALUE_BOLUS_UNIT = 1;
+
+  public static final int MAX_VALUE_BOLUS_UNIT = 10;
+
+  public static final String UNIT_BOLUS_VALUE = "U";
+
+  public static final int MAX_VALUE_CARB_FOOD = 400;
+
+  public static final int MIN_VALUE_CARB_FOOD = 10;
+
+  public static final String UNIT_VALUE_CARB_FOOD = "g";
+  public static final int DEFAULT_EVENTS_NUMBER = 10;
 }

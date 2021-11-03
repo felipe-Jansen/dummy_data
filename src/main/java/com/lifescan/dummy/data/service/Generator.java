@@ -65,6 +65,11 @@ public class Generator {
     return attributes;
   }
 
+  /**
+   * Randomize a value for intensity attribute
+   *
+   * @return An intensity attribute randomized value.
+   */
   private String getRandomIntensityAttribute() {
     return IntensityAttribute.randomIntensityAttribute().name();
   }

@@ -10,11 +10,11 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.FoodRecord;
-import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.util.Collections;
@@ -39,8 +39,10 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
    */
   protected static Carbohydrate generateCarbohydrates() {
     return Carbohydrate.builder()
-        .value(Util.getRandomNumberBetween(10,400))
-        .units("g")
+        .value(
+            Util.getRandomNumberBetween(
+                ConfigConstants.MIN_VALUE_CARB_FOOD, ConfigConstants.MAX_VALUE_CARB_FOOD))
+        .units(ConfigConstants.UNIT_VALUE_CARB_FOOD)
         .build();
   }
 
@@ -53,6 +55,12 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
             : file);
   }
 
+  /**
+   * Get food information from file
+   *
+   * @param file It concerns to the url to access the file.
+   * @return list of events.
+   */
   private List<FoodRecord> generateFromFile(String file) {
     try {
       List<FoodRecord> listOfEvents =

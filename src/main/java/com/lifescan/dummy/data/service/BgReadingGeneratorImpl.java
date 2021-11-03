@@ -52,6 +52,12 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
             : file);
   }
 
+  /**
+   * Get bgreading information from file
+   *
+   * @param file It concerns to the url to access the file.
+   * @return list of events.
+   */
   private List<BgReading> generateFromFile(String file) {
     try {
       List<BgReading> listOfEvents =
