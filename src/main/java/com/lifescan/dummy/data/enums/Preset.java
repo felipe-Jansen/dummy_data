@@ -46,12 +46,10 @@ public enum Preset {
   }
 
   public static Preset getById(Long id) {
-    for (Preset preset : values()) {
-      if (preset.id == id) {
-        log.info("Preset informed - {}", preset);
-        return preset;
-      }
-    }
-    throw new PresetNotFound();
+    log.traceEntry("getById({})", id);
+    return Arrays.stream(values())
+        .filter(preset -> preset.id == id)
+        .findAny()
+        .orElseThrow(PresetNotFound::new);
   }
 }

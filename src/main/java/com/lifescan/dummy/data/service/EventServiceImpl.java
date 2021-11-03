@@ -55,7 +55,7 @@ public class EventServiceImpl implements EventService {
   public void publishEvent(Login login, Preset preset) {
     try {
       eventServiceCore.publishEvent(
-          securityService.doLogin(login), generatingEvent(preset.getAddress()));
+          securityService.doLogin(login), generateEvent(preset.getAddress()));
       saveEmail(login.getEmail());
       log.info("Event created successfully");
     } catch (FeignException ex) {
@@ -94,14 +94,14 @@ public class EventServiceImpl implements EventService {
    * @return An object from type Event, that contains the information readings.
    * @param presetSelected preset informed by user.
    */
-  private Event generatingEvent(String presetSelected) {
+  private Event generateEvent(String presetSelected) {
     return Event.builder()
         .bgReadings(bgReadingGenerator.generate(presetSelected))
         .foodRecords(foodRecordsGenerator.generate(presetSelected))
         .bolusReadings(bolusReadingGenerator.generate(presetSelected))
         .healthAttributes(healthAttributeGenerator.generate(presetSelected))
         .isBackgroundSync(false)
-        .metaInformation(generatingMeta())
+        .metaInformation(generateMeta())
         .build();
   }
 
@@ -110,7 +110,7 @@ public class EventServiceImpl implements EventService {
    *
    * @return A single object from type MetaInformation.
    */
-  private MetaInformation generatingMeta() {
+  private MetaInformation generateMeta() {
     return MetaInformation.builder()
         .sourceApp(ConfigConstants.SOURCE_APP)
         .sourceAppVersion(ConfigConstants.APP_VERSION)

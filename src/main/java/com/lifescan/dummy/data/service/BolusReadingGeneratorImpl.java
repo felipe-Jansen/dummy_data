@@ -33,12 +33,12 @@ import org.springframework.stereotype.Service;
 public class BolusReadingGeneratorImpl extends Generator implements BolusReadingGenerator {
 
   /**
-   * Method responsible for ganerating a single bolusFromXmls delivered.
+   * Method responsible for generating a single bolusFromXmls delivered.
    *
    * @return A single bolusFromXmls delivered.
    * @param bolusDelivered it concerns to the data that comes from xml file
    */
-  protected static BolusDelivered generatingBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
+  protected static BolusDelivered generateBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
     return BolusDelivered.builder()
         .value(bolusDelivered.getValue())
         .units(bolusDelivered.getUnits())
@@ -85,7 +85,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(bolusFromXml.getAnnotation()))
         .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
-        .bolusDelivered(generatingBolusDelivered(bolusFromXml.getBolusDelivered()))
+        .bolusDelivered(generateBolusDelivered(bolusFromXml.getBolusDelivered()))
         .editable(bolusFromXml.getEditable())
         .build();
   }

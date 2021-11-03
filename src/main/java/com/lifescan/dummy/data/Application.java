@@ -38,7 +38,7 @@ public class Application implements CommandLineRunner {
     try {
       String language = args[ArgsConstants.LANGUAGE_ISO];
       int qtyPatients = Integer.parseInt(args[ArgsConstants.NUMBER_PATIENTS]);
-      generatingArgObject(args);
+      buildArgObject(args);
       eventService.create(language, qtyPatients);
       showListOfCreatedPatients();
     } catch (ArrayIndexOutOfBoundsException ex) {
@@ -46,13 +46,21 @@ public class Application implements CommandLineRunner {
     }
   }
 
+  /** Print the patient emails. */
   private void showListOfCreatedPatients() {
     if (log.isInfoEnabled()) {
       log.info("{}", ListOfPatients.getInstance().getEmails());
     }
   }
 
-  private void generatingArgObject(String... args) {
+  /**
+   * Builds model of all args input.
+   *
+   * @param args The input arguments
+   */
+  private void buildArgObject(String... args) {
+    // @TODO instead of calling ArgsParameter.getInstance() all the time, can't we just assigned it
+    // into a local variable?
     if (args[ArgsConstants.PRESET].contains("preset")) {
       ArgsParameter.getInstance()
           .setPreset(Preset.getById(Long.parseLong(args[ArgsConstants.PRESET].split("=")[1])));
@@ -65,10 +73,16 @@ public class Application implements CommandLineRunner {
     getReadingArguments(args);
   }
 
+  /**
+   * Get Readings specifications from args.
+   *
+   * @param args The input arguments
+   */
   private void getReadingArguments(String... args) {
     Arrays.stream(args)
         .filter(c -> c.contains(ArgsConstants.READING))
-        .forEach(
+        .findAny()
+        .ifPresent(
             value -> {
               String[] values = value.split("&");
               for (String s : values) {
@@ -82,10 +96,16 @@ public class Application implements CommandLineRunner {
             });
   }
 
+  /**
+   * Get Bolus specifications from args.
+   *
+   * @param args The input arguments
+   */
   private void getBolusArguments(String... args) {
     Arrays.stream(args)
         .filter(c -> c.contains(ArgsConstants.BOLUS))
-        .forEach(
+        .findAny()
+        .ifPresent(
             value -> {
               String[] values = value.split("&");
               for (String s : values) {
@@ -99,10 +119,18 @@ public class Application implements CommandLineRunner {
             });
   }
 
+  /**
+   * Get Food specifications from args.
+   *
+   * @param args The input arguments
+   */
   private void getFoodArguments(String... args) {
+    // @TODO Can you double check if we actually have the & parameter?
+    // I don't recall having parameters for food.
     Arrays.stream(args)
         .filter(c -> c.contains(ArgsConstants.FOOD))
-        .forEach(
+        .findAny()
+        .ifPresent(
             value -> {
               String[] values = value.split("&");
               for (String s : values) {
@@ -111,10 +139,18 @@ public class Application implements CommandLineRunner {
             });
   }
 
+  /**
+   * Get Exercise specifications from args.
+   *
+   * @param args The input arguments
+   */
   private void getExercisesArguments(String... args) {
+    // @TODO Can you double check if we actually have the & parameter?
+    // I don't recall having parameters for exercises.
     Arrays.stream(args)
         .filter(c -> c.contains(ArgsConstants.EXERCISE))
-        .forEach(
+        .findAny()
+        .ifPresent(
             value -> {
               String[] values = value.split("&");
               for (String s : values) {

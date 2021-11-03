@@ -14,11 +14,13 @@ import com.lifescan.dummy.data.enums.Preset;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ArgsParameter {
 
   private static final ArgsParameter instance = new ArgsParameter();
@@ -37,8 +39,6 @@ public final class ArgsParameter {
   private int readingsNumber;
   private String readingsTag;
   private String readingsPreset;
-
-  private ArgsParameter() {}
 
   public static ArgsParameter getInstance() {
     return instance;
