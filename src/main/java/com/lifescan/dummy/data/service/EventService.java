@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.Login;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,5 @@ public interface EventService {
    *
    * @param login that contains the information of email and password.
    */
-  void publishEvent(Login login);
+  void publishEvent(Login login, Preset preset);
 }

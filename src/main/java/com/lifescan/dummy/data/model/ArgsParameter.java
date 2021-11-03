@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model;
 
+import com.lifescan.dummy.data.enums.Preset;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +23,7 @@ public final class ArgsParameter {
 
   private static final ArgsParameter instance = new ArgsParameter();
 
-  private String preset;
+  private Preset preset;
 
   private String startDate;
   private String endDate;

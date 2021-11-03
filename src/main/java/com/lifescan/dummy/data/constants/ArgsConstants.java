@@ -20,8 +20,11 @@ public class ArgsConstants {
   public static final int NUMBER_PATIENTS = 1;
   public static final int START_DATE = 2;
   public static final int END_DATE = 3;
-  public static final int EXERCISE = 4;
-  public static final int FOOD = 5;
-  public static final int BOLUS = 6;
-  public static final int READING = 7;
+  public static final int PRESET = 4;
+  public static final String EXERCISE = "exercise";
+  public static final String FOOD = "food";
+  public static final String BOLUS = "bolus";
+  public static final String TYPE = "type";
+  public static final String READING = "reading";
+  public static final String TAG = "Tag";
 }

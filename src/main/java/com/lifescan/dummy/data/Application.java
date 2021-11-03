@@ -11,12 +11,11 @@
 package com.lifescan.dummy.data;
 
 import com.lifescan.dummy.data.constants.ArgsConstants;
-import com.lifescan.dummy.data.constants.MappedAttribute;
+import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.service.EventService;
 import java.util.Arrays;
-import java.util.Random;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -48,68 +47,79 @@ public class Application implements CommandLineRunner {
   }
 
   private void showListOfCreatedPatients() {
-    log.info("{}", ListOfPatients.getInstance().getEmails());
-  }
-
-  private void generatingArgObject(String... args) {
-    ArgsParameter argsParameter = ArgsParameter.getInstance();
-    argsParameter.setStartDate(args[ArgsConstants.START_DATE]);
-    argsParameter.setEndDate(args[ArgsConstants.END_DATE]);
-    argsParameter.setExerciseNumbers(getNumberEvents(args[ArgsConstants.EXERCISE]));
-    argsParameter.setFoodNumbers(getNumberEvents(args[ArgsConstants.FOOD]));
-
-    argsParameter.setBolusNumber(getNumberEvents(args[ArgsConstants.BOLUS].split("&")[0]));
-    argsParameter.setBolusType(
-        extractInformationFromParameters(
-            MappedAttribute.builder()
-                .index(ArgsConstants.BOLUS)
-                .event("bolus")
-                .attribute("type")
-                .build(),
-            args));
-
-    argsParameter.setReadingsNumber(getNumberEvents(args[ArgsConstants.READING].split("&")[0]));
-    argsParameter.setReadingsTag(
-        extractInformationFromParameters(
-            MappedAttribute.builder()
-                .index(ArgsConstants.READING)
-                .event("reading")
-                .attribute("Tag")
-                .build(),
-            args));
-    argsParameter.setReadingsPreset(
-        extractInformationFromParameters(
-            MappedAttribute.builder()
-                .index(ArgsConstants.READING)
-                .event("reading")
-                .attribute("preset")
-                .build(),
-            args));
-  }
-
-  private String extractInformationFromParameters(MappedAttribute attribute, String... args) {
-    String value = null;
-    if (args[attribute.getIndex()].contains("&")) {
-      String[] arg =
-          args[attribute.getIndex()].contains("&") ? args[attribute.getIndex()].split("&") : null;
-      if (arg != null) {
-        value =
-            Arrays.stream(arg)
-                .filter(c -> c.contains(attribute.getAttribute()))
-                .filter(c -> c.contains("="))
-                .findFirst()
-                .orElse(null);
-      }
-
-      return value.split("=")[1];
-    } else {
-      return null;
+    if (log.isInfoEnabled()) {
+      log.info("{}", ListOfPatients.getInstance().getEmails());
     }
   }
 
-  private int getNumberEvents(String event) {
-    return event.contains("=")
-        ? Integer.parseInt(event.split("=")[1])
-        : new Random().nextInt(10) + 1;
+  private void generatingArgObject(String... args) {
+    if (args[ArgsConstants.PRESET].contains("preset")) {
+      ArgsParameter.getInstance()
+          .setPreset(Preset.getById(Long.parseLong(args[ArgsConstants.PRESET].split("=")[1])));
+    }
+    ArgsParameter.getInstance().setStartDate(args[ArgsConstants.START_DATE]);
+    ArgsParameter.getInstance().setEndDate(args[ArgsConstants.END_DATE]);
+    getExercisesArguments(args);
+    getFoodArguments(args);
+    getBolusArguments(args);
+    getReadingArguments(args);
+  }
+
+  private void getReadingArguments(String... args) {
+    Arrays.stream(args)
+        .filter(c -> c.contains(ArgsConstants.READING))
+        .forEach(
+            value -> {
+              String[] values = value.split("&");
+              for (String s : values) {
+                if (s.contains(ArgsConstants.READING)) {
+                  ArgsParameter.getInstance().setReadingsNumber(Integer.parseInt(s.split("=")[1]));
+                }
+                if (s.contains(ArgsConstants.TAG)) {
+                  ArgsParameter.getInstance().setReadingsTag(s.split("=")[1]);
+                }
+              }
+            });
+  }
+
+  private void getBolusArguments(String... args) {
+    Arrays.stream(args)
+        .filter(c -> c.contains(ArgsConstants.BOLUS))
+        .forEach(
+            value -> {
+              String[] values = value.split("&");
+              for (String s : values) {
+                if (s.contains(ArgsConstants.BOLUS)) {
+                  ArgsParameter.getInstance().setBolusNumber(Integer.parseInt(s.split("=")[1]));
+                }
+                if (s.contains(ArgsConstants.TYPE)) {
+                  ArgsParameter.getInstance().setBolusType(s.split("=")[1]);
+                }
+              }
+            });
+  }
+
+  private void getFoodArguments(String... args) {
+    Arrays.stream(args)
+        .filter(c -> c.contains(ArgsConstants.FOOD))
+        .forEach(
+            value -> {
+              String[] values = value.split("&");
+              for (String s : values) {
+                ArgsParameter.getInstance().setFoodNumbers(Integer.parseInt(s.split("=")[1]));
+              }
+            });
+  }
+
+  private void getExercisesArguments(String... args) {
+    Arrays.stream(args)
+        .filter(c -> c.contains(ArgsConstants.EXERCISE))
+        .forEach(
+            value -> {
+              String[] values = value.split("&");
+              for (String s : values) {
+                ArgsParameter.getInstance().setExerciseNumbers(Integer.parseInt(s.split("=")[1]));
+              }
+            });
   }
 }

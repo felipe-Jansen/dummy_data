@@ -11,15 +11,18 @@
 package com.lifescan.dummy.data.enums;
 
 import com.lifescan.dummy.data.constants.PresetsConstants;
+import com.lifescan.dummy.data.exception.PresetNotFound;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
 
 @Getter
 @AllArgsConstructor
+@Log4j2
 public enum Preset {
   EMILY(1, PresetsConstants.EMILY),
   HARRY(2, PresetsConstants.HARRY),
@@ -40,5 +43,15 @@ public enum Preset {
 
   public static Preset randomPreset() {
     return VALUES.get(RANDOM.nextInt(SIZE));
+  }
+
+  public static Preset getById(Long id) {
+    for (Preset preset : values()) {
+      if (preset.id == id) {
+        log.info("Preset informed - {}", preset);
+        return preset;
+      }
+    }
+    throw new PresetNotFound();
   }
 }

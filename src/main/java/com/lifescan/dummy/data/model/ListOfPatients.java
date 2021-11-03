@@ -22,7 +22,7 @@ public class ListOfPatients {
 
   private static final ListOfPatients instance = new ListOfPatients();
 
-  private String emails = new String();
+  private String emails = "";
 
   private ListOfPatients() {}
 

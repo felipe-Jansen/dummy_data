@@ -11,7 +11,8 @@
 package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
-import com.lifescan.dummy.data.constants.PresetsConstants;
+import com.lifescan.dummy.data.enums.Preset;
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Event;
 import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.model.Login;
@@ -44,16 +45,17 @@ public class EventServiceImpl implements EventService {
     for (int i = 0; i < numberPatients; i++) {
       Patient patient = patientService.create(language, getCountry(language));
       publishEvent(
-          Login.builder().email(patient.getEmailAddress()).password(patient.getPassword()).build());
+          Login.builder().email(patient.getEmailAddress()).password(patient.getPassword()).build(),
+          ArgsParameter.getInstance().getPreset());
     }
   }
 
   /** {@inheritDoc} */
   @Override
-  public void publishEvent(Login login) {
+  public void publishEvent(Login login, Preset preset) {
     try {
       eventServiceCore.publishEvent(
-          securityService.doLogin(login), generatingEvent(PresetsConstants.SEBASTIAN));
+          securityService.doLogin(login), generatingEvent(preset.getAddress()));
       saveEmail(login.getEmail());
       log.info("Event created successfully");
     } catch (FeignException ex) {
