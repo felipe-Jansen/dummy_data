@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+// @TODO You are not using this enum. You need to review this.
 public enum TagAttribute {
   EXERCISE_INTENSITY_HARD(1),
   EXERCISE_INTENSITY_MEDIUM(2),

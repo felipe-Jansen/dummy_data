@@ -18,5 +18,5 @@ public class WebEndPointConstants {
 
   public static final String AUTHENTICATE = "/mobile/user/v3/authenticate";
   public static final String REGISTER_PATIENT = "/mobile/user/v3/register";
-  public static final String REGISTER_EVENT = "/mobile/health/v1/data/publish";
+  public static final String SYNC_EVENT = "/mobile/health/v1/data/publish";
 }

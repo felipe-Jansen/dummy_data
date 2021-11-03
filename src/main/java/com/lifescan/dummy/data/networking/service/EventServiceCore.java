@@ -29,6 +29,6 @@ public interface EventServiceCore {
     "authenticationToken: {token}",
     "token: {token}"
   })
-  @RequestLine("POST " + WebEndPointConstants.REGISTER_EVENT)
+  @RequestLine("POST " + WebEndPointConstants.SYNC_EVENT)
   Object publishEvent(@Param("token") String token, @RequestBody Event event);
 }

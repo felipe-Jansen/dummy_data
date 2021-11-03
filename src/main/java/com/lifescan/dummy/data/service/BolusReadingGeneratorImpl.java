@@ -36,11 +36,12 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    * Method responsible for ganerating a single bolusFromXmls delivered.
    *
    * @return A single bolusFromXmls delivered.
+   * @param bolusDelivered it concerns to the data that comes from xml file
    */
-  protected static BolusDelivered generatingBolusDelivered() {
+  protected static BolusDelivered generatingBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
     return BolusDelivered.builder()
-        .value(String.valueOf(Util.getRandomNumberBetween(1,10)))
-        .units("U")
+        .value(bolusDelivered.getValue())
+        .units(bolusDelivered.getUnits())
         .build();
   }
 
@@ -84,7 +85,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(bolusFromXml.getAnnotation()))
         .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
-        .bolusDelivered(generatingBolusDelivered())
+        .bolusDelivered(generatingBolusDelivered(bolusFromXml.getBolusDelivered()))
         .editable(bolusFromXml.getEditable())
         .build();
   }
