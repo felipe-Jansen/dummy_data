@@ -36,6 +36,10 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
 
   private static LocalDateTime localDateTime;
 
+  /**
+   * Method that is responsible for generate the reading date
+   * @return A string that concerns to a new date
+   */
   private static String generateReadingDateFormatted() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     if (localDateTime == null) {
