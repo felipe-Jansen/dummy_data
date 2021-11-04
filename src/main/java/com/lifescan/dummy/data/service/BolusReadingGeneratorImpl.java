@@ -15,6 +15,7 @@ import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.BolusReading;
+import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.LocalDateTime;
@@ -39,22 +40,30 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
   private static LocalDateTime localDateTime;
 
   /**
-   * Method responsible for generate a single bolusFromXmls delivered.
+   * Method responsible for ganerating a single bolusFromXmls delivered.
    *
    * @return A single bolusFromXmls delivered.
+   * @param bolusDelivered it concerns to the data that comes from xml file
    */
-  protected static BolusDelivered generateBolusDelivered() {
-    return BolusDelivered.builder()
-        .value(
-            String.valueOf(
-                Util.getRandomNumberBetween(
-                    ConfigConstants.MIN_VALUE_BOLUS_UNIT, ConfigConstants.MAX_VALUE_BOLUS_UNIT)))
-        .units(ConfigConstants.UNIT_BOLUS_VALUE)
-        .build();
+  protected static BolusDelivered generateBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
+    return ArgsParameter.getInstance().getPreset() == null
+        ? BolusDelivered.builder()
+            .value(
+                String.valueOf(
+                    Util.getRandomNumberBetween(
+                        ConfigConstants.MIN_VALUE_BOLUS_UNIT,
+                        ConfigConstants.MAX_VALUE_BOLUS_UNIT)))
+            .units(ConfigConstants.UNIT_BOLUS_VALUE)
+            .build()
+        : BolusDelivered.builder()
+            .value(bolusDelivered.getValue())
+            .units(bolusDelivered.getUnits())
+            .build();
   }
 
   /**
    * Method that is responsible for generate the reading date
+   *
    * @return A string that concerns to a new date
    */
   private static String generateReadingDateFormatted() {
@@ -127,7 +136,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(bolusFromXml.getAnnotation()))
         .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
-        .bolusDelivered(generateBolusDelivered())
+        .bolusDelivered(generateBolusDelivered(bolusFromXml.getBolusDelivered()))
         .editable(bolusFromXml.getEditable())
         .build();
   }

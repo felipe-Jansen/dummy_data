@@ -69,6 +69,10 @@ public class Application implements CommandLineRunner {
     if (args[ArgsConstants.PRESET].contains("preset")) {
       ArgsParameter.getInstance()
           .setPreset(Preset.getById(Long.parseLong(args[ArgsConstants.PRESET].split("=")[1])));
+      ArgsParameter.getInstance().setExerciseNumbers(Util.getRandomNumberBetween(0, 10));
+      ArgsParameter.getInstance().setFoodNumbers(Util.getRandomNumberBetween(0, 10));
+      ArgsParameter.getInstance().setBolusNumber(Util.getRandomNumberBetween(0, 10));
+      ArgsParameter.getInstance().setReadingsNumber(Util.getRandomNumberBetween(0, 10));
     }
     ArgsParameter.getInstance().setStartDate(args[ArgsConstants.START_DATE]);
     ArgsParameter.getInstance().setEndDate(args[ArgsConstants.END_DATE]);

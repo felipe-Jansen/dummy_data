@@ -38,6 +38,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
 
   /**
    * Method that is responsible for generate the reading date
+   *
    * @return A string that concerns to a new date
    */
   private static String generateReadingDateFormatted() {

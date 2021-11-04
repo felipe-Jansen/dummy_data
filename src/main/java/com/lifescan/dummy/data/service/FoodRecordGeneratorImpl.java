@@ -15,6 +15,7 @@ import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.FoodRecord;
+import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.LocalDateTime;
@@ -43,17 +44,23 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
    *
    * @return A single carbohydrate.
    */
-  protected static Carbohydrate generateCarbohydrates() {
-    return Carbohydrate.builder()
-        .value(
-            Util.getRandomNumberBetween(
-                ConfigConstants.MIN_VALUE_CARB_FOOD, ConfigConstants.MAX_VALUE_CARB_FOOD))
-        .units(ConfigConstants.UNIT_VALUE_CARB_FOOD)
-        .build();
+  protected static Carbohydrate generateCarbohydrates(CarbohydrateFromXml carbohydrates) {
+    return ArgsParameter.getInstance().getPreset() == null
+        ? Carbohydrate.builder()
+            .value(
+                Util.getRandomNumberBetween(
+                    ConfigConstants.MIN_VALUE_CARB_FOOD, ConfigConstants.MAX_VALUE_CARB_FOOD))
+            .units(ConfigConstants.UNIT_VALUE_CARB_FOOD)
+            .build()
+        : Carbohydrate.builder()
+            .value(carbohydrates.getValue())
+            .units(carbohydrates.getUnits())
+            .build();
   }
 
   /**
    * Method that is responsible for generate the reading date
+   *
    * @return A string that concerns to a new date
    */
   private static String generateReadingDateFormatted() {
@@ -125,7 +132,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(foodFromXml.getAnnotation()))
-        .carbohydrates(generateCarbohydrates())
+        .carbohydrates(generateCarbohydrates(foodFromXml.getCarbohydrates()))
         .editable(foodFromXml.getEditable())
         .build();
   }
