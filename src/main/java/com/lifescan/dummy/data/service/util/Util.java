@@ -10,8 +10,6 @@
  */
 package com.lifescan.dummy.data.service.util;
 
-import com.lifescan.dummy.data.constants.ConfigConstants;
-import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import java.io.File;
 import java.time.LocalDate;
@@ -28,13 +26,6 @@ import lombok.AllArgsConstructor;
 public class Util {
 
   /**
-   * Method responsible for get the system's data and convert to string following the pattern
-   * yyyy-MM-dd HH:mm:ss
-   */
-  private static LocalDateTime localDateTime =
-      convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-
-  /**
    * Method responsible for reading the object that was in the xml file and converting it into a
    * java object.
    *
@@ -48,30 +39,17 @@ public class Util {
     return (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
   }
 
-  /**
-   * Method responsible for generating a reading date for the events. Note: each calling to this
-   * function increments a delay to time.
-   *
-   * @return A string with the formatted date
-   */
-  public static String generateReadingDateFormatted() {
-    localDateTime =
-        localDateTime.compareTo(
-                    convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
-                < 0
-            ? localDateTime
-                .plusDays(1L)
-                .withHour(Util.getRandomNumberBetween(0, 23))
-                .withMinute(Util.getRandomNumberBetween(0, 59))
-            : convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
-    return localDateTime.format(formatter);
-  }
-
   public static LocalDateTime convertFromStringtoLocalDateTime(String date) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     return LocalDate.parse(date, formatter)
         .atTime(Util.getRandomNumberBetween(0, 23), Util.getRandomNumberBetween(0, 59));
+  }
+
+  public static LocalDate convertFromStringtoLocalDate(String date) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    return LocalDate.parse(date, formatter)
+        .atTime(Util.getRandomNumberBetween(0, 23), Util.getRandomNumberBetween(0, 59))
+        .toLocalDate();
   }
 
   /**

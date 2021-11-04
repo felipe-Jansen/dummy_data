@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BgReading;
@@ -18,6 +19,8 @@ import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,6 +36,10 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class BgReadingGeneratorImpl extends Generator implements BgReadingGenerator {
 
+  private static int dateNumber = 0;
+
+  private static LocalDateTime localDateTime;
+
   /**
    * Method responsible for generating a single bg value.
    *
@@ -41,6 +48,35 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    */
   public static BgValue generateBgValue(BgValueFromXml bgValue) {
     return BgValue.builder().value(bgValue.getValue()).units(bgValue.getUnits()).build();
+  }
+
+  private static String generateReadingDateFormatted(int numberOfEventsPerDay) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
+    if (localDateTime == null) {
+      localDateTime =
+          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+    }
+    localDateTime =
+        localDateTime
+            .withHour(Util.getRandomNumberBetween(0, 23))
+            .withMinute(Util.getRandomNumberBetween(0, 59));
+    if (localDateTime
+                .toLocalDate()
+                .compareTo(
+                    Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
+            == 0
+        && dateNumber == numberOfEventsPerDay) {
+      localDateTime =
+          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+      return localDateTime.format(formatter);
+    }
+    if (dateNumber == numberOfEventsPerDay) {
+      localDateTime = localDateTime.plusDays(1);
+      dateNumber = 1;
+    } else {
+      dateNumber++;
+    }
+    return localDateTime.format(formatter);
   }
 
   /** {@inheritDoc} */
@@ -60,14 +96,10 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    */
   private List<BgReading> generateFromFile(String file) {
     try {
-      List<BgReading> listOfEvents =
-          Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
-              .map(this::buildObject)
-              .collect(Collectors.toList());
-      return listOfEvents.subList(
-          0,
-          Util.getNumberOfEvents(
-              listOfEvents.size(), ArgsParameter.getInstance().getReadingsNumber()));
+
+      return Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
+          .map(this::buildObject)
+          .collect(Collectors.toList());
     } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }
@@ -84,7 +116,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(Util.generateReadingDateFormatted())
+        .readingDate(generateReadingDateFormatted(ArgsParameter.getInstance().getReadingsNumber()))
         .id(generateId())
         .extendedAttributes(generateAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generateBgValue(bgReading.getBgValue()))

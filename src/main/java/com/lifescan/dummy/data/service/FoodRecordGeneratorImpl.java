@@ -17,6 +17,8 @@ import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import com.lifescan.dummy.data.service.util.Util;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,6 +34,10 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGenerator {
 
+  private static int dateNumber = 0;
+
+  private static LocalDateTime localDateTime;
+
   /**
    * Method responsible for generating a single carbohydrate.
    *
@@ -44,6 +50,35 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
                 ConfigConstants.MIN_VALUE_CARB_FOOD, ConfigConstants.MAX_VALUE_CARB_FOOD))
         .units(ConfigConstants.UNIT_VALUE_CARB_FOOD)
         .build();
+  }
+
+  private static String generateReadingDateFormatted(int numberOfEventsPerDay) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
+    if (localDateTime == null) {
+      localDateTime =
+          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+    }
+    localDateTime =
+        localDateTime
+            .withHour(Util.getRandomNumberBetween(0, 23))
+            .withMinute(Util.getRandomNumberBetween(0, 59));
+    if (localDateTime
+                .toLocalDate()
+                .compareTo(
+                    Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
+            == 0
+        && dateNumber == numberOfEventsPerDay) {
+      localDateTime =
+          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+      return localDateTime.format(formatter);
+    }
+    if (dateNumber == numberOfEventsPerDay) {
+      localDateTime = localDateTime.plusDays(1);
+      dateNumber = 1;
+    } else {
+      dateNumber++;
+    }
+    return localDateTime.format(formatter);
   }
 
   /** {@inheritDoc} */
@@ -63,14 +98,9 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
    */
   private List<FoodRecord> generateFromFile(String file) {
     try {
-      List<FoodRecord> listOfEvents =
-          Util.getDeviceDataDataSet(file).getFoodDataLog().getFood().stream()
-              .map(this::buildObject)
-              .collect(Collectors.toList());
-      return listOfEvents.subList(
-          0,
-          Util.getNumberOfEvents(
-              listOfEvents.size(), ArgsParameter.getInstance().getFoodNumbers()));
+      return Util.getDeviceDataDataSet(file).getFoodDataLog().getFood().stream()
+          .map(this::buildObject)
+          .collect(Collectors.toList());
     } catch (JAXBException exception) {
       log.error("Error when generating foodRecord.");
     }
@@ -87,7 +117,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
         .manual(foodFromXml.getManual())
-        .readingDate(Util.generateReadingDateFormatted())
+        .readingDate(generateReadingDateFormatted(ArgsParameter.getInstance().getFoodNumbers()))
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(foodFromXml.getAnnotation()))

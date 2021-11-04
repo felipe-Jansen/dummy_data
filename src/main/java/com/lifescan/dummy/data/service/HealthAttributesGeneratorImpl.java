@@ -16,6 +16,8 @@ import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,6 +31,39 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class HealthAttributesGeneratorImpl extends Generator implements HealthAttributeGenerator {
+
+  private static int dateNumber = 0;
+
+  private static LocalDateTime localDateTime;
+
+  private static String generateReadingDateFormatted(int numberOfEventsPerDay) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
+    if (localDateTime == null) {
+      localDateTime =
+          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+    }
+    localDateTime =
+        localDateTime
+            .withHour(Util.getRandomNumberBetween(0, 23))
+            .withMinute(Util.getRandomNumberBetween(0, 59));
+    if (localDateTime
+                .toLocalDate()
+                .compareTo(
+                    Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
+            == 0
+        && dateNumber == numberOfEventsPerDay) {
+      localDateTime =
+          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+      return localDateTime.format(formatter);
+    }
+    if (dateNumber == numberOfEventsPerDay) {
+      localDateTime = localDateTime.plusDays(1);
+      dateNumber = 1;
+    } else {
+      dateNumber++;
+    }
+    return localDateTime.format(formatter);
+  }
 
   /** {@inheritDoc} */
   @Override
@@ -47,14 +82,9 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
    */
   private List<HealthAttribute> generateFromFile(String file) {
     try {
-      List<HealthAttribute> listOfEvents =
-          Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib().stream()
-              .map(this::buildObject)
-              .collect(Collectors.toList());
-      return listOfEvents.subList(
-          0,
-          Util.getNumberOfEvents(
-              listOfEvents.size(), ArgsParameter.getInstance().getExerciseNumbers()));
+      return Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib().stream()
+          .map(this::buildObject)
+          .collect(Collectors.toList());
     } catch (JAXBException exception) {
       log.error("Error when generating HealthAttributes.");
     }
@@ -71,7 +101,8 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
-        .readingDate(Util.generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(ArgsParameter.getInstance().getExerciseNumbers()))
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(
