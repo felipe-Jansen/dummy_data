@@ -31,6 +31,4 @@ public interface EventService {
    * @param login that contains the information of email and password.
    */
   void publishFromPreset(Login login, Preset preset);
-
-  void publishFromGeneratedInformation(Login login);
 }

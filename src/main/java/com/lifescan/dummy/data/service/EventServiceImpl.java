@@ -44,32 +44,9 @@ public class EventServiceImpl implements EventService {
     log.traceEntry("language:{}, numberPatients:{}", language, numberPatients);
     for (int i = 0; i < numberPatients; i++) {
       Patient patient = patientService.create(language, getCountry(language));
-      if (ArgsParameter.getInstance().getPreset() == null) {
-        publishFromGeneratedInformation(
-            Login.builder()
-                .email(patient.getEmailAddress())
-                .password(patient.getPassword())
-                .build());
-      } else {
-        publishFromPreset(
-            Login.builder()
-                .email(patient.getEmailAddress())
-                .password(patient.getPassword())
-                .build(),
-            ArgsParameter.getInstance().getPreset());
-      }
-    }
-  }
-
-  public void publishFromGeneratedInformation(Login login) {
-    try {
-      eventServiceCore.publishEvent(securityService.doLogin(login), generateEventFromPreset(null));
-      saveEmail(login.getEmail());
-      log.info("Event created successfully");
-    } catch (FeignException ex) {
-      if (log.isDebugEnabled()) {
-        log.debug(ex.contentUTF8());
-      }
+      publishFromPreset(
+          Login.builder().email(patient.getEmailAddress()).password(patient.getPassword()).build(),
+          ArgsParameter.getInstance().getPreset());
     }
   }
 
