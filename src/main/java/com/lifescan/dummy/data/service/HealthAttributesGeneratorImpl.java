@@ -59,6 +59,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
         && dateNumber == ArgsParameter.getInstance().getExerciseNumbers()) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+      dateNumber = 1;
       return localDateTime.format(formatter);
     }
     if (dateNumber == ArgsParameter.getInstance().getExerciseNumbers()) {

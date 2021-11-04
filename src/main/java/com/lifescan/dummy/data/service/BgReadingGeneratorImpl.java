@@ -73,6 +73,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
         && dateNumber == ArgsParameter.getInstance().getReadingsNumber()) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+      dateNumber = 1;
       return localDateTime.format(formatter);
     }
     if (dateNumber == ArgsParameter.getInstance().getReadingsNumber()) {

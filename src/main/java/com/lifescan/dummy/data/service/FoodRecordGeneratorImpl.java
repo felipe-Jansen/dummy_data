@@ -81,6 +81,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
         && dateNumber == ArgsParameter.getInstance().getFoodNumbers()) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+      dateNumber = 1;
       return localDateTime.format(formatter);
     }
     if (dateNumber == ArgsParameter.getInstance().getFoodNumbers()) {

@@ -84,6 +84,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         && dateNumber == ArgsParameter.getInstance().getBolusNumber()) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+      dateNumber = 1;
       return localDateTime.format(formatter);
     }
     if (dateNumber == ArgsParameter.getInstance().getBolusNumber()) {
