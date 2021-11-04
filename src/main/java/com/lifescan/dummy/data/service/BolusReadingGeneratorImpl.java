@@ -53,7 +53,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         .build();
   }
 
-  private static String generateReadingDateFormatted(int numberOfEventsPerDay) {
+  private static String generateReadingDateFormatted() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     if (localDateTime == null) {
       localDateTime =
@@ -68,12 +68,12 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
                 .compareTo(
                     Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
             == 0
-        && dateNumber == numberOfEventsPerDay) {
+        && dateNumber == ArgsParameter.getInstance().getBolusNumber()) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
       return localDateTime.format(formatter);
     }
-    if (dateNumber == numberOfEventsPerDay) {
+    if (dateNumber == ArgsParameter.getInstance().getBolusNumber()) {
       localDateTime = localDateTime.plusDays(1);
       dateNumber = 1;
     } else {
@@ -118,7 +118,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
     return BolusReading.builder()
         .active(bolusFromXml.getActive())
         .manual(bolusFromXml.getManual())
-        .readingDate(generateReadingDateFormatted(ArgsParameter.getInstance().getBolusNumber()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(bolusFromXml.getAnnotation()))

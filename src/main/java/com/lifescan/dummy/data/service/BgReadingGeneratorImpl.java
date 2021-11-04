@@ -50,7 +50,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgValue.builder().value(bgValue.getValue()).units(bgValue.getUnits()).build();
   }
 
-  private static String generateReadingDateFormatted(int numberOfEventsPerDay) {
+  private static String generateReadingDateFormatted() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     if (localDateTime == null) {
       localDateTime =
@@ -65,12 +65,12 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
                 .compareTo(
                     Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
             == 0
-        && dateNumber == numberOfEventsPerDay) {
+        && dateNumber == ArgsParameter.getInstance().getReadingsNumber()) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
       return localDateTime.format(formatter);
     }
-    if (dateNumber == numberOfEventsPerDay) {
+    if (dateNumber == ArgsParameter.getInstance().getReadingsNumber()) {
       localDateTime = localDateTime.plusDays(1);
       dateNumber = 1;
     } else {
@@ -116,7 +116,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(generateReadingDateFormatted(ArgsParameter.getInstance().getReadingsNumber()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .extendedAttributes(generateAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generateBgValue(bgReading.getBgValue()))

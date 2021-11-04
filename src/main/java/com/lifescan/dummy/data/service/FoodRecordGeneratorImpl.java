@@ -52,7 +52,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
         .build();
   }
 
-  private static String generateReadingDateFormatted(int numberOfEventsPerDay) {
+  private static String generateReadingDateFormatted() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     if (localDateTime == null) {
       localDateTime =
@@ -67,12 +67,12 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
                 .compareTo(
                     Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
             == 0
-        && dateNumber == numberOfEventsPerDay) {
+        && dateNumber == ArgsParameter.getInstance().getFoodNumbers()) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
       return localDateTime.format(formatter);
     }
-    if (dateNumber == numberOfEventsPerDay) {
+    if (dateNumber == ArgsParameter.getInstance().getFoodNumbers()) {
       localDateTime = localDateTime.plusDays(1);
       dateNumber = 1;
     } else {
@@ -117,7 +117,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
         .manual(foodFromXml.getManual())
-        .readingDate(generateReadingDateFormatted(ArgsParameter.getInstance().getFoodNumbers()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(foodFromXml.getAnnotation()))

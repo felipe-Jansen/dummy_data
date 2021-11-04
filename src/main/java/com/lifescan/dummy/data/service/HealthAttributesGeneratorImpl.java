@@ -36,7 +36,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
 
   private static LocalDateTime localDateTime;
 
-  private static String generateReadingDateFormatted(int numberOfEventsPerDay) {
+  private static String generateReadingDateFormatted() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     if (localDateTime == null) {
       localDateTime =
@@ -51,12 +51,12 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
                 .compareTo(
                     Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
             == 0
-        && dateNumber == numberOfEventsPerDay) {
+        && dateNumber == ArgsParameter.getInstance().getExerciseNumbers()) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
       return localDateTime.format(formatter);
     }
-    if (dateNumber == numberOfEventsPerDay) {
+    if (dateNumber == ArgsParameter.getInstance().getExerciseNumbers()) {
       localDateTime = localDateTime.plusDays(1);
       dateNumber = 1;
     } else {
@@ -101,8 +101,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
-        .readingDate(
-            generateReadingDateFormatted(ArgsParameter.getInstance().getExerciseNumbers()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(
