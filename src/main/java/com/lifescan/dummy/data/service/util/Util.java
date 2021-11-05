@@ -13,10 +13,10 @@ package com.lifescan.dummy.data.service.util;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import java.io.File;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -64,13 +64,11 @@ public class Util {
   public static int getNumberOfEvents(int sizeOfList) {
     int days =
         (int)
-                (Duration.between(
-                        convertFromStringtoLocalDateTime(
-                            ArgsParameter.getInstance().getStartDate()),
-                        convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
-                    .toDays())
-            + 1;
-    return (days * sizeOfList);
+            ChronoUnit.DAYS.between(
+                convertFromStringtoLocalDate(ArgsParameter.getInstance().getStartDate()),
+                convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()));
+    days++;
+    return days * sizeOfList;
   }
 
   /**

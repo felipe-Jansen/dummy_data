@@ -101,16 +101,14 @@ public class EventServiceImpl implements EventService {
    */
   private Event generateEventFromPreset(Preset presetSelected) {
     String file = presetSelected != null ? presetSelected.getAddress() : null;
-    Event event =
-        Event.builder()
-            .bgReadings(bgReadingGenerator.generate(file))
-            .foodRecords(foodRecordGenerator.generate(file))
-            .bolusReadings(bolusReadingGenerator.generate(file))
-            .healthAttributes(healthAttributeGenerator.generate(file))
-            .isBackgroundSync(false)
-            .metaInformation(generateMeta())
-            .build();
-    return event;
+    return Event.builder()
+        .bgReadings(bgReadingGenerator.generate(file))
+        .foodRecords(foodRecordGenerator.generate(file))
+        .bolusReadings(bolusReadingGenerator.generate(file))
+        .healthAttributes(healthAttributeGenerator.generate(file))
+        .isBackgroundSync(false)
+        .metaInformation(generateMeta())
+        .build();
   }
 
   /**

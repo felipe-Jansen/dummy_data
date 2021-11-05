@@ -11,11 +11,8 @@
 package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
-import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
-import com.lifescan.dummy.data.model.Attribute;
 import com.lifescan.dummy.data.model.AttributeValue;
-import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
@@ -84,7 +81,9 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
 
   private List<HealthAttribute> generateRandomValues() {
     List<HealthAttribute> healthAttributeList = new ArrayList<>();
-    for (int i = 0; i < Util.getNumberOfEvents(ArgsParameter.getInstance().getExerciseNumbers()); i++) {
+    for (int i = 0;
+        i < Util.getNumberOfEvents(ArgsParameter.getInstance().getExerciseNumbers());
+        i++) {
       healthAttributeList.add(buildObject());
     }
     return healthAttributeList;

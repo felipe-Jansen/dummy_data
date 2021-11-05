@@ -103,11 +103,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    */
   private List<BgReading> generateFromFile(String file) {
     try {
-      return Util.getDeviceDataDataSet(file)
-          .getBgReadingDataLog()
-          .getBgReading()
-          .subList(0, Util.getNumberOfEvents(ArgsParameter.getInstance().getReadingsNumber()))
-          .stream()
+      return Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
           .map(this::buildObject)
           .collect(Collectors.toList());
     } catch (JAXBException exception) {

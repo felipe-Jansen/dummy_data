@@ -11,7 +11,6 @@
 package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
-import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.FoodRecord;

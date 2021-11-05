@@ -11,11 +11,9 @@
 package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
-import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.BolusReading;
-import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
 import com.lifescan.dummy.data.service.util.Util;
@@ -49,9 +47,9 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    */
   protected static BolusDelivered generateBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
     return BolusDelivered.builder()
-            .value(bolusDelivered.getValue())
-            .units(bolusDelivered.getUnits())
-            .build();
+        .value(bolusDelivered.getValue())
+        .units(bolusDelivered.getUnits())
+        .build();
   }
 
   /**
@@ -112,8 +110,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         .value(
             String.valueOf(
                 Util.getRandomNumberBetween(
-                    ConfigConstants.MIN_VALUE_BOLUS_UNIT,
-                    ConfigConstants.MAX_VALUE_BOLUS_UNIT)))
+                    ConfigConstants.MIN_VALUE_BOLUS_UNIT, ConfigConstants.MAX_VALUE_BOLUS_UNIT)))
         .units(ConfigConstants.UNIT_BOLUS_VALUE)
         .build();
   }
