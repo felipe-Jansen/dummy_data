@@ -13,11 +13,15 @@ package com.lifescan.dummy.data.service;
 import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
+import com.lifescan.dummy.data.model.Attribute;
+import com.lifescan.dummy.data.model.AttributeValue;
+import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -74,10 +78,38 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
   /** {@inheritDoc} */
   @Override
   public List<HealthAttribute> generate(String file) {
-    return generateFromFile(
-        ArgsParameter.getInstance().getPreset() == null
-            ? Preset.randomPreset().getAddress()
-            : file);
+    if (file == null) return generateRandomValues();
+    else return generateFromFile(file);
+  }
+
+  private List<HealthAttribute> generateRandomValues() {
+    List<HealthAttribute> healthAttributeList = new ArrayList<>();
+    for (int i = 0; i < Util.getNumberOfEvents(ArgsParameter.getInstance().getExerciseNumbers()); i++) {
+      healthAttributeList.add(buildObject());
+    }
+    return healthAttributeList;
+  }
+
+  private HealthAttribute buildObject() {
+    return HealthAttribute.builder()
+        .active("true")
+        .manual("true")
+        .readingDate(generateReadingDateFormatted())
+        .id(generateId())
+        .lastUpdatedDate(System.currentTimeMillis())
+        .healthAttributesValue(
+            Util.getRandomNumberBetween(
+                ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE,
+                ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
+        .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
+        .editable("false")
+        .extendedAttribute(generateAttributeValue())
+        .annotation(null)
+        .build();
+  }
+
+  private AttributeValue generateAttributeValue() {
+    return AttributeValue.builder().value(generateNewAttributes()).build();
   }
 
   /**

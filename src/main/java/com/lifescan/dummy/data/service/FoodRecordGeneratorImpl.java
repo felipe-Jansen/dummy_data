@@ -20,6 +20,7 @@ import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,17 +46,10 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
    * @return A single carbohydrate.
    */
   protected static Carbohydrate generateCarbohydrates(CarbohydrateFromXml carbohydrates) {
-    return ArgsParameter.getInstance().getPreset() == null
-        ? Carbohydrate.builder()
-            .value(
-                Util.getRandomNumberBetween(
-                    ConfigConstants.MIN_VALUE_CARB_FOOD, ConfigConstants.MAX_VALUE_CARB_FOOD))
-            .units(ConfigConstants.UNIT_VALUE_CARB_FOOD)
-            .build()
-        : Carbohydrate.builder()
-            .value(carbohydrates.getValue())
-            .units(carbohydrates.getUnits())
-            .build();
+    return Carbohydrate.builder()
+        .value(carbohydrates.getValue())
+        .units(carbohydrates.getUnits())
+        .build();
   }
 
   /**
@@ -73,17 +67,6 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
         localDateTime
             .withHour(Util.getRandomNumberBetween(0, 23))
             .withMinute(Util.getRandomNumberBetween(0, 59));
-    if (localDateTime
-                .toLocalDate()
-                .compareTo(
-                    Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
-            == 0
-        && dateNumber == ArgsParameter.getInstance().getFoodNumbers()) {
-      localDateTime =
-          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-      dateNumber = 1;
-      return localDateTime.format(formatter);
-    }
     if (dateNumber == ArgsParameter.getInstance().getFoodNumbers()) {
       localDateTime = localDateTime.plusDays(1);
       dateNumber = 1;
@@ -96,10 +79,43 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
   /** {@inheritDoc} */
   @Override
   public List<FoodRecord> generate(String file) {
-    return generateFromFile(
-        ArgsParameter.getInstance().getPreset() == null
-            ? Preset.randomPreset().getAddress()
-            : file);
+    if (file == null) return generateRandomValues();
+    else return generateFromFile(file);
+  }
+
+  private List<FoodRecord> generateRandomValues() {
+    List<FoodRecord> foodRecordList = new ArrayList<>();
+    for (int i = 0; i < Util.getNumberOfEvents(ArgsParameter.getInstance().getFoodNumbers()); i++) {
+      foodRecordList.add(buildObject());
+    }
+    return foodRecordList;
+  }
+
+  /**
+   * Method responsible for converting an object from FoodFromXml to FoodRecord
+   *
+   * @return An object from type FoodRecord
+   */
+  private FoodRecord buildObject() {
+    return FoodRecord.builder()
+        .active("true")
+        .manual("true")
+        .readingDate(generateReadingDateFormatted())
+        .id(generateId())
+        .lastUpdatedDate(System.currentTimeMillis())
+        .annotation(null)
+        .carbohydrates(generateCarbohydrates())
+        .editable("false")
+        .build();
+  }
+
+  private Carbohydrate generateCarbohydrates() {
+    return Carbohydrate.builder()
+        .value(
+            Util.getRandomNumberBetween(
+                ConfigConstants.MIN_VALUE_CARB_FOOD, ConfigConstants.MAX_VALUE_CARB_FOOD))
+        .units(ConfigConstants.UNIT_VALUE_CARB_FOOD)
+        .build();
   }
 
   /**

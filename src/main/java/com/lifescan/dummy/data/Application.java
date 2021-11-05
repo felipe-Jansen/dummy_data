@@ -55,9 +55,7 @@ public class Application implements CommandLineRunner {
 
   /** Print list of created patients */
   private void showListOfCreatedPatients() {
-    if (log.isInfoEnabled()) {
-      log.info("{}", ListOfPatients.getInstance().getEmails());
-    }
+    log.info("{}", ListOfPatients.getInstance().getEmails());
   }
 
   /**

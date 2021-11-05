@@ -10,8 +10,10 @@
  */
 package com.lifescan.dummy.data.service.util;
 
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import java.io.File;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -57,12 +59,18 @@ public class Util {
    * size of the list and quantity of events to be generated informed by user.
    *
    * @param sizeOfList number of elements in the list
-   * @param quantityOfEventsToBeGenerated numbers of events that have to be generated (informed by
-   *     user)
    * @return number of events that will be generated
    */
-  public static int getNumberOfEvents(int sizeOfList, int quantityOfEventsToBeGenerated) {
-    return sizeOfList == 0 ? 0 : Math.min(sizeOfList, quantityOfEventsToBeGenerated);
+  public static int getNumberOfEvents(int sizeOfList) {
+    int days =
+        (int)
+                (Duration.between(
+                        convertFromStringtoLocalDateTime(
+                            ArgsParameter.getInstance().getStartDate()),
+                        convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
+                    .toDays())
+            + 1;
+    return (days * sizeOfList);
   }
 
   /**

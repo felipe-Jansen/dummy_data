@@ -15,11 +15,13 @@ import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.BolusReading;
+import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,16 +48,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    * @param bolusDelivered it concerns to the data that comes from xml file
    */
   protected static BolusDelivered generateBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
-    return ArgsParameter.getInstance().getPreset() == null
-        ? BolusDelivered.builder()
-            .value(
-                String.valueOf(
-                    Util.getRandomNumberBetween(
-                        ConfigConstants.MIN_VALUE_BOLUS_UNIT,
-                        ConfigConstants.MAX_VALUE_BOLUS_UNIT)))
-            .units(ConfigConstants.UNIT_BOLUS_VALUE)
-            .build()
-        : BolusDelivered.builder()
+    return BolusDelivered.builder()
             .value(bolusDelivered.getValue())
             .units(bolusDelivered.getUnits())
             .build();
@@ -76,17 +69,6 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         localDateTime
             .withHour(Util.getRandomNumberBetween(0, 23))
             .withMinute(Util.getRandomNumberBetween(0, 59));
-    if (localDateTime
-                .toLocalDate()
-                .compareTo(
-                    Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
-            == 0
-        && dateNumber == ArgsParameter.getInstance().getBolusNumber()) {
-      localDateTime =
-          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-      dateNumber = 1;
-      return localDateTime.format(formatter);
-    }
     if (dateNumber == ArgsParameter.getInstance().getBolusNumber()) {
       localDateTime = localDateTime.plusDays(1);
       dateNumber = 1;
@@ -99,10 +81,41 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
   /** {@inheritDoc} */
   @Override
   public List<BolusReading> generate(String file) {
-    return generateFromFile(
-        ArgsParameter.getInstance().getPreset() == null
-            ? Preset.randomPreset().getAddress()
-            : file);
+    if (file == null) return generateRandomValues();
+    else return generateFromFile(file);
+  }
+
+  private List<BolusReading> generateRandomValues() {
+    List<BolusReading> bolusReadingList = new ArrayList<>();
+    for (int i = 0; i < Util.getNumberOfEvents(ArgsParameter.getInstance().getBolusNumber()); i++) {
+      bolusReadingList.add(buildObject());
+    }
+    return bolusReadingList;
+  }
+
+  private BolusReading buildObject() {
+    return BolusReading.builder()
+        .active("true")
+        .manual("true")
+        .readingDate(generateReadingDateFormatted())
+        .id(generateId())
+        .lastUpdatedDate(System.currentTimeMillis())
+        .annotation(null)
+        .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
+        .bolusDelivered(generateBolusDelivered())
+        .editable("false")
+        .build();
+  }
+
+  private BolusDelivered generateBolusDelivered() {
+    return BolusDelivered.builder()
+        .value(
+            String.valueOf(
+                Util.getRandomNumberBetween(
+                    ConfigConstants.MIN_VALUE_BOLUS_UNIT,
+                    ConfigConstants.MAX_VALUE_BOLUS_UNIT)))
+        .units(ConfigConstants.UNIT_BOLUS_VALUE)
+        .build();
   }
 
   /**

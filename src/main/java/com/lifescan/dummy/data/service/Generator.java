@@ -54,7 +54,7 @@ public class Generator {
     }
   }
 
-  private List<Attribute> generateNewAttributes() {
+  public List<Attribute> generateNewAttributes() {
     List<Attribute> attributes = new ArrayList<>();
     attributes.add(
         Attribute.builder()
