@@ -82,6 +82,11 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
     else return generateFromFile(file);
   }
 
+  /**
+   * Generate foods randomized values
+   *
+   * @return list of foods
+   */
   private List<FoodRecord> generateRandomValues() {
     List<FoodRecord> foodRecordList = new ArrayList<>();
     for (int i = 0; i < Util.getNumberOfEvents(ArgsParameter.getInstance().getFoodNumbers()); i++) {
@@ -91,20 +96,20 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
   }
 
   /**
-   * Method responsible for converting an object from FoodFromXml to FoodRecord
+   * Method responsible for generating an object from value food
    *
-   * @return An object from type FoodRecord
+   * @return food object
    */
   private FoodRecord buildObject() {
     return FoodRecord.builder()
-        .active("true")
-        .manual("true")
+        .active(ConfigConstants.TRUE)
+        .manual(ConfigConstants.FALSE)
         .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(null)
         .carbohydrates(generateCarbohydrates())
-        .editable("false")
+        .editable(ConfigConstants.FALSE)
         .build();
   }
 

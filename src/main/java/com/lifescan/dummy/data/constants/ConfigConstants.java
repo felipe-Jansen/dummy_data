@@ -49,5 +49,13 @@ public class ConfigConstants {
   public static final int MIN_VALUE_CARB_FOOD = 10;
 
   public static final String UNIT_VALUE_CARB_FOOD = "g";
+
   public static final int DEFAULT_EVENTS_NUMBER = 10;
+
+  public static final String FALSE = "false";
+
+  public static final String TRUE = "true";
+  public static final int MIN_VALUE_BGVALUE = 70;
+  public static final int MAX_VALUE_BGVALUE = 126;
+  public static final String UNIT_BGVALUE = "mg/dL";
 }

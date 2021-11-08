@@ -83,6 +83,11 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
     else return generateFromFile(file);
   }
 
+  /**
+   * Generate bolus randomized values
+   *
+   * @return list of bolus
+   */
   private List<BolusReading> generateRandomValues() {
     List<BolusReading> bolusReadingList = new ArrayList<>();
     for (int i = 0; i < Util.getNumberOfEvents(ArgsParameter.getInstance().getBolusNumber()); i++) {
@@ -91,17 +96,22 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
     return bolusReadingList;
   }
 
+  /**
+   * Method responsible for generating an object from value bolus
+   *
+   * @return bolus object
+   */
   private BolusReading buildObject() {
     return BolusReading.builder()
-        .active("true")
-        .manual("true")
+        .active(ConfigConstants.TRUE)
+        .manual(ConfigConstants.FALSE)
         .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(null)
         .injectedInsulinType(ArgsParameter.getInstance().getBolusType())
         .bolusDelivered(generateBolusDelivered())
-        .editable("false")
+        .editable(ConfigConstants.FALSE)
         .build();
   }
 

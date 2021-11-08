@@ -14,7 +14,6 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Event;
-import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.model.Login;
 import com.lifescan.dummy.data.model.MetaInformation;
 import com.lifescan.dummy.data.model.Patient;
@@ -56,23 +55,12 @@ public class EventServiceImpl implements EventService {
     try {
       eventServiceCore.publishEvent(
           securityService.doLogin(login), generateEventFromPreset(preset));
-      saveEmail(login.getEmail());
       log.info("Event created successfully");
     } catch (FeignException ex) {
       if (log.isDebugEnabled()) {
         log.debug(ex.contentUTF8());
       }
     }
-  }
-
-  /**
-   * Save generated email
-   *
-   * @param email generated email.
-   */
-  private void saveEmail(String email) {
-    ListOfPatients.getInstance()
-        .setEmails(ListOfPatients.getInstance().getEmails().concat("\n - " + email));
   }
 
   /**

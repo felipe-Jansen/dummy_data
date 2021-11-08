@@ -52,17 +52,6 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
         localDateTime
             .withHour(Util.getRandomNumberBetween(0, 23))
             .withMinute(Util.getRandomNumberBetween(0, 59));
-    if (localDateTime
-                .toLocalDate()
-                .compareTo(
-                    Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()))
-            == 0
-        && dateNumber == ArgsParameter.getInstance().getExerciseNumbers()) {
-      localDateTime =
-          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-      dateNumber = 1;
-      return localDateTime.format(formatter);
-    }
     if (dateNumber == ArgsParameter.getInstance().getExerciseNumbers()) {
       localDateTime = localDateTime.plusDays(1);
       dateNumber = 1;
@@ -79,6 +68,11 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     else return generateFromFile(file);
   }
 
+  /**
+   * Generate health randomized values
+   *
+   * @return list of health attributes
+   */
   private List<HealthAttribute> generateRandomValues() {
     List<HealthAttribute> healthAttributeList = new ArrayList<>();
     for (int i = 0;
@@ -89,10 +83,15 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     return healthAttributeList;
   }
 
+  /**
+   * Method responsible for generating an object from value food
+   *
+   * @return health attribute object
+   */
   private HealthAttribute buildObject() {
     return HealthAttribute.builder()
-        .active("true")
-        .manual("true")
+        .active(ConfigConstants.TRUE)
+        .manual(ConfigConstants.FALSE)
         .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
@@ -101,7 +100,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
                 ConfigConstants.MIN_VALUE_DURATION_ATTRIBUTE,
                 ConfigConstants.MAX_VALUE_DURATION_ATTRIBUTE))
         .healthAtributesLookup("HEALTH_ATTRIBUTE_EXERCISE")
-        .editable("false")
+        .editable(ConfigConstants.FALSE)
         .extendedAttribute(generateAttributeValue())
         .annotation(null)
         .build();

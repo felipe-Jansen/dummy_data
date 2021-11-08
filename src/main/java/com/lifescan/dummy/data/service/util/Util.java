@@ -41,12 +41,24 @@ public class Util {
     return (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
   }
 
+  /**
+   * Method responsible for converting a string date in a localdatetime
+   *
+   * @param date Informed date in a string
+   * @return A localdatetime object
+   */
   public static LocalDateTime convertFromStringtoLocalDateTime(String date) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     return LocalDate.parse(date, formatter)
         .atTime(Util.getRandomNumberBetween(0, 23), Util.getRandomNumberBetween(0, 59));
   }
 
+  /**
+   * Method responsible for converting a string date in a localdate
+   *
+   * @param date Informed date in a string
+   * @return A localdate object
+   */
   public static LocalDate convertFromStringtoLocalDate(String date) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     return LocalDate.parse(date, formatter)

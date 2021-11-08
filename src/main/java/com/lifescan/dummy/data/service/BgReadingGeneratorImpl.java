@@ -51,7 +51,12 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
   }
 
   public static BgValue generateBgValue() {
-    return BgValue.builder().value(Util.getRandomNumberBetween(70, 126)).units("mg/dL").build();
+    return BgValue.builder()
+        .value(
+            Util.getRandomNumberBetween(
+                ConfigConstants.MIN_VALUE_BGVALUE, ConfigConstants.MAX_VALUE_BGVALUE))
+        .units(ConfigConstants.UNIT_BGVALUE)
+        .build();
   }
 
   /**
@@ -85,6 +90,11 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     else return generateFromFile(file);
   }
 
+  /**
+   * Generate bgreadings randomized values
+   *
+   * @return list of bgreadings
+   */
   private List<BgReading> generateRandomValues() {
     List<BgReading> bgReadingList = new ArrayList<>();
     for (int i = 0;
@@ -132,14 +142,14 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
   }
 
   /**
-   * Method responsible for converting from XML file to a java object.
+   * Method responsible for generating an object from value bgReading
    *
-   * @return Data from xml file converted in a java object.
+   * @return Bgreading object
    */
   private BgReading buildObject() {
     return BgReading.builder()
-        .active("true")
-        .manual("true")
+        .active(ConfigConstants.TRUE)
+        .manual(ConfigConstants.FALSE)
         .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .extendedAttributes(null)

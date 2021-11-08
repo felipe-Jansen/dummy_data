@@ -11,6 +11,7 @@
 package com.lifescan.dummy.data.service;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
+import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.model.Patient;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -53,7 +54,18 @@ public class PatientServiceImpl implements PatientService {
     Patient patient = buildPatient();
     String requestToken = generateRequestToken(patient.getEmailAddress());
     registrationService.registerPatient(language, country, requestToken, patient);
+    saveEmail(patient.getEmailAddress());
     return patient;
+  }
+
+  /**
+   * Save generated email
+   *
+   * @param email generated email.
+   */
+  private void saveEmail(String email) {
+    ListOfPatients.getInstance()
+        .setEmails(ListOfPatients.getInstance().getEmails().concat("\n - " + email));
   }
 
   /**

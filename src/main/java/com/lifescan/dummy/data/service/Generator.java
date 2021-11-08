@@ -54,6 +54,11 @@ public class Generator {
     }
   }
 
+  /**
+   * Generate a list with randomized values
+   *
+   * @return A list of attributes
+   */
   public List<Attribute> generateNewAttributes() {
     List<Attribute> attributes = new ArrayList<>();
     attributes.add(
@@ -74,6 +79,12 @@ public class Generator {
     return IntensityAttribute.randomIntensityAttribute().name();
   }
 
+  /**
+   * Read extended attributes from xml
+   *
+   * @param extendedAttributes List of extended attributes from xml
+   * @return list of attributes
+   */
   private List<Attribute> getAttributesFromXmlFile(ExtendedAttributesFromXml extendedAttributes) {
     List<Attribute> attributes = new ArrayList<>();
     for (AttributeFromXml attributeFromXml : extendedAttributes.getAttributeValue()) {
