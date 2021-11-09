@@ -57,6 +57,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
    * @return A string that concerns to a new date
    */
   private static String generateReadingDateFormatted() {
+    // @TODO This class looks could be improved. Methods are similar as bgReadingsGenertorImpl.
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     if (localDateTime == null) {
       localDateTime =
@@ -78,8 +79,11 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
   /** {@inheritDoc} */
   @Override
   public List<FoodRecord> generate(String file) {
-    if (file == null) return generateRandomValues();
-    else return generateFromFile(file);
+    if (file == null) {
+      return generateRandomValues();
+    } else {
+      return generateFromFile(file);
+    }
   }
 
   /**

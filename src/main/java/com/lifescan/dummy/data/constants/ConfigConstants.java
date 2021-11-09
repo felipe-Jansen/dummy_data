@@ -55,7 +55,10 @@ public class ConfigConstants {
   public static final String FALSE = "false";
 
   public static final String TRUE = "true";
-  public static final int MIN_VALUE_BGVALUE = 70;
-  public static final int MAX_VALUE_BGVALUE = 126;
+
+  public static final int MIN_VALUE_BGVALUE = 50;
+
+  public static final int MAX_VALUE_BGVALUE = 200;
+
   public static final String UNIT_BGVALUE = "mg/dL";
 }

@@ -79,18 +79,21 @@ public class Util {
             ChronoUnit.DAYS.between(
                 convertFromStringtoLocalDate(ArgsParameter.getInstance().getStartDate()),
                 convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()));
-    days++;
-    return days * sizeOfList;
+    return (++days) * sizeOfList;
   }
 
   /**
-   * Method responsible for generating a random number between informed range.
+   * Method responsible for generating a random number between given range.
    *
    * @param min min value for range
    * @param max maximum value for range
    * @return a random number
    */
   public static int getRandomNumberBetween(int min, int max) {
+    // @TODO I understand what you are trying to do, but if all random numbers are between
+    // 0 and max, then you just need to call nextInt(max).
+    // For what I see in your code, you only call this method with min = 0.
+    // nextInt(max) is easier to understand.
     return new Random().nextInt(max - min + 1) + min;
   }
 }

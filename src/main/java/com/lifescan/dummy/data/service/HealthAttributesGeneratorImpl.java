@@ -43,6 +43,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
    * @return A string that concerns to a new date
    */
   private static String generateReadingDateFormatted() {
+    // @TODO Try to reduce duplicated codes. See bgReadingsGenetorImpl.
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     if (localDateTime == null) {
       localDateTime =
@@ -64,8 +65,11 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
   /** {@inheritDoc} */
   @Override
   public List<HealthAttribute> generate(String file) {
-    if (file == null) return generateRandomValues();
-    else return generateFromFile(file);
+    if (file == null) {
+      return generateRandomValues();
+    } else {
+      return generateFromFile(file);
+    }
   }
 
   /**

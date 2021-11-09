@@ -58,6 +58,11 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    * @return A string that concerns to a new date
    */
   private static String generateReadingDateFormatted() {
+    // This method looks duplicated.
+    // bgReadingGeneratorImpl::generateReadingDateFormatted
+    // Actually, most of the methods here looks duplicated from bgReadingGeneratorImpl.
+    // Can you refactor to be more OO.
+    // Maybe put it in Generator class.
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
     if (localDateTime == null) {
       localDateTime =
@@ -79,8 +84,11 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
   /** {@inheritDoc} */
   @Override
   public List<BolusReading> generate(String file) {
-    if (file == null) return generateRandomValues();
-    else return generateFromFile(file);
+    if (file == null) {
+      return generateRandomValues();
+    } else {
+      return generateFromFile(file);
+    }
   }
 
   /**

@@ -41,10 +41,6 @@ public enum Preset {
     this.address = address;
   }
 
-  public static Preset randomPreset() {
-    return VALUES.get(RANDOM.nextInt(SIZE));
-  }
-
   public static Preset getById(Long id) {
     log.traceEntry("getById({})", id);
     return Arrays.stream(values())

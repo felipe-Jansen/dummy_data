@@ -20,9 +20,9 @@ import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import javax.xml.bind.JAXBException;
 import lombok.AccessLevel;
@@ -38,6 +38,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
 
   private static int dateNumber = 0;
 
+  // @TODO looks like this is basic a local variable. Why do you create it as class property?
   private static LocalDateTime localDateTime;
 
   /**
@@ -64,8 +65,17 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    *
    * @return A string that concerns to a new date
    */
+  // @TODO I don't like this approach. You should provide a date for the reading.
+  // You are storing dateNumber to control the DAY of the reading instead. IF other classes use this
+  // Util, it will go crazy.
+  // You'll loose control of the endDate.
   private static String generateReadingDateFormatted() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
+
+    // This is confusing. If localDateTime is null you instantiate a new one.
+    // Then localDateTime is set with a new hour and minute, but you just created a random one.
+    // It's like you are generating a random number, then generate a new random number and use it.
+    // Looks duplicated.
     if (localDateTime == null) {
       localDateTime =
           Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
@@ -76,6 +86,9 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
             .withMinute(Util.getRandomNumberBetween(0, 59));
     if (dateNumber == ArgsParameter.getInstance().getReadingsNumber()) {
       localDateTime = localDateTime.plusDays(1);
+      // @TODO, see you need to reset the dateNumber to 1 instead of just receiving it as parameter
+      // Also, why you are reseting to 1, if you declare its initial value as 0?
+      // private static int dateNumber = 0;
       dateNumber = 1;
     } else {
       dateNumber++;
@@ -86,23 +99,22 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
   /** {@inheritDoc} */
   @Override
   public List<BgReading> generate(String file) {
-    if (file == null) return generateRandomValues();
-    else return generateFromFile(file);
+    if (file == null) {
+      return generateRandomValues();
+    } else {
+      return generateFromFile(file);
+    }
   }
 
   /**
-   * Generate bgreadings randomized values
+   * Generate a list of bgreadings with random value.
    *
    * @return list of bgreadings
    */
   private List<BgReading> generateRandomValues() {
-    List<BgReading> bgReadingList = new ArrayList<>();
-    for (int i = 0;
-        i < Util.getNumberOfEvents(ArgsParameter.getInstance().getReadingsNumber());
-        i++) {
-      bgReadingList.add(buildObject());
-    }
-    return bgReadingList;
+    int size = Util.getNumberOfEvents(ArgsParameter.getInstance().getReadingsNumber());
+
+    return new Random().ints(size).boxed().map(num -> buildObject()).collect(Collectors.toList());
   }
 
   /**
