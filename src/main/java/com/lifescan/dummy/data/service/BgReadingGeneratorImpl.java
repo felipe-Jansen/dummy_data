@@ -18,8 +18,6 @@ import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,10 +33,6 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class BgReadingGeneratorImpl extends Generator implements BgReadingGenerator {
-
-  private static int dateNumber = 0;
-
-  private static LocalDateTime localDateTime;
 
   /**
    * Method responsible for generating a single bg value.
@@ -57,30 +51,6 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
                 ConfigConstants.MIN_VALUE_BGVALUE, ConfigConstants.MAX_VALUE_BGVALUE))
         .units(ConfigConstants.UNIT_BGVALUE)
         .build();
-  }
-
-  /**
-   * Method that is responsible for generate the reading date
-   *
-   * @return A string that concerns to a new date
-   */
-  private static String generateReadingDateFormatted() {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
-    if (localDateTime == null) {
-      localDateTime =
-          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-    }
-    localDateTime =
-        localDateTime
-            .withHour(Util.getRandomNumberBetween(0, 23))
-            .withMinute(Util.getRandomNumberBetween(0, 59));
-    if (dateNumber == ArgsParameter.getInstance().getReadingsNumber()) {
-      localDateTime = localDateTime.plusDays(1);
-      dateNumber = 1;
-    } else {
-      dateNumber++;
-    }
-    return localDateTime.format(formatter);
   }
 
   /** {@inheritDoc} */
@@ -132,7 +102,9 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(
+                ConfigConstants.BGREADING_EVENT, ArgsParameter.getInstance().getReadingsNumber()))
         .id(generateId())
         .extendedAttributes(generateAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generateBgValue(bgReading.getBgValue()))
@@ -150,7 +122,9 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgReading.builder()
         .active(ConfigConstants.TRUE)
         .manual(ConfigConstants.FALSE)
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(
+                ConfigConstants.BGREADING_EVENT, ArgsParameter.getInstance().getReadingsNumber()))
         .id(generateId())
         .extendedAttributes(null)
         .bgValue(generateBgValue())

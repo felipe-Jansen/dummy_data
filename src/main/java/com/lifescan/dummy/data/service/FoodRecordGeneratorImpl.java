@@ -17,8 +17,6 @@ import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,10 +33,6 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGenerator {
 
-  private static int dateNumber = 0;
-
-  private static LocalDateTime localDateTime;
-
   /**
    * Method responsible for generating a single carbohydrate.
    *
@@ -49,30 +43,6 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
         .value(carbohydrates.getValue())
         .units(carbohydrates.getUnits())
         .build();
-  }
-
-  /**
-   * Method that is responsible for generate the reading date
-   *
-   * @return A string that concerns to a new date
-   */
-  private static String generateReadingDateFormatted() {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
-    if (localDateTime == null) {
-      localDateTime =
-          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-    }
-    localDateTime =
-        localDateTime
-            .withHour(Util.getRandomNumberBetween(0, 23))
-            .withMinute(Util.getRandomNumberBetween(0, 59));
-    if (dateNumber == ArgsParameter.getInstance().getFoodNumbers()) {
-      localDateTime = localDateTime.plusDays(1);
-      dateNumber = 1;
-    } else {
-      dateNumber++;
-    }
-    return localDateTime.format(formatter);
   }
 
   /** {@inheritDoc} */
@@ -104,7 +74,9 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
     return FoodRecord.builder()
         .active(ConfigConstants.TRUE)
         .manual(ConfigConstants.FALSE)
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(
+                ConfigConstants.FOOD_EVENT, ArgsParameter.getInstance().getFoodNumbers()))
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(null)
@@ -149,7 +121,9 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
         .manual(foodFromXml.getManual())
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(
+                ConfigConstants.FOOD_EVENT, ArgsParameter.getInstance().getFoodNumbers()))
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(foodFromXml.getAnnotation()))

@@ -17,8 +17,6 @@ import com.lifescan.dummy.data.model.BolusReading;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,10 +33,6 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class BolusReadingGeneratorImpl extends Generator implements BolusReadingGenerator {
 
-  private static int dateNumber = 0;
-
-  private static LocalDateTime localDateTime;
-
   /**
    * Method responsible for ganerating a single bolusFromXmls delivered.
    *
@@ -50,30 +44,6 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
         .value(bolusDelivered.getValue())
         .units(bolusDelivered.getUnits())
         .build();
-  }
-
-  /**
-   * Method that is responsible for generate the reading date
-   *
-   * @return A string that concerns to a new date
-   */
-  private static String generateReadingDateFormatted() {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
-    if (localDateTime == null) {
-      localDateTime =
-          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-    }
-    localDateTime =
-        localDateTime
-            .withHour(Util.getRandomNumberBetween(0, 23))
-            .withMinute(Util.getRandomNumberBetween(0, 59));
-    if (dateNumber == ArgsParameter.getInstance().getBolusNumber()) {
-      localDateTime = localDateTime.plusDays(1);
-      dateNumber = 1;
-    } else {
-      dateNumber++;
-    }
-    return localDateTime.format(formatter);
   }
 
   /** {@inheritDoc} */
@@ -105,7 +75,9 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
     return BolusReading.builder()
         .active(ConfigConstants.TRUE)
         .manual(ConfigConstants.FALSE)
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(
+                ConfigConstants.BOLUS_EVENT, ArgsParameter.getInstance().getBolusNumber()))
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(null)
@@ -152,7 +124,9 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
     return BolusReading.builder()
         .active(bolusFromXml.getActive())
         .manual(bolusFromXml.getManual())
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(
+                ConfigConstants.BOLUS_EVENT, ArgsParameter.getInstance().getBolusNumber()))
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(bolusFromXml.getAnnotation()))

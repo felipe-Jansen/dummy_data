@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service;
 
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.enums.IntensityAttribute;
 import com.lifescan.dummy.data.model.Annotation;
 import com.lifescan.dummy.data.model.ArgsParameter;
@@ -19,6 +20,9 @@ import com.lifescan.dummy.data.model.xml.AnnotationFromXml;
 import com.lifescan.dummy.data.model.xml.AnnotationsFromXml;
 import com.lifescan.dummy.data.model.xml.AttributeFromXml;
 import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
+import com.lifescan.dummy.data.service.util.Util;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,6 +31,36 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class Generator {
+
+  private static int dateNumber;
+  private static LocalDateTime localDateTime;
+  private static String runningEvent;
+
+  /**
+   * Method that is responsible for generate the reading date
+   *
+   * @return A string that concerns to a new date
+   */
+  public static String generateReadingDateFormatted(String exerciseEvent, int numberEventsPerDay) {
+    if (!exerciseEvent.equalsIgnoreCase(runningEvent)) {
+      runningEvent = exerciseEvent;
+      localDateTime =
+          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
+      dateNumber = 0;
+    } else {
+      localDateTime =
+          localDateTime
+              .withHour(Util.getRandomNumberBetween(0, 23))
+              .withMinute(Util.getRandomNumberBetween(0, 59));
+    }
+    if (dateNumber == numberEventsPerDay) {
+      localDateTime = localDateTime.plusDays(1);
+      dateNumber = 1;
+    } else {
+      dateNumber++;
+    }
+    return localDateTime.format(DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN));
+  }
 
   /**
    * Method responsible for setting the attributes values.

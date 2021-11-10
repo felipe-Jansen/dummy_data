@@ -16,8 +16,6 @@ import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -32,34 +30,6 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class HealthAttributesGeneratorImpl extends Generator implements HealthAttributeGenerator {
-
-  private static int dateNumber = 0;
-
-  private static LocalDateTime localDateTime;
-
-  /**
-   * Method that is responsible for generate the reading date
-   *
-   * @return A string that concerns to a new date
-   */
-  private static String generateReadingDateFormatted() {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
-    if (localDateTime == null) {
-      localDateTime =
-          Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate());
-    }
-    localDateTime =
-        localDateTime
-            .withHour(Util.getRandomNumberBetween(0, 23))
-            .withMinute(Util.getRandomNumberBetween(0, 59));
-    if (dateNumber == ArgsParameter.getInstance().getExerciseNumbers()) {
-      localDateTime = localDateTime.plusDays(1);
-      dateNumber = 1;
-    } else {
-      dateNumber++;
-    }
-    return localDateTime.format(formatter);
-  }
 
   /** {@inheritDoc} */
   @Override
@@ -92,7 +62,9 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     return HealthAttribute.builder()
         .active(ConfigConstants.TRUE)
         .manual(ConfigConstants.FALSE)
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(
+                ConfigConstants.EXERCISE_EVENT, ArgsParameter.getInstance().getExerciseNumbers()))
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(
@@ -137,7 +109,9 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(
+            generateReadingDateFormatted(
+                ConfigConstants.EXERCISE_EVENT, ArgsParameter.getInstance().getExerciseNumbers()))
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(
