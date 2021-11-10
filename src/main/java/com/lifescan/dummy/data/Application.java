@@ -23,6 +23,7 @@ import com.lifescan.dummy.data.service.EventService;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -136,15 +137,20 @@ public class Application implements CommandLineRunner {
   }
 
   private void validateTag(String tag) {
-    if (tag.equals("MEAL_TAG_PRE_MEAL")
-        || tag.equals("MEAL_TAG_POST_MEAL")
-        || tag.equals("MEAL_TAG_NOTAG")) {
-      if (log.isDebugEnabled()) {
-        log.debug("meal tag is valid");
-      }
-    } else {
-      throw new MealTagInvalid();
-    }
+    Arrays.stream(tag.split(","))
+        .collect(Collectors.toList())
+        .forEach(
+            c -> {
+              if (c.equalsIgnoreCase("MEAL_TAG_PRE_MEAL")
+                  || c.equalsIgnoreCase("MEAL_TAG_POST_MEAL")
+                  || c.equalsIgnoreCase("MEAL_TAG_NOTAG")) {
+                if (log.isDebugEnabled()) {
+                  log.debug("meal tag is valid");
+                }
+              } else {
+                throw new MealTagInvalid();
+              }
+            });
   }
 
   /**
