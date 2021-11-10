@@ -16,10 +16,10 @@ import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.HealthAttribute;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.xml.bind.JAXBException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -44,13 +44,9 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
    * @return list of health attributes
    */
   private List<HealthAttribute> generateRandomValues() {
-    List<HealthAttribute> healthAttributeList = new ArrayList<>();
-    for (int i = 0;
-        i < Util.getNumberOfEvents(ArgsParameter.getInstance().getExerciseNumbers());
-        i++) {
-      healthAttributeList.add(buildObject());
-    }
-    return healthAttributeList;
+    return Stream.generate(this::buildObject)
+        .limit(Util.getNumberOfEvents(ArgsParameter.getInstance().getExerciseNumbers()))
+        .collect(Collectors.toList());
   }
 
   /**
@@ -62,9 +58,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     return HealthAttribute.builder()
         .active(ConfigConstants.TRUE)
         .manual(ConfigConstants.FALSE)
-        .readingDate(
-            generateReadingDateFormatted(
-                ConfigConstants.EXERCISE_EVENT, ArgsParameter.getInstance().getExerciseNumbers()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(
@@ -109,9 +103,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
-        .readingDate(
-            generateReadingDateFormatted(
-                ConfigConstants.EXERCISE_EVENT, ArgsParameter.getInstance().getExerciseNumbers()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(

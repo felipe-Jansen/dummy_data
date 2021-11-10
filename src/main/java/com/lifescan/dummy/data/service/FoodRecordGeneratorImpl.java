@@ -17,10 +17,10 @@ import com.lifescan.dummy.data.model.FoodRecord;
 import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.xml.bind.JAXBException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -58,11 +58,9 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
    * @return list of foods
    */
   private List<FoodRecord> generateRandomValues() {
-    List<FoodRecord> foodRecordList = new ArrayList<>();
-    for (int i = 0; i < Util.getNumberOfEvents(ArgsParameter.getInstance().getFoodNumbers()); i++) {
-      foodRecordList.add(buildObject());
-    }
-    return foodRecordList;
+    return Stream.generate(this::buildObject)
+        .limit(Util.getNumberOfEvents(ArgsParameter.getInstance().getFoodNumbers()))
+        .collect(Collectors.toList());
   }
 
   /**
@@ -74,9 +72,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
     return FoodRecord.builder()
         .active(ConfigConstants.TRUE)
         .manual(ConfigConstants.FALSE)
-        .readingDate(
-            generateReadingDateFormatted(
-                ConfigConstants.FOOD_EVENT, ArgsParameter.getInstance().getFoodNumbers()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(null)
@@ -121,9 +117,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
         .manual(foodFromXml.getManual())
-        .readingDate(
-            generateReadingDateFormatted(
-                ConfigConstants.FOOD_EVENT, ArgsParameter.getInstance().getFoodNumbers()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(foodFromXml.getAnnotation()))

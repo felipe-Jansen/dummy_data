@@ -61,8 +61,12 @@ public class ConfigConstants {
   public static final int MAX_VALUE_BGVALUE = 200;
 
   public static final String UNIT_BGVALUE = "mg/dL";
+
   public static final String EXERCISE_EVENT = "EXERCISE";
+
   public static final String FOOD_EVENT = "FOOD";
+
   public static final String BGREADING_EVENT = "BGREADING";
+
   public static final String BOLUS_EVENT = "BOLUS_EVENT";
 }

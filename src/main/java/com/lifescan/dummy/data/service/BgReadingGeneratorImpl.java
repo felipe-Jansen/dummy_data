@@ -18,10 +18,10 @@ import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.xml.bind.JAXBException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -66,13 +66,9 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    * @return list of bgreadings
    */
   private List<BgReading> generateRandomValues() {
-    List<BgReading> bgReadingList = new ArrayList<>();
-    for (int i = 0;
-        i < Util.getNumberOfEvents(ArgsParameter.getInstance().getReadingsNumber());
-        i++) {
-      bgReadingList.add(buildObject());
-    }
-    return bgReadingList;
+    return Stream.generate(this::buildObject)
+        .limit(Util.getNumberOfEvents(ArgsParameter.getInstance().getReadingsNumber()))
+        .collect(Collectors.toList());
   }
 
   /**
@@ -102,9 +98,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(
-            generateReadingDateFormatted(
-                ConfigConstants.BGREADING_EVENT, ArgsParameter.getInstance().getReadingsNumber()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .extendedAttributes(generateAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generateBgValue(bgReading.getBgValue()))
@@ -122,9 +116,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgReading.builder()
         .active(ConfigConstants.TRUE)
         .manual(ConfigConstants.FALSE)
-        .readingDate(
-            generateReadingDateFormatted(
-                ConfigConstants.BGREADING_EVENT, ArgsParameter.getInstance().getReadingsNumber()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .extendedAttributes(null)
         .bgValue(generateBgValue())

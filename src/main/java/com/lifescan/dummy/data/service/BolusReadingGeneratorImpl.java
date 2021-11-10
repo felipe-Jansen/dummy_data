@@ -17,10 +17,10 @@ import com.lifescan.dummy.data.model.BolusReading;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
 import com.lifescan.dummy.data.service.util.Util;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.xml.bind.JAXBException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -59,11 +59,9 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    * @return list of bolus
    */
   private List<BolusReading> generateRandomValues() {
-    List<BolusReading> bolusReadingList = new ArrayList<>();
-    for (int i = 0; i < Util.getNumberOfEvents(ArgsParameter.getInstance().getBolusNumber()); i++) {
-      bolusReadingList.add(buildObject());
-    }
-    return bolusReadingList;
+    return Stream.generate(this::buildObject)
+        .limit(Util.getNumberOfEvents(ArgsParameter.getInstance().getBolusNumber()))
+        .collect(Collectors.toList());
   }
 
   /**
@@ -75,9 +73,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
     return BolusReading.builder()
         .active(ConfigConstants.TRUE)
         .manual(ConfigConstants.FALSE)
-        .readingDate(
-            generateReadingDateFormatted(
-                ConfigConstants.BOLUS_EVENT, ArgsParameter.getInstance().getBolusNumber()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(null)
@@ -124,9 +120,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
     return BolusReading.builder()
         .active(bolusFromXml.getActive())
         .manual(bolusFromXml.getManual())
-        .readingDate(
-            generateReadingDateFormatted(
-                ConfigConstants.BOLUS_EVENT, ArgsParameter.getInstance().getBolusNumber()))
+        .readingDate(generateReadingDateFormatted())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(bolusFromXml.getAnnotation()))

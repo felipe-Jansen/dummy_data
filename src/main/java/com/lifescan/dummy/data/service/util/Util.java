@@ -90,10 +90,6 @@ public class Util {
    * @return a random number
    */
   public static int getRandomNumberBetween(int min, int max) {
-    // @TODO I understand what you are trying to do, but if all random numbers are between
-    // 0 and max, then you just need to call nextInt(max).
-    // For what I see in your code, you only call this method with min = 0.
-    // nextInt(max) is easier to understand.
     return new Random().nextInt(max - min + 1) + min;
   }
 }
