@@ -16,7 +16,12 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class WebEndPointConstants {
 
+  /** This is the login endpoint. */
   public static final String AUTHENTICATE = "/mobile/user/v3/authenticate";
+
+  /** This is the registration endpoint. */
   public static final String REGISTER_PATIENT = "/mobile/user/v3/register";
+
+  /** This is the publish events endpoint. */
   public static final String SYNC_EVENT = "/mobile/health/v1/data/publish";
 }
