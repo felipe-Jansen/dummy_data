@@ -34,6 +34,10 @@ public class Generator {
 
   private static LocalDate eventDate;
 
+  private static int tagRunner;
+
+  private static String previousDate;
+
   /**
    * Method that is responsible for generate the reading date
    *
@@ -47,6 +51,35 @@ public class Generator {
     return eventDate
         .atTime(Util.getRandomNumberBetween(0, 23), Util.getRandomNumberBetween(0, 59))
         .format(DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN));
+  }
+
+  /**
+   * Get next mealtag from list
+   * @param readingDate referenced reading date
+   * @return a meal tag
+   */
+  public static String getMealTag(String readingDate) {
+    if (tagRunner >= ArgsParameter.getInstance().getReadingsTag().size()
+        || datesAreDifferent(readingDate)) {
+      tagRunner = 0;
+      previousDate = localDateTimeToLocalDate(readingDate);
+    }
+    return ArgsParameter.getInstance().getReadingsTag().get(tagRunner++);
+  }
+
+  /**
+   * Method that checks if dates are different or not
+   * @param readingDate referenced reading date
+   * @return boolean value
+   */
+  private static boolean datesAreDifferent(String readingDate) {
+    return !localDateTimeToLocalDate(readingDate).equalsIgnoreCase(previousDate);
+  }
+
+  private static String localDateTimeToLocalDate(String readingDate) {
+    return LocalDate.parse(
+            readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN))
+        .toString();
   }
 
   private static void resetEventDate() {

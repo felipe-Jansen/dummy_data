@@ -130,7 +130,8 @@ public class Application implements CommandLineRunner {
                 if (s.contains(ArgsConstants.TAG)) {
                   String tag = s.split("=")[1];
                   validateTag(tag);
-                  ArgsParameter.getInstance().setReadingsTag(tag);
+                  ArgsParameter.getInstance()
+                      .setReadingsTag(Arrays.stream(tag.split(",")).collect(Collectors.toList()));
                 }
               }
             });

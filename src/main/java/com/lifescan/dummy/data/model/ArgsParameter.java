@@ -11,6 +11,7 @@
 package com.lifescan.dummy.data.model;
 
 import com.lifescan.dummy.data.enums.Preset;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,7 +38,7 @@ public final class ArgsParameter {
   private String bolusType;
 
   private int readingsNumber;
-  private String readingsTag;
+  private List<String> readingsTag;
   private String readingsPreset;
 
   public static ArgsParameter getInstance() {

@@ -14,11 +14,13 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BgReading;
 import com.lifescan.dummy.data.model.BgValue;
+import com.lifescan.dummy.data.model.Reading;
 import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -66,9 +68,17 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    * @return list of bgreadings
    */
   private List<BgReading> generateRandomValues() {
-    return Stream.generate(this::buildObject)
-        .limit(Util.getNumberOfEvents(ArgsParameter.getInstance().getReadingsNumber()))
-        .collect(Collectors.toList());
+    List<BgReading> bgReadingList =
+        Stream.generate(this::buildObject)
+            .limit(Util.getNumberOfEvents(ArgsParameter.getInstance().getReadingsNumber()))
+            .collect(Collectors.toList());
+    return setMealTag(bgReadingList);
+  }
+
+  private List<BgReading> setMealTag(List<BgReading> stream) {
+    stream.sort(Comparator.comparing(Reading::getReadingDate));
+    stream.forEach(event -> event.setMealTag(getMealTag(event.getReadingDate())));
+    return stream;
   }
 
   /**
@@ -102,7 +112,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
         .id(generateId())
         .extendedAttributes(generateAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generateBgValue(bgReading.getBgValue()))
-        .mealTag(ArgsParameter.getInstance().getReadingsTag())
+        .mealTag(null)
         .lastUpdatedDate(Instant.now().toEpochMilli())
         .build();
   }
@@ -120,7 +130,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
         .id(generateId())
         .extendedAttributes(null)
         .bgValue(generateBgValue())
-        .mealTag(ArgsParameter.getInstance().getReadingsTag())
+        .mealTag(null)
         .lastUpdatedDate(Instant.now().toEpochMilli())
         .build();
   }
