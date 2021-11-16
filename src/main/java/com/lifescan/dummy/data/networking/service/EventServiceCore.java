@@ -15,6 +15,7 @@ import com.lifescan.dummy.data.model.Event;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 
 public interface EventServiceCore {
@@ -23,9 +24,8 @@ public interface EventServiceCore {
     "osversion: 14.6",
     "os: IOS-iPhone12,1",
     "appname: REVEAL_MOBILE_IOS",
-    "appversion: 4.5.0",
-    "Content-Type: application/json",
-    "accept: application/json, text/plain, */*",
+    "appversion: " + WebEndPointConstants.APP_VERSION,
+    "Content-Type: " + MediaType.APPLICATION_JSON_VALUE,
     "authenticationToken: {token}",
     "token: {token}"
   })

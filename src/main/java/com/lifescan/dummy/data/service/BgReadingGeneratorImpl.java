@@ -19,6 +19,8 @@ import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -35,6 +37,9 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class BgReadingGeneratorImpl extends Generator implements BgReadingGenerator {
+
+  private static String previousDate;
+  private static int tagRunner;
 
   /**
    * Method responsible for generating a single bg value.
@@ -58,8 +63,11 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
   /** {@inheritDoc} */
   @Override
   public List<BgReading> generate(String file) {
-    if (file == null) return generateRandomValues();
-    else return generateFromFile(file);
+    if (file == null) {
+      return generateRandomValues();
+    } else {
+      return generateFromFile(file);
+    }
   }
 
   /**
@@ -82,7 +90,39 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
   }
 
   /**
-   * Get bgreading information from file
+   * Get next mealTag from list. We will loop into the possible mealTag values (passed via command
+   * line). We need to reset the value once we reach the end of the list or we change the day.
+   *
+   * @param readingDate referenced reading date
+   * @return a meal tag
+   */
+  private String getMealTag(String readingDate) {
+    if (tagRunner >= ArgsParameter.getInstance().getReadingsTag().size()
+        || datesAreDifferent(readingDate)) {
+      tagRunner = 0;
+      previousDate = localDateTimeToLocalDateString(readingDate);
+    }
+    return ArgsParameter.getInstance().getReadingsTag().get(tagRunner++);
+  }
+
+  /**
+   * Method that checks if dates are different or not
+   *
+   * @param readingDate referenced reading date
+   * @return boolean value
+   */
+  private boolean datesAreDifferent(String readingDate) {
+    return !localDateTimeToLocalDateString(readingDate).equalsIgnoreCase(previousDate);
+  }
+
+  private String localDateTimeToLocalDateString(String readingDate) {
+    return LocalDate.parse(
+            readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN))
+        .toString();
+  }
+
+  /**
+   * Get bgReading information from file
    *
    * @param file It concerns to the url to access the file.
    * @return list of events.

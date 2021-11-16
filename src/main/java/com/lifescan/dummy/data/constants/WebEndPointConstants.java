@@ -24,4 +24,6 @@ public class WebEndPointConstants {
 
   /** This is the publish events endpoint. */
   public static final String SYNC_EVENT = "/mobile/health/v1/data/publish";
+
+  public static final String APP_VERSION = "4.5.0";
 }

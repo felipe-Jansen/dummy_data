@@ -11,7 +11,8 @@
 package com.lifescan.dummy.data;
 
 import com.lifescan.dummy.data.constants.ArgsConstants;
-import com.lifescan.dummy.data.constants.ConfigConstants;
+import com.lifescan.dummy.data.enums.BolusType;
+import com.lifescan.dummy.data.enums.MealTags;
 import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.exception.BolusTypeInvalid;
 import com.lifescan.dummy.data.exception.DatesAreMore90DaysApartInvalid;
@@ -43,10 +44,10 @@ public class Application implements CommandLineRunner {
   @Override
   public void run(String... args) {
     try {
-      String language = args[ArgsConstants.LANGUAGE_ISO];
-      int qtyPatients = Integer.parseInt(args[ArgsConstants.NUMBER_PATIENTS]);
       buildArgObject(args);
-      eventService.create(language, qtyPatients);
+      eventService.create(
+          ArgsParameter.getInstance().getLanguage(),
+          ArgsParameter.getInstance().getTotalPatients());
       showListOfCreatedPatients();
     } catch (ArrayIndexOutOfBoundsException ex) {
       log.error("No arguments informed!");
@@ -55,7 +56,7 @@ public class Application implements CommandLineRunner {
 
   /** Print list of created patients */
   private void showListOfCreatedPatients() {
-    log.info("{}", ListOfPatients.getInstance().getEmails());
+    log.info("{}", ListOfPatients.getInstance().getEmails() + "\n");
   }
 
   /**
@@ -64,30 +65,30 @@ public class Application implements CommandLineRunner {
    * @param args The input arguments
    */
   private void buildArgObject(String... args) {
-    if (args[ArgsConstants.PRESET].contains("preset")) {
-      ArgsParameter.getInstance()
-          .setPreset(Preset.getById(Long.parseLong(args[ArgsConstants.PRESET].split("=")[1])));
-      ArgsParameter.getInstance().setExerciseNumbers(Util.getRandomNumberBetween(0, 10));
-      ArgsParameter.getInstance().setFoodNumbers(Util.getRandomNumberBetween(0, 10));
-      ArgsParameter.getInstance().setBolusNumber(Util.getRandomNumberBetween(0, 10));
-      ArgsParameter.getInstance().setReadingsNumber(Util.getRandomNumberBetween(0, 10));
+    ArgsParameter argModel = ArgsParameter.getInstance();
+    argModel.setLanguage(args[ArgsConstants.LANGUAGE_ISO]);
+    argModel.setTotalPatients(Integer.parseInt(args[ArgsConstants.NUMBER_PATIENTS]));
+
+    if (args[ArgsConstants.PRESET_ID].contains(ArgsConstants.PRESET)) {
+      argModel.setPreset(
+          Preset.getById(Long.parseLong(args[ArgsConstants.PRESET_ID].split("=")[1])));
     }
-    ArgsParameter.getInstance().setStartDate(args[ArgsConstants.START_DATE]);
-    ArgsParameter.getInstance().setEndDate(args[ArgsConstants.END_DATE]);
+    argModel.setStartDate(args[ArgsConstants.START_DATE]);
+    argModel.setEndDate(args[ArgsConstants.END_DATE]);
     validateDates();
-    getExercisesArguments(args);
-    getFoodArguments(args);
-    getBolusArguments(args);
-    getReadingArguments(args);
+
+    buildExercisesArguments(args);
+    buildFoodArguments(args);
+    buildBolusArguments(args);
+    buildReadingArguments(args);
   }
 
+  /** Validated the inputted time frame. */
   private void validateDates() {
-    if (Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate())
-            .compareTo(
-                Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
-        < 0) {
-      log.debug("Start date is valid");
-    } else {
+    log.traceEntry("Validating date range.");
+    if (!Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate())
+        .isBefore(
+            Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))) {
       throw new StartDateLaterThanEndDateInvalid();
     }
 
@@ -95,9 +96,7 @@ public class Application implements CommandLineRunner {
                 Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate()),
                 Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
             .toDays()
-        <= 90) {
-      log.debug("Dates are valid");
-    } else {
+        > ArgsConstants.MAX_TIME_INTERVAL) {
       throw new DatesAreMore90DaysApartInvalid();
     }
   }
@@ -107,24 +106,19 @@ public class Application implements CommandLineRunner {
    *
    * @param args The input arguments
    */
-  private void getReadingArguments(String... args) {
+  private void buildReadingArguments(String... args) {
     Arrays.stream(args)
         .filter(c -> c.contains(ArgsConstants.READING))
         .forEach(
-            value -> {
-              String[] values = value.split("&");
-              for (String s : values) {
-                if (s.contains(ArgsConstants.READING)) {
-                  if (s.contains("=")) {
-                    ArgsParameter.getInstance()
-                        .setReadingsNumber(Integer.parseInt(s.split("=")[1]));
-                  } else {
-                    ArgsParameter.getInstance()
-                        .setReadingsNumber(ConfigConstants.DEFAULT_EVENTS_NUMBER);
-                  }
+            arg -> {
+              String[] values = arg.split("&");
+              for (String value : values) {
+                if (value.contains(ArgsConstants.READING) && value.contains("=")) {
+                  ArgsParameter.getInstance()
+                      .setReadingsNumber(Integer.parseInt(value.split("=")[1]));
                 }
-                if (s.contains(ArgsConstants.TAG)) {
-                  String tag = s.split("=")[1];
+                if (value.contains(ArgsConstants.TAG) && value.contains("=")) {
+                  String tag = value.split("=")[1];
                   validateTag(tag);
                   ArgsParameter.getInstance()
                       .setReadingsTag(Arrays.stream(tag.split(",")).collect(Collectors.toList()));
@@ -133,16 +127,17 @@ public class Application implements CommandLineRunner {
             });
   }
 
-  private void validateTag(String tag) {
-    Arrays.stream(tag.split(","))
+  /**
+   * Validates incoming mealTags.
+   *
+   * @param tags Inputted mealTags
+   */
+  private void validateTag(String tags) {
+    Arrays.stream(tags.split(","))
         .collect(Collectors.toList())
         .forEach(
-            c -> {
-              if (c.equalsIgnoreCase("MEAL_TAG_PRE_MEAL")
-                  || c.equalsIgnoreCase("MEAL_TAG_POST_MEAL")
-                  || c.equalsIgnoreCase("MEAL_TAG_NOTAG")) {
-                log.debug("meal tag is valid");
-              } else {
+            tag -> {
+              if (!MealTags.contains(tag)) {
                 throw new MealTagInvalid();
               }
             });
@@ -153,39 +148,33 @@ public class Application implements CommandLineRunner {
    *
    * @param args The input arguments
    */
-  private void getBolusArguments(String... args) {
+  private void buildBolusArguments(String... args) {
     Arrays.stream(args)
         .filter(c -> c.contains(ArgsConstants.BOLUS))
         .forEach(
-            value -> {
-              String[] values = value.split("&");
-              for (String s : values) {
-                if (s.contains(ArgsConstants.BOLUS)) {
-                  if (s.contains("=")) {
-                    ArgsParameter.getInstance().setBolusNumber(Integer.parseInt(s.split("=")[1]));
-                  } else {
-                    ArgsParameter.getInstance()
-                        .setBolusNumber(ConfigConstants.DEFAULT_EVENTS_NUMBER);
-                  }
+            arg -> {
+              String[] values = arg.split("&");
+
+              for (String value : values) {
+                if (value.contains(ArgsConstants.BOLUS) && value.contains("=")) {
+                  ArgsParameter.getInstance().setBolusNumber(Integer.parseInt(value.split("=")[1]));
                 }
-                if (s.contains(ArgsConstants.TYPE)) {
-                  String bolusType = s.split("=")[1];
+                if (value.contains(ArgsConstants.TYPE) && value.contains("=")) {
+                  String bolusType = value.split("=")[1];
                   validateBolus(bolusType);
-                  ArgsParameter.getInstance().setBolusType(s.split("=")[1]);
+                  ArgsParameter.getInstance().setBolusType(value.split("=")[1]);
                 }
               }
             });
   }
 
+  /**
+   * Check if bolusType input is valid.
+   *
+   * @param bolusType The bolus type
+   */
   private void validateBolus(String bolusType) {
-    if (bolusType.equals("BOLUS_INSULIN_SHORT")
-        || bolusType.equals("FAST")
-        || bolusType.equals("LONG")
-        || bolusType.equals("MIXED")
-        || bolusType.equals("NPH")
-        || bolusType.equals("OTHERS")) {
-      log.debug("Bolus type is valid");
-    } else {
+    if (!BolusType.contains(bolusType)) {
       throw new BolusTypeInvalid();
     }
   }
@@ -195,16 +184,13 @@ public class Application implements CommandLineRunner {
    *
    * @param args The input arguments
    */
-  private void getFoodArguments(String... args) {
+  private void buildFoodArguments(String... args) {
     Arrays.stream(args)
         .filter(c -> c.contains(ArgsConstants.FOOD))
+        .filter(arg -> arg.contains("="))
         .forEach(
             value -> {
-              if (value.contains("=")) {
-                ArgsParameter.getInstance().setFoodNumbers(Integer.parseInt(value.split("=")[1]));
-              } else {
-                ArgsParameter.getInstance().setFoodNumbers(ConfigConstants.DEFAULT_EVENTS_NUMBER);
-              }
+              ArgsParameter.getInstance().setFoodNumbers(Integer.parseInt(value.split("=")[1]));
             });
   }
 
@@ -213,18 +199,13 @@ public class Application implements CommandLineRunner {
    *
    * @param args The input arguments
    */
-  private void getExercisesArguments(String... args) {
+  private void buildExercisesArguments(String... args) {
     Arrays.stream(args)
-        .filter(c -> c.contains(ArgsConstants.EXERCISE))
+        .filter(arg -> arg.contains(ArgsConstants.EXERCISE))
+        .filter(arg -> arg.contains("="))
         .forEach(
             value -> {
-              if (value.contains("=")) {
-                ArgsParameter.getInstance()
-                    .setExerciseNumbers(Integer.parseInt(value.split("=")[1]));
-              } else {
-                ArgsParameter.getInstance()
-                    .setExerciseNumbers(ConfigConstants.DEFAULT_EVENTS_NUMBER);
-              }
+              ArgsParameter.getInstance().setExerciseNumbers(Integer.parseInt(value.split("=")[1]));
             });
   }
 }
