@@ -57,9 +57,7 @@ public class EventServiceImpl implements EventService {
           securityService.doLogin(login), generateEventFromPreset(preset));
       log.info("Event created successfully");
     } catch (FeignException ex) {
-      if (log.isDebugEnabled()) {
-        log.debug(ex.contentUTF8());
-      }
+      log.debug(ex.contentUTF8());
     }
   }
 

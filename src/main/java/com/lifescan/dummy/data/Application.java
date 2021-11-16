@@ -86,9 +86,7 @@ public class Application implements CommandLineRunner {
             .compareTo(
                 Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
         < 0) {
-      if (log.isDebugEnabled()) {
-        log.debug("Start date is valid");
-      }
+      log.debug("Start date is valid");
     } else {
       throw new StartDateLaterThanEndDateInvalid();
     }
@@ -98,9 +96,7 @@ public class Application implements CommandLineRunner {
                 Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
             .toDays()
         <= 90) {
-      if (log.isDebugEnabled()) {
-        log.debug("Dates are valid");
-      }
+      log.debug("Dates are valid");
     } else {
       throw new DatesAreMore90DaysApartInvalid();
     }
@@ -145,9 +141,7 @@ public class Application implements CommandLineRunner {
               if (c.equalsIgnoreCase("MEAL_TAG_PRE_MEAL")
                   || c.equalsIgnoreCase("MEAL_TAG_POST_MEAL")
                   || c.equalsIgnoreCase("MEAL_TAG_NOTAG")) {
-                if (log.isDebugEnabled()) {
-                  log.debug("meal tag is valid");
-                }
+                log.debug("meal tag is valid");
               } else {
                 throw new MealTagInvalid();
               }
@@ -190,9 +184,7 @@ public class Application implements CommandLineRunner {
         || bolusType.equals("MIXED")
         || bolusType.equals("NPH")
         || bolusType.equals("OTHERS")) {
-      if (log.isDebugEnabled()) {
-        log.debug("Bolus type is valid");
-      }
+      log.debug("Bolus type is valid");
     } else {
       throw new BolusTypeInvalid();
     }
