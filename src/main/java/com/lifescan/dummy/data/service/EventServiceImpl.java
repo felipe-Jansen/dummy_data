@@ -49,9 +49,12 @@ public class EventServiceImpl implements EventService {
     }
   }
 
-  /** {@inheritDoc} */
-  @Override
-  public void publishFromPreset(Login login, Preset preset) {
+  /**
+   * Method responsible for creating the events for each new patient.
+   *
+   * @param login that contains the information of email and password.
+   */
+  private void publishFromPreset(Login login, Preset preset) {
     try {
       eventServiceCore.publishEvent(
           securityService.doLogin(login), generateEventFromPreset(preset));
@@ -88,13 +91,13 @@ public class EventServiceImpl implements EventService {
   private Event generateEventFromPreset(Preset presetSelected) {
     String file = presetSelected != null ? presetSelected.getAddress() : null;
     return Event.builder()
-            .bgReadings(bgReadingGenerator.generate(file))
-            .foodRecords(foodRecordGenerator.generate(file))
-            .bolusReadings(bolusReadingGenerator.generate(file))
-            .healthAttributes(healthAttributeGenerator.generate(file))
-            .isBackgroundSync(false)
-            .metaInformation(generateMeta())
-            .build();
+        .bgReadings(bgReadingGenerator.generate(file))
+        .foodRecords(foodRecordGenerator.generate(file))
+        .bolusReadings(bolusReadingGenerator.generate(file))
+        .healthAttributes(healthAttributeGenerator.generate(file))
+        .isBackgroundSync(false)
+        .metaInformation(generateMeta())
+        .build();
   }
 
   /**

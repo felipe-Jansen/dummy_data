@@ -10,8 +10,6 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.lifescan.dummy.data.enums.Preset;
-import com.lifescan.dummy.data.model.Login;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,11 +22,4 @@ public interface EventService {
    * @param numberPatients that concerns to the quantity of patients that will be created.
    */
   void create(String language, Integer numberPatients);
-
-  /**
-   * Method responsible for creating the events for each new patient.
-   *
-   * @param login that contains the information of email and password.
-   */
-  void publishFromPreset(Login login, Preset preset);
 }

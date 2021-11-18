@@ -14,6 +14,7 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.BolusDelivered;
 import com.lifescan.dummy.data.model.BolusReading;
+import com.lifescan.dummy.data.model.Reading;
 import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
 import com.lifescan.dummy.data.model.xml.BolusFromXml;
 import com.lifescan.dummy.data.service.util.Util;
@@ -50,7 +51,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
   @Override
   public List<BolusReading> generate(String file) {
     if (file == null) return generateRandomValues();
-    else return generateFromFile(file);
+    else return (List<BolusReading>) generateFromFile(file);
   }
 
   /**
@@ -99,11 +100,12 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    * @param file It concerns to the url to access the file.
    * @return list of events.
    */
-  private List<BolusReading> generateFromFile(String file) {
+  private List<? extends Reading> generateFromFile(String file) {
     try {
-      return Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus().stream()
-          .map(this::buildObject)
-          .collect(Collectors.toList());
+      return configuringInformation(
+          Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus().stream()
+              .map(this::buildObject)
+              .collect(Collectors.toList()));
     } catch (JAXBException exception) {
       log.error("Error when generating BolusReading.");
     }
@@ -120,7 +122,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
     return BolusReading.builder()
         .active(bolusFromXml.getActive())
         .manual(bolusFromXml.getManual())
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(bolusFromXml.getReadingDate())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(bolusFromXml.getAnnotation()))

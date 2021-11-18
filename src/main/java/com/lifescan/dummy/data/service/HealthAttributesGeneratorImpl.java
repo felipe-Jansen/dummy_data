@@ -14,6 +14,7 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.HealthAttribute;
+import com.lifescan.dummy.data.model.Reading;
 import com.lifescan.dummy.data.model.xml.HealthAttribFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.util.Collections;
@@ -35,7 +36,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
   @Override
   public List<HealthAttribute> generate(String file) {
     if (file == null) return generateRandomValues();
-    else return generateFromFile(file);
+    else return (List<HealthAttribute>) generateFromFile(file);
   }
 
   /**
@@ -82,11 +83,12 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
    * @param file It concerns to the url to access the file.
    * @return list of events.
    */
-  private List<HealthAttribute> generateFromFile(String file) {
+  private List<? extends Reading> generateFromFile(String file) {
     try {
-      return Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib().stream()
-          .map(this::buildObject)
-          .collect(Collectors.toList());
+      return configuringInformation(
+          Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib().stream()
+              .map(this::buildObject)
+              .collect(Collectors.toList()));
     } catch (JAXBException exception) {
       log.error("Error when generating HealthAttributes.");
     }
@@ -103,7 +105,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
     return HealthAttribute.builder()
         .active(healthAttribFromXml.getActive())
         .manual(healthAttribFromXml.getManual())
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(healthAttribFromXml.getReadingDate())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .healthAttributesValue(

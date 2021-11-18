@@ -19,8 +19,6 @@ import com.lifescan.dummy.data.model.xml.BgReadingFromXml;
 import com.lifescan.dummy.data.model.xml.BgValueFromXml;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -60,13 +58,17 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
         .build();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   *
+   * @return
+   */
   @Override
   public List<BgReading> generate(String file) {
     if (file == null) {
       return generateRandomValues();
     } else {
-      return generateFromFile(file);
+      return (List<BgReading>) generateFromFile(file);
     }
   }
 
@@ -96,7 +98,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    * @param readingDate referenced reading date
    * @return a meal tag
    */
-  private String getMealTag(String readingDate) {
+  private static String getMealTag(String readingDate) {
     if (tagRunner >= ArgsParameter.getInstance().getReadingsTag().size()
         || datesAreDifferent(readingDate)) {
       tagRunner = 0;
@@ -111,14 +113,8 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    * @param readingDate referenced reading date
    * @return boolean value
    */
-  private boolean datesAreDifferent(String readingDate) {
+  private static boolean datesAreDifferent(String readingDate) {
     return !localDateTimeToLocalDateString(readingDate).equalsIgnoreCase(previousDate);
-  }
-
-  private String localDateTimeToLocalDateString(String readingDate) {
-    return LocalDate.parse(
-            readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN))
-        .toString();
   }
 
   /**
@@ -127,11 +123,12 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    * @param file It concerns to the url to access the file.
    * @return list of events.
    */
-  private List<BgReading> generateFromFile(String file) {
+  private List<? extends Reading> generateFromFile(String file) {
     try {
-      return Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
-          .map(this::buildObject)
-          .collect(Collectors.toList());
+      return configuringInformation(
+          Util.getDeviceDataDataSet(file).getBgReadingDataLog().getBgReading().stream()
+              .map(this::buildObject)
+              .collect(Collectors.toList()));
     } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
     }
@@ -148,7 +145,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgReading.builder()
         .active(bgReading.getActive())
         .manual(bgReading.getManual())
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(bgReading.getReadingDate())
         .id(generateId())
         .extendedAttributes(generateAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generateBgValue(bgReading.getBgValue()))

@@ -28,7 +28,9 @@ public class ConfigConstants {
 
   public static final String PATIENT_DIABETES_TYPE_1 = "DIABETES_TYPE_1";
 
-  public static final String DATA_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+  public static final String DATA_TIME_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+
+  public static final String DATA_FORMAT_PATTERN = "yyyy-MM-dd";
 
   public static final String SOURCE_APP = "REVEAL_MOBILE_IOS";
 

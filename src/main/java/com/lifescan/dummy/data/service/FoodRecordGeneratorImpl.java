@@ -14,6 +14,7 @@ import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.Carbohydrate;
 import com.lifescan.dummy.data.model.FoodRecord;
+import com.lifescan.dummy.data.model.Reading;
 import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
 import com.lifescan.dummy.data.model.xml.FoodFromXml;
 import com.lifescan.dummy.data.service.util.Util;
@@ -49,7 +50,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
   @Override
   public List<FoodRecord> generate(String file) {
     if (file == null) return generateRandomValues();
-    else return generateFromFile(file);
+    else return (List<FoodRecord>) generateFromFile(file);
   }
 
   /**
@@ -96,11 +97,12 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
    * @param file It concerns to the url to access the file.
    * @return list of events.
    */
-  private List<FoodRecord> generateFromFile(String file) {
+  private List<? extends Reading> generateFromFile(String file) {
     try {
-      return Util.getDeviceDataDataSet(file).getFoodDataLog().getFood().stream()
-          .map(this::buildObject)
-          .collect(Collectors.toList());
+      return configuringInformation(
+          Util.getDeviceDataDataSet(file).getFoodDataLog().getFood().stream()
+              .map(this::buildObject)
+              .collect(Collectors.toList()));
     } catch (JAXBException exception) {
       log.error("Error when generating foodRecord.");
     }
@@ -117,7 +119,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
     return FoodRecord.builder()
         .active(foodFromXml.getActive())
         .manual(foodFromXml.getManual())
-        .readingDate(generateReadingDateFormatted())
+        .readingDate(foodFromXml.getReadingDate())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
         .annotation(generateAnnotations(foodFromXml.getAnnotation()))
