@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.service.util;
 
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
 import java.io.File;
@@ -95,4 +96,29 @@ public class Util {
   public static int getRandomNumberBetween(int min, int max) {
     return new Random().nextInt(max - min + 1) + min;
   }
+
+  /**
+   * Method responsible for converting localDateTime to localDate as String
+   *
+   * @param readingDate Date from event
+   * @return a localDate as String
+   */
+  public static String localDateTimeToLocalDateString(String readingDate) {
+    return LocalDate.parse(
+            readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_TIME_FORMAT_PATTERN))
+        .toString();
+  }
+
+  /**
+   * Method responsible for converting localDateTime to localDate as String
+   *
+   * @param readingDate Date from event
+   * @return a localDate as String
+   */
+  public static LocalDate localDateTimeToLocalDate(String readingDate) {
+    return LocalDate.parse(
+        readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_TIME_FORMAT_PATTERN));
+  }
+
 }
+

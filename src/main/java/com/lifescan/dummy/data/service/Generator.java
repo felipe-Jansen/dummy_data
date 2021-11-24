@@ -40,28 +40,7 @@ public class Generator {
   static String newDate = null;
   private static LocalDate eventDate;
 
-  /**
-   * Method responsible for converting localDateTime to localDate as String
-   *
-   * @param readingDate Date from event
-   * @return a localDate as String
-   */
-  protected static String localDateTimeToLocalDateString(String readingDate) {
-    return LocalDate.parse(
-            readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_TIME_FORMAT_PATTERN))
-        .toString();
-  }
 
-  /**
-   * Method responsible for converting localDateTime to localDate as String
-   *
-   * @param readingDate Date from event
-   * @return a localDate as String
-   */
-  protected static LocalDate localDateTimeToLocalDate(String readingDate) {
-    return LocalDate.parse(
-        readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_TIME_FORMAT_PATTERN));
-  }
 
   /**
    * Method responsible for generating the date when a preset is informed by user
@@ -77,16 +56,20 @@ public class Generator {
           value ->
               value.setReadingDate(
                   buildReadingDate(
-                      localDateTimeToLocalDateString(value.getReadingDate().replace("T", " ")))));
+                      Util.localDateTimeToLocalDateString(value.getReadingDate().replace("T", " ")))));
       readings.removeIf(
           reading ->
               !getDatesBetweenStartDateAndEndDate()
-                  .contains(localDateTimeToLocalDate(reading.getReadingDate())));
+                  .contains(Util.localDateTimeToLocalDate(reading.getReadingDate())));
       referenceDate = null;
       return readings;
     }
   }
 
+  /**
+   * Method responsible for returning the dates between range informed by user.
+   * @return list of localDate
+   */
   private List<LocalDate> getDatesBetweenStartDateAndEndDate() {
     return IntStream.iterate(0, i -> i + 1)
         .limit(
@@ -100,6 +83,12 @@ public class Generator {
         .collect(Collectors.toList());
   }
 
+  /**
+   * Method responsible for returning the amount of days between date range informed by user.
+   * @param startDate Start date informed by user
+   * @param endDate End date informed by user
+   * @return a long that concerns to the amount of days
+   */
   private long getDaysBetween(String startDate, String endDate) {
     return ChronoUnit.DAYS.between(
         Util.convertFromStringtoLocalDate(startDate),
@@ -107,7 +96,7 @@ public class Generator {
   }
 
   /**
-   * Method responsible for build the reading date. It will increase
+   * Method responsible for building the reading date.
    *
    * @param readingDate Date from event
    * @return a localDate as string

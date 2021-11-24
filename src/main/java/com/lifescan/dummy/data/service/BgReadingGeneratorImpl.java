@@ -69,7 +69,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     if (tagRunner >= ArgsParameter.getInstance().getReadingsTag().size()
         || datesAreDifferent(readingDate)) {
       tagRunner = 0;
-      previousDate = localDateTimeToLocalDateString(readingDate);
+      previousDate = Util.localDateTimeToLocalDateString(readingDate);
     }
     return ArgsParameter.getInstance().getReadingsTag().get(tagRunner++);
   }
@@ -81,7 +81,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
    * @return boolean value
    */
   private static boolean datesAreDifferent(String readingDate) {
-    return !localDateTimeToLocalDateString(readingDate).equalsIgnoreCase(previousDate);
+    return !Util.localDateTimeToLocalDateString(readingDate).equalsIgnoreCase(previousDate);
   }
 
   /**
