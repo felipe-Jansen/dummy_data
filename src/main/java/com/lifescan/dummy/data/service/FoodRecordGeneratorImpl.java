@@ -99,7 +99,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
    */
   private List<? extends Reading> generateFromFile(String file) {
     try {
-      return configuringInformation(
+      return configureInformation(
           Util.getDeviceDataDataSet(file).getFoodDataLog().getFood().stream()
               .map(this::buildObject)
               .collect(Collectors.toList()));

@@ -102,7 +102,7 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
    */
   private List<? extends Reading> generateFromFile(String file) {
     try {
-      return configuringInformation(
+      return configureInformation(
           Util.getDeviceDataDataSet(file).getBolusDataLog().getBolus().stream()
               .map(this::buildObject)
               .collect(Collectors.toList()));

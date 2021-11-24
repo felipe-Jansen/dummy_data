@@ -30,6 +30,8 @@ public class ConfigConstants {
 
   public static final String DATA_TIME_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
+  public static final String DATA_TIME_FORMAT_PATTERN_WITHOUT_SECONDS = "yyyy-MM-dd HH:mm";
+
   public static final String DATA_FORMAT_PATTERN = "yyyy-MM-dd";
 
   public static final String SOURCE_APP = "REVEAL_MOBILE_IOS";

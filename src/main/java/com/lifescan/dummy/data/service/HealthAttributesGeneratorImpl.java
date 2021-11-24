@@ -85,7 +85,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
    */
   private List<? extends Reading> generateFromFile(String file) {
     try {
-      return configuringInformation(
+      return configureInformation(
           Util.getDeviceDataDataSet(file).getHealthAttribsDataLog().getHealthAttrib().stream()
               .map(this::buildObject)
               .collect(Collectors.toList()));

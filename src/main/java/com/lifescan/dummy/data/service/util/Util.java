@@ -50,7 +50,10 @@ public class Util {
   public static LocalDateTime convertFromStringtoLocalDateTime(String date) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     return LocalDate.parse(date, formatter)
-        .atTime(Util.getRandomNumberBetween(0, 23), Util.getRandomNumberBetween(0, 59));
+        .atTime(
+            Util.getRandomNumberBetween(0, 23),
+            Util.getRandomNumberBetween(0, 59),
+            Util.getRandomNumberBetween(1, 59));
   }
 
   /**
