@@ -49,8 +49,11 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
   /** {@inheritDoc} */
   @Override
   public List<FoodRecord> generate(String file) {
-    if (file == null) return generateRandomValues();
-    else return (List<FoodRecord>) generateFromFile(file);
+    if (file == null) {
+      return generateRandomValues();
+    } else {
+      return (List<FoodRecord>) generateFromFile(file);
+    }
   }
 
   /**

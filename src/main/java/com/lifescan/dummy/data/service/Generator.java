@@ -34,8 +34,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class Generator {
 
-  static String referenceDate = null;
-  static String newDate = null;
+  static String referenceDate;
+  static String newDate;
   private static LocalDate eventDate;
 
   /**

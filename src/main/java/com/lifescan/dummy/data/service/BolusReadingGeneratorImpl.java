@@ -50,8 +50,11 @@ public class BolusReadingGeneratorImpl extends Generator implements BolusReading
   /** {@inheritDoc} */
   @Override
   public List<BolusReading> generate(String file) {
-    if (file == null) return generateRandomValues();
-    else return (List<BolusReading>) generateFromFile(file);
+    if (file == null) {
+      return generateRandomValues();
+    } else {
+      return (List<BolusReading>) generateFromFile(file);
+    }
   }
 
   /**

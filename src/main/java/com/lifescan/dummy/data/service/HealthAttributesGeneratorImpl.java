@@ -35,8 +35,11 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
   /** {@inheritDoc} */
   @Override
   public List<HealthAttribute> generate(String file) {
-    if (file == null) return generateRandomValues();
-    else return (List<HealthAttribute>) generateFromFile(file);
+    if (file == null) {
+      return generateRandomValues();
+    } else {
+      return (List<HealthAttribute>) generateFromFile(file);
+    }
   }
 
   /**
