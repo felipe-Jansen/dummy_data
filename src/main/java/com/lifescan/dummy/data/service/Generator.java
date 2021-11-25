@@ -25,6 +25,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -34,9 +35,11 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class Generator {
 
-  static String referenceDate;
-  static String newDate;
+  static String referenceDate = null;
+  static String newDate = null;
   private static LocalDate eventDate;
+
+
 
   /**
    * Method responsible for generating the date when a preset is informed by user
@@ -52,8 +55,7 @@ public class Generator {
           value ->
               value.setReadingDate(
                   buildReadingDate(
-                      Util.localDateTimeToLocalDateString(
-                          value.getReadingDate().replace("T", " ")))));
+                      Util.localDateTimeToLocalDateString(value.getReadingDate().replace("T", " ")))));
       readings.removeIf(
           reading ->
               !getDatesBetweenStartDateAndEndDate()
@@ -65,7 +67,6 @@ public class Generator {
 
   /**
    * Method responsible for returning the dates between range informed by user.
-   *
    * @return list of localDate
    */
   private List<LocalDate> getDatesBetweenStartDateAndEndDate() {
@@ -83,7 +84,6 @@ public class Generator {
 
   /**
    * Method responsible for returning the amount of days between date range informed by user.
-   *
    * @param startDate Start date informed by user
    * @param endDate End date informed by user
    * @return a long that concerns to the amount of days
@@ -240,14 +240,19 @@ public class Generator {
    * Method responsible for returning a new list of annotations.
    *
    * @return A list of annotations.
-   * @param annotationFromXml Concerns to the list of data that comes from xml file
+   * @param annotationsFromXml Concerns to the list of data that comes from xml file
    */
-  public Annotation generateAnnotation(AnnotationFromXml annotationFromXml) {
-    return Annotation.builder()
-        .annotation(annotationFromXml.getAnnotation())
-        .active(annotationFromXml.getActive())
-        .patientEntered(annotationFromXml.getPatientEntered())
-        .build();
+  public List<Annotation> generateAnnotations(AnnotationFromXml annotationsFromXml) {
+    if (annotationsFromXml == null) {
+      return Collections.emptyList();
+    } else {
+      List<Annotation> annotations = new ArrayList<>();
+      annotations.add(
+          Annotation.builder().active(annotationsFromXml.getActive())
+              .patientEntered(annotationsFromXml.getPatientEntered())
+              .annotation(annotationsFromXml.getAnnotation()).build());
+      return annotations;
+    }
   }
 
   /**

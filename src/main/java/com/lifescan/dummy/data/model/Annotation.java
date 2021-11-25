@@ -25,8 +25,6 @@ import lombok.Setter;
 public class Annotation {
 
   private String active;
-
   private String annotation;
-
   private String patientEntered;
 }

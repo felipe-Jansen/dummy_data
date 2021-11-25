@@ -119,4 +119,6 @@ public class Util {
     return LocalDate.parse(
         readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_TIME_FORMAT_PATTERN));
   }
+
 }
+

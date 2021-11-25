@@ -44,6 +44,9 @@ public class BolusFromXml {
   @XmlElement(name = "editable")
   private String editable;
 
+  @XmlElement(name = "annotation")
+  private AnnotationFromXml annotation;
+
   @XmlElement(name = "bolusDelivered")
   private BolusDeliveredFromXml bolusDelivered;
 }

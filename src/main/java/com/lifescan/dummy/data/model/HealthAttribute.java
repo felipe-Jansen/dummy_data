@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model;
 
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -28,7 +29,7 @@ public class HealthAttribute extends Reading {
 
   private String editable;
   private String healthAtributesLookup;
-  private Annotation annotation;
+  private List<Annotation> annotation;
   private int healthAttributesValue;
   private AttributeValue extendedAttribute;
 }

@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model;
 
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,5 +27,5 @@ public class FoodRecord extends Reading {
 
   private String editable;
   private Carbohydrate carbohydrates;
-  private Annotation annotation;
+  private List<Annotation> annotation;
 }

@@ -125,7 +125,7 @@ public class FoodRecordGeneratorImpl extends Generator implements FoodRecordGene
         .readingDate(foodFromXml.getReadingDate())
         .id(generateId())
         .lastUpdatedDate(System.currentTimeMillis())
-        .annotation(generateAnnotation(foodFromXml.getAnnotation()))
+        .annotation(generateAnnotations(foodFromXml.getAnnotation()))
         .carbohydrates(generateCarbohydrates(foodFromXml.getCarbohydrates()))
         .editable(foodFromXml.getEditable())
         .build();
