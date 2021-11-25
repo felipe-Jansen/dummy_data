@@ -42,7 +42,7 @@ public class HealthAttribFromXml {
   private String editable;
 
   @XmlElement(name = "annotation")
-  private AnnotationsFromXml annotation;
+  private AnnotationFromXml annotation;
 
   @XmlElement(name = "healthAttributesValue")
   private int healthAttributesValue;

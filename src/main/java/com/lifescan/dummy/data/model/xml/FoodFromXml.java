@@ -45,5 +45,5 @@ public class FoodFromXml {
   private CarbohydrateFromXml carbohydrates;
 
   @XmlElement(name = "annotation")
-  private AnnotationsFromXml annotation;
+  private AnnotationFromXml annotation;
 }

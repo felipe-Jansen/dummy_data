@@ -18,7 +18,6 @@ import com.lifescan.dummy.data.model.Attribute;
 import com.lifescan.dummy.data.model.AttributeValue;
 import com.lifescan.dummy.data.model.Reading;
 import com.lifescan.dummy.data.model.xml.AnnotationFromXml;
-import com.lifescan.dummy.data.model.xml.AnnotationsFromXml;
 import com.lifescan.dummy.data.model.xml.AttributeFromXml;
 import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
 import com.lifescan.dummy.data.service.util.Util;
@@ -26,7 +25,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -39,8 +37,6 @@ public class Generator {
   static String referenceDate = null;
   static String newDate = null;
   private static LocalDate eventDate;
-
-
 
   /**
    * Method responsible for generating the date when a preset is informed by user
@@ -56,7 +52,8 @@ public class Generator {
           value ->
               value.setReadingDate(
                   buildReadingDate(
-                      Util.localDateTimeToLocalDateString(value.getReadingDate().replace("T", " ")))));
+                      Util.localDateTimeToLocalDateString(
+                          value.getReadingDate().replace("T", " ")))));
       readings.removeIf(
           reading ->
               !getDatesBetweenStartDateAndEndDate()
@@ -68,6 +65,7 @@ public class Generator {
 
   /**
    * Method responsible for returning the dates between range informed by user.
+   *
    * @return list of localDate
    */
   private List<LocalDate> getDatesBetweenStartDateAndEndDate() {
@@ -85,6 +83,7 @@ public class Generator {
 
   /**
    * Method responsible for returning the amount of days between date range informed by user.
+   *
    * @param startDate Start date informed by user
    * @param endDate End date informed by user
    * @return a long that concerns to the amount of days
@@ -241,28 +240,14 @@ public class Generator {
    * Method responsible for returning a new list of annotations.
    *
    * @return A list of annotations.
-   * @param annotationsFromXml Concerns to the list of data that comes from xml file
+   * @param annotationFromXml Concerns to the list of data that comes from xml file
    */
-  public List<Annotation> generateAnnotations(AnnotationsFromXml annotationsFromXml) {
-    if (annotationsFromXml == null) {
-      return Collections.emptyList();
-    } else {
-      List<Annotation> annotations = new ArrayList<>();
-      for (AnnotationFromXml annotationFromXml : annotationsFromXml.getAnnotation()) {
-        annotations.add(generateAnnotation(annotationFromXml));
-      }
-      return annotations;
-    }
-  }
-
-  /**
-   * Method responsible for generating a single annotationFromXml
-   *
-   * @return A single annotationFromXml.
-   * @param annotationFromXml Concerns to the data that comes from xml file
-   */
-  private Annotation generateAnnotation(AnnotationFromXml annotationFromXml) {
-    return Annotation.builder().value(annotationFromXml.getAnnotation()).build();
+  public Annotation generateAnnotations(AnnotationFromXml annotationFromXml) {
+    return Annotation.builder()
+        .annotation(annotationFromXml.getAnnotation())
+        .active(annotationFromXml.getActive())
+        .patientEntered(annotationFromXml.getPatientEntered())
+        .build();
   }
 
   /**

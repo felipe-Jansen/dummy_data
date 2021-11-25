@@ -149,7 +149,7 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
         .id(generateId())
         .extendedAttributes(generateAttributeValue(bgReading.getExtendedAttributes()))
         .bgValue(generateBgValue(bgReading.getBgValue()))
-        .mealTag(null)
+        .mealTag(bgReading.getMealTag())
         .lastUpdatedDate(Instant.now().toEpochMilli())
         .build();
   }

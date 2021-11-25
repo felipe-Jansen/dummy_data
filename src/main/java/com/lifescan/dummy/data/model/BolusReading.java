@@ -10,7 +10,6 @@
  */
 package com.lifescan.dummy.data.model;
 
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -29,6 +28,5 @@ public class BolusReading extends Reading {
 
   private String editable;
   private String injectedInsulinType;
-  private List<Annotation> annotation;
   private BolusDelivered bolusDelivered;
 }
