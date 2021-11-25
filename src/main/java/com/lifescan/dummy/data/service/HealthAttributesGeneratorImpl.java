@@ -118,7 +118,7 @@ public class HealthAttributesGeneratorImpl extends Generator implements HealthAt
         .healthAtributesLookup(healthAttribFromXml.getHealthAtributesLookup())
         .editable(healthAttribFromXml.getEditable())
         .extendedAttribute(generateAttributeValue(healthAttribFromXml.getExtendedAttributes()))
-        .annotation(generateAnnotations(healthAttribFromXml.getAnnotation()))
+        .annotation(generateAnnotation(healthAttribFromXml.getAnnotation()))
         .build();
   }
 }

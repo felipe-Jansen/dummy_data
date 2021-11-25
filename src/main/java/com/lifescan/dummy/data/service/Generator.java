@@ -242,7 +242,7 @@ public class Generator {
    * @return A list of annotations.
    * @param annotationFromXml Concerns to the list of data that comes from xml file
    */
-  public Annotation generateAnnotations(AnnotationFromXml annotationFromXml) {
+  public Annotation generateAnnotation(AnnotationFromXml annotationFromXml) {
     return Annotation.builder()
         .annotation(annotationFromXml.getAnnotation())
         .active(annotationFromXml.getActive())
