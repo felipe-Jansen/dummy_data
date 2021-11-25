@@ -49,6 +49,11 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
     return BgValue.builder().value(bgValue.getValue()).units(bgValue.getUnits()).build();
   }
 
+  /**
+   * Builds a bgReading value.
+   *
+   * @return BgValue model
+   */
   public static BgValue generateBgValue() {
     return BgValue.builder()
         .value(

@@ -36,11 +36,9 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class Generator {
 
-  static String referenceDate = null;
-  static String newDate = null;
+  static String referenceDate;
+  static String newDate;
   private static LocalDate eventDate;
-
-
 
   /**
    * Method responsible for generating the date when a preset is informed by user
@@ -56,7 +54,8 @@ public class Generator {
           value ->
               value.setReadingDate(
                   buildReadingDate(
-                      Util.localDateTimeToLocalDateString(value.getReadingDate().replace("T", " ")))));
+                      Util.localDateTimeToLocalDateString(
+                          value.getReadingDate().replace("T", " ")))));
       readings.removeIf(
           reading ->
               !getDatesBetweenStartDateAndEndDate()
@@ -68,6 +67,7 @@ public class Generator {
 
   /**
    * Method responsible for returning the dates between range informed by user.
+   *
    * @return list of localDate
    */
   private List<LocalDate> getDatesBetweenStartDateAndEndDate() {
@@ -85,6 +85,7 @@ public class Generator {
 
   /**
    * Method responsible for returning the amount of days between date range informed by user.
+   *
    * @param startDate Start date informed by user
    * @param endDate End date informed by user
    * @return a long that concerns to the amount of days
