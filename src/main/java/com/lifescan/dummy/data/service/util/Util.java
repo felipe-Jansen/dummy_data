@@ -11,174 +11,22 @@
 package com.lifescan.dummy.data.service.util;
 
 import com.lifescan.dummy.data.constants.ConfigConstants;
-import com.lifescan.dummy.data.model.Annotation;
-import com.lifescan.dummy.data.model.Attribute;
-import com.lifescan.dummy.data.model.AttributeValue;
-import com.lifescan.dummy.data.model.BgValue;
-import com.lifescan.dummy.data.model.BolusDelivered;
-import com.lifescan.dummy.data.model.Carbohydrate;
-import com.lifescan.dummy.data.model.xml.AnnotationFromXml;
-import com.lifescan.dummy.data.model.xml.AnnotationsFromXml;
-import com.lifescan.dummy.data.model.xml.AttributeFromXml;
-import com.lifescan.dummy.data.model.xml.BgValueFromXml;
-import com.lifescan.dummy.data.model.xml.BolusDeliveredFromXml;
-import com.lifescan.dummy.data.model.xml.CarbohydrateFromXml;
+import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
-import com.lifescan.dummy.data.model.xml.ExtendedAttributesFromXml;
 import java.io.File;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.time.temporal.ChronoUnit;
+import java.util.Random;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import org.apache.commons.codec.digest.DigestUtils;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Util {
-
-  /**
-   * Method responsible for get the system's data and convert to string following the pattern
-   * yyyy-MM-dd HH:mm:ss
-   */
-  private static LocalDateTime localDateTime = LocalDateTime.now();
-
-  /**
-   * Method responsible for generate a SHA1 token from the e-mail.
-   *
-   * @param emailAddress to serve as a base to generate the token.
-   * @return A request token from email.
-   */
-  public static String generateRequestToken(String emailAddress) {
-    return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
-  }
-
-  /**
-   * Method responsible for discovery the country from informed language.
-   *
-   * @param language that contains the information to extract the country.
-   * @return The country informed in the language.
-   */
-  public static String extractCountryFromLanguage(String language) {
-    try {
-      if (language.contains("-")) {
-        return language.split("-")[1];
-      } else {
-        return language.split("_")[1];
-      }
-    } catch (ArrayIndexOutOfBoundsException e) {
-      return language;
-    }
-  }
-
-  /**
-   * Method responsible for generate a date of birth from system date.
-   *
-   * @return A string that concerns to the formatted date of birth.
-   */
-  public static String generateDateOfBirth() {
-    return LocalDateTime.now().minusYears(20).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-  }
-
-  /**
-   * Method responsible for returning a new list of annotations.
-   *
-   * @return A list of annotations.
-   * @param annotationsFromXml Concerns to the list of data that comes from xml file
-   */
-  public static List<Annotation> generatingAnnotations(AnnotationsFromXml annotationsFromXml) {
-    if (annotationsFromXml != null) {
-      List<Annotation> annotations = new ArrayList<>();
-      for (AnnotationFromXml annotationFromXml : annotationsFromXml.getAnnotation()) {
-        annotations.add(generatingAnnotation(annotationFromXml));
-      }
-      return annotations;
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Method responsible for generating a single annotationFromXml
-   *
-   * @return A single annotationFromXml.
-   * @param annotationFromXml Concerns to the data that comes from xml file
-   */
-  private static Annotation generatingAnnotation(AnnotationFromXml annotationFromXml) {
-    return Annotation.builder().annotation(annotationFromXml.getAnnotation()).build();
-  }
-
-  /**
-   * Method responsible for setting the attributes values.
-   *
-   * @return A single attribute value.
-   * @param extendedAttributes Concerns to the list of data that comes from xml file
-   */
-  public static AttributeValue generatingAttributeValue(
-      ExtendedAttributesFromXml extendedAttributes) {
-    if (extendedAttributes != null)
-      return AttributeValue.builder()
-          .attributeValue(generatingAttributes(extendedAttributes))
-          .build();
-    else return null;
-  }
-
-  /**
-   * Method responsible for generating attributes.
-   *
-   * @return A list of attributes.
-   * @param extendedAttributes Concerns to the list of data that comes from xml file
-   */
-  private static List<Attribute> generatingAttributes(
-      ExtendedAttributesFromXml extendedAttributes) {
-    List<Attribute> attributes = new ArrayList<>();
-    for (AttributeFromXml attributeFromXml : extendedAttributes.getAttributeValue()) {
-      attributes.add(
-          Attribute.builder()
-              .value(attributeFromXml.getValue())
-              .type(attributeFromXml.getType())
-              .name(attributeFromXml.getName())
-              .build());
-    }
-    return attributes;
-  }
-
-  /**
-   * Method responsible for ganerating a single carbohydrate.
-   *
-   * @return A single carbohydrate.
-   * @param carbohydrates Concerns to the data that comes from xml file
-   */
-  public static Carbohydrate generatingCarbohydrates(CarbohydrateFromXml carbohydrates) {
-    return Carbohydrate.builder()
-        .value(carbohydrates.getValue())
-        .units(carbohydrates.getUnits())
-        .build();
-  }
-
-  /**
-   * Method responsible for ganerating a single bolusFromXmls delivered.
-   *
-   * @return A single bolusFromXmls delivered.
-   * @param bolusDelivered Concerns to the data that comes from xml file
-   */
-  public static BolusDelivered generatingBolusDelivered(BolusDeliveredFromXml bolusDelivered) {
-    return BolusDelivered.builder()
-        .value(bolusDelivered.getValue())
-        .units(bolusDelivered.getUnits())
-        .build();
-  }
-
-  /**
-   * Method responsible for generating a single bg value.
-   *
-   * @return A single bolusFromXmls reading.
-   * @param bgValue Concerns to the data that comes from xml file
-   */
-  public static BgValue generatingBgValue(BgValueFromXml bgValue) {
-    return BgValue.builder().value(bgValue.getValue()).units(bgValue.getUnits()).build();
-  }
 
   /**
    * Method responsible for reading the object that was in the xml file and converting it into a
@@ -195,23 +43,82 @@ public class Util {
   }
 
   /**
-   * Method responsible for generating a reading date for the events. Note: each calling to this
-   * function increments a delay to time.
+   * Method responsible for converting a string date in a localdatetime
    *
-   * @return A string with the formatted date
+   * @param date Informed date in a string
+   * @return A localdatetime object
    */
-  public static String generatingReadingDateFormatted() {
-    localDateTime = localDateTime.plusMinutes(ConfigConstants.DELAY_TIME_BETWEEN_EVENTS);
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConfigConstants.DATA_FORMAT_PATTERN);
-    return localDateTime.format(formatter);
+  public static LocalDateTime convertFromStringtoLocalDateTime(String date) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    return LocalDate.parse(date, formatter)
+        .atTime(
+            Util.getRandomNumberBetween(0, 23),
+            Util.getRandomNumberBetween(0, 59),
+            Util.getRandomNumberBetween(1, 59));
   }
 
   /**
-   * Method resonsible for generating new UUID's for the events.
+   * Method responsible for converting a string date in a localdate
    *
-   * @return A new UUID
+   * @param date Informed date in a string
+   * @return A localdate object
    */
-  public static String generatingId() {
-    return UUID.randomUUID().toString().replace("-", "");
+  public static LocalDate convertFromStringtoLocalDate(String date) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    return LocalDate.parse(date, formatter)
+        .atTime(Util.getRandomNumberBetween(0, 23), Util.getRandomNumberBetween(0, 59))
+        .toLocalDate();
   }
+
+  /**
+   * Method responsible for validating the number of events that will be generated, based on the
+   * size of the list and quantity of events to be generated informed by user.
+   *
+   * @param sizeOfList number of elements in the list
+   * @return number of events that will be generated
+   */
+  public static int getNumberOfEvents(int sizeOfList) {
+    int days =
+        (int)
+            ChronoUnit.DAYS.between(
+                convertFromStringtoLocalDate(ArgsParameter.getInstance().getStartDate()),
+                convertFromStringtoLocalDate(ArgsParameter.getInstance().getEndDate()));
+    return (++days) * sizeOfList;
+  }
+
+  /**
+   * Method responsible for generating a random number between given range.
+   *
+   * @param min min value for range
+   * @param max maximum value for range
+   * @return a random number
+   */
+  public static int getRandomNumberBetween(int min, int max) {
+    return new Random().nextInt(max - min + 1) + min;
+  }
+
+  /**
+   * Method responsible for converting localDateTime to localDate as String
+   *
+   * @param readingDate Date from event
+   * @return a localDate as String
+   */
+  public static String localDateTimeToLocalDateString(String readingDate) {
+    return LocalDate.parse(
+            readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_TIME_FORMAT_PATTERN))
+        .toString();
+  }
+
+  /**
+   * Method responsible for converting localDateTime to localDate as String
+   *
+   * @param readingDate Date from event
+   * @return a localDate as String
+   */
+  public static LocalDate localDateTimeToLocalDate(String readingDate) {
+    return LocalDate.parse(
+        readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_TIME_FORMAT_PATTERN));
+  }
+
 }
+

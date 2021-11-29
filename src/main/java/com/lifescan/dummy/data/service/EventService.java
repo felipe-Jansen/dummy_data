@@ -10,18 +10,16 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.lifescan.dummy.data.model.Login;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface EventService {
 
   /**
-   * Method responsible for creating the events for each new patient.
+   * Method responsible for analyse the input and start generating the patients.
    *
-   * @param login that contains the informations of email and password.
-   * @throws JsonProcessingException
+   * @param language that concerns to the idiom of the patients.
+   * @param numberPatients that concerns to the quantity of patients that will be created.
    */
-  void publishEvent(Login login) throws JsonProcessingException;
+  void create(String language, Integer numberPatients);
 }

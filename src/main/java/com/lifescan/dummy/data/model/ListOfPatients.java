@@ -12,18 +12,21 @@ package com.lifescan.dummy.data.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Meta {
+public class ListOfPatients {
 
-  private String sourceApp;
-  private String sourceAppVersion;
+  private static final ListOfPatients instance = new ListOfPatients();
+
+  private String emails = "";
+
+  private ListOfPatients() {}
+
+  public static ListOfPatients getInstance() {
+    return instance;
+  }
 }

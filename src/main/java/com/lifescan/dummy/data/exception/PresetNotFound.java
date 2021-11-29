@@ -8,14 +8,13 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.constants;
+package com.lifescan.dummy.data.exception;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+public class PresetNotFound extends RuntimeException {
+  private static final long serialVersionUID = 1L;
+  private static final String MSG = "Preset not found";
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-class BaseConstants {
-
-  static final String UTILITY_CLASSES_SHOULD_NOT_BE_INSTANTIATED =
-      "Utility classes should not be instantiated.";
+  public PresetNotFound() {
+    super(MSG);
+  }
 }

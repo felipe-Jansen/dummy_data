@@ -15,6 +15,7 @@ import com.lifescan.dummy.data.model.Patient;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 
 public interface PatientServiceCore {
@@ -23,8 +24,15 @@ public interface PatientServiceCore {
     "osversion: 14.6",
     "os: IOS-iPhone12,1",
     "appname: REVEAL_MOBILE_IOS",
-    "appversion: 4.5.0",
-    "Content-Type: application/json",
+    "appversion: " + WebEndPointConstants.APP_VERSION,
+    "Content-Type: " + MediaType.APPLICATION_JSON_VALUE,
+    "accept: "
+        + MediaType.APPLICATION_JSON_VALUE
+        + ","
+        + MediaType.TEXT_PLAIN_VALUE
+        + ","
+        + MediaType.ALL_VALUE,
+    "optIn: true",
     "language: {language}",
     "country: {country}",
     "requestToken: {requestToken}"

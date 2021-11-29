@@ -10,6 +10,7 @@
  */
 package com.lifescan.dummy.data.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,9 @@ public class Event {
   private List<BolusReading> bolusReadings;
   private List<FoodRecord> foodRecords;
   private List<HealthAttribute> healthAttributes;
-  private Meta meta;
+
+  @JsonProperty("meta")
+  private MetaInformation metaInformation;
+
   private boolean isBackgroundSync;
 }

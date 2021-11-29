@@ -28,15 +28,22 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FoodFromXml {
-  @XmlAttribute private String active;
 
-  @XmlAttribute private String manual;
+  @XmlAttribute(name = "active")
+  private String active;
 
-  @XmlAttribute private String readingDate;
+  @XmlAttribute(name = "manual")
+  private String manual;
 
-  @XmlElement private String editable;
+  @XmlAttribute(name = "readingDate")
+  private String readingDate;
 
-  @XmlElement private CarbohydrateFromXml carbohydrates;
+  @XmlElement(name = "editable")
+  private String editable;
 
-  @XmlElement private AnnotationsFromXml annotation;
+  @XmlElement(name = "carbohydrates")
+  private CarbohydrateFromXml carbohydrates;
+
+  @XmlElement(name = "annotation")
+  private AnnotationFromXml annotation;
 }

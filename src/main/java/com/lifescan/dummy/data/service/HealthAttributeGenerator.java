@@ -1,4 +1,6 @@
 /*
+ * Class responsible for generating the objects with type bgReadingFromXml.
+ *
  * @author fjansen@lifescan.com
  * @version 1
  * Copyright: Copyright (c) 2021
@@ -10,15 +12,16 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.lifescan.dummy.data.model.Patient;
+import com.lifescan.dummy.data.model.HealthAttribute;
+import java.util.List;
 
-public interface PatientService {
+public interface HealthAttributeGenerator {
 
   /**
-   * Method responsible for analyse the input and start generating the patients.
+   * Method responsible for generating a list of health attributes.
    *
-   * @param language that concerns to the idiom of the patients.
-   * @param country that concerns to the country of the patients.
+   * @param file Name of the file in disk
+   * @return A list of blood glucose readings.
    */
-  Patient create(String language, String country);
+  List<HealthAttribute> generate(String file);
 }

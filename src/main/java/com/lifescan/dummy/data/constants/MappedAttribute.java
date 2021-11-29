@@ -8,10 +8,8 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.model;
+package com.lifescan.dummy.data.constants;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,8 +22,9 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class AttributeValue {
+public class MappedAttribute {
 
-  @JsonProperty("attributeValue")
-  private List<Attribute> value;
+  private int index;
+  private String event;
+  private String attribute;
 }

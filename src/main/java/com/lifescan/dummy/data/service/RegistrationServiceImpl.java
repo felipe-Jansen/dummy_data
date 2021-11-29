@@ -10,8 +10,8 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.lifescan.dummy.data.model.Login;
-import com.lifescan.dummy.data.networking.service.SecurityServiceCore;
+import com.lifescan.dummy.data.model.Patient;
+import com.lifescan.dummy.data.networking.service.PatientServiceCore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,16 +20,14 @@ import org.springframework.stereotype.Service;
 @Log4j2
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class SecurityServiceImpl implements SecurityService {
+public class RegistrationServiceImpl implements RegistrationService {
 
-  private final SecurityServiceCore securityServiceCore;
+  private final PatientServiceCore patientServiceCore;
 
   /** {@inheritDoc} */
   @Override
-  public String doLogin(Login user) {
-    return securityServiceCore
-        .authenticate(user.getEmail(), user.getPassword())
-        .getResult()
-        .getToken();
+  public void registerPatient(
+      String language, String country, String requestToken, Patient patient) {
+    patientServiceCore.registerPatient(language, country, requestToken, patient);
   }
 }

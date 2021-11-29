@@ -1,4 +1,6 @@
 /*
+ * This class holds beans for Feign clients.
+ *
  * @author fjansen@lifescan.com
  * @version 1
  * Copyright: Copyright (c) 2021

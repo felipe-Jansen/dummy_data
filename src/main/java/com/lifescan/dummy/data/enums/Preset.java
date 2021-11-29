@@ -10,16 +10,42 @@
  */
 package com.lifescan.dummy.data.enums;
 
+import com.lifescan.dummy.data.constants.PresetsConstants;
+import com.lifescan.dummy.data.exception.PresetNotFound;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
+
+@Getter
+@AllArgsConstructor
+@Log4j2
 public enum Preset {
-  PRESET_DIABETES_1_WITH_FOOD(1),
-  PRESET_DIABETES_1(2),
-  PRESET_DIABETES_2(3),
-  PRESET_DIABETES_2_WITH_FOOD(4),
-  PRESET_GESTATIONAL_DIABETES(5);
+  EMILY(1, PresetsConstants.EMILY),
+  HARRY(2, PresetsConstants.HARRY),
+  HEATHER(3, PresetsConstants.HEATHER),
+  MARIANNE(4, PresetsConstants.MARIANNE),
+  SEBASTIAN(5, PresetsConstants.SEBASTIAN);
 
-  private final int levelCode;
+  private static final List<Preset> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+  private static final int SIZE = VALUES.size();
+  private static final Random RANDOM = new Random();
+  private final String address;
+  private final int id;
 
-  Preset(int levelCode) {
-    this.levelCode = levelCode;
+  Preset(int id, String address) {
+    this.id = id;
+    this.address = address;
+  }
+
+  public static Preset getById(Long id) {
+    log.traceEntry("getById({})", id);
+    return Arrays.stream(values())
+        .filter(preset -> preset.id == id)
+        .findAny()
+        .orElseThrow(PresetNotFound::new);
   }
 }

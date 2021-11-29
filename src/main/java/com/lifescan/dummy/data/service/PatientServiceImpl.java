@@ -10,15 +10,15 @@
  */
 package com.lifescan.dummy.data.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.lifescan.dummy.data.constants.ConfigConstants;
-import com.lifescan.dummy.data.model.Login;
+import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.model.Patient;
-import com.lifescan.dummy.data.networking.service.PatientServiceCore;
-import com.lifescan.dummy.data.service.util.Util;
-import feign.FeignException;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,63 +27,45 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PatientServiceImpl implements PatientService {
 
-  private final PatientServiceCore patientServiceCore;
-  private final EventService eventService;
+  private final RegistrationService registrationService;
 
-  /** {@inheritDoc} */
-  public void create(String language, Integer numberPatients) {
-    String country = Util.extractCountryFromLanguage(language);
-    log.info("language -> {}", language);
-    log.info("Country -> {}", country);
-    log.info("qtdPatients -> {}", numberPatients);
-    for (int i = 0; i < numberPatients; i++) {
-      publishingEvent(save(language, country));
-    }
+  /**
+   * Method responsible for generate a date of birth from system date.
+   *
+   * @return A string that concerns to the formatted date of birth.
+   */
+  public static String generateDateOfBirth() {
+    return LocalDateTime.now().minusYears(20).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
   }
 
   /**
-   * Method responsible for save the patients and publish their respectives events.
+   * Method responsible for generate a SHA1 token from the e-mail.
    *
-   * @param language A patient need to have a language associated, this param concerns to this
-   *     information.
-   * @param country A patient need to have a country associated, this param concerns to this
-   *     information.
+   * @param emailAddress to serve as a base to generate the token.
+   * @return A request token from email.
    */
-  private Patient save(String language, String country) {
-    Patient patient = generatingPatient();
-    String requestToken = Util.generateRequestToken(patient.getEmailAddress());
-    try {
-      registerPatient(language, country, patient, requestToken);
-    } catch (FeignException ex) {
-      log.error(ex.contentUTF8());
-    }
+  private String generateRequestToken(String emailAddress) {
+    return DigestUtils.sha1Hex(DigestUtils.sha1Hex(emailAddress).concat(emailAddress));
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public Patient create(String language, String country) {
+    Patient patient = buildPatient();
+    String requestToken = generateRequestToken(patient.getEmailAddress());
+    registrationService.registerPatient(language, country, requestToken, patient);
+    saveEmail(patient.getEmailAddress());
     return patient;
   }
 
   /**
-   * Method responsible for publishing the events
+   * Save generated email
    *
-   * @param patient that contains the patient's information
+   * @param email generated email.
    */
-  private void publishingEvent(Patient patient) {
-    try {
-      eventService.publishEvent(generatingLogin(patient.getEmailAddress(), patient.getPassword()));
-    } catch (JsonProcessingException ex) {
-      log.error("Error when publishing event!");
-    }
-  }
-
-  /**
-   * Method responsible for register patients
-   *
-   * @param language it concerns to native language ot the patient
-   * @param country it concerns to country ot the patient
-   * @param patient it concerns to general patient's information
-   * @param requestToken it concerns to the native language ot the patient
-   */
-  private void registerPatient(
-      String language, String country, Patient patient, String requestToken) {
-    patientServiceCore.registerPatient(language, country, requestToken, patient);
+  private void saveEmail(String email) {
+    ListOfPatients.getInstance()
+        .setEmails(ListOfPatients.getInstance().getEmails().concat("\n - " + email));
   }
 
   /**
@@ -91,27 +73,15 @@ public class PatientServiceImpl implements PatientService {
    *
    * @return A single object from type Patient.
    */
-  private Patient generatingPatient() {
-    long timeInterval = System.currentTimeMillis();
+  private Patient buildPatient() {
     return Patient.builder()
         .gender(ConfigConstants.GENDER_FEMALE)
         .password(ConfigConstants.PATIENT_PASSWORD)
-        .firstName(ConfigConstants.PREFIX_PATTERN_PATIENT_NAME + timeInterval)
-        .emailAddress(timeInterval + ConfigConstants.SUFFIX_PATTERN_PATIENT_EMAIL)
-        .dateOfBirth(Util.generateDateOfBirth())
-        .diabetesType(ConfigConstants.PATIENT_DIABETES_TYPE)
+        .firstName(ConfigConstants.PATIENT_FIRST_NAME)
         .lastName(ConfigConstants.PATIENT_LAST_NAME)
+        .emailAddress(Instant.now().toEpochMilli() + ConfigConstants.SUFFIX_PATTERN_PATIENT_EMAIL)
+        .dateOfBirth(generateDateOfBirth())
+        .diabetesType(ConfigConstants.PATIENT_DIABETES_TYPE_1)
         .build();
-  }
-
-  /**
-   * Method responsible for return an object from type login.
-   *
-   * @param emailAddress concerns to the email to do login.
-   * @param password concerns to the password to do login.
-   * @return A single object from type login.
-   */
-  private Login generatingLogin(String emailAddress, String password) {
-    return Login.builder().email(emailAddress).password(password).build();
   }
 }

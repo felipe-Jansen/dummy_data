@@ -29,15 +29,21 @@ import lombok.experimental.SuperBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BgReadingFromXml {
 
-  @XmlElement private BgValueFromXml bgValue;
+  @XmlElement(name = "bgValue")
+  private BgValueFromXml bgValue;
 
-  @XmlElement private String mealTag;
+  @XmlElement(name = "mealTag")
+  private String mealTag;
 
-  @XmlAttribute private String active;
+  @XmlAttribute(name = "active")
+  private String active;
 
-  @XmlAttribute private String manual;
+  @XmlAttribute(name = "manual")
+  private String manual;
 
-  @XmlAttribute private String readingDate;
+  @XmlAttribute(name = "readingDate")
+  private String readingDate;
 
-  @XmlElement private ExtendedAttributesFromXml extendedAttributes;
+  @XmlElement(name = "extendedAttributes")
+  private ExtendedAttributesFromXml extendedAttributes;
 }

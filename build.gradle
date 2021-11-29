@@ -44,32 +44,28 @@ ext {
 
 mainClassName = 'com.lifescan.dummy.data.Application'
 
-    println 'This is executed during configuration phase'
+println 'This is executed during configuration phase'
 task configured {
     println 'The project is configured'
 }
 
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    implementation 'org.projectlombok:lombok:1.18.20'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.0.5'
+    implementation 'org.projectlombok:lombok:1.18.22'
     implementation group: 'org.json', name: 'json', version: '20210307'
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
-    implementation 'com.google.code.gson:gson'
+    implementation 'com.google.code.gson:gson:2.8.9'
     implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
-    implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.2.3'
-    implementation group: 'io.github.openfeign', name: 'feign-jackson', version: '9.3.1'
-    implementation group: 'io.github.openfeign', name: 'feign-annotation-error-decoder', version: '1.1.2'
-    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    compile group: 'io.github.openfeign', name: 'feign-annotation-error-decoder', version: '1.1.2'
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-okhttp
+    compile group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.2.3'
 
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
-
-    testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
-    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
+    compile group: 'io.github.openfeign', name: 'feign-jackson', version: '9.3.1'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
 }
 
 dependencyManagement {

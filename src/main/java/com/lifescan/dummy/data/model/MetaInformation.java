@@ -8,12 +8,8 @@
  * form by any means or for any purpose without the express written
  * permission of LifeScan IP Holdings, LLC.
  */
-package com.lifescan.dummy.data.model.xml;
+package com.lifescan.dummy.data.model;
 
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,8 +22,8 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@XmlAccessorType(XmlAccessType.FIELD)
-public class AnnotationsFromXml {
+public class MetaInformation {
 
-  @XmlElement private List<AnnotationFromXml> annotation;
+  private String sourceApp;
+  private String sourceAppVersion;
 }

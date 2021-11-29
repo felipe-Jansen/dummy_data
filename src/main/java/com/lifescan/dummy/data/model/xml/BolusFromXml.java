@@ -29,17 +29,24 @@ import lombok.experimental.SuperBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BolusFromXml {
 
-  @XmlAttribute private String active;
+  @XmlAttribute(name = "active")
+  private String active;
 
-  @XmlAttribute private String manual;
+  @XmlAttribute(name = "manual")
+  private String manual;
 
-  @XmlAttribute private String readingDate;
+  @XmlAttribute(name = "readingDate")
+  private String readingDate;
 
-  @XmlElement private String injectedInsulinType;
+  @XmlElement(name = "injectedInsulinType")
+  private String injectedInsulinType;
 
-  @XmlElement private String editable;
+  @XmlElement(name = "editable")
+  private String editable;
 
-  @XmlElement private AnnotationsFromXml annotation;
+  @XmlElement(name = "annotation")
+  private AnnotationFromXml annotation;
 
-  @XmlElement private BolusDeliveredFromXml bolusDelivered;
+  @XmlElement(name = "bolusDelivered")
+  private BolusDeliveredFromXml bolusDelivered;
 }

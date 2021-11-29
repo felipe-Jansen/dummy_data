@@ -15,6 +15,7 @@ import com.lifescan.dummy.data.networking.service.model.AuthenticateResponse;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
+import org.springframework.http.MediaType;
 
 public interface SecurityServiceCore {
 
@@ -22,8 +23,8 @@ public interface SecurityServiceCore {
     "osversion: 14.6",
     "os: IOS-iPhone12,1",
     "appname: REVEAL_MOBILE_IOS",
-    "appversion: 4.5.0",
-    "Content-Type:application/json",
+    "appversion: " + WebEndPointConstants.APP_VERSION,
+    "Content-Type: " + MediaType.APPLICATION_JSON_VALUE,
     "login: {login}",
     "password: {password}"
   })
