@@ -19,17 +19,17 @@ import lombok.AllArgsConstructor;
 public class PresetsConstants {
 
   // Diabetes 1 with Bolus, Food and Exercises.
-  public static final String EMILY = "src/main/resources/Emily.xml";
+  public static final String EMILY = "Emily.xml";
 
   // Diabetes 2.
-  public static final String HARRY = "src/main/resources/Harry.xml";
+  public static final String HARRY = "Harry.xml";
 
   // Gestational Diabetes.
-  public static final String HEATHER = "src/main/resources/Heather.xml";
+  public static final String HEATHER = "Heather.xml";
 
   // Diabetes 2 with Bolus, Food and Exercises.
-  public static final String MARIANNE = "src/main/resources/Marianne.xml";
+  public static final String MARIANNE = "Marianne.xml";
 
   // Diabetes 1 with Food and Exercises.
-  public static final String SEBASTIAN = "src/main/resources/Sebastian.xml";
+  public static final String SEBASTIAN = "Sebastian.xml";
 }
