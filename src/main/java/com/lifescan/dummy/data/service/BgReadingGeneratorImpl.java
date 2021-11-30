@@ -136,7 +136,6 @@ public class BgReadingGeneratorImpl extends Generator implements BgReadingGenera
               .collect(Collectors.toList()));
     } catch (JAXBException exception) {
       log.error("Error when generating bgReading.");
-      log.error(exception.getMessage());
     }
     return Collections.emptyList();
   }
