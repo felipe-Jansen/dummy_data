@@ -13,7 +13,7 @@ package com.lifescan.dummy.data.service.util;
 import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.xml.DeviceDataDataSet;
-import java.io.File;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -39,7 +39,8 @@ public class Util {
   public static DeviceDataDataSet getDeviceDataDataSet(String file) throws JAXBException {
     JAXBContext jaxbContext = JAXBContext.newInstance(DeviceDataDataSet.class);
     Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-    return (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(new File(file));
+    InputStream resourceAsStream = Util.class.getClassLoader().getResourceAsStream(file);
+    return (DeviceDataDataSet) jaxbUnmarshaller.unmarshal(resourceAsStream);
   }
 
   /**
@@ -119,6 +120,4 @@ public class Util {
     return LocalDate.parse(
         readingDate, DateTimeFormatter.ofPattern(ConfigConstants.DATA_TIME_FORMAT_PATTERN));
   }
-
 }
-
