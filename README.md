@@ -28,7 +28,7 @@ It works in two ways:
 ```
 
 | Parameter                       | Meaning                                                         |
-|---------------------------------|-----------------------------------------------------------------|
+|---------------------------------|:----------------------------------------------------------------|
 | en_US                           | Language                                                        |
 | 10                              | Number of patients to be created                                |
 | 2021-11-10                      | Start date                                                      |
@@ -47,3 +47,13 @@ rather than
 ```sh
 exercise=5 food=5
 ```
+
+## Preset Map
+
+| Preset                          | Is used for                                     |   File name   |
+|---------------------------------|:------------------------------------------------|:-------------:|
+| Emily                           | diabetes 1 with bolus, food and exercises cases |   Emily.xml   |
+| Harry                           | diabetes 2 cases                                |   Harry.xml   |
+| Heather                         | gestational diabetes cases                      |  Heather.xml  |
+| Marianne                        | diabetes 2 with bolus, food and exercises cases | Marianne.xml  |
+| Sebastian                       | diabetes 1 with food and exercises cases        | Sebastian.xml |
