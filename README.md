@@ -50,10 +50,10 @@ exercise=5 food=5
 
 ## Preset Map
 
-| Preset                          | Is used for                                     |   File name   |
-|---------------------------------|:------------------------------------------------|:-------------:|
-| Emily                           | diabetes 1 with bolus, food and exercises cases |   Emily.xml   |
-| Harry                           | diabetes 2 cases                                |   Harry.xml   |
-| Heather                         | gestational diabetes cases                      |  Heather.xml  |
-| Marianne                        | diabetes 2 with bolus, food and exercises cases | Marianne.xml  |
-| Sebastian                       | diabetes 1 with food and exercises cases        | Sebastian.xml |
+| ID  | Preset                          | Is used for                                     |   File name   |
+|-----|---------------------------------|:------------------------------------------------|:-------------:|
+| 1   | Emily                           | diabetes 1 with bolus, food and exercises cases |   Emily.xml   |
+| 2   | Harry                           | diabetes 2 cases                                |   Harry.xml   |
+| 3   | Heather                         | gestational diabetes cases                      |  Heather.xml  |
+| 4   | Marianne                        | diabetes 2 with bolus, food and exercises cases | Marianne.xml  |
+| 5   | Sebastian                       | diabetes 1 with food and exercises cases        | Sebastian.xml |
