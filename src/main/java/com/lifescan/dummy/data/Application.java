@@ -15,14 +15,16 @@ import com.lifescan.dummy.data.enums.BolusType;
 import com.lifescan.dummy.data.enums.MealTags;
 import com.lifescan.dummy.data.enums.Preset;
 import com.lifescan.dummy.data.exception.BolusTypeInvalid;
-import com.lifescan.dummy.data.exception.DatesAreMore90DaysApartInvalid;
+import com.lifescan.dummy.data.exception.DatesExceedMaxTimeInterval;
 import com.lifescan.dummy.data.exception.MealTagInvalid;
+import com.lifescan.dummy.data.exception.StartDateEqualsToToday;
 import com.lifescan.dummy.data.exception.StartDateLaterThanEndDateInvalid;
 import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.service.EventService;
 import com.lifescan.dummy.data.service.util.Util;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import lombok.extern.log4j.Log4j2;
@@ -86,18 +88,33 @@ public class Application implements CommandLineRunner {
   /** Validated the inputted time frame. */
   private void validateDates() {
     log.traceEntry("Validating date range.");
-    if (!Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate())
-        .isBefore(
-            Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))) {
-      throw new StartDateLaterThanEndDateInvalid();
-    }
+    validateIfStartDateIsBeforeThanEndDate();
+    validateIfDatesAreWithinRange();
+    validateIfStartDateIsDifferentThanToday();
+  }
 
+  private void validateIfStartDateIsDifferentThanToday() {
+    if (Util.convertFromStringtoLocalDate(ArgsParameter.getInstance().getStartDate())
+        .isEqual(LocalDate.now())) {
+      throw new StartDateEqualsToToday();
+    }
+  }
+
+  private void validateIfDatesAreWithinRange() {
     if (Duration.between(
                 Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate()),
                 Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))
             .toDays()
         > ArgsConstants.MAX_TIME_INTERVAL) {
-      throw new DatesAreMore90DaysApartInvalid();
+      throw new DatesExceedMaxTimeInterval();
+    }
+  }
+
+  private void validateIfStartDateIsBeforeThanEndDate() {
+    if (!Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getStartDate())
+        .isBefore(
+            Util.convertFromStringtoLocalDateTime(ArgsParameter.getInstance().getEndDate()))) {
+      throw new StartDateLaterThanEndDateInvalid();
     }
   }
 
@@ -189,9 +206,8 @@ public class Application implements CommandLineRunner {
         .filter(c -> c.contains(ArgsConstants.FOOD))
         .filter(arg -> arg.contains("="))
         .forEach(
-            value -> {
-              ArgsParameter.getInstance().setFoodNumbers(Integer.parseInt(value.split("=")[1]));
-            });
+            value ->
+                ArgsParameter.getInstance().setFoodNumbers(Integer.parseInt(value.split("=")[1])));
   }
 
   /**
@@ -204,8 +220,8 @@ public class Application implements CommandLineRunner {
         .filter(arg -> arg.contains(ArgsConstants.EXERCISE))
         .filter(arg -> arg.contains("="))
         .forEach(
-            value -> {
-              ArgsParameter.getInstance().setExerciseNumbers(Integer.parseInt(value.split("=")[1]));
-            });
+            value ->
+                ArgsParameter.getInstance()
+                    .setExerciseNumbers(Integer.parseInt(value.split("=")[1])));
   }
 }

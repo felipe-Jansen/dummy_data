@@ -10,11 +10,14 @@
  */
 package com.lifescan.dummy.data.exception;
 
-public class DatesAreMore90DaysApartInvalid extends RuntimeException {
-  private static final long serialVersionUID = 1L;
-  private static final String MSG = "Dates are more than 90 days apart";
+import com.lifescan.dummy.data.constants.ArgsConstants;
 
-  public DatesAreMore90DaysApartInvalid() {
+public class DatesExceedMaxTimeInterval extends RuntimeException {
+  private static final long serialVersionUID = 1L;
+  private static final String MSG =
+      "Dates are more than " + ArgsConstants.MAX_TIME_INTERVAL + " days apart";
+
+  public DatesExceedMaxTimeInterval() {
     super(MSG);
   }
 }
