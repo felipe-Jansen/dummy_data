@@ -39,8 +39,6 @@ public class Generator {
   static String newDate = null;
   private static LocalDate eventDate;
 
-
-
   /**
    * Method responsible for generating the date when a preset is informed by user
    *
@@ -55,7 +53,8 @@ public class Generator {
           value ->
               value.setReadingDate(
                   buildReadingDate(
-                      Util.localDateTimeToLocalDateString(value.getReadingDate().replace("T", " ")))));
+                      Util.localDateTimeToLocalDateString(
+                          value.getReadingDate().replace("T", " ")))));
       readings.removeIf(
           reading ->
               !getDatesBetweenStartDateAndEndDate()
@@ -67,6 +66,7 @@ public class Generator {
 
   /**
    * Method responsible for returning the dates between range informed by user.
+   *
    * @return list of localDate
    */
   private List<LocalDate> getDatesBetweenStartDateAndEndDate() {
@@ -84,6 +84,7 @@ public class Generator {
 
   /**
    * Method responsible for returning the amount of days between date range informed by user.
+   *
    * @param startDate Start date informed by user
    * @param endDate End date informed by user
    * @return a long that concerns to the amount of days
@@ -248,9 +249,11 @@ public class Generator {
     } else {
       List<Annotation> annotations = new ArrayList<>();
       annotations.add(
-          Annotation.builder().active(annotationsFromXml.getActive())
+          Annotation.builder()
+              .active(annotationsFromXml.getActive())
               .patientEntered(annotationsFromXml.getPatientEntered())
-              .annotation(annotationsFromXml.getAnnotation()).build());
+              .annotation(annotationsFromXml.getAnnotation())
+              .build());
       return annotations;
     }
   }

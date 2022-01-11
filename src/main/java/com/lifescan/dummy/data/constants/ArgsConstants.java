@@ -21,7 +21,7 @@ public class ArgsConstants {
   public static final int START_DATE = 2;
   public static final int END_DATE = 3;
   public static final int PRESET_ID = 4;
-  public static final int MAX_TIME_INTERVAL = 90;
+  public static final int MAX_TIME_INTERVAL = 365;
   public static final String EXERCISE = "exercise";
   public static final String FOOD = "food";
   public static final String BOLUS = "bolus";
