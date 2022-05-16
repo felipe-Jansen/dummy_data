@@ -11,7 +11,7 @@ pipeline {
         text(name:'READING', defaultValue: '', description:'How many readings per day?')
     }
     stages {
-        stage('Gerador') {
+        stage('Generating events') {
             steps {
                 script {
                     sh "./gradlew bootRun --args='${env.LANGUAGE} ${env.AMOUNT} ${env.INITIAL_DATE} ${env.FINAL_DATE} exercise=${env.EXERCISE} food=${env.FOOD} bolus=${env.BOLUS}&Type=FAST reading=${env.READING}&Tag=MEAL_TAG_PRE_MEAL'"
