@@ -1,18 +1,13 @@
 pipeline {
     agent any
-
+    parameters{
+        text(name:'LANGUAGE', defaultValue: '', description:'Language')
+    }
     stages {
         stage('Gerador') {
             steps {
                 script {
-                    properties([
-                        text(
-                            defaultValue: '',
-                            name: language
-                        )
-                    ])
-
-                    sh "./gradlew bootRun --args='${language}'"
+                    sh "./gradlew bootRun --args='${env.LANGUAGE}'"
                 }
             }
         }
