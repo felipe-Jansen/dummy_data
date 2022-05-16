@@ -23,9 +23,6 @@ import com.lifescan.dummy.data.model.ArgsParameter;
 import com.lifescan.dummy.data.model.ListOfPatients;
 import com.lifescan.dummy.data.service.EventService;
 import com.lifescan.dummy.data.service.util.Util;
-
-import java.io.*;
-import java.nio.file.Path;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -49,10 +46,10 @@ public class Application implements CommandLineRunner {
   @Override
   public void run(String... args) {
     try {
-//      buildArgObject(args);
-//      eventService.create(
-//          ArgsParameter.getInstance().getLanguage(),
-//          ArgsParameter.getInstance().getTotalPatients());
+      buildArgObject(args);
+      eventService.create(
+          ArgsParameter.getInstance().getLanguage(),
+          ArgsParameter.getInstance().getTotalPatients());
       showListOfCreatedPatients();
     } catch (ArrayIndexOutOfBoundsException ex) {
       log.error("No arguments informed!");
@@ -62,18 +59,6 @@ public class Application implements CommandLineRunner {
   /** Print list of created patients */
   private void showListOfCreatedPatients() {
     log.info("{}", ListOfPatients.getInstance().getEmails() + "\n");
-
-    File file = new File("write.txt");
-
-    try (Writer writer = new BufferedWriter(new FileWriter(file))) {
-      String contents = "The quick brown fox" +
-              System.getProperty("line.separator") + "jumps over the lazy dog.";
-
-      writer.write(contents);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
   }
 
   /**
