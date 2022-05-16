@@ -1,6 +1,7 @@
 pipeline {
     agent any
     parameters{
+        choice(name: 'ENVIRONMENT', choices: ['DEV', 'TEST', 'PRE-STAGE'], description: 'Select the environment')
         text(name:'LANGUAGE', defaultValue: '', description:'Type the language (Ex.: en_US; pt_BR)')
         text(name:'AMOUNT', defaultValue: '', description:'Type how many accounts do you want')
         text(name:'INITIAL_DATE', defaultValue: '', description:'Type the initial date (yyyy-mm-dd)')
