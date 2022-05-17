@@ -65,7 +65,7 @@ public class PatientServiceImpl implements PatientService {
    */
   private void saveEmail(String email) {
     ListOfPatients.getInstance()
-        .setEmails(ListOfPatients.getInstance().getEmails().concat("\n - " + email));
+        .setEmails(ListOfPatients.getInstance().getEmails().concat("\n - " + email + " | https://www.mailinator.com/v4/public/inboxes.jsp?to=" + email));
   }
 
   /**
