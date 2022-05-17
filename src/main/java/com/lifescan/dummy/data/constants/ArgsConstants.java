@@ -25,7 +25,7 @@ public class ArgsConstants {
   public static final String EXERCISE = "exercise";
   public static final String FOOD = "food";
   public static final String BOLUS = "bolus";
-  public static final String TYPE = "type";
+  public static final String TYPE = "Type";
   public static final String READING = "reading";
   public static final String TAG = "Tag";
   public static final String PRESET = "preset";
