@@ -13,6 +13,7 @@
 package com.lifescan.dummy.data.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lifescan.dummy.data.enums.EnvironmentConstants;
 import com.lifescan.dummy.data.networking.service.EventServiceCore;
 import com.lifescan.dummy.data.networking.service.PatientServiceCore;
 import com.lifescan.dummy.data.networking.service.SecurityServiceCore;
@@ -46,29 +47,29 @@ class FeignConfig {
   }
 
   @Bean
-  PatientServiceCore patientServiceCore(@Value("${host.domain}") String url) {
+  PatientServiceCore patientServiceCore(@Value("${host.domain}") String environment) {
     return Feign.builder()
         .encoder(new JacksonEncoder(objectMapper))
         .decoder(new JacksonDecoder(objectMapper))
         .client(client)
-        .target(PatientServiceCore.class, url);
+        .target(PatientServiceCore.class, EnvironmentConstants.valueOf(environment).url);
   }
 
   @Bean
-  SecurityServiceCore securityServiceCore(@Value("${host.domain}") String url) {
+  SecurityServiceCore securityServiceCore(@Value("${host.domain}") String environment) {
     return Feign.builder()
         .encoder(new JacksonEncoder(objectMapper))
         .decoder(new JacksonDecoder(objectMapper))
         .client(client)
-        .target(SecurityServiceCore.class, url);
+        .target(SecurityServiceCore.class, EnvironmentConstants.valueOf(environment).url);
   }
 
   @Bean
-  EventServiceCore eventServiceCore(@Value("${host.domain}") String url) {
+  EventServiceCore eventServiceCore(@Value("${host.domain}") String environment) {
     return Feign.builder()
         .encoder(new JacksonEncoder(objectMapper))
         .decoder(new JacksonDecoder(objectMapper))
         .client(client)
-        .target(EventServiceCore.class, url);
+        .target(EventServiceCore.class, EnvironmentConstants.valueOf(environment).url);
   }
 }

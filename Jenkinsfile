@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        choice(name: 'ENVIRONMENT', choices: ['https://api.dev.lfsdigital.com', 'https://api.test.lfsdigital.com', 'https://api.pre-stage.lfsdigital.com', 'https://api.diabetes-dev.com'], description: 'Select the environment')
+        choice(name: 'ENVIRONMENT', choices: ['DEV', 'TEST', 'PRE_STAGE', 'STAGE'], description: 'Select the environment')
         text(name:'LANGUAGE', defaultValue: 'en_US', description:'Type the language (Ex.: en_US; pt_BR)')
         text(name:'AMOUNT', defaultValue: '1', description:'Type how many accounts do you want to create?')
         text(name:'INITIAL_DATE', defaultValue: '2022-05-01', description:'Type the initial date (yyyy-mm-dd)')

@@ -11,6 +11,7 @@
 package com.lifescan.dummy.data;
 
 import com.lifescan.dummy.data.constants.ArgsConstants;
+import com.lifescan.dummy.data.constants.ConfigConstants;
 import com.lifescan.dummy.data.enums.BolusType;
 import com.lifescan.dummy.data.enums.MealTags;
 import com.lifescan.dummy.data.enums.Preset;
@@ -58,6 +59,7 @@ public class Application implements CommandLineRunner {
 
   /** Print list of created patients */
   private void showListOfCreatedPatients() {
+    log.info("Default password: " + ConfigConstants.PATIENT_PASSWORD);
     log.info("{}", ListOfPatients.getInstance().getEmails() + "\n");
   }
 
